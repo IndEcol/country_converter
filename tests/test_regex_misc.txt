@@ -1,5 +1,7 @@
 name_short	name_test
 Afghanistan	afghanistan
+Aland Islands	Åland Is.
+Aland Islands	Aland islands
 American Samoa	American Samoa (US)
 Antigua and Barbuda	Antigua & Barbuda
 Bahamas	"Bahamas, The"
