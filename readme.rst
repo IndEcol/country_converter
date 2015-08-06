@@ -29,6 +29,7 @@ Usage
 Basic usage
 ^^^^^^^^^^^
 
+
 Convert various country names to some standard names:
 
 ::
@@ -90,6 +91,10 @@ The regular expressions can also be used to match any list of countries to any o
 
     matching_dict = coco.match(match_these, master_list)
 
+
+See the IPython Notebook (country_converter_examples.ipynb_) for more information.
+
+.. _country_converter_examples.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/country_converter_examples.ipynb
 
 Refining and Extending
 ^^^^^^^^^^^^^^^^^^^^^^
