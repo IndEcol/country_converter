@@ -15,6 +15,7 @@ COUNTRY_DATA_FILE = os.path.join(
         'country_data.txt'
         )
 
+__version__ = '0.1'
 
 def match(list_A, list_B, not_found = 'not_found', enforce_sublist = False):
     """ Matches the country names given in two lists into a dictionary.
@@ -155,6 +156,12 @@ class CountryConverter():
     def __init__(self):
        self.data = pd.read_table(COUNTRY_DATA_FILE, sep = SEP, encoding = 'utf-8')
        self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
+
+       must_be_unique = ['name_short', 'name_official', 'regex']
+       for nn in must_be_unique:
+           if self.data[nn].duplicated().any():
+               logging.error('Duplicated values in column {}'.format(nn))
+
 
     def convert(self, names, src = None, to = 'name_short', enforce_list = False, not_found = 'not found'):
         """ Convert names from a list to another list.
