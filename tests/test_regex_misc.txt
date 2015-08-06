@@ -1,0 +1,114 @@
+name_short	name_test
+Afghanistan	afghanistan
+American Samoa	American Samoa (US)
+Antigua and Barbuda	Antigua & Barbuda
+Bahamas	"Bahamas, The"
+Bolivia	Bolivia (Plurinational State of)
+Bosnia and Herzegovina	Bosnia Herzegovina
+Bosnia and Herzegovina	Bosnia and herzegowina
+Bouvet Island	Bouvet Island (NO)
+Bouvet Island	Bouvet island
+British Indian Ocean Territory	Br. Indian Ocean Terr.
+British Indian Ocean Territory	British indian ocean territory
+Cabo Verde	Cape Verde
+Cayman Islands	Cayman Isds
+Central African Republic	Central African Rep.
+Christmas Island	Christmas Isds
+Christmas Island	Christmas island
+Cocos (Keeling) Islands	Cocos (keeling) islands
+Cocos (Keeling) Islands	Cocos Isds
+Cook Islands	Cook islands
+Cook Islands	Cook Isds
+Cote d'Ivoire	CÃ´te d Ivoire
+Cote d'Ivoire	CÃ´te d'Ivoire
+Cote d'Ivoire	CÃÂ´te d'Ivoire
+Croatia	hrvatska
+Croatia	Croatia (local name: hrvatska)
+Curacao	Curacao
+Czech Republic	Czech Rep.
+Dominican Republic	Dominican Rep.
+Egypt	"Egypt, Arab Rep."
+Faeroe Islands	Faeroe Isds
+Faeroe Islands	Faroe Islands
+Falkland Islands	Falkland islands (malvinas)
+Falkland Islands	Falkland Isds (Malvinas)
+Fiji	Fiji Islands
+France	France(+DOM TOM)
+French Guiana	French Guiana
+French Polynesia	French polynesia
+Gambia	"Gambia, The"
+Guam	Guam (US)
+Heard and Mc Donald Islands	Heard and McDonald Islands (AU)
+Iran	Islamic Republic of Iran
+Iran	Iran (Islamic Republic of)
+Iran	"Iran, Islamic Republic of"
+Kyrgyz Republic	Kyrgyzstan
+Laos	Lao People s Democratic Republic
+Laos	Lao People's Dem. Rep.
+Laos	Lao People's Democratic Republic
+Laos	Lao PDR
+Laos	Lao People's Democratic Republic
+Libya	Libyan Arab Jamahiriya
+Macedonia	TFYR of Macedonia
+Macedonia	"Macedonia, the former yugoslav republic of"
+Macedonia	Former Yugoslav Republic of Macedonia
+Macedonia	The former Yugoslav Republic of Macedonia
+Marshall Islands	Marshall Isds
+"Micronesia, Fed. Sts."	FS Micronesia
+"Micronesia, Fed. Sts."	Micronesia (Federated States of)
+Moldova	Rep. of Moldova
+Moldova	"Moldova, republic of"
+Moldova	Republic of Moldova
+Myanmar	Burma
+Netherlands Antilles	Neth. Antilles
+New Caledonia	New caledonia
+Norfolk Island	Norfolk island
+Norfolk Island	Norfolk Isds
+Northern Mariana Islands	N. Mariana Isds
+Norway	"Norway, Svalbard and Jan Mayen"
+Palestine	State of Palestine
+Palestine	Occ. Palestinian Terr.
+Palestine	Occupied Palestinian Territory
+Palestine	"Palestinian territory, occupied"
+Pitcairn	Pitcairn Islands
+Reunion	Réunion
+Russia	Russian Federation
+Slovakia	Slovakia (slovak republic)
+Solomon Islands	Solomon Isds
+South Africa	Southern African Customs Union
+South Georgia and  South Sandwich Is.	South Georgia and the South Sandwichs Islands (UK)
+South Georgia and  South Sandwich Is.	South georgia and the south sandwich islands
+St. Helena	Saint Helena
+St. Kitts and Nevis	Saint kitts and nevis
+St. Lucia	Saint lucia
+St. Pierre and Miquelon	St. pierre and miquelon
+St. Vincent and the Grenadines	Saint Vincent/Grenadines
+St. Vincent and the Grenadines	Saint vincent and the grenadines
+Sudan	Sudan (up to 2011)
+Sudan	Sudan (Former)
+Svalbard and Jan Mayen Islands	"Svalbard, Jan Mayen Islands"
+Tanzania	"Tanzania, united republic of"
+Tanzania	United Rep. of Tanzania
+Tanzania	United Republic of Tanzania
+Tanzania	Tanzania (United Republic of)
+Timor-Leste	Democratic Republic of Timor-Leste
+Timor-Leste	East Timor
+Turks and Caicos Islands	Turks and caicos islands
+Turks and Caicos Islands	Turks and Caicos islands
+Turks and Caicos Islands	Turks and Caicos Isds
+United States	USA
+United States	United States of America
+Vatican	Holy See (Vatican City State)
+Vatican	Holy See
+Venezuela	Venezuela (Bolivarian Republic of)
+Vietnam	Viet Nam
+British Virgin Islands	Virgin islands (british)
+British Virgin Islands	Br. Virgin Isds
+United States Virgin Islands	US Virgin Islands
+United States Virgin Islands	US Virgin Isds
+Wallis and futuna Islands	Wallis and futuna islands
+Wallis and futuna Islands	Wallis and Futuna Isds
+Western sahara	Western Sahara
+Yemen	Yemen
+Zanzibar	Tanzania: Zanzibar
+Zanzibar	United Republic of Tanzania: Zanzibar

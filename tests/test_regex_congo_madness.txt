@@ -1,0 +1,11 @@
+name_short	name_test
+Congo	Democratic Republic of the Congo
+Congo	Democratic Republic of Congo
+Congo	Zaire
+Congo	DR Congo
+Congo	Congo (Democratic Republic of the)
+Congo	DROC
+Congo	Congo-Kinshasa
+Congo Republic	Congo-Brazzaville
+Congo Republic	Rep Congo
+Congo Republic	Republic of the Congo

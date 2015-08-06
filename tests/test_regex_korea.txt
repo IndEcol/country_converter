@@ -1,0 +1,13 @@
+name_short	name_test
+North Korea	Dem. People's Rep. of Korea
+North Korea	Dem. Peoples Rep. of Korea
+North Korea	Dem. People's Rep. of Korea
+North Korea	Democratic People's Republic of Korea
+North Korea	"Korea, Dem. Rep. "
+North Korea	"Korea, democratic people's republic of"
+South Korea	"Korea, Republic of"
+South Korea	Korea
+South Korea	Rep. of Korea
+South Korea	Republic of Korea
+South Korea	Korea (Republic of)
+South Korea	"Korea, Rep."

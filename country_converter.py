@@ -120,7 +120,7 @@ def convert(**parameters):
         Source classification
 
     to : str or list, optional
-        Output classification (valid str or list of string of the country_data.txt), defalut: name_standard
+        Output classification (valid str or list of string of the country_data.txt), defalut: name_short
 
     enforce_list : boolean, optional
         If True, enforces the output to be list (if only one name was passed) or to 
@@ -156,7 +156,7 @@ class CountryConverter():
        self.data = pd.read_table(COUNTRY_DATA_FILE, sep = SEP, encoding = 'utf-8')
        self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
 
-    def convert(self, names, src = None, to = 'name_standard', enforce_list = False, not_found = 'not found'):
+    def convert(self, names, src = None, to = 'name_short', enforce_list = False, not_found = 'not found'):
         """ Convert names from a list to another list.
 
         Note
@@ -173,10 +173,10 @@ class CountryConverter():
             Countries in 'src' classification to convert to 'to' classification
 
         src : str, optional
-            Source classification
+            Source classification. Assumed to be regular expression if None (default)
 
         to : str or list, optional
-            Output classification (valid str or list of string of the country_data.txt), defalut: name_standard
+            Output classification (valid str or list of string of the country_data.txt), defalut: name_short
 
         enforce_list : boolean, optional
             If True, enforces the output to be list (if only one name was passed) or to 
@@ -196,14 +196,14 @@ class CountryConverter():
         outlist = names.copy()
         if type(to) is str: to = [to]
 
+        if src is None: src = 'regex'
+
         if src.lower() == 'regex':
             for ind_names, nn in enumerate(names):
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if(ccregex.search(nn)):
-                        _found = list(self.data.ix[ind_regex,to].values)
-                        if len(_found) == 1 and enforce_list is False: _found = _found[0]
-                        result_list.append(_found)
+                        result_list.append(self.data.ix[ind_regex,to].values[0])
                 if len(result_list) > 1:
                     logging.warning('More then one regular expression match for {}'.format(nn))
                     outlist[ind_names] = result_list
@@ -213,7 +213,6 @@ class CountryConverter():
                     outlist[ind_names] = [_fillin] if enforce_list else _fillin
                 else:
                     outlist[ind_names] = result_list if enforce_list else result_list[0]
-            return outlist
 
         else:
             for ind, nn in enumerate(names):
@@ -227,9 +226,13 @@ class CountryConverter():
                     if len(listentry) == 1 and enforce_list is False:
                         listentry = listentry[0]
                 outlist[ind] = listentry
+
+        if (len(outlist) == 1) and not enforce_list:
+            return outlist[0]
+        else:
             return outlist
 
-    def EU28in(self, to = 'name_standard'):
+    def EU28in(self, to = 'name_short'):
         """ 
         Return EU28 countries in the specified classification
 
@@ -247,7 +250,7 @@ class CountryConverter():
             to = [to]
         return self.data[self.data.EU < 2015][to]
 
-    def EU27in(self, to = 'name_standard'):
+    def EU27in(self, to = 'name_short'):
         """ 
         Return EU27 countries in the specified classification
 
@@ -265,7 +268,7 @@ class CountryConverter():
             to = [to]
         return self.data[self.data.EU < 2013][to]
 
-    def OECDin(self, to = 'name_standard'):
+    def OECDin(self, to = 'name_short'):
         """ 
         Return OECD memberstates in the specified classification
 
@@ -283,7 +286,7 @@ class CountryConverter():
             to = [to]
         return self.data[self.data.OECD > 0][to]
 
-    def UNin(self, to = 'name_standard'):
+    def UNin(self, to = 'name_short'):
         """ 
         Return UN memberstates in the specified classification
 
@@ -304,23 +307,23 @@ class CountryConverter():
 
     @property
     def EU28(self):
-        """ EU28 memberstates (standard name) - use EU28in() for any other classification """
-        return self.EU28in(to = 'name_standard')
+        """ EU28 memberstates (standard name_short) - use EU28in() for any other classification """
+        return self.EU28in(to = 'name_short')
 
     @property
     def EU27(self):
-        """ EU27 memberstates (standard name) - use EU27in() for any other classification """
-        return self.EU27in(to = 'name_standard')
+        """ EU27 memberstates (standard name_short) - use EU27in() for any other classification """
+        return self.EU27in(to = 'name_short')
 
     @property
     def OECD(self):
-        """ OECD memberstates (standard name) - use OECDin() for any other classification """
-        return self.OECDin(to = 'name_standard')
+        """ OECD memberstates (standard name_short) - use OECDin() for any other classification """
+        return self.OECDin(to = 'name_short')
 
     @property
     def UN(self):
-        """ UN memberstates (standard name) - use UNin() for any other classification """
-        return self.UNin(to = 'name_standard')
+        """ UN memberstates (standard name_short) - use UNin() for any other classification """
+        return self.UNin(to = 'name_short')
 
     @property
     def valid_class(self):

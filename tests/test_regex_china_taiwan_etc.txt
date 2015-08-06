@@ -1,0 +1,15 @@
+name_short	name_test
+China	"China, People's Republic of"
+China	PRC
+China	People's Republic of China
+Taiwan	"Taiwan, province of china"
+Taiwan	Republic of China
+Taiwan	ROC
+Hong Kong	China: Hong Kong SAR
+Hong Kong	"China, Hong Kong Special Administrative Region"
+Hong Kong	"Hong Kong, China"
+Hong Kong	Hong kong
+Hong Kong	"China, Hong Kong SAR"
+Macao	China: Macao SAR
+Macao	"China, Macao Special Administrative Region"
+Macao	"China, Macao SAR"

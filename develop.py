@@ -5,14 +5,15 @@ imp.reload(coco)
 
 cc = coco.CountryConverter()
 
-#testnames = ['USA', 'VUT', 'TKL', 'AUT' ]
+testnames = ['USA', 'VUT', 'TKL', 'AUT' ]
 #names = ['USA', 'VUT', 'TKL', 'AUT' ]
 #testnames = ['US', 'TW', 'WA']
-#testnames = ['Vietnam' ]
+#testnames = ['Vietnam', 'United States']
+testnames = ['Vietnam']
 
 #Btest = cc.data.name_standard
 #Atest = cc.data.name_official
-#outformat = ['name_standard', 'ISO3']
+outformat = ['name_short']
 
 
 #Atest={
@@ -27,6 +28,8 @@ cc = coco.CountryConverter()
 
 #outformat = ['name_standard']
 #out = cc.convert(names = testnames, src = 'ISO3', to = outformat, enforce_list = False, not_found = 'asd')
+out = cc.convert(names = testnames,  src = 'name_short', to = outformat, enforce_list = True, not_found = 'asd')
+#out = cc.convert(names = testnames,   to = outformat, enforce_list = False, not_found = 'asd')
 #out = coco.convert(names = testnames, src = 'ISO2', to = outformat, enforce_list = False, not_found = 'asd')
 #A,B = coco.zip_lists(Atest, Btest)
 #tt = coco.match(Atest, Btest)
