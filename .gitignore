@@ -1,10 +1,7 @@
 # Root .gitignore
 
-#
-# 1. if you contribute add your name to the author list in the root readme
-# 2. commit your changes (especially side effects) http://who-t.blogspot.de/2009/12/on-commit-messages.html
-
-# folders and files which are not that important or can be reproduced easily
+*.pyc
+/dist/
 /__pycache__
 
 

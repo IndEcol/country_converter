@@ -14,7 +14,7 @@ import country_converter as coco
 @pytest.fixture(scope = 'module', params = regex_test_files)
 def get_regex_test_data(request):
     retval = collections.namedtuple('regex_test_data', ['data_name', 'data'])
-    return retval(request.param, pd.read_table(os.path.join(TESTPATH, request.param), sep = coco.SEP, encoding = 'utf-8'))
+    return retval(request.param, pd.read_table(os.path.join(TESTPATH, request.param), encoding = 'utf-8'))
 
 def test_name_short():
     """ Tests if there is a unique matching of name_short to regular expressions

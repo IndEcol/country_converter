@@ -151,7 +151,7 @@ class CountryConverter():
        'country_data.txt'
        )
 
-       self.data = pd.read_table('country_data.txt', sep = '\t', encoding = 'utf-8')
+       self.data = pd.read_table(COUNTRY_DATA_FILE, sep = '\t', encoding = 'utf-8')
        self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
 
        must_be_unique = ['name_short', 'name_official', 'regex']
@@ -159,7 +159,7 @@ class CountryConverter():
            if self.data[nn].duplicated().any():
                logging.error('Duplicated values in column {}'.format(nn))
 
-    def convert(self, names, src = None, to = 'name_short', enforce_list = False, not_found = 'not found'):
+    def convert(self, names, src = None, to = None, enforce_list = False, not_found = 'not found'):
         """ Convert names from a list to another list.
 
         Note
@@ -176,10 +176,12 @@ class CountryConverter():
             Countries in 'src' classification to convert to 'to' classification
 
         src : str, optional
-            Source classification. Assumed to be regular expression if None (default)
+            Source classification. Assumed to be regular 
+            expression if None (default)
 
         to : str or list, optional
-            Output classification (valid str or list of string of the country_data.txt), defalut: name_short
+            Output classification (valid str or list of 
+            string of the country_data.txt), defalut: ISO3
 
         enforce_list : boolean, optional
             If True, enforces the output to be list (if only one name was passed) or to 
@@ -197,9 +199,12 @@ class CountryConverter():
         """
         if type(names) is str: names = [names]
         outlist = names.copy()
-        if type(to) is str: to = [to]
 
         if src is None: src = 'regex'
+        if to is None: to = 'ISO3'
+       
+
+        if type(to) is str: to = [to]
 
         if src.lower() == 'regex':
             for ind_names, nn in enumerate(names):
@@ -338,7 +343,7 @@ class CountryConverter():
         return list(self.data.columns)
 
 
-def parse_arg(valid_classifications):
+def _parse_arg(valid_classifications):
     """ Command line parser for coco
 
     Parameters
@@ -354,7 +359,10 @@ def parse_arg(valid_classifications):
     """
 
     parser = argparse.ArgumentParser(
-        description = 'Command-line interface for the country converter',
+            description=('The country converter (coco): a Python package for ' 
+        'converting country names between different classifications schemes. '
+        'Version: {}'.format('0.2')
+        ),
         prog='coco', 
         usage=('%(prog)s --names --src --to]'))
 
@@ -362,7 +370,10 @@ def parse_arg(valid_classifications):
         help=('List of countries to convert '  
               '(comma or space separated, country names consisting of '  
               'multiple words must be put in quoation marks). '
-              'Possible classifications: ' + ', '.join(valid_classifications)
+              'Possible classifications: ' + 
+              ', '.join(valid_classifications) +
+              '; NB: long, official and short are provided as shortcuts '
+              'for the names classifications'
               ), 
         nargs='*')
 
@@ -372,13 +383,24 @@ def parse_arg(valid_classifications):
         help='Required classification of the passed names (default: "ISO3"')
     parser.add_argument('-o', '--output_sep',
         help=('Seperator for output names '
-             '(default: space), pass "," for comma'))
+             '(default: space), e.g. "," '))
 
     args = parser.parse_args()
     args.src = args.src or 'regex'
     args.to = args.to or 'ISO3'
     args.output_sep = args.output_sep or ' '
     args.names = [nn.replace(',', ' ') for nn in args.names]
+
+    if 'short' in args.src.lower(): args.src = 'name_short'
+    if 'official' in args.src.lower(): args.src = 'name_official'
+    if 'long' in args.src.lower(): args.src = 'name_official'
+    if args.src.lower() == 'name' or args.src.lower() == 'names': 
+        args.src = 'name_short'
+    if 'short' in args.to.lower(): args.to = 'name_short'
+    if 'official' in args.to.lower(): args.to = 'name_official'
+    if 'long' in args.to.lower(): args.to = 'name_official'
+    if args.to.lower() == 'name' or args.to.lower() == 'names': 
+        args.to = 'name_short'
 
     if args.src not in valid_classifications:
         raise TypeError('Source classifiction {} not available'.
@@ -389,20 +411,25 @@ def parse_arg(valid_classifications):
 
     return args
 
+def main():
+    """ Main entry point - used for command line call
+    """
+    cc = CountryConverter()
+    args = _parse_arg(cc.valid_class)
+    converted_names = cc.convert(
+        names = args.names,
+        src = args.src,
+        to = args.to)
+    if isinstance(converted_names, str) or isinstance(converted_names,int): 
+        converted_names = [converted_names]
+
+    print(args.output_sep.join(
+        ['{:.0f}'.format(nn) if isinstance(nn, float) 
+         else str(nn) for nn in converted_names]))
+
 if __name__ == "__main__":
     try:
-        cc = CountryConverter()
-        args = parse_arg(cc.valid_class)
-        converted_names = cc.convert(
-            names = args.names,
-            src = args.src,
-            to = args.to)
-        if isinstance(converted_names, str) or isinstance(converted_names,int): 
-            converted_names = [converted_names]
-
-        print(args.output_sep.join(
-            ['{:.0f}'.format(nn) if isinstance(nn, float) 
-             else str(nn) for nn in converted_names]))
+        main()
 
     except Exception as e:
         logging.exception(e)
