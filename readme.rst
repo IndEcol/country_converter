@@ -29,6 +29,8 @@ Usage
 Basic usage
 ^^^^^^^^^^^
 
+Use within python
+"""""""""""""""""
 
 Convert various country names to some standard names:
 
@@ -95,6 +97,57 @@ The regular expressions can also be used to match any list of countries to any o
 See the IPython Notebook (country_converter_examples.ipynb_) for more information.
 
 .. _country_converter_examples.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/country_converter_examples.ipynb
+
+Command line usage    
+""""""""""""""""""""""
+
+Coco also provides a command line interface.
+
+Minimal example:
+
+:: 
+    
+    country_converter.py Cyprus Denmark Estonia 'United Kingdom' 
+
+Converts the given names to ISO3 codes based on regular expression matching.
+The list of names must be separated by spaces, country names consisting of multiple words must be put in quotes ('').
+
+The input classification can be specified with '--src' or '-s', the target classification with '--to' or '-t'.
+
+The default output is a space separated list, this can be changed by passing a separator by '--output_sep' or '-o'.
+
+Thus, to convert from ISO3 to UN number codes and receive the output as comma separated list use:
+
+::
+
+    country_converter.py AUT DEU VAT AUS -s ISO3 -t UNcode -o ', '
+    
+
+For further information call the help by
+
+::
+
+    country_converter -h
+
+
+Use in other programms
+""""""""""""""""""""""
+
+Through the command line interface, coco can also be use in any programm allowing system calls.
+
+For example, to convert a cell array of country names in matlab:
+
+::
+    
+    countries = {'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China'};
+    cli_names = sprintf('"%s" ', countries{:});
+    [status, cmdout] = system(['python country_converter.py ', cli_names, ' -s regex -t ISO3 -o ","']);
+    ISO3 = textscan(cmdout, '%s', 'Delimiter', ',');
+    disp(ISO3{:});
+
+    
+    
+    
 
 Refining and Extending
 ^^^^^^^^^^^^^^^^^^^^^^

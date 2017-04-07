@@ -1,21 +1,18 @@
+#!/usr/bin/env python3
 """ country_converter - Converting countries from one code/classification to another
 
 KST 20150803
 """
 
-import os
-import sys
-import re
-import pandas as pd
+import argparse
 import logging
+import os
+import pandas as pd
+import re
+import sys
 
-SEP = '\t'
-COUNTRY_DATA_FILE = os.path.join(
-        os.path.split(os.path.abspath(__file__))[0],
-        'country_data.txt'
-        )
 
-__version__ = '0.1'
+__version__ = '0.2'
 
 def match(list_A, list_B, not_found = 'not_found', enforce_sublist = False):
     """ Matches the country names given in two lists into a dictionary.
@@ -154,7 +151,12 @@ class CountryConverter():
 
     """
     def __init__(self):
-       self.data = pd.read_table(COUNTRY_DATA_FILE, sep = SEP, encoding = 'utf-8')
+       COUNTRY_DATA_FILE = os.path.join(
+       os.path.split(os.path.abspath(__file__))[0],
+       'country_data.txt'
+       )
+
+       self.data = pd.read_table('country_data.txt', sep = '\t', encoding = 'utf-8')
        self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
 
        must_be_unique = ['name_short', 'name_official', 'regex']
@@ -223,6 +225,10 @@ class CountryConverter():
 
         else:
             for ind, nn in enumerate(names):
+                try:
+                    nn = int(nn) 
+                except ValueError:
+                    pass
                 found = self.data[self.data[src].isin([nn])][to]
                 if len(found) == 0:
                     logging.warn('{} not found in {}'.format(nn, src))
@@ -336,4 +342,58 @@ class CountryConverter():
     def valid_class(self):
         """ Valid strings for the converter """
         return list(self.data.columns)
+
+
+def parse_arg(valid_classifications):
+    """ Command line parser for coco
+    """
+
+    parser = argparse.ArgumentParser(
+        description = 'Command-line interface for the country converter',
+        prog='coco', 
+        usage=('%(prog)s --names --src --to]'))
+
+    parser.add_argument('names', 
+        help=('List of countries to convert '  
+              '(comma or space separated, country names consisting of '  
+              'multiple words must be put in quoation marks). '
+              'Possible classifications: ' + ', '.join(valid_classifications)
+              ), 
+        nargs='*')
+
+    parser.add_argument('-s', '--src', '--source', 
+        help='Classification of the names given, (default: "regex")')
+    parser.add_argument('-t', '--to', 
+        help='Required classification of the passed names (default: "ISO3"')
+    parser.add_argument('-o', '--output_sep',
+        help=('Seperator for output names '
+             '(default: space), pass "," for comma'))
+
+    args = parser.parse_args()
+    args.src = args.src or 'regex'
+    args.to = args.to or 'ISO3'
+    args.output_sep = args.output_sep or ' '
+    args.names = [nn.replace(',', ' ') for nn in args.names]
+
+    return args
+
+if __name__ == "__main__":
+    try:
+        cc = CountryConverter()
+        args = parse_arg(cc.valid_class)
+        converted_names = cc.convert(
+            names = args.names,
+            src = args.src,
+            to = args.to)
+        if isinstance(converted_names, str) or isinstance(converted_names,int): 
+            converted_names = [converted_names]
+
+        print(args.output_sep.join(
+            ['{:.0f}'.format(nn) if isinstance(nn, float) 
+             else str(nn) for nn in converted_names]))
+
+    except Exception as e:
+        logging.exception(e)
+        raise
+
 

@@ -212,7 +212,7 @@ Sudan	Republic of the Sudan	^(?!.*\bs(?!u)).*sudan	SD	SDN	729	729	Africa	Norther
 Suriname	Republic of Suriname	surinam|dutch.?guiana	SR	SUR	740	740	America	South America	WW	WL	WL	ROW				1975
 Svalbard and Jan Mayen Islands	Svalbard and Jan Mayen Islands	^(?!norway).*svalbard	SJ	SJM	744	744	Europe	Northern Europe	WW	WE	WE	ROW				
 Swaziland	Kingdom of Swaziland	swaziland	SZ	SWZ	748	748	Africa	Southern Africa	WW	WF	WF	ROW				1968
-Sweden	Kingdom of Sweden	sweden	SE	SWE	752	752	Europe	Northern Europe	SE	SE	SE	Swe	1961	1995		1946
+Sweden	Kingdom of Sweden	swedish|sweden	SE	SWE	752	752	Europe	Northern Europe	SE	SE	SE	Swe	1961	1995		1946
 Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	Europe	Western Europe	CH	CH	CH	ROW	1961			2002
 Syria	Syrian Arab Republic	syria	SY	SYR	760	760	Asia	Western Asia	WW	WM	WM	ROW				1945
 Taiwan	Republic of China	taiwan|taipei|formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$	TW	TWN	158		Asia	Eastern Asia	TW	TW	TW	Twn				
