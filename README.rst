@@ -96,7 +96,7 @@ The regular expressions can also be used to match any list of countries to any o
 
 See the IPython Notebook (./doc/country_converter_examples.ipynb_) for more information.
 
-.. _country_converter_examples.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/country_converter_examples.ipynb
+.. _country_converter_examples.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/doc/blob/master/country_converter_examples.ipynb
 
 Command line usage    
 """"""""""""""""""""""
