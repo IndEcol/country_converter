@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """ country_converter - Converting countries from one code/classification to another
 
-KST 20150803
 """
 
 import argparse
@@ -11,8 +10,6 @@ import pandas as pd
 import re
 import sys
 
-
-__version__ = '0.2'
 
 def match(list_A, list_B, not_found = 'not_found', enforce_sublist = False):
     """ Matches the country names given in two lists into a dictionary.
@@ -92,7 +89,6 @@ def match(list_A, list_B, not_found = 'not_found', enforce_sublist = False):
 
     return name_dict_A
 
-
 def convert(**parameters):
     """ Wraper around CountryConverter.convert()
 
@@ -139,7 +135,6 @@ def convert(**parameters):
     cc = CountryConverter()
     return cc.convert(**parameters)
 
-
 class CountryConverter():
     """ Main class for converting countries
 
@@ -163,7 +158,6 @@ class CountryConverter():
        for nn in must_be_unique:
            if self.data[nn].duplicated().any():
                logging.error('Duplicated values in column {}'.format(nn))
-
 
     def convert(self, names, src = None, to = 'name_short', enforce_list = False, not_found = 'not found'):
         """ Convert names from a list to another list.
@@ -346,6 +340,17 @@ class CountryConverter():
 
 def parse_arg(valid_classifications):
     """ Command line parser for coco
+
+    Parameters
+    ----------
+
+    valid_classifications: list
+        Available classifications, used for checking input parameters.
+
+    Returns
+    -------
+
+    args : ArgumentParser namespace
     """
 
     parser = argparse.ArgumentParser(
@@ -374,6 +379,13 @@ def parse_arg(valid_classifications):
     args.to = args.to or 'ISO3'
     args.output_sep = args.output_sep or ' '
     args.names = [nn.replace(',', ' ') for nn in args.names]
+
+    if args.src not in valid_classifications:
+        raise TypeError('Source classifiction {} not available'.
+                        format(args.src))
+    if args.to not in valid_classifications:
+        raise TypeError('Target classifiction {} not available'.
+                        format(args.to))
 
     return args
 
