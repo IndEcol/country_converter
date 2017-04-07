@@ -6,7 +6,7 @@ exec(open('country_converter/version.py').read())
 setup(
     name='country_converter',
     description='The country converter (coco) - a Python package for converting country names between different classifications schemes.',
-    long_description=open('readme.rst').read(),
+    long_description=open('README').read(),
     url='https://github.com/konstantinstadler/country_converter',
     author='Konstantin Stadler',
     author_email='konstantin.stadler@ntnu.no',

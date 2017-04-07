@@ -3,5 +3,6 @@
 *.pyc
 /dist/
 /__pycache__
+/.cache
 
 
