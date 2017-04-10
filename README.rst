@@ -130,12 +130,56 @@ For further information call the help by
     country_converter -h
 
 
-Use in other programms
+Use in matlab
 """"""""""""""""""""""
 
-Through the command line interface, coco can also be use in any programm allowing system calls.
+Newer (tested in 2016a) versions from Matlab allow to directly call python functions and libaries.
+This requires a python version >= 3.4 installed in the sytem path (e.g. through Anaconda).
 
-For example, to convert a cell array of country names in matlab:
+To test, try this in matlab:
+
+::
+    
+    py.print(py.sys.version)
+    
+If this works, you can also use coco after installing it through pip 
+(at the windows commandline - see the installing instruction above):
+
+::
+    
+    pip install country_converter
+    
+And in matlab:
+
+::
+
+    coco = py.country_converter.CountryConverter()
+    countries = {'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China'};
+    ISO2_pythontype = coco.convert(py.list(countries), pyargs('to', 'ISO2'));
+    ISO2_cellarray = cellfun(@char,cell(ISO2_pythontype),'UniformOutput',false);
+
+Alternativley, as a long oneliner:
+   
+::
+
+    short_names = cellfun(@char, cell(py.country_converter.convert(py.list({56, 276}), pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
+
+All properties of coco as explained above are also available in matlab:    
+
+::
+    
+    coco = py.country_converter.CountryConverter();
+    coco.EU27
+    EU27ISO3 = coco.EU27in('ISO3');
+
+These functions return a pandas DataFrame. 
+The underlying values can be access with .values (e.g. 
+
+::
+
+    EU27ISO3.values
+
+I leave it to professional matlab users to figure out how to further process them.
 
 ::
     

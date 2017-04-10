@@ -89,7 +89,7 @@ def match(list_A, list_B, not_found = 'not_found', enforce_sublist = False):
 
     return name_dict_A
 
-def convert(**parameters):
+def convert(*args, **kargs):
     """ Wraper around CountryConverter.convert()
 
     Uses the same paramter. This function has the same performance as
@@ -133,7 +133,7 @@ def convert(**parameters):
     """
 
     cc = CountryConverter()
-    return cc.convert(**parameters)
+    return cc.convert(*args,**kargs)
 
 class CountryConverter():
     """ Main class for converting countries
@@ -238,6 +238,9 @@ class CountryConverter():
                     if len(listentry) == 1 and enforce_list is False:
                         listentry = listentry[0]
                 outlist[ind] = listentry
+
+        outlist = ['{:.0f}'.format(nn) if isinstance(nn, float) 
+         else str(nn) for nn in outlist]
 
         if (len(outlist) == 1) and not enforce_list:
             return outlist[0]
@@ -423,9 +426,7 @@ def main():
     if isinstance(converted_names, str) or isinstance(converted_names,int): 
         converted_names = [converted_names]
 
-    print(args.output_sep.join(
-        ['{:.0f}'.format(nn) if isinstance(nn, float) 
-         else str(nn) for nn in converted_names]))
+    print(args.output_sep.join(converted_names))
 
 if __name__ == "__main__":
     try:
