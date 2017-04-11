@@ -17,7 +17,7 @@ Country_converter is registered at PyPI. From the command line:
 
 Alternatively, the source code is available on github_ .
 
-.. _pandas: https://github.com/konstantinstadler/country_converter
+.. _github: https://github.com/konstantinstadler/country_converter
 
 The package depends on pandas_ ; for testing py.test_ is required.
 
