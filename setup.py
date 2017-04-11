@@ -15,7 +15,7 @@ setup(
     package_data={'country_converter': ['country_data.txt', '../LICENSE']},
     license='GPLv3',
     entry_points={'console_scripts' : ['coco = country_converter.country_converter:main']},
-    install_requires=['pandas >= 0.18.0'],
+    install_requires=['pandas >= 0.17.0'],
     classifiers=[
           'Development Status :: 4 - Beta',
           'Environment :: Console',
