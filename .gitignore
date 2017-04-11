@@ -3,6 +3,7 @@
 *.pyc
 /dist/
 /__pycache__
+/tests/__pycache__/
 /.cache
 /.idea
 
