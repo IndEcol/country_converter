@@ -23,11 +23,9 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False):
     list_b : list
         Master list of names for coutnries
 
-
     not_found : str, optional
         Fill in value for not found entries. If None, keep the input value
         (default: 'not found')
-
 
     enforce_sublist : boolean, optional
         If True, all entries in both list are list.

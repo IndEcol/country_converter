@@ -39,29 +39,46 @@ Convert various country names to some standard names:
 ::
 
     import country_converter as coco
+    some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
+    standard_names = coco.convert(names=some_names, to='name_short')
+    print(standard_names)
+
+Which results in ['Tanzania', 'Cabo Verde', 'Myanmar', 'Iran', 'South Korea', 'North Korea'].
+
+In case of multiple conversion, better performance can be achieved by
+instantiating a single CountryConverter object for all conversions:
+
+::
+
+    import country_converter as coco
     cc = coco.CountryConverter()
 
     some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
 
     standard_names = cc.convert(names = some_names, src = 'regex', to = 'name_short') 
+    UNmembership = cc.convert(names = some_names, src = 'regex', to = 'UNmember') 
     print(standard_names)
+    print(UNmembership)
 
-Which results in ['Tanzania', 'Cabo Verde', 'Myanmar', 'Iran', 'South Korea', 'North Korea'].
 
 Convert between classification schemes:
 
 ::
 
     iso3_codes = ['USA', 'VUT', 'TKL', 'AUT' ]
-    iso2_codes = cc.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2')
+    iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2')
     print(iso2_codes)
 
 Which results in ['US', 'VU', 'TK', 'AT']
 
 Internally the data is stored in a pandas dataframe, which can be accessed directly. 
-For example, this can be used to filter countries for membership organisations (per year).
+For example, this can be used to filter countries for membership organisations (per year). 
+Note: for this, an instance of CountryConverter is required.
 
 ::
+
+    import country_converter as coco
+    cc = coco.CountryConverter()
 
     some_countries = ['Australia', 'Belgium', 'Brazil', 'Bulgaria', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'India', 'Indonesia', 'Ireland', 'Italy', 'Japan', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Romania', 'Russia',  'Turkey', 'United Kingdom', 'United States']
 
