@@ -15,11 +15,11 @@ Country_converter is registered at PyPI. From the command line:
 
     pip install country_converter
 
-Alternatively, the source code is available on github_.
+Alternatively, the source code is available on github_ .
 
 .. _pandas: https://github.com/konstantinstadler/country_converter
 
-The package depends on pandas_; for testing py.test_ is required.
+The package depends on pandas_ ; for testing py.test_ is required.
 
 .. _pandas: http://pandas.pydata.org/
 
