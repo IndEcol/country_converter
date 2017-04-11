@@ -210,7 +210,7 @@ Refining and Extending
 The underlying raw data is a tab-separated file (country_data.txt) which is read into a pandas dataframe (available as attribute .data in the main class).
 Any column added to this dataframe can be used for all conversions. The datafile is utf-8 encoded.
 
-The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the _py.test package). 
+The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the py.test_ package). 
 
 These tests check 
 
