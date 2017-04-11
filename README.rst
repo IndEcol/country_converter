@@ -6,16 +6,15 @@ The country converter (coco) is a Python package to convert country names betwee
 Installation
 ------------
 
-Just download the package and add the path to your python path:
+Country_converter is registered at PyPI. From the command line:
 
-:: 
+::
 
-    import sys
-    _fd = r'S:\coco'
-    if not _fd in sys.path:
-        sys.path.append(_fd) 
-    del _fd
-    import country_converter as coco
+    pip install country_converter
+
+Alternatively, the source code is available on github_.
+
+.. _pandas: https://github.com/konstantinstadler/country_converter
 
 The package depends on pandas_; for testing py.test_ is required.
 
@@ -101,13 +100,14 @@ See the IPython Notebook (country_converter_examples.ipynb_) for more informatio
 Command line usage    
 """"""""""""""""""""""
 
-Coco also provides a command line interface.
+The country converter package also provides a command line interface
+called coco.
 
 Minimal example:
 
 :: 
     
-    country_converter.py Cyprus Denmark Estonia 'United Kingdom' 
+    coco Cyprus Denmark Estonia 'United Kingdom' 
 
 Converts the given names to ISO3 codes based on regular expression matching.
 The list of names must be separated by spaces, country names consisting of multiple words must be put in quotes ('').
@@ -120,21 +120,22 @@ Thus, to convert from ISO3 to UN number codes and receive the output as comma se
 
 ::
 
-    country_converter.py AUT DEU VAT AUS -s ISO3 -t UNcode -o ', '
+    coco AUT DEU VAT AUS -s ISO3 -t UNcode -o ', '
     
 
 For further information call the help by
 
 ::
 
-    country_converter -h
+    coco -h
 
 
 Use in matlab
 """"""""""""""""""""""
 
-Newer (tested in 2016a) versions from Matlab allow to directly call python functions and libaries.
-This requires a python version >= 3.4 installed in the sytem path (e.g. through Anaconda).
+Newer (tested in 2016a) versions from Matlab allow to directly call python
+functions and libaries.  This requires a python version >= 3.4 installed in the
+sytem path (e.g. through Anaconda).
 
 To test, try this in matlab:
 
@@ -155,14 +156,15 @@ And in matlab:
 
     coco = py.country_converter.CountryConverter()
     countries = {'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China'};
-    ISO2_pythontype = coco.convert(py.list(countries), pyargs('to', 'ISO2'));
+    ISO2_pythontype = coco.convert(countries, pyargs('to', 'ISO2'));
     ISO2_cellarray = cellfun(@char,cell(ISO2_pythontype),'UniformOutput',false);
+    
 
 Alternativley, as a long oneliner:
    
 ::
 
-    short_names = cellfun(@char, cell(py.country_converter.convert(py.list({56, 276}), pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
+    short_names = cellfun(@char, cell(py.country_converter.convert({56, 276}, pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
 
 All properties of coco as explained above are also available in matlab:    
 
@@ -180,26 +182,15 @@ The underlying values can be access with .values (e.g.
     EU27ISO3.values
 
 I leave it to professional matlab users to figure out how to further process them.
-
-::
-    
-    countries = {'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China'};
-    cli_names = sprintf('"%s" ', countries{:});
-    [status, cmdout] = system(['python country_converter.py ', cli_names, ' -s regex -t ISO3 -o ","']);
-    ISO3 = textscan(cmdout, '%s', 'Delimiter', ',');
-    disp(ISO3{:});
-
-    
-    
     
 
 Refining and Extending
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The underlying raw data is a tab-separated file which is read into a pandas dataframe (available as attribute .data in the main class).
-Any column added to this dataframe can be used for all conversions. The tab-separated datafile is utf-8 encoded.
+The underlying raw data is a tab-separated file (country_data.txt) which is read into a pandas dataframe (available as attribute .data in the main class).
+Any column added to this dataframe can be used for all conversions. The datafile is utf-8 encoded.
 
-The included regular expressions were tested against names commonly found in various databases. In case, the expression need to updated I recommend to rerun all tests (using the _py.test package). 
+The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the _py.test package). 
 
 These tests check 
 
