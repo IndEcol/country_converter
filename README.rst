@@ -261,12 +261,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 Acknowledgements
 ----------------
 
-This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by Julian_ Hinz and its port to Python (pycountrycode_) by Vincent_ Arel-Bundock.
+This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by Vincent Arel-Bundock and his (defunct) port to Python (pycountrycode_).
 
-.. _Julian: http://julianhinz.com/
-.. _countrycode: https://github.com/julianhinz/countrycode
 .. _Vincent: http://arelbundock.com/
-.. _pycountrycode: http://github.com/vincentarelbundock/pycountrycode
-
-
-
+.. _countrycode: https://github.com/vincentarelbundock/countrycode
