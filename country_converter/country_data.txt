@@ -60,7 +60,7 @@ Croatia	Republic of Croatia	croatia|hrvatska	HR	HRV	191	191	Europe	Southern Euro
 Cuba	Republic of Cuba	\bcuba	CU	CUB	192	192	America	Caribbean	WW	WL	WL	ROW				1945
 Curacao	Country of Curaçao	\bcura(c|ç)ao	CW	CUW	531	531	America	Caribbean	WW	WL	WL	ROW				
 Cyprus	Republic of Cyprus	cyprus	CY	CYP	196	196	Asia	Western Asia	CY	CY	CY	Cyp		2004	2008	1960
-Czech Republic	Czech Republic	^(?=.*rep).*czech|czechia|bohemia	CZ	CZE	203	203	Europe	Eastern Europe	CZ	CZ	CZ	Cze	1995	2004		1993
+Czech Republic	Czech Republic	^(?=.*rep).*czech.*|czechia|bohemia|.*czech.*	CZ	CZE	203	203	Europe	Eastern Europe	CZ	CZ	CZ	Cze	1995	2004		1993
 Denmark	Kingdom of Denmark	denmark	DK	DNK	208	208	Europe	Northern Europe	DK	DK	DK	Dnk	1961	1973		1945
 Djibouti	Republic of Djibouti	djibouti	DJ	DJI	262	262	Africa	Eastern Africa	WW	WF	WF	ROW				1977
 Dominica	Commonwealth of Dominica	dominica(?!n)	DM	DMA	212	212	America	Caribbean	WW	WL	WL	ROW				1978

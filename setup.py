@@ -1,6 +1,7 @@
 from distutils.core import setup
 
 exec(open('country_converter/version.py').read())
+open('country_converter/version.py').read()
 
 setup(
     name='country_converter',
