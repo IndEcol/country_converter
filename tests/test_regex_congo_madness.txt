@@ -8,4 +8,7 @@ Congo	DROC
 Congo	Congo-Kinshasa
 Congo Republic	Congo-Brazzaville
 Congo Republic	Rep Congo
+Congo Republic	Congo Rep.
+Congo Republic	Congo, Rep.
+Congo Republic	Congo,  Rep.
 Congo Republic	Republic of the Congo

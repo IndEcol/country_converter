@@ -89,16 +89,16 @@ def test_alternative_names(get_regex_test_data):
                 row[0],
                 name_test,
                 ' ,'.join(name_result)))
-    assert name_result != not_found_id, (
-        'File {0} - row {1}: Name {2} did not match any '
-        'regular expression'.format(
-            get_regex_test_data.data_name,
-            row[0],
-            name_test))
-    assert name_result == name_short, (
-            'File {0} - row {1}: Name {2} did match the '
-            'wrong regular expression: {3}'.format(
+        assert name_result != not_found_id, (
+            'File {0} - row {1}: Name {2} did not match any '
+            'regular expression'.format(
                 get_regex_test_data.data_name,
                 row[0],
-                name_test,
-                name_result))
+                name_test))
+        assert name_result == name_short, (
+                'File {0} - row {1}: Name {2} did match the '
+                'wrong regular expression: {3}'.format(
+                    get_regex_test_data.data_name,
+                    row[0],
+                    name_test,
+                    name_result))

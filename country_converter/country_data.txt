@@ -52,7 +52,7 @@ Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling
 Colombia	Republic of Colombia	colombia	CO	COL	170	170	America	South America	WW	WL	WL	ROW				1945
 Comoros	Union of the Comoros	comoro	KM	COM	174	174	Africa	Eastern Africa	WW	WF	WF	ROW				1975
 Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^congo$|^RDC$|^DROC$	CD	COD	180	180	Africa	Middle Africa	WW	WF	WF	ROW				1960
-Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo.?republic$|\bcongo.*brazza.*	CG	COG	178	178	Africa	Middle Africa	WW	WF	WF	ROW				1960
+Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo.+republic$|^congo.+rep\.$|\bcongo.*brazza.*	CG	COG	178	178	Africa	Middle Africa	WW	WF	WF	ROW				1960
 Cook Islands	Cook Islands	\bcook	CK	COK	184	184	Oceania	Polynesia	WW	WA	WA	ROW				
 Cote d'Ivoire	Republic of Côte d'Ivoire	.*(ivoire|ivory)	CI	CIV	384	384	Africa	Western Africa	WW	WF	WF	ROW				1960
 Costa Rica	Republic of Costa Rica	costa.?rica	CR	CRI	188	188	America	Central America	WW	WL	WL	ROW				1945
