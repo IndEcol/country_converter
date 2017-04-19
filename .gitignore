@@ -1,7 +1,9 @@
 # Root .gitignore
 
 *.pyc
+*.egg-info
 /dist/
+/build/
 /__pycache__
 /tests/__pycache__/
 /.cache

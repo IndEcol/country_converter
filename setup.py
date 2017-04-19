@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 exec(open('country_converter/version.py').read())
 
