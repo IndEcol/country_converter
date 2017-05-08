@@ -46,7 +46,7 @@ Central African Republic	Central African Republic	central.?african.?rep.*	CF	CAF
 Chad	Republic of Chad	\bchad	TD	TCD	148	148	Africa	Middle Africa	WW	WF	WF	ROW				1960
 Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	Europe	Northern Europe	WW	WE	WE	ROW				
 Chile	Republic of Chile	\bchile	CL	CHL	152	152	America	South America	WW	WL	WL	ROW	2010			1945
-China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$|.*china.*excl.*	CN	CHN	156	156	Asia	Eastern Asia	CN	CN	CN	Chn				1945
+China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	Asia	Eastern Asia	CN	CN	CN	Chn				1945
 Christmas Island	Christmas Island	christmas	CX	CXR	162		Oceania		WW	WA	WA	ROW				
 Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166		Asia		WW	WA	WA	ROW				
 Colombia	Republic of Colombia	colombia	CO	COL	170	170	America	South America	WW	WL	WL	ROW				1945
@@ -98,7 +98,7 @@ Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	Ame
 Haiti	Republic of Haiti	(ha(i|\xef|\xc3\xaf)ti)	HT	HTI	332	332	America	Caribbean	WW	WL	WL	ROW				1945
 Heard and Mc Donald Islands	Heard and mc donald islands	heard.*mc.*donald	HM	HMD	334		Asia		WW	WA	WA	ROW				
 Honduras	Republic of Honduras	^(?!.*brit).*honduras	HN	HND	340	340	America	Central America	WW	WL	WL	ROW				1945
-Hong Kong	Hong Kong SAR	^(?!.*excl).*hong.*kong	HK	HKG	344	344	Asia	Eastern Asia	WW	WA	WA	ROW				
+Hong Kong	Hong Kong SAR	.*hong.*kong	HK	HKG	344	344	Asia	Eastern Asia	WW	WA	WA	ROW				
 Hungary	Republic of Hungary	hungary	HU	HUN	348	348	Europe	Eastern Europe	HU	HU	HU	Hun	1996	2004		1955
 Iceland	Republic of Iceland	iceland	IS	ISL	352	352	Europe	Northern Europe	WW	WE	WE	ROW	1961			1946
 India	Republic of India	india(?!.*ocea)	IN	IND	356	356	Asia	Southern Asia	IN	IN	IN	Ind				1945
@@ -128,7 +128,7 @@ Libya	State of Libya	libya	LY	LBY	434	434	Africa	Northern Africa	WW	WF	WF	ROW			
 Liechtenstein	Principality of Liechtenstein	liechtenstein	LI	LIE	438	438	Europe	Western Europe	WW	WE	WE	ROW				1990
 Lithuania	Republic of Lithuania	lithuania	LT	LTU	440	440	Europe	Northern Europe	LT	LT	LT	Ltu		2004	2015	1991
 Luxembourg	Grand Duchy of Luxembourg	^(?!.*belg).*luxem	LU	LUX	442	442	Europe	Western Europe	LU	LU	LU	Lux	1961	1958	1999	1945
-Macao	Macao SAR	^(?!.*excl).*maca(o|u)	MO	MAC	446	446	Asia	Eastern Asia	WW	WA	WA	ROW				
+Macao	Macao SAR	.*maca(o|u)	MO	MAC	446	446	Asia	Eastern Asia	WW	WA	WA	ROW				
 Macedonia	Republic of Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807	807	Europe	Southern Europe	WW	WE	WE	ROW				1993
 Madagascar	Republic of Madagascar	madagascar|malagasy	MG	MDG	450	450	Africa	Eastern Africa	WW	WF	WF	ROW				1960
 Malawi	Republic of Malawi	malawi|nyasa	MW	MWI	454	454	Africa	Eastern Africa	WW	WF	WF	ROW				1964
@@ -215,7 +215,7 @@ Swaziland	Kingdom of Swaziland	swaziland	SZ	SWZ	748	748	Africa	Southern Africa	W
 Sweden	Kingdom of Sweden	swedish|sweden	SE	SWE	752	752	Europe	Northern Europe	SE	SE	SE	Swe	1961	1995		1946
 Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	Europe	Western Europe	CH	CH	CH	ROW	1961			2002
 Syria	Syrian Arab Republic	syria	SY	SYR	760	760	Asia	Western Asia	WW	WM	WM	ROW				1945
-Taiwan	Republic of China	^(?!.*excl).*taiwan|^(?!.*excl).*taipei|^(?!.*excl).*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$	TW	TWN	158		Asia	Eastern Asia	TW	TW	TW	Twn				
+Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$	TW	TWN	158		Asia	Eastern Asia	TW	TW	TW	Twn				
 Tajikistan	Republic of Tajikistan	tajik	TJ	TJK	762	762	Asia	Central Asia	WW	WA	WA	ROW				1992
 Tanganjika	Republic of Tanganyika	tanganjika|tanganyika		EAT			Africa	Eastern Africa	WW	WF	WF	ROW				
 Tanzania	United Republic of Tanzania	tanzania(?!: zan.*)	TZ	TZA	834	834	Africa	Eastern Africa	WW	WF	WF	ROW				1961

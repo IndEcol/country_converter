@@ -123,9 +123,9 @@ def convert(*args, **kargs):
     src : str, optional
         Source classification
 
-    to : str or list, optional
-        Output classification (valid str or list of string of the
-        country_data.txt), defalut: name_short
+    to : str, optional
+        Output classification (valid str for an index of
+        country_data.txt), default: name_short
 
     enforce_list : boolean, optional
         If True, enforces the output to be list (if only one name was passed)
@@ -159,6 +159,40 @@ class CountryConverter():
 
     """
 
+    @staticmethod
+    def _separate_exclude_cases(name, exclude_prefix, src):
+        """ Splits the excluded 
+
+        Parameters
+        ----------
+        name : str
+            Name of the country/region to convert.
+
+        exclude_prefix : list of valid regex strings
+            List of indicators with negate the subsequent country/region. 
+            These prefixes and everything following will not be converted.
+            E.g. 'Asia excluding China' becomes 'Asia' and 
+            'China excluding Hong Kong' becomes 'China' prior to conversion
+
+        src : str
+            Source classification. 
+
+        Returns
+        -------
+        
+        dict with 
+            'clean_name' : str 
+                as name without anything following exclude_prefix
+            'excluded_countries'
+                list of excluded countries
+
+        """
+
+        excluder = re.compile('|'.join(exclude_prefix))
+        split_entries = excluder.split(name)
+        return {'clean_name' : split_entries[0],
+                'excluded_countries' : split_entries[1:]}
+   
     def __init__(self):
         country_data_file = os.path.join(
             os.path.split(os.path.abspath(__file__))[0],
@@ -175,14 +209,15 @@ class CountryConverter():
             if self.data[name_entry].duplicated().any():
                 logging.error(
                     'Duplicated values in column {}'.format(name_entry))
-
+    
     def convert(self, names, src=None, to=None, enforce_list=False,
-                not_found='not found'):
+                not_found='not found', 
+                exclude_prefix=['excl\\w.*', 'without', 'w/o']):
         """ Convert names from a list to another list.
 
         Note
         ----
-        A lot of the functioality can also be done directly in pandas
+        A lot of the functionality can also be done directly in pandas
         dataframes.
         For example:
         coco = CountryConverter()
@@ -199,9 +234,9 @@ class CountryConverter():
             Source classification. Assumed to be regular
             expression if None (default)
 
-        to : str or list, optional
-            Output classification (valid str or list of
-            string of the country_data.txt), defalut: ISO3
+        to : str, optional
+            Output classification (valid index of the country_data.txt),
+            default: ISO3
 
         enforce_list : boolean, optional
             If True, enforces the output to be list (if only one name was
@@ -213,6 +248,12 @@ class CountryConverter():
         not_found : str, optional
             Fill in value for not found entries. If None, keep the input value
             (default: 'not found')
+
+        exclude_prefix : list of valid regex strings
+            List of indicators with negate the subsequent country/region. 
+            These prefixes and everything following will not be converted.
+            E.g. 'Asia excluding China' becomes 'Asia' and 
+            'China excluding Hong Kong' becomes 'China' prior to conversion
 
         Returns
         -------
@@ -232,11 +273,19 @@ class CountryConverter():
         if to is None:
             to = 'ISO3'
 
-        if isinstance(to, str):
+        # easier indexing for pandas later one - not for getting a 
+        # list of different conversions!
+        if type(to) is str:
             to = [to]
 
+        exclude_split = {name: self._separate_exclude_cases(name,
+                                                            exclude_prefix,
+                                                            src=src) 
+                         for name in names}
+
         if src.lower() == 'regex':
-            for ind_names, spec_name in enumerate(names):
+            for ind_names, current_name in enumerate(names):
+                spec_name = exclude_split[current_name]['clean_name']
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
@@ -289,8 +338,9 @@ class CountryConverter():
 
         Parameters
         ----------
-        to : str or list
-            Valid column header (first row of country_data.txt).
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data.txt), default: name_short
 
         Returns
         -------
@@ -307,8 +357,9 @@ class CountryConverter():
 
         Parameters
         ----------
-        to : str or list
-            Valid column header (first row of country_data.txt).
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data.txt), default: name_short
 
         Returns
         -------
@@ -325,8 +376,9 @@ class CountryConverter():
 
         Parameters
         ----------
-        to : str or list
-            Valid column header (first row of country_data.txt).
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data.txt), default: name_short
 
         Returns
         -------
@@ -343,8 +395,9 @@ class CountryConverter():
 
         Parameters
         ----------
-        to : str or list
-            Valid column header (first row of country_data.txt).
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data.txt), default: name_short
 
         Returns
         -------
