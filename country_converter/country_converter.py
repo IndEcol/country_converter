@@ -160,7 +160,7 @@ class CountryConverter():
     """
 
     @staticmethod
-    def _separate_exclude_cases(name, exclude_prefix, src):
+    def _separate_exclude_cases(name, exclude_prefix):
         """ Splits the excluded 
 
         Parameters
@@ -173,9 +173,6 @@ class CountryConverter():
             These prefixes and everything following will not be converted.
             E.g. 'Asia excluding China' becomes 'Asia' and 
             'China excluding Hong Kong' becomes 'China' prior to conversion
-
-        src : str
-            Source classification. 
 
         Returns
         -------
@@ -200,7 +197,7 @@ class CountryConverter():
         )
 
         self.data = pd.read_table(country_data_file, sep='\t',
-                                  encoding='utf-8')
+                                  encoding='utf-8', dtype=str)
         self.regexes = [re.compile(entry, re.IGNORECASE)
                         for entry in self.data.regex]
 
@@ -209,6 +206,7 @@ class CountryConverter():
             if self.data[name_entry].duplicated().any():
                 logging.error(
                     'Duplicated values in column {}'.format(name_entry))
+        
     
     def convert(self, names, src=None, to=None, enforce_list=False,
                 not_found='not found', 
@@ -260,12 +258,14 @@ class CountryConverter():
         list or str, depending on enforce_list
 
         """
-        if isinstance(names, str):
-            names = [names]
         # The list to tuple conversion is necessary for a convenient matlab
         # interface
         if isinstance(names, tuple):
             names = list(names)
+
+        if not isinstance(names, list):
+            names = [names]
+
         outlist = names.copy()
 
         if src is None:
@@ -279,13 +279,12 @@ class CountryConverter():
             to = [to]
 
         exclude_split = {name: self._separate_exclude_cases(name,
-                                                            exclude_prefix,
-                                                            src=src) 
+                                                            exclude_prefix) 
                          for name in names}
 
-        if src.lower() == 'regex':
-            for ind_names, current_name in enumerate(names):
-                spec_name = exclude_split[current_name]['clean_name']
+        for ind_names, current_name in enumerate(names):
+            spec_name = exclude_split[current_name]['clean_name']
+            if src.lower() == 'regex':
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
@@ -299,33 +298,30 @@ class CountryConverter():
                 elif len(result_list) < 1:
                     logging.warning(
                         '{} does not match any '
-                        'regular expression'.format(spec_name))
+                        'regular expression'.format(current_name))
                     _fillin = not_found or spec_name
                     outlist[ind_names] = [_fillin] if enforce_list else _fillin
                 else:
                     outlist[ind_names] = (result_list if
                                           enforce_list else result_list[0])
 
-        else:
-            for ind, spec_name in enumerate(names):
-                try:
-                    spec_name = int(spec_name)
-                except ValueError:
-                    pass
-                found = self.data[self.data[src].isin([spec_name])][to]
+            else:
+
+                found = self.data[self.data[src].str.match(
+                    '^' + spec_name + '$', case=False, na=False)][to]
+
                 if len(found) == 0:
                     logging.warning(
                         '{} not found in {}'.format(spec_name, src))
                     _fillin = not_found or spec_name
                     listentry = [_fillin] if enforce_list else _fillin
                 else:
-                    listentry = list(found.values[0])
+                    listentry = [int(etr[0]) if isinstance(etr[0], float) 
+                            else etr[0] for etr in found[to].values]
                     if len(listentry) == 1 and enforce_list is False:
                         listentry = listentry[0]
-                outlist[ind] = listentry
 
-        outlist = ['{:.0f}'.format(spec_name) if isinstance(spec_name, float)
-                   else str(spec_name) for spec_name in outlist]
+                outlist[ind_names] = listentry
 
         if (len(outlist) == 1) and not enforce_list:
             return outlist[0]

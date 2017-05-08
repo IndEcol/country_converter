@@ -23,7 +23,6 @@ def get_regex_test_data(request):
         pd.read_table(os.path.join(TESTPATH, request.param),
                       encoding='utf-8'))
 
-
 def test_name_short():
     """ Tests if there is a unique matching of name_short to regular expressions
     """
@@ -45,7 +44,6 @@ def test_name_short():
         assert name_result == name_test, (
             'Name {} did match the wrong regular expression: {}'.format(
                 name_test, name_result))
-
 
 def test_name_official():
     """ Tests if there is a unique matching of name_official to regular expressions
@@ -69,7 +67,6 @@ def test_name_official():
             'Name {} did match the wrong regular expression: {}'.format(
                 name_test, name_result))
 
-
 def test_alternative_names(get_regex_test_data):
     converter = coco.CountryConverter()
     not_found_id = 'XXX'
@@ -89,12 +86,13 @@ def test_alternative_names(get_regex_test_data):
                 row[0],
                 name_test,
                 ' ,'.join(name_result)))
-        assert name_result != not_found_id, (
-            'File {0} - row {1}: Name {2} did not match any '
-            'regular expression'.format(
-                get_regex_test_data.data_name,
-                row[0],
-                name_test))
+        if name_short != not_found_id:
+            assert name_result != not_found_id, (
+                'File {0} - row {1}: Name {2} did not match any '
+                'regular expression'.format(
+                    get_regex_test_data.data_name,
+                    row[0],
+                    name_test))
         assert name_result == name_short, (
                 'File {0} - row {1}: Name {2} did match the '
                 'wrong regular expression: {3}'.format(

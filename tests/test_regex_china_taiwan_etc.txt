@@ -6,6 +6,8 @@ China	"China excluding Macao"
 China	"China excluding Taiwan"
 China	"China excluding Formosa"
 China	People's Republic of China
+XXX	    Asia without China
+XXX	    Asia excluding Hong Kong
 Taiwan	"Taiwan, province of china"
 Taiwan	Republic of China
 Taiwan	ROC
