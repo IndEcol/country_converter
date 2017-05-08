@@ -284,6 +284,7 @@ class CountryConverter():
 
         for ind_names, current_name in enumerate(names):
             spec_name = exclude_split[current_name]['clean_name']
+
             if src.lower() == 'regex':
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
@@ -291,14 +292,12 @@ class CountryConverter():
                         result_list.append(
                             self.data.ix[ind_regex, to].values[0])
                 if len(result_list) > 1:
-                    logging.warning(
-                        'More then one regular expression '
-                        'match for {}'.format(spec_name))
+                    logging.warning('More then one regular expression '
+                                    'match for {}'.format(spec_name))
                     outlist[ind_names] = result_list
                 elif len(result_list) < 1:
-                    logging.warning(
-                        '{} does not match any '
-                        'regular expression'.format(current_name))
+                    logging.warning('{} does not match any '
+                                    'regular expression'.format(current_name))
                     _fillin = not_found or spec_name
                     outlist[ind_names] = [_fillin] if enforce_list else _fillin
                 else:
@@ -306,9 +305,8 @@ class CountryConverter():
                                           enforce_list else result_list[0])
 
             else:
-
-                found = self.data[self.data[src].str.match(
-                    '^' + spec_name + '$', case=False, na=False)][to]
+                found = self.data[self.data[src].str.contains(
+                '^' + spec_name + '$', flags=re.IGNORECASE, na=False)][to]
 
                 if len(found) == 0:
                     logging.warning(
