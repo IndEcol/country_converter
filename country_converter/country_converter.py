@@ -193,11 +193,12 @@ class CountryConverter():
     def __init__(self):
         country_data_file = os.path.join(
             os.path.split(os.path.abspath(__file__))[0],
-            'country_data.txt'
+            'country_data.txt',
         )
 
         self.data = pd.read_table(country_data_file, sep='\t',
-                                  encoding='utf-8', dtype=str)
+                                  encoding='utf-8')
+
         self.regexes = [re.compile(entry, re.IGNORECASE)
                         for entry in self.data.regex]
 
@@ -266,6 +267,8 @@ class CountryConverter():
         if not isinstance(names, list):
             names = [names]
 
+        names = [str(n) for n in names]
+
         outlist = names.copy()
 
         if src is None:
@@ -305,7 +308,12 @@ class CountryConverter():
                                           enforce_list else result_list[0])
 
             else:
-                found = self.data[self.data[src].str.contains(
+                # convert for matching but keep in the orginal for 
+                # year based country selection functionality
+                _match_col = self.data[src].astype(
+                    str).str.replace('\\..*', '')
+
+                found = self.data[_match_col.str.contains(
                 '^' + spec_name + '$', flags=re.IGNORECASE, na=False)][to]
 
                 if len(found) == 0:
@@ -529,7 +537,8 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        # main()
+        x=convert('4', src='ISOnumeric')
 
     except Exception as excep:
         logging.exception(excep)

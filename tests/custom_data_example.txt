@@ -1,0 +1,3 @@
+name_short	name_official	regex	ISO2	ISO3	ISOnumeric	UNcode	continent	UNregion	EXIO1	EXIO2	EXIO3	WIOD	OECD	EU	EURO	UNmember
+Wirtland	 Wirtland	wirtland					
+

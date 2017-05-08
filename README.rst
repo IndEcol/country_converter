@@ -65,11 +65,22 @@ Convert between classification schemes:
 
 ::
 
-    iso3_codes = ['USA', 'VUT', 'TKL', 'AUT' ]
+    iso3_codes = ['USA', 'VUT', 'TKL', 'AUT', 'XXX' ]
     iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2')
     print(iso2_codes)
 
-Which results in ['US', 'VU', 'TK', 'AT']
+Which results in ['US', 'VU', 'TK', 'AT', 'not found']
+
+The not found indication can be specified (e.g. not_found = 'not there'),
+if None is passed for 'not_found', the original entry gets passed through:
+
+::
+
+    iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2', not_found=None)
+    print(iso2_codes)
+
+results in ['US', 'VU', 'TK', 'AT', 'XXX']
+
 
 Internally the data is stored in a pandas dataframe, which can be accessed directly. 
 For example, this can be used to filter countries for membership organisations (per year). 
