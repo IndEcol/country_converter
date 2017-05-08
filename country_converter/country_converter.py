@@ -193,7 +193,7 @@ class CountryConverter():
     def __init__(self):
         country_data_file = os.path.join(
             os.path.split(os.path.abspath(__file__))[0],
-            'country_data.txt',
+            'country_data.tsv',
         )
 
         self.data = pd.read_table(country_data_file, sep='\t',
