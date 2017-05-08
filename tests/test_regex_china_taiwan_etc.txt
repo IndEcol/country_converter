@@ -1,6 +1,10 @@
 name_short	name_test
 China	"China, People's Republic of"
 China	PRC
+China	"China excluding Hong Kong"
+China	"China excluding Macao"
+China	"China excluding Taiwan"
+China	"China excluding Formosa"
 China	People's Republic of China
 Taiwan	"Taiwan, province of china"
 Taiwan	Republic of China
