@@ -9,6 +9,8 @@ import os
 import re
 import pandas as pd
 
+COUNTRY_DATA_FILE = os.path.join(
+    os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
 def match(list_a, list_b, not_found='not_found', enforce_sublist=False):
     """ Matches the country names given in two lists into a dictionary.
@@ -174,6 +176,7 @@ class CountryConverter():
             E.g. 'Asia excluding China' becomes 'Asia' and 
             'China excluding Hong Kong' becomes 'China' prior to conversion
 
+
         Returns
         -------
         
@@ -190,15 +193,34 @@ class CountryConverter():
         return {'clean_name' : split_entries[0],
                 'excluded_countries' : split_entries[1:]}
    
-    def __init__(self):
-        country_data_file = os.path.join(
-            os.path.split(os.path.abspath(__file__))[0],
-            'country_data.tsv',
-        )
+    def __init__(self, country_data = COUNTRY_DATA_FILE,
+        additional_data = '/home/konstans/proj/country_converter/tests/custom_data_example.txt'
+        ):
+        """
+        Parameters
+        ----------
 
-        self.data = pd.read_table(country_data_file, sep='\t',
-                                  encoding='utf-8')
+        country_data : pandas dataframe or path to data file 
+        additional_data: (list of) pandas dataframes or data files 
+            Additioanl data to include for a specific analysis. 
+            This must be given in the same format as specified in the
+            country_data_file
+        """
 
+        def data_loader(data):
+            if isinstance(data, pd.DataFrame):
+                ret = data
+            else:
+                ret = pd.read_table(data, sep='\t', encoding='utf-8')
+            return ret
+
+        self.data = data_loader(country_data)
+        additional_data = additional_data or []
+        if not isinstance(additional_data, list):
+            additional_data = [additional_data]
+        add_data = [data_loader(df) for df in additional_data]
+        self.data = pd.concat([self.data] + add_data, ignore_index=True,
+            axis=0)
         self.regexes = [re.compile(entry, re.IGNORECASE)
                         for entry in self.data.regex]
 
@@ -539,6 +561,7 @@ if __name__ == "__main__":
     try:
         # main()
         x=convert('4', src='ISOnumeric')
+        d = CountryConverter() 
 
     except Exception as excep:
         logging.exception(excep)
