@@ -109,3 +109,18 @@ def test_additional_country_file():
     assert converter_basic.convert('Congo') == 'COG'
     assert converter_extended.convert('Congo') == 'COD'
     assert converter_extended.convert('wirtland', to='name_short') == 'Wirtland'
+
+def test_additional_country_data():
+    add_data = pd.DataFrame.from_dict({
+       'name_short' : ['xxx country'], 
+       'name_official' : ['longer xxx country name'],
+       'regex' : ['xxx country'],
+       'ISO3': ['XXX']}
+    )
+    converter_extended = coco.CountryConverter(
+        additional_data=add_data)
+    assert 'xxx country' == converter_extended.convert('XXX', src='ISO3', 
+                                                       to='name_short')
+    assert pd.np.nan is converter_extended.convert('XXX', src='ISO3', 
+                                                       to='continent')
+

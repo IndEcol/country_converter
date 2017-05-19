@@ -12,7 +12,9 @@ import pandas as pd
 COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
-def match(list_a, list_b, not_found='not_found', enforce_sublist=False):
+def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
+        country_data = COUNTRY_DATA_FILE, additional_data = None,
+        ):
     """ Matches the country names given in two lists into a dictionary.
 
     This function matches names given in list_a to the one provided in list_b
@@ -33,6 +35,16 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False):
         If True, all entries in both list are list.
         If False(default), only multiple matches are list, rest are strings
 
+    country_data : pandas dataframe or path to data file (optional)
+        This is by default set to COUNTRY_DATA_FILE - the standard (tested)
+        country list for coco.
+
+    additional_data: (list of) pandas dataframes or data files (optional)
+         Additioanl data to include for a specific analysis. 
+         This must be given in the same format as specified in the
+         country_data_file. (utf-8 encoded tab separated data, same
+         column headers in all files)
+
     Returns
     -------
     dict:
@@ -51,7 +63,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False):
     if isinstance(list_b, tuple):
         list_b = list(list_b)
 
-    coco = CountryConverter()
+    coco = CountryConverter(country_data, additional_data)
 
     name_dict_a = dict()
     match_dict_a = dict()
@@ -141,6 +153,8 @@ def convert(*args, **kargs):
         (default: 'not found')
 
     country_data : pandas dataframe or path to data file (optional)
+        This is by default set to COUNTRY_DATA_FILE - the standard (tested)
+        country list for coco.
 
     additional_data: (list of) pandas dataframes or data files (optional)
          Additioanl data to include for a specific analysis. 
@@ -209,13 +223,14 @@ class CountryConverter():
    
     def __init__(self, country_data = COUNTRY_DATA_FILE,
         additional_data = None,
-        # additional_data = '/home/konstans/proj/country_converter/tests/custom_data_example.txt'
         ):
         """
         Parameters
         ----------
 
         country_data : pandas dataframe or path to data file 
+            This is by default set to COUNTRY_DATA_FILE - the standard 
+            (tested) country list for coco.
 
         additional_data: (list of) pandas dataframes or data files 
             Additioanl data to include for a specific analysis. 
@@ -243,7 +258,8 @@ class CountryConverter():
 
         basic_df = data_loader(country_data)
 
-        additional_data = additional_data or []
+        if additional_data is None:
+            additional_data = []
         if not isinstance(additional_data, list):
             additional_data = [additional_data]
 
@@ -379,7 +395,9 @@ class CountryConverter():
                     _fillin = not_found or spec_name
                     listentry = [_fillin] if enforce_list else _fillin
                 else:
-                    listentry = [int(etr[0]) if isinstance(etr[0], float) 
+                    listentry = [
+                            int(etr[0]) if 
+                            (isinstance(etr[0], float) and not pd.np.nan)
                             else etr[0] for etr in found[to].values]
                     if len(listentry) == 1 and enforce_list is False:
                         listentry = listentry[0]

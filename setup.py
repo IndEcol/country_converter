@@ -14,7 +14,7 @@ setup(
     author_email='konstantin.stadler@ntnu.no',
     version=__version__,
     packages=['country_converter', ],
-    package_data={'country_converter': ['country_data.txt', '../LICENSE']},
+    package_data={'country_converter': ['country_data.tsv', '../LICENSE']},
     license='GPLv3',
     entry_points={
         'console_scripts':
