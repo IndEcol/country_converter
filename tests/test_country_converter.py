@@ -7,12 +7,12 @@ import collections
 TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, '..'))
 
+import country_converter as coco  # nopep8
+
 regex_test_files = [nn for nn in os.listdir(TESTPATH)
                     if (nn[:10] == 'test_regex') and
                     (os.path.splitext(nn)[1] == '.txt')]
-
-import country_converter as coco  # nopep8
-
+custom_data = os.path.join(TESTPATH, 'custom_data_example.txt')
 
 @pytest.fixture(scope='module', params=regex_test_files)
 def get_regex_test_data(request):
@@ -100,3 +100,12 @@ def test_alternative_names(get_regex_test_data):
                     row[0],
                     name_test,
                     name_result))
+
+def test_additional_country_file():
+    converter_basic = coco.CountryConverter()
+    converter_extended = coco.CountryConverter(
+        additional_data=custom_data)
+    
+    assert converter_basic.convert('Congo') == 'COG'
+    assert converter_extended.convert('Congo') == 'COD'
+    assert converter_extended.convert('wirtland', to='name_short') == 'Wirtland'

@@ -140,13 +140,27 @@ def convert(*args, **kargs):
         Fill in value for not found entries. If None, keep the input value
         (default: 'not found')
 
+    country_data : pandas dataframe or path to data file (optional)
+
+    additional_data: (list of) pandas dataframes or data files (optional)
+         Additioanl data to include for a specific analysis. 
+         This must be given in the same format as specified in the
+         country_data_file. (utf-8 encoded tab separated data, same
+         column headers in all files)
+
     Returns
     -------
     list or str, depending on enforce_list
 
     """
-
-    coco = CountryConverter()
+    init = {'country_data' : COUNTRY_DATA_FILE, 'additional_data' : None}
+    for ent in init.keys():
+        try:
+            init[ent] = kargs[ent]
+            del kargs[ent]
+        except KeyError:
+            pass
+    coco = CountryConverter(**init)
     return coco.convert(*args, **kargs)
 
 
@@ -194,43 +208,62 @@ class CountryConverter():
                 'excluded_countries' : split_entries[1:]}
    
     def __init__(self, country_data = COUNTRY_DATA_FILE,
-        additional_data = '/home/konstans/proj/country_converter/tests/custom_data_example.txt'
+        additional_data = None,
+        # additional_data = '/home/konstans/proj/country_converter/tests/custom_data_example.txt'
         ):
         """
         Parameters
         ----------
 
         country_data : pandas dataframe or path to data file 
+
         additional_data: (list of) pandas dataframes or data files 
             Additioanl data to include for a specific analysis. 
             This must be given in the same format as specified in the
-            country_data_file
+            country_data_file. (utf-8 encoded tab separated data, same
+            column headers in all files)
         """
+
+        must_be_unique = ['name_short', 'name_official', 'regex']
+        def test_for_unique_names(df, 
+            data_name = 'passed dataframe', report_fun=logging.error):
+            for name_entry in must_be_unique:
+                if df[name_entry].duplicated().any(): report_fun(
+                    'Duplicated values in column {} of {}'.format(
+                    name_entry, data_name))
 
         def data_loader(data):
             if isinstance(data, pd.DataFrame):
                 ret = data
+                test_for_unique_names(data)
             else:
                 ret = pd.read_table(data, sep='\t', encoding='utf-8')
+                test_for_unique_names(ret, data)
             return ret
 
-        self.data = data_loader(country_data)
+        basic_df = data_loader(country_data)
+
         additional_data = additional_data or []
         if not isinstance(additional_data, list):
             additional_data = [additional_data]
+
         add_data = [data_loader(df) for df in additional_data]
-        self.data = pd.concat([self.data] + add_data, ignore_index=True,
+        self.data = pd.concat([basic_df] + add_data, ignore_index=True,
             axis=0)
+        
+        test_for_unique_names(
+            self.data, 
+            data_name='merged data - keep last one', 
+            report_fun = logging.warning)
+
+        for name_entry in must_be_unique:
+            self.data.drop_duplicates(subset=[name_entry], 
+                                      keep='last', inplace=True)
+
+        self.data.reset_index(drop=True, inplace=True)
         self.regexes = [re.compile(entry, re.IGNORECASE)
                         for entry in self.data.regex]
 
-        must_be_unique = ['name_short', 'name_official', 'regex']
-        for name_entry in must_be_unique:
-            if self.data[name_entry].duplicated().any():
-                logging.error(
-                    'Duplicated values in column {}'.format(name_entry))
-        
-    
     def convert(self, names, src=None, to=None, enforce_list=False,
                 not_found='not found', 
                 exclude_prefix=['excl\\w.*', 'without', 'w/o']):
@@ -314,6 +347,8 @@ class CountryConverter():
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
+                        # import ipdb
+                        # ipdb.set_trace()
                         result_list.append(
                             self.data.ix[ind_regex, to].values[0])
                 if len(result_list) > 1:
@@ -560,8 +595,15 @@ def main():
 if __name__ == "__main__":
     try:
         # main()
-        x=convert('4', src='ISOnumeric')
-        d = CountryConverter() 
+        # x=convert('4', src='ISOnumeric')
+        # d = CountryConverter(
+            # additional_data = '/home/konstans/proj/country_converter/tests/custom_data_example.txt'
+            # ) 
+        # x=d.convert('wirtland')
+        y=convert('wirtland',
+            additional_data='/home/konstans/proj/country_converter/tests/custom_data_example.txt'
+            )
+
 
     except Exception as excep:
         logging.exception(excep)
