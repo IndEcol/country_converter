@@ -300,8 +300,9 @@ class CountryConverter():
             to 'to' classification
 
         src : str, optional
-            Source classification. Assumed to be regular
-            expression if None (default)
+            Source classification. If None (default), each passed name is 
+            checked if it is a number (assuming UNnumeric) or 2 (ISO2) or 
+            3 (ISO3) characters long; for longer names 'regex' is assumed.
 
         to : str, optional
             Output classification (valid index of the country_data.txt),
@@ -331,7 +332,7 @@ class CountryConverter():
         """
         # The list to tuple conversion is necessary for a convenient matlab
         # interface
-        if isinstance(names, tuple):
+        if isinstance(names, tuple) or isinstance(names, set):
             names = list(names)
 
         if not isinstance(names, list):
@@ -341,8 +342,6 @@ class CountryConverter():
 
         outlist = names.copy()
 
-        if src is None:
-            src = 'regex'
         if to is None:
             to = 'ISO3'
 
@@ -358,12 +357,24 @@ class CountryConverter():
         for ind_names, current_name in enumerate(names):
             spec_name = exclude_split[current_name]['clean_name']
 
-            if src.lower() == 'regex':
+            if src is None:
+                try:
+                    int(spec_name)
+                    src_format = 'ISOnumeric'
+                except ValueError:
+                    if len(spec_name) == 2:
+                        src_format = 'ISO2'
+                    elif len(spec_name) == 3:
+                        src_format = 'ISO3'
+                    else:
+                        src_format = 'regex'
+            else:
+                src_format = src
+
+            if src_format.lower() == 'regex':
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
-                        # import ipdb
-                        # ipdb.set_traCE()
                         result_list.append(
                             self.data.ix[ind_regex, to].values[0])
                 if len(result_list) > 1:
@@ -382,7 +393,7 @@ class CountryConverter():
             else:
                 # convert for matching but keep in the orginal for
                 # year based country selection functionality
-                _match_col = self.data[src].astype(
+                _match_col = self.data[src_format].astype(
                     str).str.replace('\\..*', '')
 
                 found = self.data[_match_col.str.contains(
@@ -390,7 +401,7 @@ class CountryConverter():
 
                 if len(found) == 0:
                     logging.warning(
-                        '{} not found in {}'.format(spec_name, src))
+                        '{} not found in {}'.format(spec_name, src_format))
                     _fillin = not_found or spec_name
                     listentry = [_fillin] if enforce_list else _fillin
                 else:
@@ -543,7 +554,7 @@ def _parse_arg(valid_classifications):
     parser.add_argument(
         'names',
         help=('List of countries to convert '
-              '(comma or space separated, country names consisting of '
+              '(space separated, country names consisting of '
               'multiple words must be put in quoation marks). '
               'Possible classifications: ' +
               ', '.join(valid_classifications) +
@@ -553,7 +564,7 @@ def _parse_arg(valid_classifications):
 
     parser.add_argument(
         '-s', '--src', '--source', '-f', '--from',
-        help='Classification of the names given, (default: "regex")')
+        help='Classification of the names given, (default: inferred from names)')
     parser.add_argument(
         '-t', '--to',
         help='Required classification of the passed names (default: "ISO3"')
@@ -562,31 +573,32 @@ def _parse_arg(valid_classifications):
                               '(default: space), e.g. "," '))
 
     args = parser.parse_args()
-    args.src = args.src or 'regex'
+    args.src = args.src or None
     args.to = args.to or 'ISO3'
     args.output_sep = args.output_sep or ' '
-    args.names = [nn.replace(',', ' ') for nn in args.names]
 
-    if 'short' in args.src.lower():
-        args.src = 'name_short'
-    if 'official' in args.src.lower():
-        args.src = 'name_official'
-    if 'long' in args.src.lower():
-        args.src = 'name_official'
-    if args.src.lower() == 'name' or args.src.lower() == 'names':
-        args.src = 'name_short'
-    if 'short' in args.to.lower():
-        args.to = 'name_short'
-    if 'official' in args.to.lower():
-        args.to = 'name_official'
-    if 'long' in args.to.lower():
-        args.to = 'name_official'
-    if args.to.lower() == 'name' or args.to.lower() == 'names':
-        args.to = 'name_short'
+    if args.src:
+        if 'short' in args.src.lower():
+            args.src = 'name_short'
+        if 'official' in args.src.lower():
+            args.src = 'name_official'
+        if 'long' in args.src.lower():
+            args.src = 'name_official'
+        if args.src.lower() == 'name' or args.src.lower() == 'names':
+            args.src = 'name_short'
+        if 'short' in args.to.lower():
+            args.to = 'name_short'
+        if 'official' in args.to.lower():
+            args.to = 'name_official'
+        if 'long' in args.to.lower():
+            args.to = 'name_official'
+        if args.to.lower() == 'name' or args.to.lower() == 'names':
+            args.to = 'name_short'
 
-    if args.src not in valid_classifications:
-        raise TypeError('Source classifiction {} not available'.
-                        format(args.src))
+        if args.src not in valid_classifications:
+            raise TypeError('Source classifiction {} not available'.
+                            format(args.src))
+
     if args.to not in valid_classifications:
         raise TypeError('Target classifiction {} not available'.
                         format(args.to))
