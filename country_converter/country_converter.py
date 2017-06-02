@@ -12,9 +12,9 @@ import pandas as pd
 COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
+
 def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
-        country_data = COUNTRY_DATA_FILE, additional_data = None,
-        ):
+          country_data=COUNTRY_DATA_FILE, additional_data=None):
     """ Matches the country names given in two lists into a dictionary.
 
     This function matches names given in list_a to the one provided in list_b
@@ -40,7 +40,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
         country list for coco.
 
     additional_data: (list of) pandas dataframes or data files (optional)
-         Additioanl data to include for a specific analysis. 
+         Additioanl data to include for a specific analysis.
          This must be given in the same format as specified in the
          country_data_file. (utf-8 encoded tab separated data, same
          column headers in all files)
@@ -157,7 +157,7 @@ def convert(*args, **kargs):
         country list for coco.
 
     additional_data: (list of) pandas dataframes or data files (optional)
-         Additioanl data to include for a specific analysis. 
+         Additioanl data to include for a specific analysis.
          This must be given in the same format as specified in the
          country_data_file. (utf-8 encoded tab separated data, same
          column headers in all files)
@@ -167,7 +167,7 @@ def convert(*args, **kargs):
     list or str, depending on enforce_list
 
     """
-    init = {'country_data' : COUNTRY_DATA_FILE, 'additional_data' : None}
+    init = {'country_data': COUNTRY_DATA_FILE, 'additional_data': None}
     for ent in init.keys():
         try:
             init[ent] = kargs[ent]
@@ -191,7 +191,7 @@ class CountryConverter():
 
     @staticmethod
     def _separate_exclude_cases(name, exclude_prefix):
-        """ Splits the excluded 
+        """ Splits the excluded
 
         Parameters
         ----------
@@ -199,17 +199,17 @@ class CountryConverter():
             Name of the country/region to convert.
 
         exclude_prefix : list of valid regex strings
-            List of indicators with negate the subsequent country/region. 
+            List of indicators with negate the subsequent country/region.
             These prefixes and everything following will not be converted.
-            E.g. 'Asia excluding China' becomes 'Asia' and 
+            E.g. 'Asia excluding China' becomes 'Asia' and
             'China excluding Hong Kong' becomes 'China' prior to conversion
 
 
         Returns
         -------
-        
-        dict with 
-            'clean_name' : str 
+
+        dict with
+            'clean_name' : str
                 as name without anything following exclude_prefix
             'excluded_countries'
                 list of excluded countries
@@ -218,34 +218,33 @@ class CountryConverter():
 
         excluder = re.compile('|'.join(exclude_prefix))
         split_entries = excluder.split(name)
-        return {'clean_name' : split_entries[0],
-                'excluded_countries' : split_entries[1:]}
-   
-    def __init__(self, country_data = COUNTRY_DATA_FILE,
-        additional_data = None,
-        ):
+        return {'clean_name': split_entries[0],
+                'excluded_countries': split_entries[1:]}
+
+    def __init__(self, country_data=COUNTRY_DATA_FILE, additional_data=None):
         """
         Parameters
         ----------
 
-        country_data : pandas dataframe or path to data file 
-            This is by default set to COUNTRY_DATA_FILE - the standard 
+        country_data : pandas dataframe or path to data file
+            This is by default set to COUNTRY_DATA_FILE - the standard
             (tested) country list for coco.
 
-        additional_data: (list of) pandas dataframes or data files 
-            Additioanl data to include for a specific analysis. 
+        additional_data: (list of) pandas dataframes or data files
+            Additioanl data to include for a specific analysis.
             This must be given in the same format as specified in the
             country_data_file. (utf-8 encoded tab separated data, same
             column headers in all files)
         """
 
         must_be_unique = ['name_short', 'name_official', 'regex']
-        def test_for_unique_names(df, 
-            data_name = 'passed dataframe', report_fun=logging.error):
+
+        def test_for_unique_names(df, data_name='passed dataframe',
+                                  report_fun=logging.error):
             for name_entry in must_be_unique:
-                if df[name_entry].duplicated().any(): report_fun(
-                    'Duplicated values in column {} of {}'.format(
-                    name_entry, data_name))
+                if df[name_entry].duplicated().any():
+                    report_fun('Duplicated values in column {} of {}'.format(
+                        name_entry, data_name))
 
         def data_loader(data):
             if isinstance(data, pd.DataFrame):
@@ -265,15 +264,15 @@ class CountryConverter():
 
         add_data = [data_loader(df) for df in additional_data]
         self.data = pd.concat([basic_df] + add_data, ignore_index=True,
-            axis=0)
-        
+                              axis=0)
+
         test_for_unique_names(
-            self.data, 
-            data_name='merged data - keep last one', 
-            report_fun = logging.warning)
+            self.data,
+            data_name='merged data - keep last one',
+            report_fun=logging.warning)
 
         for name_entry in must_be_unique:
-            self.data.drop_duplicates(subset=[name_entry], 
+            self.data.drop_duplicates(subset=[name_entry],
                                       keep='last', inplace=True)
 
         self.data.reset_index(drop=True, inplace=True)
@@ -281,7 +280,7 @@ class CountryConverter():
                         for entry in self.data.regex]
 
     def convert(self, names, src=None, to=None, enforce_list=False,
-                not_found='not found', 
+                not_found='not found',
                 exclude_prefix=['excl\\w.*', 'without', 'w/o']):
         """ Convert names from a list to another list.
 
@@ -320,9 +319,9 @@ class CountryConverter():
             (default: 'not found')
 
         exclude_prefix : list of valid regex strings
-            List of indicators with negate the subsequent country/region. 
+            List of indicators with negate the subsequent country/region.
             These prefixes and everything following will not be converted.
-            E.g. 'Asia excluding China' becomes 'Asia' and 
+            E.g. 'Asia excluding China' becomes 'Asia' and
             'China excluding Hong Kong' becomes 'China' prior to conversion
 
         Returns
@@ -347,13 +346,13 @@ class CountryConverter():
         if to is None:
             to = 'ISO3'
 
-        # easier indexing for pandas later one - not for getting a 
+        # easier indexing for pandas later one - not for getting a
         # list of different conversions!
         if type(to) is str:
             to = [to]
 
         exclude_split = {name: self._separate_exclude_cases(name,
-                                                            exclude_prefix) 
+                                                            exclude_prefix)
                          for name in names}
 
         for ind_names, current_name in enumerate(names):
@@ -364,7 +363,7 @@ class CountryConverter():
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
                         # import ipdb
-                        # ipdb.set_trace()
+                        # ipdb.set_traCE()
                         result_list.append(
                             self.data.ix[ind_regex, to].values[0])
                 if len(result_list) > 1:
@@ -381,13 +380,13 @@ class CountryConverter():
                                           enforce_list else result_list[0])
 
             else:
-                # convert for matching but keep in the orginal for 
+                # convert for matching but keep in the orginal for
                 # year based country selection functionality
                 _match_col = self.data[src].astype(
                     str).str.replace('\\..*', '')
 
                 found = self.data[_match_col.str.contains(
-                '^' + spec_name + '$', flags=re.IGNORECASE, na=False)][to]
+                    '^' + spec_name + '$', flags=re.IGNORECASE, na=False)][to]
 
                 if len(found) == 0:
                     logging.warning(
@@ -396,7 +395,7 @@ class CountryConverter():
                     listentry = [_fillin] if enforce_list else _fillin
                 else:
                     listentry = [
-                            int(etr[0]) if 
+                            int(etr[0]) if
                             (isinstance(etr[0], float) and not pd.np.nan)
                             else etr[0] for etr in found[to].values]
                     if len(listentry) == 1 and enforce_list is False:
@@ -612,17 +611,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        # main()
-        # x=convert('4', src='ISOnumeric')
-        # d = CountryConverter(
-            # additional_data = '/home/konstans/proj/country_converter/tests/custom_data_example.txt'
-            # ) 
-        # x=d.convert('wirtland')
-        y=convert('wirtland',
-            additional_data='/home/konstans/proj/country_converter/tests/custom_data_example.txt'
-            )
-
-
+        main()
     except Exception as excep:
         logging.exception(excep)
         raise

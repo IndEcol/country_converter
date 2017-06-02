@@ -14,6 +14,7 @@ regex_test_files = [nn for nn in os.listdir(TESTPATH)
                     (os.path.splitext(nn)[1] == '.txt')]
 custom_data = os.path.join(TESTPATH, 'custom_data_example.txt')
 
+
 @pytest.fixture(scope='module', params=regex_test_files)
 def get_regex_test_data(request):
     retval = collections.namedtuple('regex_test_data',
@@ -22,6 +23,7 @@ def get_regex_test_data(request):
         request.param,
         pd.read_table(os.path.join(TESTPATH, request.param),
                       encoding='utf-8'))
+
 
 def test_name_short():
     """ Tests if there is a unique matching of name_short to regular expressions
@@ -45,6 +47,7 @@ def test_name_short():
             'Name {} did match the wrong regular expression: {}'.format(
                 name_test, name_result))
 
+
 def test_name_official():
     """ Tests if there is a unique matching of name_official to regular expressions
     """
@@ -66,6 +69,7 @@ def test_name_official():
         assert name_result == name_test, (
             'Name {} did match the wrong regular expression: {}'.format(
                 name_test, name_result))
+
 
 def test_alternative_names(get_regex_test_data):
     converter = coco.CountryConverter()
@@ -101,26 +105,28 @@ def test_alternative_names(get_regex_test_data):
                     name_test,
                     name_result))
 
+
 def test_additional_country_file():
     converter_basic = coco.CountryConverter()
     converter_extended = coco.CountryConverter(
         additional_data=custom_data)
-    
+
     assert converter_basic.convert('Congo') == 'COG'
     assert converter_extended.convert('Congo') == 'COD'
-    assert converter_extended.convert('wirtland', to='name_short') == 'Wirtland'
+    assert converter_extended.convert('wirtland',
+                                      to='name_short') == 'Wirtland'
+
 
 def test_additional_country_data():
     add_data = pd.DataFrame.from_dict({
-       'name_short' : ['xxx country'], 
-       'name_official' : ['longer xxx country name'],
-       'regex' : ['xxx country'],
+       'name_short': ['xxx country'],
+       'name_official': ['longer xxx country name'],
+       'regex': ['xxx country'],
        'ISO3': ['XXX']}
     )
     converter_extended = coco.CountryConverter(
         additional_data=add_data)
-    assert 'xxx country' == converter_extended.convert('XXX', src='ISO3', 
+    assert 'xxx country' == converter_extended.convert('XXX', src='ISO3',
                                                        to='name_short')
-    assert pd.np.nan is converter_extended.convert('XXX', src='ISO3', 
-                                                       to='continent')
-
+    assert pd.np.nan is converter_extended.convert('XXX', src='ISO3',
+                                                   to='continent')
