@@ -380,22 +380,22 @@ class CountryConverter():
                     if ccregex.search(spec_name):
                         result_list.append(
                             self.data.ix[ind_regex, to].values[0])
-                if len(result_list) > 1:
-                    logging.warning('More then one regular expression '
-                                    'match for {}'.format(spec_name))
-                    outlist[ind_names] = result_list
-                elif len(result_list) < 1:
+                if len(result_list) == 0:
                     logging.warning('{} does not match any '
                                     'regular expression'.format(current_name))
                     _fillin = not_found or spec_name
                     outlist[ind_names] = [_fillin] if enforce_list else _fillin
+
                 else:
-                    outlist[ind_names] = (result_list if
-                                          enforce_list else result_list[0])
+                    if len(result_list) > 1:
+                        logging.warning('More then one regular expression '
+                                        'match for {}'.format(spec_name))
+                        outlist[ind_names] = result_list
+                    else:
+                        outlist[ind_names] = (result_list if enforce_list 
+                            else result_list[0])
 
             else:
-                # convert for matching but keep in the orginal for
-                # year based country selection functionality
                 _match_col = self.data[src_format].astype(
                     str).str.replace('\\..*', '')
 
@@ -409,14 +409,15 @@ class CountryConverter():
                     listentry = [_fillin] if enforce_list else _fillin
                 else:
                     listentry = [
-                            int(etr[0]) if
-                            (isinstance(etr[0], float) and not pd.np.nan)
-                            else etr[0] for etr in found[to].values]
+                        int(etr[0]) if (isinstance(etr[0], float) 
+                                        and not pd.np.nan)
+                        else etr[0] for etr in found[to].values]
                     if len(listentry) == 1 and enforce_list is False:
                         listentry = listentry[0]
 
                 outlist[ind_names] = listentry
-
+        # TODO KST continue: clean up the code above, float test must also happen in the regex outlist abobve,
+        # should be one place for both
         if (len(outlist) == 1) and not enforce_list:
             return outlist[0]
         else:
@@ -616,32 +617,6 @@ def _parse_arg(valid_classifications):
     args.src = args.src or None
     args.to = args.to or 'ISO3'
     args.output_sep = args.output_sep or ' '
-
-    # if args.src:
-        # if 'short' in args.src.lower():
-            # args.src = 'name_short'
-        # if 'official' in args.src.lower():
-            # args.src = 'name_official'
-        # if 'long' in args.src.lower():
-            # args.src = 'name_official'
-        # if args.src.lower() == 'name' or args.src.lower() == 'names':
-            # args.src = 'name_short'
-        # if 'short' in args.to.lower():
-            # args.to = 'name_short'
-        # if 'official' in args.to.lower():
-            # args.to = 'name_official'
-        # if 'long' in args.to.lower():
-            # args.to = 'name_official'
-        # if args.to.lower() == 'name' or args.to.lower() == 'names':
-            # args.to = 'name_short'
-
-        # if args.src not in valid_classifications:
-            # raise TypeError('Source classifiction {} not available'.
-                            # format(args.src))
-
-    # if args.to not in valid_classifications:
-        # raise TypeError('Target classifiction {} not available'.
-                        # format(args.to))
 
     return args
 
