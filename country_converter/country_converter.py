@@ -13,6 +13,8 @@ COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
 
+
+
 def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
           country_data=COUNTRY_DATA_FILE, additional_data=None):
     """ Matches the country names given in two lists into a dictionary.
@@ -40,7 +42,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
         country list for coco.
 
     additional_data: (list of) pandas dataframes or data files (optional)
-         Additioanl data to include for a specific analysis.
+         Additional data to include for a specific analysis.
          This must be given in the same format as specified in the
          country_data_file. (utf-8 encoded tab separated data, same
          column headers in all files)
@@ -345,6 +347,7 @@ class CountryConverter():
         if to is None:
             to = 'ISO3'
 
+        to = self._validate_input_para(to, self.data) 
         # easier indexing for pandas later one - not for getting a
         # list of different conversions!
         if type(to) is str:
@@ -369,7 +372,7 @@ class CountryConverter():
                     else:
                         src_format = 'regex'
             else:
-                src_format = src
+                src_format = self._validate_input_para(src)
 
             if src_format.lower() == 'regex':
                 result_list = []
@@ -528,6 +531,43 @@ class CountryConverter():
         """ Valid strings for the converter """
         return list(self.data.columns)
 
+    def _validate_input_para(self, para, column_names):
+        """ Convert the input classificaton para to the correct df column name 
+
+        Parameters
+        ----------
+
+        para : string
+        column_names : list of strings
+
+        Returns
+        -------
+
+        validated_para : string
+            Converted to the case used in the country file
+        """
+        lower_case_valid_class = [et.lower() for et in self.valid_class] 
+
+        alt_valid_names = {
+            'name_short': ['short', 'short_name', 'name', 'names' ],
+            'name_official': ['official', 'long_name', 'long'],
+            'UNcode': ['un', 'unnumeric'],
+            'ISOnumeric': ['isocode'],
+            }
+
+        for item in alt_valid_names.items():
+            if para.lower() in item[1]:
+                para = item[0]
+
+        try:
+            validated_para = self.valid_class[
+                lower_case_valid_class.index(para.lower())]
+        except ValueError:
+            raise KeyError(
+                '{} is not a valid country classification'.format(para))
+
+        return validated_para
+        
 
 def _parse_arg(valid_classifications):
     """ Command line parser for coco
@@ -577,31 +617,31 @@ def _parse_arg(valid_classifications):
     args.to = args.to or 'ISO3'
     args.output_sep = args.output_sep or ' '
 
-    if args.src:
-        if 'short' in args.src.lower():
-            args.src = 'name_short'
-        if 'official' in args.src.lower():
-            args.src = 'name_official'
-        if 'long' in args.src.lower():
-            args.src = 'name_official'
-        if args.src.lower() == 'name' or args.src.lower() == 'names':
-            args.src = 'name_short'
-        if 'short' in args.to.lower():
-            args.to = 'name_short'
-        if 'official' in args.to.lower():
-            args.to = 'name_official'
-        if 'long' in args.to.lower():
-            args.to = 'name_official'
-        if args.to.lower() == 'name' or args.to.lower() == 'names':
-            args.to = 'name_short'
+    # if args.src:
+        # if 'short' in args.src.lower():
+            # args.src = 'name_short'
+        # if 'official' in args.src.lower():
+            # args.src = 'name_official'
+        # if 'long' in args.src.lower():
+            # args.src = 'name_official'
+        # if args.src.lower() == 'name' or args.src.lower() == 'names':
+            # args.src = 'name_short'
+        # if 'short' in args.to.lower():
+            # args.to = 'name_short'
+        # if 'official' in args.to.lower():
+            # args.to = 'name_official'
+        # if 'long' in args.to.lower():
+            # args.to = 'name_official'
+        # if args.to.lower() == 'name' or args.to.lower() == 'names':
+            # args.to = 'name_short'
 
-        if args.src not in valid_classifications:
-            raise TypeError('Source classifiction {} not available'.
-                            format(args.src))
+        # if args.src not in valid_classifications:
+            # raise TypeError('Source classifiction {} not available'.
+                            # format(args.src))
 
-    if args.to not in valid_classifications:
-        raise TypeError('Target classifiction {} not available'.
-                        format(args.to))
+    # if args.to not in valid_classifications:
+        # raise TypeError('Target classifiction {} not available'.
+                        # format(args.to))
 
     return args
 
