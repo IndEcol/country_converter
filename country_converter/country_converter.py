@@ -13,8 +13,6 @@ COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
 
-
-
 def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
           country_data=COUNTRY_DATA_FILE, additional_data=None):
     """ Matches the country names given in two lists into a dictionary.
@@ -281,7 +279,7 @@ class CountryConverter():
         self.regexes = [re.compile(entry, re.IGNORECASE)
                         for entry in self.data.regex]
 
-    def convert(self, names, src=None, to=None, enforce_list=False,
+    def convert(self, names, src=None, to='ISO3', enforce_list=False,
                 not_found='not found',
                 exclude_prefix=['excl\\w.*', 'without', 'w/o']):
         """ Convert names from a list to another list.
@@ -302,8 +300,8 @@ class CountryConverter():
             to 'to' classification
 
         src : str, optional
-            Source classification. If None (default), each passed name is 
-            checked if it is a number (assuming UNnumeric) or 2 (ISO2) or 
+            Source classification. If None (default), each passed name is
+            checked if it is a number (assuming UNnumeric) or 2 (ISO2) or
             3 (ISO3) characters long; for longer names 'regex' is assumed.
 
         to : str, optional
@@ -332,26 +330,18 @@ class CountryConverter():
         list or str, depending on enforce_list
 
         """
-        # The list to tuple conversion is necessary for a convenient matlab
-        # interface
-        if isinstance(names, tuple) or isinstance(names, set):
-            names = list(names)
+        # The list to tuple conversion is necessary for matlab interface
+        names = list(names) if (
+                isinstance(names, tuple) or
+                isinstance(names, set)) else names
 
-        if not isinstance(names, list):
-            names = [names]
+        names = names if isinstance(names, list) else [names]
 
         names = [str(n) for n in names]
 
         outlist = names.copy()
 
-        if to is None:
-            to = 'ISO3'
-
-        to = self._validate_input_para(to, self.data) 
-        # easier indexing for pandas later one - not for getting a
-        # list of different conversions!
-        if type(to) is str:
-            to = [to]
+        to = [self._validate_input_para(to, self.data.columns)]
 
         exclude_split = {name: self._separate_exclude_cases(name,
                                                             exclude_prefix)
@@ -361,18 +351,9 @@ class CountryConverter():
             spec_name = exclude_split[current_name]['clean_name']
 
             if src is None:
-                try:
-                    int(spec_name)
-                    src_format = 'ISOnumeric'
-                except ValueError:
-                    if len(spec_name) == 2:
-                        src_format = 'ISO2'
-                    elif len(spec_name) == 3:
-                        src_format = 'ISO3'
-                    else:
-                        src_format = 'regex'
+                src_format = self._get_input_format_from_name(spec_name)
             else:
-                src_format = self._validate_input_para(src)
+                src_format = self._validate_input_para(src, self.data.columns)
 
             if src_format.lower() == 'regex':
                 result_list = []
@@ -380,44 +361,32 @@ class CountryConverter():
                     if ccregex.search(spec_name):
                         result_list.append(
                             self.data.ix[ind_regex, to].values[0])
-                if len(result_list) == 0:
-                    logging.warning('{} does not match any '
-                                    'regular expression'.format(current_name))
-                    _fillin = not_found or spec_name
-                    outlist[ind_names] = [_fillin] if enforce_list else _fillin
-
-                else:
                     if len(result_list) > 1:
                         logging.warning('More then one regular expression '
                                         'match for {}'.format(spec_name))
-                        outlist[ind_names] = result_list
-                    else:
-                        outlist[ind_names] = (result_list if enforce_list 
-                            else result_list[0])
 
             else:
                 _match_col = self.data[src_format].astype(
                     str).str.replace('\\..*', '')
 
-                found = self.data[_match_col.str.contains(
-                    '^' + spec_name + '$', flags=re.IGNORECASE, na=False)][to]
+                result_list = [int(etr[0]) if (isinstance(etr[0], float) and
+                                               not pd.np.nan)
+                               else etr[0]
+                               for etr in self.data[_match_col.str.contains(
+                                    '^' + spec_name + '$', flags=re.IGNORECASE,
+                                    na=False)][to].values]
 
-                if len(found) == 0:
-                    logging.warning(
-                        '{} not found in {}'.format(spec_name, src_format))
-                    _fillin = not_found or spec_name
-                    listentry = [_fillin] if enforce_list else _fillin
+            if len(result_list) == 0:
+                logging.warning(
+                    '{} not found in {}'.format(spec_name, src_format))
+                _fillin = not_found or spec_name
+                outlist[ind_names] = [_fillin] if enforce_list else _fillin
+            else:
+                if len(result_list) == 1 and enforce_list is False:
+                    outlist[ind_names] = result_list[0]
                 else:
-                    listentry = [
-                        int(etr[0]) if (isinstance(etr[0], float) 
-                                        and not pd.np.nan)
-                        else etr[0] for etr in found[to].values]
-                    if len(listentry) == 1 and enforce_list is False:
-                        listentry = listentry[0]
+                    outlist[ind_names] = result_list
 
-                outlist[ind_names] = listentry
-        # TODO KST continue: clean up the code above, float test must also happen in the regex outlist abobve,
-        # should be one place for both
         if (len(outlist) == 1) and not enforce_list:
             return outlist[0]
         else:
@@ -533,7 +502,7 @@ class CountryConverter():
         return list(self.data.columns)
 
     def _validate_input_para(self, para, column_names):
-        """ Convert the input classificaton para to the correct df column name 
+        """ Convert the input classificaton para to the correct df column name
 
         Parameters
         ----------
@@ -547,10 +516,10 @@ class CountryConverter():
         validated_para : string
             Converted to the case used in the country file
         """
-        lower_case_valid_class = [et.lower() for et in self.valid_class] 
+        lower_case_valid_class = [et.lower() for et in self.valid_class]
 
         alt_valid_names = {
-            'name_short': ['short', 'short_name', 'name', 'names' ],
+            'name_short': ['short', 'short_name', 'name', 'names'],
             'name_official': ['official', 'long_name', 'long'],
             'UNcode': ['un', 'unnumeric'],
             'ISOnumeric': ['isocode'],
@@ -568,7 +537,32 @@ class CountryConverter():
                 '{} is not a valid country classification'.format(para))
 
         return validated_para
-        
+
+    def _get_input_format_from_name(self, name):
+        """ Determines the input format based on the given country name
+
+        Parameters
+        ----------
+
+        name : string
+
+        Returns
+        -------
+
+        string : valid input format
+        """
+        try:
+            int(name)
+            src_format = 'ISOnumeric'
+        except ValueError:
+            if len(name) == 2:
+                src_format = 'ISO2'
+            elif len(name) == 3:
+                src_format = 'ISO3'
+            else:
+                src_format = 'regex'
+        return src_format
+
 
 def _parse_arg(valid_classifications):
     """ Command line parser for coco
@@ -605,7 +599,8 @@ def _parse_arg(valid_classifications):
 
     parser.add_argument(
         '-s', '--src', '--source', '-f', '--from',
-        help='Classification of the names given, (default: inferred from names)')
+        help=('Classification of the names given, '
+              '(default: inferred from names)'))
     parser.add_argument(
         '-t', '--to',
         help='Required classification of the passed names (default: "ISO3"')
