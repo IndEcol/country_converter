@@ -369,10 +369,8 @@ class CountryConverter():
                 _match_col = self.data[src_format].astype(
                     str).str.replace('\\..*', '')
 
-                result_list = [int(etr[0]) if (isinstance(etr[0], float) and
-                                               not pd.np.nan)
-                               else etr[0]
-                               for etr in self.data[_match_col.str.contains(
+                result_list = [etr[0] for etr in
+                               self.data[_match_col.str.contains(
                                     '^' + spec_name + '$', flags=re.IGNORECASE,
                                     na=False)][to].values]
 
@@ -382,10 +380,16 @@ class CountryConverter():
                 _fillin = not_found or spec_name
                 outlist[ind_names] = [_fillin] if enforce_list else _fillin
             else:
-                if len(result_list) == 1 and enforce_list is False:
-                    outlist[ind_names] = result_list[0]
-                else:
-                    outlist[ind_names] = result_list
+                outlist[ind_names] = []
+                for etr in result_list:
+                    try:
+                        conv_etr = int(etr)
+                    except ValueError:
+                        conv_etr = etr
+                    outlist[ind_names].append(conv_etr)
+
+                if len(outlist[ind_names]) == 1 and enforce_list is False:
+                    outlist[ind_names] = outlist[ind_names][0]
 
         if (len(outlist) == 1) and not enforce_list:
             return outlist[0]
@@ -624,11 +628,12 @@ def main():
     converted_names = coco.convert(
         names=args.names,
         src=args.src,
-        to=args.to)
-    if isinstance(converted_names, str) or isinstance(converted_names, int):
-        converted_names = [converted_names]
+        to=args.to,
+        enforce_list=False)
 
-    print(args.output_sep.join(converted_names))
+    print(args.output_sep.join(
+        [str(etr) for etr in converted_names] if
+        isinstance(converted_names, list) else [str(converted_names)]))
 
 
 if __name__ == "__main__":
