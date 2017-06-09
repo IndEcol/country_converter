@@ -588,6 +588,8 @@ def _parse_arg(valid_classifications):
                      'converting country names between '
                      'different classifications schemes. '
                      'Version: {}'.format('0.2')
+# TODO automatic version number add in here
+# TODO include file for cli with additional classifiction
                      ), prog='coco', usage=('%(prog)s --names --src --to]'))
 
     parser.add_argument(
