@@ -8,6 +8,7 @@ import logging
 import os
 import re
 import pandas as pd
+import version as coco_version
 
 COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
@@ -316,7 +317,7 @@ class CountryConverter():
             matching, list otherwise).
 
         not_found : str, optional
-            Fill in value for not found entries. If None, keep the input value
+            Fill in value for none found entries. If None, keep the input value
             (default: 'not found')
 
         exclude_prefix : list of valid regex strings
@@ -587,36 +588,37 @@ def _parse_arg(valid_classifications):
         description=('The country converter (coco): a Python package for '
                      'converting country names between '
                      'different classifications schemes. '
-                     'Version: {}'.format('0.2')
-# TODO automatic version number add in here
+                     'Version: {}'.format(coco_version.__version__)
 # TODO include file for cli with additional classifiction
                      ), prog='coco', usage=('%(prog)s --names --src --to]'))
 
-    parser.add_argument(
-        'names',
-        help=('List of countries to convert '
-              '(space separated, country names consisting of '
-              'multiple words must be put in quoation marks). '
-              'Possible classifications: ' +
-              ', '.join(valid_classifications) +
-              '; NB: long, official and short are provided as shortcuts '
-              'for the names classifications'
-              ), nargs='*')
-
-    parser.add_argument(
-        '-s', '--src', '--source', '-f', '--from',
-        help=('Classification of the names given, '
-              '(default: inferred from names)'))
-    parser.add_argument(
-        '-t', '--to',
-        help='Required classification of the passed names (default: "ISO3"')
+    parser.add_argument('names',
+                        help=('List of countries to convert '
+                              '(space separated, country names consisting of '
+                              'multiple words must be put in quoation marks). '
+                              'Possible classifications: ' +
+                              ', '.join(valid_classifications) +
+                              '; NB: long, official and short are provided ' 
+                              'as shortcuts for the names classifications'
+                              ), nargs='*')
+    parser.add_argument('-s', '--src', '--source', '-f', '--from',
+                        help=('Classification of the names given, '
+                        '(default: inferred from names)'))
+    parser.add_argument('-t', '--to',
+                        help=('Required classification of the passed names'
+                              '(default: "ISO3"'))
     parser.add_argument('-o', '--output_sep',
                         help=('Seperator for output names '
                               '(default: space), e.g. "," '))
+    parser.add_argument('-n', '--not_found',
+                        help=('Fill in value for none found entries. ' 
+                               'If "None" (string), keep the input value '
+                               '(default: not found)'))
 
     args = parser.parse_args()
     args.src = args.src or None
     args.to = args.to or 'ISO3'
+    args.not_found = args.not_found if args.not_found != 'None' else None
     args.output_sep = args.output_sep or ' '
 
     return args
@@ -631,7 +633,8 @@ def main():
         names=args.names,
         src=args.src,
         to=args.to,
-        enforce_list=False)
+        enforce_list=False,
+        not_found=args.not_found)
 
     print(args.output_sep.join(
         [str(etr) for etr in converted_names] if
