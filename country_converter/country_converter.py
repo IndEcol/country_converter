@@ -8,7 +8,7 @@ import logging
 import os
 import re
 import pandas as pd
-import version as coco_version
+from country_converter.version import __version__
 
 COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
@@ -158,10 +158,10 @@ def convert(*args, **kargs):
         country list for coco.
 
     additional_data: (list of) pandas dataframes or data files (optional)
-         Additioanl data to include for a specific analysis.
+         Additional data to include for a specific analysis.
          This must be given in the same format as specified in the
          country_data_file. (utf-8 encoded tab separated data, same
-         column headers in all files)
+         column headers as in the general country data file)
 
     Returns
     -------
@@ -325,6 +325,7 @@ class CountryConverter():
             These prefixes and everything following will not be converted.
             E.g. 'Asia excluding China' becomes 'Asia' and
             'China excluding Hong Kong' becomes 'China' prior to conversion
+            Default: ['excl\\w.*', 'without', 'w/o'])
 
         Returns
         -------
@@ -588,8 +589,7 @@ def _parse_arg(valid_classifications):
         description=('The country converter (coco): a Python package for '
                      'converting country names between '
                      'different classifications schemes. '
-                     'Version: {}'.format(coco_version.__version__)
-# TODO include file for cli with additional classifiction
+                     'Version: {}'.format(__version__)
                      ), prog='coco', usage=('%(prog)s --names --src --to]'))
 
     parser.add_argument('names',
@@ -598,12 +598,12 @@ def _parse_arg(valid_classifications):
                               'multiple words must be put in quoation marks). '
                               'Possible classifications: ' +
                               ', '.join(valid_classifications) +
-                              '; NB: long, official and short are provided ' 
+                              '; NB: long, official and short are provided '
                               'as shortcuts for the names classifications'
                               ), nargs='*')
     parser.add_argument('-s', '--src', '--source', '-f', '--from',
                         help=('Classification of the names given, '
-                        '(default: inferred from names)'))
+                              '(default: inferred from names)'))
     parser.add_argument('-t', '--to',
                         help=('Required classification of the passed names'
                               '(default: "ISO3"'))
@@ -611,9 +611,16 @@ def _parse_arg(valid_classifications):
                         help=('Seperator for output names '
                               '(default: space), e.g. "," '))
     parser.add_argument('-n', '--not_found',
-                        help=('Fill in value for none found entries. ' 
-                               'If "None" (string), keep the input value '
-                               '(default: not found)'))
+                        default='not found',
+                        help=('Fill in value for none found entries. '
+                              'If "None" (string), keep the input value '
+                              '(default: not found)'))
+    parser.add_argument('-a', '--additional_data',
+                        help=('Data file with additional country data'
+                              '(Same format as the original data file - '
+                              'utf-8 encoded tab separated data, same '
+                              'column headers as in the general country '
+                              'data file; default: not found)'))
 
     args = parser.parse_args()
     args.src = args.src or None
@@ -627,8 +634,8 @@ def _parse_arg(valid_classifications):
 def main():
     """ Main entry point - used for command line call
     """
-    coco = CountryConverter()
-    args = _parse_arg(coco.valid_class)
+    args = _parse_arg(CountryConverter().valid_class)
+    coco = CountryConverter(additional_data=args.additional_data)
     converted_names = coco.convert(
         names=args.names,
         src=args.src,
