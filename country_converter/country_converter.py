@@ -212,7 +212,7 @@ class CountryConverter():
         dict with
             'clean_name' : str
                 as name without anything following exclude_prefix
-            'excluded_countries'
+            'excluded_countries' : list
                 list of excluded countries
 
         """
