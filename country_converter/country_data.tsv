@@ -33,7 +33,7 @@ Bouvet Island	Bouvet Island	bouvet	BV	BVT	74		Antarctica		WW	WA	WA	ROW
 Brazil	Federative Republic of Brazil	brazil	BR	BRA	76	76	America	South America	BR	BR	BR	Bra				1945
 British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1			Antarctica		WW	WA	WA	ROW				
 British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	Asia		WW	WA	WA	ROW				
-Brunei Darussalam	Nation of Brunei, Abode of Peace                     	brunei	BN	BRN	96	96	Asia	South-Eastern Asia	WW	WA	WA	ROW				1984
+Brunei Darussalam	Nation of Brunei, Abode of Peace	brunei	BN	BRN	96	96	Asia	South-Eastern Asia	WW	WA	WA	ROW				1984
 Bulgaria	Republic of Bulgaria	bulgaria	BG	BGR	100	100	Europe	Eastern Europe	BG	BG	BG	Bgr		2007		1955
 Burkina Faso	Burkina Faso	burkina|\bfaso|upper.?volta	BF	BFA	854	854	Africa	Western Africa	WW	WF	WF	ROW				1960
 Burundi	Republic of Burundi	burundi	BI	BDI	108	108	Africa	Eastern Africa	WW	WF	WF	ROW				1962
@@ -180,7 +180,7 @@ Portugal	Portuguese Republic	portugal|portuguese	PT	PRT	620	620	Europe	Southern 
 Puerto Rico	Puerto Rico	puerto.?rico	PR	PRI	630	630	America	Caribbean	WW	WL	WL	ROW				
 Qatar	State of Qatar	qatar	QA	QAT	634	634	Asia	Western Asia	WW	WM	WM	ROW				1971
 Reunion	Reunion	reunion|réunion	RE	REU	638	638	Africa	Eastern Africa	WW	WF	WF	ROW				
-Romania	Romania	r(o|u|ou)mania	RO	ROM	642	642	Europe	Eastern Europe	RO	RO	RO	Rou		2007		1955
+Romania	Romania	r(o|u|ou)mania	RO	ROU	642	642	Europe	Eastern Europe	RO	RO	RO	Rou		2007		1955
 Russia	Russian Federation	\brussia	RU	RUS	643	643	Europe	Eastern Europe	RU	RU	RU	Rus				1945
 Rwanda	Republic of Rwanda	rwanda	RW	RWA	646	646	Africa	Eastern Africa	WW	WF	WF	ROW				1962
 Samoa	Independent State of Samoa	^(?!.*amer.*)samoa|(\bindep.*samoa)	WS	WSM	882	882	Oceania	Polynesia	WW	WA	WA	ROW				1976
