@@ -143,15 +143,21 @@ Minimal example:
 Converts the given names to ISO3 codes based on regular expression matching.
 The list of names must be separated by spaces, country names consisting of multiple words must be put in quotes ('').
 
-The input classification can be specified with '--src' or '-s', the target classification with '--to' or '-t'.
+The input classification can be specified with '--src' or '-s' (or will be determined automatically), the target classification with '--to' or '-t'.
 
-The default output is a space separated list, this can be changed by passing a separator by '--output_sep' or '-o'.
+The default output is a space separated list, this can be changed by passing a separator by '--output_sep' or '-o' (e.g -o '|').
 
 Thus, to convert from ISO3 to UN number codes and receive the output as comma separated list use:
 
 ::
 
     coco AUT DEU VAT AUS -s ISO3 -t UNcode -o ', '
+    
+The command line tool also allows to specify the output for none found entries, including passing them through to the output by passing None:
+
+::
+    
+    coco CAN Peru US Mexico Venezuela UK Arendelle --not_found=None
     
 
 For further information call the help by

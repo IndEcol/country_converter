@@ -169,12 +169,7 @@ def convert(*args, **kargs):
 
     """
     init = {'country_data': COUNTRY_DATA_FILE, 'additional_data': None}
-    for ent in init.keys():
-        try:
-            init[ent] = kargs[ent]
-            del kargs[ent]
-        except KeyError:
-            pass
+    init.update({kk: kargs.get(kk) for kk in init.keys() if kk in kargs})
     coco = CountryConverter(**init)
     return coco.convert(*args, **kargs)
 
