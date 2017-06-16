@@ -2,3 +2,5 @@ name_short	name_official	regex	ISO2	ISO3	ISOnumeric	UNcode	continent	UNregion	EX
 Wirtland	Wirtland	wirtland|virtlando					
 DR Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^the\ congo$|^RDC$|^DROC$|^congo$	CD	COD	180	180	Africa	Middle Africa	WW	WF	WF	ROW				1960
 Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo.+republic$|^congo.+rep\.$|\bcongo.*brazza.*	CG	COG	178	178	Africa	Middle Africa	WW	WF	WF	ROW		
+Romania	Romania	r(o|u|ou)mania	RO	ROM	642	642	Europe	Eastern Europe	RO	RO	RO	Rou		2007		1955
+
