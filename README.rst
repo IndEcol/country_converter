@@ -13,7 +13,7 @@ Country_converter is registered at PyPI. From the command line:
 
 ::
 
-    pip install country_converter
+    pip install country_converter --upgrade
 
 Alternatively, the source code is available on github_.
 
@@ -65,11 +65,22 @@ Convert between classification schemes:
 
 ::
 
-    iso3_codes = ['USA', 'VUT', 'TKL', 'AUT' ]
+    iso3_codes = ['USA', 'VUT', 'TKL', 'AUT', 'XXX' ]
     iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2')
     print(iso2_codes)
 
-Which results in ['US', 'VU', 'TK', 'AT']
+Which results in ['US', 'VU', 'TK', 'AT', 'not found']
+
+The not found indication can be specified (e.g. not_found = 'not there'),
+if None is passed for 'not_found', the original entry gets passed through:
+
+::
+
+    iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2', not_found=None)
+    print(iso2_codes)
+
+results in ['US', 'VU', 'TK', 'AT', 'XXX']
+
 
 Internally the data is stored in a pandas dataframe, which can be accessed directly. 
 For example, this can be used to filter countries for membership organisations (per year). 
@@ -132,9 +143,9 @@ Minimal example:
 Converts the given names to ISO3 codes based on regular expression matching.
 The list of names must be separated by spaces, country names consisting of multiple words must be put in quotes ('').
 
-The input classification can be specified with '--src' or '-s', the target classification with '--to' or '-t'.
+The input classification can be specified with '--src' or '-s' (or will be determined automatically), the target classification with '--to' or '-t'.
 
-The default output is a space separated list, this can be changed by passing a separator by '--output_sep' or '-o'.
+The default output is a space separated list, this can be changed by passing a separator by '--output_sep' or '-o' (e.g -o '|').
 
 Thus, to convert from ISO3 to UN number codes and receive the output as comma separated list use:
 
@@ -142,6 +153,19 @@ Thus, to convert from ISO3 to UN number codes and receive the output as comma se
 
     coco AUT DEU VAT AUS -s ISO3 -t UNcode -o ', '
     
+The command line tool also allows to specify the output for none found entries, including passing them through to the output by passing None:
+
+::
+    
+    coco CAN Peru US Mexico Venezuela UK Arendelle --not_found=None
+    
+and to specifiy an additional data file which will overwrite existing country matchings
+
+::
+
+    coco Congo --additional_data path/to/datafile.csv
+
+See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile. 
 
 For further information call the help by
 
@@ -168,7 +192,7 @@ If this works, you can also use coco after installing it through pip
 
 ::
     
-    pip install country_converter
+    pip install country_converter --upgrade
     
 And in matlab:
 
@@ -186,6 +210,7 @@ Alternativley, as a long oneliner:
 
     short_names = cellfun(@char, cell(py.country_converter.convert({56, 276}, pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
 
+
 All properties of coco as explained above are also available in matlab:    
 
 ::
@@ -202,6 +227,11 @@ The underlying values can be access with .values (e.g.
     EU27ISO3.values
 
 I leave it to professional matlab users to figure out how to further process them.
+
+See also IPython Notebook (country_converter_examples.ipynb_) for more
+information - all functions available in python (for example passing additional
+data files, specifying the output in case of missing data) work also in matlab
+by passing arguments through the pyargs function.
     
 
 Refining and Extending
