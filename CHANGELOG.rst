@@ -2,7 +2,7 @@ Change Log
 ===========
 
 
-0.4.0 - 20170508
+0.4.0 - 20170622
 ----------------
 
 Changed
@@ -16,6 +16,7 @@ Changed
     * Automatically detect input format (ISO2, ISO3, ISOnumeric)
     * Change ISO3 for Romania from ROM to ROU (bugfix)
     * Change ISO3 for Congo from COD to COG (bugfix)
+    * Updated readme and ipyhton notebook tutorial
 
 
 pre 0.4.0 - before 20170501
