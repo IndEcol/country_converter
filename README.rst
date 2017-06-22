@@ -13,7 +13,7 @@ Country_converter is registered at PyPI. From the command line:
 
 ::
 
-    pip install country_converter
+    pip install country_converter --upgrade
 
 Alternatively, the source code is available on github_.
 
@@ -159,6 +159,13 @@ The command line tool also allows to specify the output for none found entries, 
     
     coco CAN Peru US Mexico Venezuela UK Arendelle --not_found=None
     
+and to specifiy an additional data file which will overwrite existing country matchings
+
+::
+
+    coco Congo --additional_data path/to/datafile.csv
+
+See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile. 
 
 For further information call the help by
 
@@ -185,7 +192,7 @@ If this works, you can also use coco after installing it through pip
 
 ::
     
-    pip install country_converter
+    pip install country_converter --upgrade
     
 And in matlab:
 
@@ -203,6 +210,7 @@ Alternativley, as a long oneliner:
 
     short_names = cellfun(@char, cell(py.country_converter.convert({56, 276}, pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
 
+
 All properties of coco as explained above are also available in matlab:    
 
 ::
@@ -219,6 +227,11 @@ The underlying values can be access with .values (e.g.
     EU27ISO3.values
 
 I leave it to professional matlab users to figure out how to further process them.
+
+See also IPython Notebook (country_converter_examples.ipynb_) for more
+information - all functions available in python (for example passing additional
+data files, specifying the output in case of missing data) work also in matlab
+by passing arguments through the pyargs function.
     
 
 Refining and Extending
