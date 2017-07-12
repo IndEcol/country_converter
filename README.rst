@@ -237,7 +237,7 @@ by passing arguments through the pyargs function.
 Refining and Extending
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The underlying raw data is a tab-separated file (country_data.txt) which is read into a pandas dataframe (available as attribute .data in the main class).
+The underlying raw data is a tab-separated file (country_data.tsv) which is read into a pandas dataframe (available as attribute .data in the main class).
 Any column added to this dataframe can be used for all conversions. The datafile is utf-8 encoded.
 
 The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the py.test_ package). 
@@ -287,6 +287,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _EU: http://europa.eu/about-eu/countries/index_en.htm
 .. _EXIOBASE: http://exiobase.eu/ 
 .. _WIOD: http://www.wiod.org/new_site/home.htm 
+
 
 Acknowledgements
 ----------------
