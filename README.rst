@@ -23,7 +23,7 @@ The package depends on pandas_; for testing py.test_ is required.
 
 .. _pandas: http://pandas.pydata.org/
 
-.. _py.test: http://pytest.org/ 
+.. _py.test: http://pytest.org/
 
 Usage
 -----
@@ -36,7 +36,7 @@ Use within python
 
 Convert various country names to some standard names:
 
-::
+.. code:: python
 
     import country_converter as coco
     some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
@@ -48,22 +48,22 @@ Which results in ['Tanzania', 'Cabo Verde', 'Myanmar', 'Iran', 'South Korea', 'N
 In case of multiple conversion, better performance can be achieved by
 instantiating a single CountryConverter object for all conversions:
 
-::
+.. code:: python
 
     import country_converter as coco
     cc = coco.CountryConverter()
 
     some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
 
-    standard_names = cc.convert(names = some_names, src = 'regex', to = 'name_short') 
-    UNmembership = cc.convert(names = some_names, src = 'regex', to = 'UNmember') 
+    standard_names = cc.convert(names = some_names, src = 'regex', to = 'name_short')
+    UNmembership = cc.convert(names = some_names, src = 'regex', to = 'UNmember')
     print(standard_names)
     print(UNmembership)
 
 
 Convert between classification schemes:
 
-::
+.. code:: python
 
     iso3_codes = ['USA', 'VUT', 'TKL', 'AUT', 'XXX' ]
     iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2')
@@ -74,7 +74,7 @@ Which results in ['US', 'VU', 'TK', 'AT', 'not found']
 The not found indication can be specified (e.g. not_found = 'not there'),
 if None is passed for 'not_found', the original entry gets passed through:
 
-::
+.. code:: python
 
     iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2', not_found=None)
     print(iso2_codes)
@@ -82,11 +82,11 @@ if None is passed for 'not_found', the original entry gets passed through:
 results in ['US', 'VU', 'TK', 'AT', 'XXX']
 
 
-Internally the data is stored in a pandas dataframe, which can be accessed directly. 
-For example, this can be used to filter countries for membership organisations (per year). 
+Internally the data is stored in a pandas dataframe, which can be accessed directly.
+For example, this can be used to filter countries for membership organisations (per year).
 Note: for this, an instance of CountryConverter is required.
 
-::
+.. code:: python
 
     import country_converter as coco
     cc = coco.CountryConverter()
@@ -100,7 +100,7 @@ Note: for this, an instance of CountryConverter is required.
 
 Some properties provide direct access to affiliations:
 
-::
+.. code:: python
 
     cc.EU28
     cc.OECD
@@ -109,14 +109,14 @@ Some properties provide direct access to affiliations:
 
 and the classification schemes available:
 
-::
+.. code:: python
 
     cc.valid_class
 
 
-The regular expressions can also be used to match any list of countries to any other. For example: 
+The regular expressions can also be used to match any list of countries to any other. For example:
 
-::
+.. code:: python
 
     match_these = ['norway', 'united_states', 'china', 'taiwan']
     master_list = ['USA', 'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China' ]
@@ -128,7 +128,7 @@ See the IPython Notebook (country_converter_examples.ipynb_) for more informatio
 
 .. _country_converter_examples.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_examples.ipynb
 
-Command line usage    
+Command line usage
 """"""""""""""""""""""
 
 The country converter package also provides a command line interface
@@ -136,9 +136,9 @@ called coco.
 
 Minimal example:
 
-:: 
-    
-    coco Cyprus Denmark Estonia 'United Kingdom' 
+::
+
+    coco Cyprus Denmark Estonia 'United Kingdom'
 
 Converts the given names to ISO3 codes based on regular expression matching.
 The list of names must be separated by spaces, country names consisting of multiple words must be put in quotes ('').
@@ -152,20 +152,20 @@ Thus, to convert from ISO3 to UN number codes and receive the output as comma se
 ::
 
     coco AUT DEU VAT AUS -s ISO3 -t UNcode -o ', '
-    
+
 The command line tool also allows to specify the output for none found entries, including passing them through to the output by passing None:
 
 ::
-    
+
     coco CAN Peru US Mexico Venezuela UK Arendelle --not_found=None
-    
+
 and to specifiy an additional data file which will overwrite existing country matchings
 
 ::
 
     coco Congo --additional_data path/to/datafile.csv
 
-See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile. 
+See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile.
 
 For further information call the help by
 
@@ -183,46 +183,46 @@ sytem path (e.g. through Anaconda).
 
 To test, try this in matlab:
 
-::
-    
+.. code:: matlab
+
     py.print(py.sys.version)
-    
-If this works, you can also use coco after installing it through pip 
+
+If this works, you can also use coco after installing it through pip
 (at the windows commandline - see the installing instruction above):
 
-::
-    
+.. code:: matlab
+
     pip install country_converter --upgrade
-    
+
 And in matlab:
 
-::
+.. code:: matlab
 
     coco = py.country_converter.CountryConverter()
     countries = {'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China'};
     ISO2_pythontype = coco.convert(countries, pyargs('to', 'ISO2'));
     ISO2_cellarray = cellfun(@char,cell(ISO2_pythontype),'UniformOutput',false);
-    
+
 
 Alternativley, as a long oneliner:
-   
-::
+
+.. code:: matlab
 
     short_names = cellfun(@char, cell(py.country_converter.convert({56, 276}, pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
 
 
-All properties of coco as explained above are also available in matlab:    
+All properties of coco as explained above are also available in matlab:
 
-::
-    
+.. code:: matlab
+
     coco = py.country_converter.CountryConverter();
     coco.EU27
     EU27ISO3 = coco.EU27in('ISO3');
 
-These functions return a pandas DataFrame. 
-The underlying values can be access with .values (e.g. 
+These functions return a pandas DataFrame.
+The underlying values can be access with .values (e.g.
 
-::
+.. code:: matlab
 
     EU27ISO3.values
 
@@ -232,7 +232,7 @@ See also IPython Notebook (country_converter_examples.ipynb_) for more
 information - all functions available in python (for example passing additional
 data files, specifying the output in case of missing data) work also in matlab
 by passing arguments through the pyargs function.
-    
+
 
 Refining and Extending
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -240,9 +240,9 @@ Refining and Extending
 The underlying raw data is a tab-separated file (country_data.tsv) which is read into a pandas dataframe (available as attribute .data in the main class).
 Any column added to this dataframe can be used for all conversions. The datafile is utf-8 encoded.
 
-The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the py.test_ package). 
+The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the py.test_ package).
 
-These tests check 
+These tests check
 
 #) Do the short names uniquely match the regular expression?
 #) Do the official name uniquely match the regular expression?
@@ -279,14 +279,14 @@ Most of the underlying data can be found in Wikipedia.
 https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
 UN regions/codes are given on the United Nation Statistical Division (unstats_) web-page.
 EXIOBASE_ and WIOD_ classification were extracted from the respective databases.
-The membership of OECD_, UN_ and EU_ can be found at the membership organisations webpages. 
+The membership of OECD_, UN_ and EU_ can be found at the membership organisations webpages.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
 .. _UN: http://www.un.org/en/members/
 .. _EU: http://europa.eu/about-eu/countries/index_en.htm
-.. _EXIOBASE: http://exiobase.eu/ 
-.. _WIOD: http://www.wiod.org/new_site/home.htm 
+.. _EXIOBASE: http://exiobase.eu/
+.. _WIOD: http://www.wiod.org/new_site/home.htm
 
 
 Acknowledgements
