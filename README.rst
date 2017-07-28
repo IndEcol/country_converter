@@ -15,13 +15,13 @@ Country_converter is registered at PyPI. From the command line:
 
     pip install country_converter --upgrade
 
-Alternatively, the source code is available on github_.
+Alternatively, the source code is available on GitHub_.
 
-.. _github: https://github.com/konstantinstadler/country_converter
+.. _GitHub: https://github.com/konstantinstadler/country_converter
 
-The package depends on pandas_; for testing py.test_ is required.
+The package depends on Pandas_; for testing py.test_ is required.
 
-.. _pandas: http://pandas.pydata.org/
+.. _Pandas: http://pandas.pydata.org/
 
 .. _py.test: http://pytest.org/
 
@@ -177,8 +177,8 @@ For further information call the help by
 Use in matlab
 """"""""""""""""""""""
 
-Newer (tested in 2016a) versions from Matlab allow to directly call python
-functions and libaries.  This requires a python version >= 3.4 installed in the
+Newer (tested in 2016a) versions from Matlab allow to directly call Python
+functions and libaries.  This requires a Python version >= 3.4 installed in the
 sytem path (e.g. through Anaconda).
 
 To test, try this in matlab:
@@ -226,11 +226,11 @@ The underlying values can be access with .values (e.g.
 
     EU27ISO3.values
 
-I leave it to professional matlab users to figure out how to further process them.
+I leave it to professional Matlab users to figure out how to further process them.
 
 See also IPython Notebook (country_converter_examples.ipynb_) for more
-information - all functions available in python (for example passing additional
-data files, specifying the output in case of missing data) work also in matlab
+information - all functions available in Python (for example passing additional
+data files, specifying the output in case of missing data) work also in Matlab
 by passing arguments through the pyargs function.
 
 
@@ -277,9 +277,9 @@ Data sources and further reading
 
 Most of the underlying data can be found in Wikipedia.
 https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
-UN regions/codes are given on the United Nation Statistical Division (unstats_) web-page.
+UN regions/codes are given on the United Nation Statistical Division (unstats_) webpage.
 EXIOBASE_ and WIOD_ classification were extracted from the respective databases.
-The membership of OECD_, UN_ and EU_ can be found at the membership organisations webpages.
+The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
@@ -292,7 +292,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 Acknowledgements
 ----------------
 
-This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by Vincent_ Arel-Bundock and his (defunct) port to Python (pycountrycode).
+This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by `Vincent Arel-Bundock`_ and his (defunct) port to Python (pycountrycode).
 
-.. _Vincent: http://arelbundock.com/
+.. _Vincent Arel-Bundock: http://arelbundock.com/
 .. _countrycode: https://github.com/vincentarelbundock/countrycode
