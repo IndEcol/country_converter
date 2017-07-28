@@ -1,5 +1,5 @@
 ---
-title: The country converter coco - a Python package for converting country names between different classification schemes. 
+title: The country converter coco - a Python package for converting country names between different classification schemes.
 
 tags:
   - country classifications
@@ -10,7 +10,7 @@ authors:
    orcid: 0000-0002-1548-201X
    affiliation: 1
 affiliations:
- - name: Industrial Ecology Programme, NTNU Trondheim, Norway. 
+ - name: Industrial Ecology Programme, NTNU Trondheim, Norway.
    index: 1
 date: 12 July 2017
 bibliography: paper.bib
@@ -18,7 +18,7 @@ bibliography: paper.bib
 
 # Summary
 
-Gathering the data basis for regional to globally spanning models and scenarios
+Gathering the data basis for regional to global models and scenarios
 in many scientific fields regularly requires the parsing of multiple data
 sources. In particular for data related to economic (national accounts, trade
 statistics, etc.) and environmental (climate, ecosystem descriptions, etc.)
@@ -37,11 +37,11 @@ from the various names of North Korea: "Democratic People's Republic of Korea",
 "Dem. People's Rep. of Korea", "Korea, Dem. Rep.".
 
 In a research project relying on multiple data sources, one usually decides on
-one standard name or abbreviation to be used throughout the project and than
+one standard name or abbreviation to be used throughout the project and then
 provide conversion routines for matching all encountered country names and
-abbreviations into the to this master classification.
+abbreviations into the master classification.
 
-The country converter (coco - a python3 programme) aims to automate this step by
+The country converter (coco - a Python3 programme) aims to automate this step by
 providing a fully tested conversion set between the different country
 abbreviations standards and unstandardised country names.
 
@@ -62,8 +62,8 @@ Input Output Databases EXIOBASE (@wood_global_2014) and WIOD
 (@timmer_world_2012).
 
 Coco can be used in Python and also provides a command line interface. Examples
-of how to use coco in Matlab(c) are provided in the readme. An accompanying
-ipython notebook provides some instruction for advanced usage. 
+of how to use coco in Matlab(c) are provided in the Readme. An accompanying
+IPython notebook provides some instruction for advanced usage.
 
 
 # References
