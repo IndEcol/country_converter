@@ -1,5 +1,5 @@
 ---
-title: The country converter coco - a Python package for converting country names between different classification schemes.
+title: The country converter coco - a Python package for converting country names between different classification schemes
 
 tags:
   - country classifications
