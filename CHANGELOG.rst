@@ -1,8 +1,8 @@
 Change Log
 ===========
 
-0.5.0 - 2017xxx
----------------
+0.5.0dev - 2017xxx - branch joss_review 
+----------------------------------------
 
 This is the version after the review for publication in The Journal of Open Source Software. 
 
