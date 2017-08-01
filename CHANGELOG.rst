@@ -1,6 +1,17 @@
 Change Log
 ===========
 
+0.5.0 - 2017xxx
+---------------
+
+This is the version after the review for publication in The Journal of Open Source Software. 
+
+Changed
+^^^^^^^
+
+    * Added CONTRIBUTING.rst
+
+
 
 0.4.0 - 20170622
 ----------------

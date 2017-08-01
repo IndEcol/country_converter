@@ -234,21 +234,11 @@ data files, specifying the output in case of missing data) work also in matlab
 by passing arguments through the pyargs function.
 
 
-Refining and Extending
-^^^^^^^^^^^^^^^^^^^^^^
+Communication, issues, bugs and enhancements
+--------------------------------------------
 
-The underlying raw data is a tab-separated file (country_data.tsv) which is read into a pandas dataframe (available as attribute .data in the main class).
-Any column added to this dataframe can be used for all conversions. The datafile is utf-8 encoded.
-
-The included regular expressions were tested against names commonly found in various databases. In case the expression need to be updated rerun all tests (using the py.test_ package).
-
-These tests check
-
-#) Do the short names uniquely match the regular expression?
-#) Do the official name uniquely match the regular expression?
-#) Do the alternative names tested so far still uniquely match the standard names?
-
-To specify a new test set just add a tab-separated file with headers "name_short" and "name_test" and provide name (corresponding to the short name in the main classification file) and the alternative name which should be tested (one pair per row in the file). If the file name starts with "test\_regex\_" it will be automatically recognised by the test functions.
+Please use the issue tracker for documenting bugs, proposing enhancements and all other communication related to coco.
+See CONTRIBUTING.rst if you want to help to improve coco.
 
 
 Classification schemes
