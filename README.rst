@@ -19,7 +19,8 @@ Alternatively, the source code is available on github_.
 
 .. _github: https://github.com/konstantinstadler/country_converter
 
-The package depends on pandas_; for testing py.test_ is required.
+The package depends on pandas_; for testing py.test_ is required. 
+For further information on running the tests see CONTRIBUTING.rst.
 
 .. _pandas: http://pandas.pydata.org/
 
