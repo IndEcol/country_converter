@@ -333,6 +333,9 @@ Acknowledgements
 ----------------
 
 This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by `Vincent Arel-Bundock`_ and his (defunct) port to Python (pycountrycode).
+Many thanks to `Robert Gieseke`_ for the review of the source code and paper for the publication in the `Journal of Open Source Software`_.
 
 .. _Vincent Arel-Bundock: http://arelbundock.com/
 .. _countrycode: https://github.com/vincentarelbundock/countrycode
+.. _Robert Gieseke: https://github.com/rgieseke
+.. _Journal of Open Source Software: http://joss.theoj.org/
