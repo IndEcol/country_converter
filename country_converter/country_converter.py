@@ -590,7 +590,7 @@ def _parse_arg(valid_classifications):
     parser.add_argument('names',
                         help=('List of countries to convert '
                               '(space separated, country names consisting of '
-                              'multiple words must be put in quotation marks). '
+                              'multiple words must be put in quotation marks).'
                               'Possible classifications: ' +
                               ', '.join(valid_classifications) +
                               '; NB: long, official and short are provided '
