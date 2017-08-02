@@ -41,7 +41,7 @@ Alternatively, the source code is available on GitHub_.
 .. _GitHub: https://github.com/konstantinstadler/country_converter
 
 The package depends on Pandas_; for testing py.test_ is required.
-For further information on running the tests see CONTRIBUTING.rst.
+For further information on running the tests see `CONTRIBUTING.rst`_.
 
 .. _Pandas: http://pandas.pydata.org/
 
@@ -322,7 +322,7 @@ Contributing
 ---------------
 
 Want to contribute? Great!
-Please check CONTRIBUTING.rst if you want to help to improve coco.
+Please check `CONTRIBUTING.rst`_ if you want to help to improve coco.
 
 
 Related software
@@ -348,3 +348,5 @@ Many thanks to `Robert Gieseke`_ for the review of the source code and paper for
 .. _countrycode: https://github.com/vincentarelbundock/countrycode
 .. _Robert Gieseke: https://github.com/rgieseke
 .. _Journal of Open Source Software: http://joss.theoj.org/
+
+.. _CONTRIBUTING.rst: CONTRIBUTING.rst
