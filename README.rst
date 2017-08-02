@@ -293,7 +293,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _UN: http://www.un.org/en/members/
 .. _EU: http://europa.eu/about-eu/countries/index_en.htm
 .. _EXIOBASE: http://exiobase.eu/
-.. _WIOD: http://www.wiod.org/new_site/home.htm
+.. _WIOD: http://www.wiod.org/home
 
 
    
