@@ -280,7 +280,20 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _WIOD: http://www.wiod.org/new_site/home.htm
 
 
-Acknowledgements
+Related software   
+-----------------
+   
+The package pycountry_ provides access to the official ISO databases for historic countries, country subdivisions, languages and currencies.
+In case you need to convert non-English country names, countrynames_ includes an extensive database of country names in different languages and functions to convert them to the different ISO 3166 standards. 
+Python-iso3166_ focuses on conversion between the two-letter, three-letter and three-digit codes defined in the ISO 3166 standard.
+
+If you are using R, you should have a look at countrycode_ by Vincent_.
+
+.. _pycountry: https://pypi.python.org/pypi/pycountry
+.. _Python-iso3166: https://github.com/deactivated/python-iso3166
+.. _countrynames: https://github.com/occrp/countrynames
+
+Acknowledgements 
 ----------------
 
 This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by Vincent_ Arel-Bundock and his (defunct) port to Python (pycountrycode).

@@ -10,7 +10,7 @@ Changed
 ^^^^^^^
 
     * Renamed XXin methods to XXas. For example coco.EU27in('ISO3') becomese coco.EU27as('ISO3')
-    * Some updates in README.rst
+    * Some updates in README.rst (related software)
     * Added CONTRIBUTING.rst
 
 
