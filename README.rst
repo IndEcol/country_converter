@@ -3,8 +3,15 @@ country converter
 
 The country converter (coco) is a Python package to convert country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names.
 
+.. image:: https://badge.fury.io/py/country_converter.svg
+    :target: https://badge.fury.io/py/country_converter
+.. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
+    :target: https://www.gnu.org/licenses/gpl-3.0
 .. image:: https://travis-ci.org/konstantinstadler/country_converter.svg?branch=master
     :target: https://travis-ci.org/konstantinstadler/country_converter
+
+
+.. contents:: Table of Contents
 
 Motivation             
 -----------
