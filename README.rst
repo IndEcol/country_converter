@@ -40,11 +40,13 @@ Convert various country names to some standard names:
 .. code:: python
 
     import country_converter as coco
-    some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
+    some_names = ['United Rep. of Tanzania', 'DE', 'Cape Verde', '788', 'Burma', 'COG','Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
     standard_names = coco.convert(names=some_names, to='name_short')
     print(standard_names)
 
-Which results in ['Tanzania', 'Cabo Verde', 'Myanmar', 'Iran', 'South Korea', 'North Korea'].
+Which results in ['Tanzania', 'Germany', 'Cabo Verde', 'Tunisia', 'Myanmar', 'Congo Republic', 'Iran', 'South Korea', 'North Korea'].
+The input format is determined automatically, based on ISO two letter, ISO three letter, ISO numeric or regular expression matching.
+In case of any ambiguity, the source format can be specified with the parameter 'src'.
 
 In case of multiple conversion, better performance can be achieved by
 instantiating a single CountryConverter object for all conversions:
@@ -56,8 +58,8 @@ instantiating a single CountryConverter object for all conversions:
 
     some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
 
-    standard_names = cc.convert(names = some_names, src = 'regex', to = 'name_short')
-    UNmembership = cc.convert(names = some_names, src = 'regex', to = 'UNmember')
+    standard_names = cc.convert(names = some_names, to = 'name_short')
+    UNmembership = cc.convert(names = some_names, to = 'UNmember')
     print(standard_names)
     print(UNmembership)
 
@@ -67,7 +69,7 @@ Convert between classification schemes:
 .. code:: python
 
     iso3_codes = ['USA', 'VUT', 'TKL', 'AUT', 'XXX' ]
-    iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2')
+    iso2_codes = coco.convert(names = iso3_codes, to = 'ISO2')
     print(iso2_codes)
 
 Which results in ['US', 'VU', 'TK', 'AT', 'not found']
@@ -77,7 +79,7 @@ if None is passed for 'not_found', the original entry gets passed through:
 
 .. code:: python
 
-    iso2_codes = coco.convert(names = iso3_codes, src = 'ISO3', to = 'ISO2', not_found=None)
+    iso2_codes = coco.convert(names = iso3_codes, to = 'ISO2', not_found=None)
     print(iso2_codes)
 
 results in ['US', 'VU', 'TK', 'AT', 'XXX']
@@ -139,9 +141,9 @@ Minimal example:
 
 ::
 
-    coco Cyprus Denmark Estonia 'United Kingdom'
+    coco Cyprus DE Denmark Estonia 4 'United Kingdom' AUT
 
-Converts the given names to ISO3 codes based on regular expression matching.
+Converts the given names to ISO3 codes based on matching the input to ISO2, ISO3, ISOnumeric or regular expression matching.
 The list of names must be separated by spaces, country names consisting of multiple words must be put in quotes ('').
 
 The input classification can be specified with '--src' or '-s' (or will be determined automatically), the target classification with '--to' or '-t'.
@@ -235,12 +237,6 @@ data files, specifying the output in case of missing data) work also in matlab
 by passing arguments through the pyargs function.
 
 
-Communication, issues, bugs and enhancements
---------------------------------------------
-
-Please use the issue tracker for documenting bugs, proposing enhancements and all other communication related to coco.
-See CONTRIBUTING.rst if you want to help to improve coco.
-
 
 Classification schemes
 ----------------------
@@ -262,9 +258,10 @@ Currently the following classification schemes are available:
 #) OECD membership (per year)
 #) UN membership (per year)
 #) EU membership (per year)
+   
 
 Data sources and further reading
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------
 
 Most of the underlying data can be found in Wikipedia.
 https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
@@ -279,6 +276,23 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/new_site/home.htm
 
+
+   
+Communication, issues, bugs and enhancements
+--------------------------------------------
+
+Please use the issue tracker for documenting bugs, proposing enhancements and all other communication related to coco.
+
+You can follow me on twitter_ or mastodon_ to get the latest news about all my open-source and research projects (and occasionally some random retweets).
+
+.. _twitter: https://twitter.com/kst_stadler
+.. _mastodon: https://mastodon.rocks/@kstadler
+
+Contributing   
+---------------
+
+See CONTRIBUTING.rst if you want to help to improve coco.
+  
 
 Related software   
 -----------------
