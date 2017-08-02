@@ -15,7 +15,6 @@ setup(
     version=__version__,  # noqa
     packages=['country_converter', ],
     package_data={'country_converter': ['country_data.tsv', '../LICENSE']},
-    license='GPLv3',
     entry_points={
         'console_scripts':
         ['coco = country_converter.country_converter:main']},
@@ -25,6 +24,7 @@ setup(
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
           'Programming Language :: Python :: 3 :: Only',
+          'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
           'Development Status :: 4 - Beta',
           'Environment :: Console',
           'Intended Audience :: End Users/Desktop',
