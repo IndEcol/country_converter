@@ -16,16 +16,16 @@ The country converter (coco) is a Python package to convert country names betwee
 
 .. contents:: Table of Contents
 
-Motivation             
+Motivation
 -----------
 
-To date, there is no single standard of how to name or specify individual countries in a (meta) data description. 
+To date, there is no single standard of how to name or specify individual countries in a (meta) data description.
 While some data sources follow ISO 3166, this standard defines a two and a three letter code in addition to a numerical classification.
 To further complicate the matter, instead of using one of the existing standards, many databases use unstandardised country names to classify countries.
-            
-The country converter (coco) automates the conversion from different standards and version of country names. 
-Internally, coco is based on a table specifying the different ISO and UN standards per country together with the official name and a regular expression which aim to match all English versions of a specific country name. 
-In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see `Classification schemes`_ below). 
+
+The country converter (coco) automates the conversion from different standards and version of country names.
+Internally, coco is based on a table specifying the different ISO and UN standards per country together with the official name and a regular expression which aim to match all English versions of a specific country name.
+In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see `Classification schemes`_ below).
 
 Installation
 ------------
@@ -41,7 +41,7 @@ Alternatively, the source code is available on GitHub_.
 .. _GitHub: https://github.com/konstantinstadler/country_converter
 
 The package depends on Pandas_; for testing py.test_ is required.
-For further information on running the tests see CONTRIBUTING.rst.
+For further information on running the tests see `CONTRIBUTING.rst`_.
 
 .. _Pandas: http://pandas.pydata.org/
 
@@ -53,7 +53,7 @@ Usage
 Basic usage
 ^^^^^^^^^^^
 
-Use within python
+Use within Python
 """""""""""""""""
 
 Convert various country names to some standard names:
@@ -61,7 +61,9 @@ Convert various country names to some standard names:
 .. code:: python
 
     import country_converter as coco
-    some_names = ['United Rep. of Tanzania', 'DE', 'Cape Verde', '788', 'Burma', 'COG','Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
+    some_names = ['United Rep. of Tanzania', 'DE', 'Cape Verde', '788', 'Burma', 'COG',
+                  'Iran (Islamic Republic of)', 'Korea, Republic of',
+                  "Dem. People's Rep. of Korea"]
     standard_names = coco.convert(names=some_names, to='name_short')
     print(standard_names)
 
@@ -77,7 +79,9 @@ instantiating a single CountryConverter object for all conversions:
     import country_converter as coco
     cc = coco.CountryConverter()
 
-    some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma', 'Iran (Islamic Republic of)', 'Korea, Republic of', "Dem. People's Rep. of Korea"]
+    some_names = ['United Rep. of Tanzania', 'Cape Verde', 'Burma',
+                  'Iran (Islamic Republic of)', 'Korea, Republic of',
+                  "Dem. People's Rep. of Korea"]
 
     standard_names = cc.convert(names = some_names, to = 'name_short')
     UNmembership = cc.convert(names = some_names, to = 'UNmember')
@@ -90,7 +94,7 @@ Convert between classification schemes:
 .. code:: python
 
     iso3_codes = ['USA', 'VUT', 'TKL', 'AUT', 'XXX' ]
-    iso2_codes = coco.convert(names = iso3_codes, to = 'ISO2')
+    iso2_codes = coco.convert(names=iso3_codes, to='ISO2')
     print(iso2_codes)
 
 Which results in ['US', 'VU', 'TK', 'AT', 'not found']
@@ -100,13 +104,13 @@ if None is passed for 'not_found', the original entry gets passed through:
 
 .. code:: python
 
-    iso2_codes = coco.convert(names = iso3_codes, to = 'ISO2', not_found=None)
+    iso2_codes = coco.convert(names=iso3_codes, to='ISO2', not_found=None)
     print(iso2_codes)
 
 results in ['US', 'VU', 'TK', 'AT', 'XXX']
 
 
-Internally the data is stored in a pandas dataframe, which can be accessed directly.
+Internally the data is stored in a Pandas DataFrame, which can be accessed directly.
 For example, this can be used to filter countries for membership organisations (per year).
 Note: for this, an instance of CountryConverter is required.
 
@@ -115,7 +119,11 @@ Note: for this, an instance of CountryConverter is required.
     import country_converter as coco
     cc = coco.CountryConverter()
 
-    some_countries = ['Australia', 'Belgium', 'Brazil', 'Bulgaria', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'India', 'Indonesia', 'Ireland', 'Italy', 'Japan', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Romania', 'Russia',  'Turkey', 'United Kingdom', 'United States']
+    some_countries = ['Australia', 'Belgium', 'Brazil', 'Bulgaria', 'Cyprus', 'Czech Republic',
+                      'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary',
+                      'India', 'Indonesia', 'Ireland', 'Italy', 'Japan', 'Latvia', 'Lithuania',
+                      'Luxembourg', 'Malta', 'Romania', 'Russia', 'Turkey', 'United Kingdom',
+                      'United States']
 
     oecd_since_1995 = cc.data[(cc.data.OECD >= 1995) & cc.data.name_short.isin(some_countries)].name_short
     eu_until_1980 = cc.data[(cc.data.EU <= 1980) & cc.data.name_short.isin(some_countries)].name_short
@@ -143,7 +151,8 @@ The regular expressions can also be used to match any list of countries to any o
 .. code:: python
 
     match_these = ['norway', 'united_states', 'china', 'taiwan']
-    master_list = ['USA', 'The Swedish Kingdom', 'Norway is a Kingdom too', 'Peoples Republic of China', 'Republic of China' ]
+    master_list = ['USA', 'The Swedish Kingdom', 'Norway is a Kingdom too',
+                   'Peoples Republic of China', 'Republic of China' ]
 
     matching_dict = coco.match(match_these, master_list)
 
@@ -198,14 +207,14 @@ For further information call the help by
     coco -h
 
 
-Use in matlab
-""""""""""""""""""""""
+Use in Matlab
+"""""""""""""
 
-Newer (tested in 2016a) versions from Matlab allow to directly call Python
+Newer (tested in 2016a) versions of Matlab allow to directly call Python
 functions and libaries.  This requires a Python version >= 3.4 installed in the
 sytem path (e.g. through Anaconda).
 
-To test, try this in matlab:
+To test, try this in Matlab:
 
 .. code:: matlab
 
@@ -235,7 +244,7 @@ Alternativley, as a long oneliner:
     short_names = cellfun(@char, cell(py.country_converter.convert({56, 276}, pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
 
 
-All properties of coco as explained above are also available in matlab:
+All properties of coco as explained above are also available in Matlab:
 
 .. code:: matlab
 
@@ -279,7 +288,7 @@ Currently the following classification schemes are available:
 #) OECD membership (per year)
 #) UN membership (per year)
 #) EU membership (per year)
-   
+
 
 Data sources and further reading
 --------------------------------
@@ -298,7 +307,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _WIOD: http://www.wiod.org/home
 
 
-   
+
 Communication, issues, bugs and enhancements
 --------------------------------------------
 
@@ -309,18 +318,18 @@ You can follow me on twitter_ or mastodon_ to get the latest news about all my o
 .. _twitter: https://twitter.com/kst_stadler
 .. _mastodon: https://mastodon.rocks/@kstadler
 
-Contributing   
+Contributing
 ---------------
 
-Want to contribute? Great! 
-Please check CONTRIBUTING.rst if you want to help to improve coco.
-  
+Want to contribute? Great!
+Please check `CONTRIBUTING.rst`_ if you want to help to improve coco.
 
-Related software   
+
+Related software
 -----------------
-   
+
 The package pycountry_ provides access to the official ISO databases for historic countries, country subdivisions, languages and currencies.
-In case you need to convert non-English country names, countrynames_ includes an extensive database of country names in different languages and functions to convert them to the different ISO 3166 standards. 
+In case you need to convert non-English country names, countrynames_ includes an extensive database of country names in different languages and functions to convert them to the different ISO 3166 standards.
 Python-iso3166_ focuses on conversion between the two-letter, three-letter and three-digit codes defined in the ISO 3166 standard.
 
 If you are using R, you should have a look at countrycode_.
@@ -329,7 +338,7 @@ If you are using R, you should have a look at countrycode_.
 .. _Python-iso3166: https://github.com/deactivated/python-iso3166
 .. _countrynames: https://github.com/occrp/countrynames
 
-Acknowledgements 
+Acknowledgements
 ----------------
 
 This package was inspired by (and the regular expression are mostly based on) the R-package countrycode_ by `Vincent Arel-Bundock`_ and his (defunct) port to Python (pycountrycode).
@@ -339,3 +348,5 @@ Many thanks to `Robert Gieseke`_ for the review of the source code and paper for
 .. _countrycode: https://github.com/vincentarelbundock/countrycode
 .. _Robert Gieseke: https://github.com/rgieseke
 .. _Journal of Open Source Software: http://joss.theoj.org/
+
+.. _CONTRIBUTING.rst: CONTRIBUTING.rst
