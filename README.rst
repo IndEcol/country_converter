@@ -12,6 +12,8 @@ The country converter (coco) is a Python package to convert country names betwee
 .. image:: https://travis-ci.org/konstantinstadler/country_converter.svg?branch=master
     :target: https://travis-ci.org/konstantinstadler/country_converter
 
+|
+
 .. contents:: Table of Contents
 
 Motivation             
@@ -321,7 +323,7 @@ The package pycountry_ provides access to the official ISO databases for histori
 In case you need to convert non-English country names, countrynames_ includes an extensive database of country names in different languages and functions to convert them to the different ISO 3166 standards. 
 Python-iso3166_ focuses on conversion between the two-letter, three-letter and three-digit codes defined in the ISO 3166 standard.
 
-If you are using R, you should have a look at countrycode_ by Vincent_.
+If you are using R, you should have a look at countrycode_.
 
 .. _pycountry: https://pypi.python.org/pypi/pycountry
 .. _Python-iso3166: https://github.com/deactivated/python-iso3166
