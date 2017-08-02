@@ -29,12 +29,12 @@ Changed
     * Automatically detect input format (ISO2, ISO3, ISOnumeric)
     * Change ISO3 for Romania from ROM to ROU (bugfix)
     * Change ISO3 for Congo from COD to COG (bugfix)
-    * Updated readme and ipyhton notebook tutorial
+    * Updated readme and IPython notebook tutorial
 
 
 pre 0.4.0 - before 20170501
 ----------------------------
 
-Initial versions, including CLI and matlab examples. 
+Initial versions, including CLI and matlab examples.
 
 
