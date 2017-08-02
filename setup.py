@@ -21,6 +21,11 @@ setup(
         ['coco = country_converter.country_converter:main']},
     install_requires=['pandas >= 0.17.0'],
     classifiers=[
+          'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
+          'Programming Language :: Python :: 3.6',
+          'Programming Language :: Python :: 3 :: Only',
+          'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',   # noqa
           'Development Status :: 4 - Beta',
           'Environment :: Console',
           'Intended Audience :: End Users/Desktop',
