@@ -214,7 +214,7 @@ Newer (tested in 2016a) versions of Matlab allow to directly call Python
 functions and libaries.  This requires a Python version >= 3.4 installed in the
 sytem path (e.g. through Anaconda).
 
-To test, try this in matlab:
+To test, try this in Matlab:
 
 .. code:: matlab
 
@@ -244,7 +244,7 @@ Alternativley, as a long oneliner:
     short_names = cellfun(@char, cell(py.country_converter.convert({56, 276}, pyargs('src', 'UNcode', 'to', 'name_short'))), 'UniformOutput',false);
 
 
-All properties of coco as explained above are also available in matlab:
+All properties of coco as explained above are also available in Matlab:
 
 .. code:: matlab
 
