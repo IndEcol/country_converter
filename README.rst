@@ -15,7 +15,7 @@ To further complicate the matter, instead of using one of the existing standards
             
 The country converter (coco) automates the conversion from different standards and version of country names. 
 Internally, coco is based on a table specifying the different ISO and UN standards per country together with the official name and a regular expression which aim to match all English versions of a specific country name. 
-In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see 'Classification schemes'_). 
+In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see Classifications_ below). 
 
 Installation
 ------------
@@ -247,7 +247,7 @@ information - all functions available in python (for example passing additional
 data files, specifying the output in case of missing data) work also in matlab
 by passing arguments through the pyargs function.
 
-
+.. _Classifications:
 
 Classification schemes
 ----------------------
