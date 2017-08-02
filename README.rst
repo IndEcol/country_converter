@@ -14,6 +14,7 @@ The country converter (coco) is a Python package to convert country names betwee
 
 |
 
+
 .. contents:: Table of Contents
 
 Motivation
