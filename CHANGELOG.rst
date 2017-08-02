@@ -1,8 +1,8 @@
 Change Log
 ===========
 
-0.5.0dev - 2017xxx - branch joss_review 
-----------------------------------------
+0.5.0 - 20170802
+----------------
 
 This is the version after the review for publication in The Journal of Open Source Software. 
 
@@ -10,13 +10,14 @@ Changed
 ^^^^^^^
 
     * Renamed XXin methods to XXas. For example coco.EU27in('ISO3') becomese coco.EU27as('ISO3')
-    * Some updates in README.rst (related software)
+    * Some updates in README.rst (related software, badges, motivation)
     * Added CONTRIBUTING.rst
-
 
 
 0.4.0 - 20170622
 ----------------
+
+This version is available at Zenodo at 10.5281/zenodo.838036 .
 
 Changed
 ^^^^^^^
