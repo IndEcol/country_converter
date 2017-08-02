@@ -12,7 +12,7 @@ setup(
     url='https://github.com/konstantinstadler/country_converter',
     author='Konstantin Stadler',
     author_email='konstantin.stadler@ntnu.no',
-    version=__version__,
+    version=__version__,  # noqa
     packages=['country_converter', ],
     package_data={'country_converter': ['country_data.tsv', '../LICENSE']},
     license='GPLv3',
@@ -25,7 +25,6 @@ setup(
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',
           'Programming Language :: Python :: 3 :: Only',
-          'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',   # noqa
           'Development Status :: 4 - Beta',
           'Environment :: Console',
           'Intended Audience :: End Users/Desktop',
