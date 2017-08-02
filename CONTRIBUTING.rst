@@ -15,8 +15,8 @@ Independent of your contribution, please use pull requests to inform me about an
 Updating the country table
 --------------------------
 
-The underlying raw data of coco is a tab-separated file (country_converter/country_data.tsv) which is read into a pandas dataframe (available as attribute .data in the main class).
-Any column added to this dataframe can be used for all conversions. The datafile is utf-8 encoded.
+The underlying raw data of coco is a tab-separated file (country_converter/country_data.tsv) which is read into a pandas_ DataFrame (available as attribute .data in the main class).
+Any column added to this DataFrame can be used for all conversions. The datafile is utf-8 encoded.
 
 Regular expressions
 ^^^^^^^^^^^^^^^^^^^
@@ -57,7 +57,7 @@ Running and extending the tests
 
 Before filing a pull request, make sure your changes pass all tests.
 Coco uses the py.test_ package with the pytest-pep8_ extension for testing.
-To run the tests install these two packages and run
+To run the tests install these two packages (and the pandas_ dependency) and run
 
 ::
 
@@ -78,7 +78,7 @@ If the file name starts with "test\_regex\_" it will be automatically recognised
 
 .. _py.test: http://pytest.org/
 .. _pytest-pep8: https://pypi.python.org/pypi/pytest-pep8
-
+.. _pandas: https://pandas.pydata.org/
 
 
 
