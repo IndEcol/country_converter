@@ -7,7 +7,7 @@ The country converter (coco) is a Python package to convert country names betwee
     :target: https://travis-ci.org/konstantinstadler/country_converter
 
 Motivation             
-^^^^^^^^^^
+-----------
 
 To date, there is no single standard of how to name or specify individual countries in a (meta) data description. 
 While some data sources follow ISO 3166, this standard defines a two and a three letter code in addition to a numerical classification.
@@ -15,7 +15,7 @@ To further complicate the matter, instead of using one of the existing standards
             
 The country converter (coco) automates the conversion from different standards and version of country names. 
 Internally, coco is based on a table specifying the different ISO and UN standards per country together with the official name and a regular expression which aim to match all English versions of a specific country name. 
-In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see Classifications_ below). 
+In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see `Classification schemes`_ below). 
 
 Installation
 ------------
