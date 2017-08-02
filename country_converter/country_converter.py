@@ -393,7 +393,7 @@ class CountryConverter():
         else:
             return outlist
 
-    def EU28in(self, to='name_short'):
+    def EU28as(self, to='name_short'):
         """
         Return EU28 countries in the specified classification
 
@@ -412,7 +412,7 @@ class CountryConverter():
             to = [to]
         return self.data[self.data.EU < 2015][to]
 
-    def EU27in(self, to='name_short'):
+    def EU27as(self, to='name_short'):
         """
         Return EU27 countries in the specified classification
 
@@ -431,7 +431,7 @@ class CountryConverter():
             to = [to]
         return self.data[self.data.EU < 2013][to]
 
-    def OECDin(self, to='name_short'):
+    def OECDas(self, to='name_short'):
         """
         Return OECD member states in the specified classification
 
@@ -450,7 +450,7 @@ class CountryConverter():
             to = [to]
         return self.data[self.data.OECD > 0][to]
 
-    def UNin(self, to='name_short'):
+    def UNas(self, to='name_short'):
         """
         Return UN member states in the specified classification
 
@@ -472,30 +472,30 @@ class CountryConverter():
     @property
     def EU28(self):
         """ EU28 member states (standard name_short) -
-            use EU28in() for any other classification
+            use EU28as() for any other classification
         """
-        return self.EU28in(to='name_short')
+        return self.EU28as(to='name_short')
 
     @property
     def EU27(self):
         """ EU27 member states (standard name_short) -
-            use EU27in() for any other classification
+            use EU27as() for any other classification
         """
-        return self.EU27in(to='name_short')
+        return self.EU27as(to='name_short')
 
     @property
     def OECD(self):
         """ OECD member states (standard name_short) -
-            use OECDin() for any other classification
+            use OECDas() for any other classification
         """
-        return self.OECDin(to='name_short')
+        return self.OECDas(to='name_short')
 
     @property
     def UN(self):
         """ UN member states (standard name_short) -
-        use UNin() for any other classification
+        use UNas() for any other classification
         """
-        return self.UNin(to='name_short')
+        return self.UNas(to='name_short')
 
     @property
     def valid_class(self):
@@ -590,7 +590,7 @@ def _parse_arg(valid_classifications):
     parser.add_argument('names',
                         help=('List of countries to convert '
                               '(space separated, country names consisting of '
-                              'multiple words must be put in quotation marks). '
+                              'multiple words must be put in quotation marks).'
                               'Possible classifications: ' +
                               ', '.join(valid_classifications) +
                               '; NB: long, official and short are provided '

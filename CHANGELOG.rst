@@ -1,6 +1,19 @@
 Change Log
 ===========
 
+0.5.0dev - 2017xxx - branch joss_review 
+----------------------------------------
+
+This is the version after the review for publication in The Journal of Open Source Software. 
+
+Changed
+^^^^^^^
+
+    * Renamed XXin methods to XXas. For example coco.EU27in('ISO3') becomese coco.EU27as('ISO3')
+    * Some updates in README.rst (related software)
+    * Added CONTRIBUTING.rst
+
+
 
 0.4.0 - 20170622
 ----------------
