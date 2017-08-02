@@ -106,7 +106,7 @@ Some properties provide direct access to affiliations:
     cc.EU28
     cc.OECD
 
-    cc.EU27in('ISO3')
+    cc.EU27as('ISO3')
 
 and the classification schemes available:
 
@@ -218,7 +218,7 @@ All properties of coco as explained above are also available in matlab:
 
     coco = py.country_converter.CountryConverter();
     coco.EU27
-    EU27ISO3 = coco.EU27in('ISO3');
+    EU27ISO3 = coco.EU27as('ISO3');
 
 These functions return a pandas DataFrame.
 The underlying values can be access with .values (e.g.

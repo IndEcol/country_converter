@@ -9,6 +9,8 @@ This is the version after the review for publication in The Journal of Open Sour
 Changed
 ^^^^^^^
 
+    * Renamed XXin methods to XXas. For example coco.EU27in('ISO3') becomese coco.EU27as('ISO3')
+    * Some updates in README.rst
     * Added CONTRIBUTING.rst
 
 
