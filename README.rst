@@ -252,7 +252,7 @@ All properties of coco as explained above are also available in Matlab:
     coco.EU27
     EU27ISO3 = coco.EU27as('ISO3');
 
-These functions return a pandas DataFrame.
+These functions return a Pandas DataFrame.
 The underlying values can be access with .values (e.g.
 
 .. code:: matlab
