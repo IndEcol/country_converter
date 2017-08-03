@@ -341,6 +341,19 @@ If you are using R, you should have a look at countrycode_.
 .. _Python-iso3166: https://github.com/deactivated/python-iso3166
 .. _countrynames: https://github.com/occrp/countrynames
 
+Citing the country converter   
+-------------------------------
+
+Version 0.5 of the country converter was published in the `Journal of Open Source Software`_.
+To cite the country converter in publication please use:
+
+Stadler, K. (2017). The country converter coco - a Python package for converting country names between different classification schemes. The Journal of Open Source Software. doi: http://dx.doi.org/10.21105/joss.00332
+
+For the full bibtex key see CITATION_
+
+.. _CITATION: CITATION
+
+
 Acknowledgements
 ----------------
 

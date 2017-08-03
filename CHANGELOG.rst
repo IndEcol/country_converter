@@ -1,6 +1,12 @@
 Change Log
 ===========
 
+0.5.1 - 20170803
+----------------
+
+Minor update, added the citation for the JOSS article.
+
+
 0.5.0 - 20170802
 ----------------
 
