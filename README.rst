@@ -5,6 +5,8 @@ The country converter (coco) is a Python package to convert country names betwee
 
 .. image:: https://badge.fury.io/py/country_converter.svg
     :target: https://badge.fury.io/py/country_converter
+.. image:: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113/status.svg
+    :target: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113
 .. image:: https://zenodo.org/badge/40310849.svg
    :target: https://zenodo.org/badge/latestdoi/40310849
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
