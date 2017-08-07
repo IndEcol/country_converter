@@ -107,9 +107,9 @@ British Virgin Islands	Virgin islands (british)
 British Virgin Islands	Br. Virgin Isds
 United States Virgin Islands	US Virgin Islands
 United States Virgin Islands	US Virgin Isds
-Wallis and futuna Islands	Wallis and futuna islands
-Wallis and futuna Islands	Wallis and Futuna Isds
-Western sahara	Western Sahara
+Wallis and Futuna Islands	Wallis and Futuna islands
+Wallis and Futuna Islands	Wallis and Futuna Isds
+Western Sahara	Western Sahara
 Yemen	Yemen
 Zanzibar	Tanzania: Zanzibar
 Zanzibar	United Republic of Tanzania: Zanzibar
