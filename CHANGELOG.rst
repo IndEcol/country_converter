@@ -1,6 +1,12 @@
 Change Log
 ===========
 
+0.5.2 - 20170807
+----------------
+
+Changed Futuna and Sahara to Uppercase
+
+
 0.5.1 - 20170803
 ----------------
 
