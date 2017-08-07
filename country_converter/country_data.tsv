@@ -244,8 +244,8 @@ Venezuela	Bolivarian Republic of Venezuela	venezuela	VE	VEN	862	862	America	Sout
 Vietnam	Socialist Republic of Vietnam	^((?!n|s|.*republic)|(?=.*socialist)).*viet.?nam(?! *,? *n| *,? *s)	VN	VNM	704	704	Asia	South-Eastern Asia	WW	WA	WA	ROW				1977
 British Virgin Islands	British Virgin Islands	^(?=.*\bu\.?\s?k).*virgin|^(?=.*br.*).*virgin|^(?=.*kingdom).*virgin|BVI	VG	VGB	92	92	America	Caribbean	WW	WL	WL	ROW				
 United States Virgin Islands	Virgin Islands of the United States	^(?=.*\bu\.?\s?s).*virgin|^(?=.*states).*virgin	VI	VIR	850	850	America	Caribbean	WW	WL	WL	ROW				
-Wallis and futuna Islands	Wallis and futuna Islands	futuna|wallis	WF	WLF	876	876	Oceania	Polynesia	WW	WA	WA	ROW				
-Western sahara	Western sahara	\bw.*sahara	EH	ESH	732	732	Africa	Northern Africa	WW	WF	WF	ROW				
+Wallis and Futuna Islands	Wallis and Futuna Islands	futuna|wallis	WF	WLF	876	876	Oceania	Polynesia	WW	WA	WA	ROW				
+Western Sahara	Western Sahara	\bw.*sahara	EH	ESH	732	732	Africa	Northern Africa	WW	WF	WF	ROW				
 Yemen	Republic of Yemen	yemen	YE	YEM	887	887	Asia	Western Asia	WW	WM	WM	ROW				1947
 Zambia	Republic of Zambia	zambia|northern.?rhodesia	ZM	ZMB	894	894	Africa	Eastern Africa	WW	WF	WF	ROW				1964
 Zanzibar	Zanzibar	zanz|.*tanzania:?zanzibar		EAZ			Africa	Eastern Africa	WW	WF	WF	ROW				
