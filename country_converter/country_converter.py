@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" country_converter - Classification converter for coutries
+""" country_converter - Classification converter for countries
 
 """
 
@@ -19,14 +19,14 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
     """ Matches the country names given in two lists into a dictionary.
 
     This function matches names given in list_a to the one provided in list_b
-    using regular expressions defined in country_data.txt
+    using regular expressions defined in country_data.
 
     Parameters
     ----------
     list_a : list
         Names of countries to identify
     list_b : list
-        Master list of names for coutnries
+        Master list of names for countries
 
     not_found : str, optional
         Fill in value for not found entries. If None, keep the input value
@@ -36,14 +36,14 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
         If True, all entries in both list are list.
         If False(default), only multiple matches are list, rest are strings
 
-    country_data : pandas dataframe or path to data file (optional)
+    country_data : Pandas DataFrame or path to data file (optional)
         This is by default set to COUNTRY_DATA_FILE - the standard (tested)
         country list for coco.
 
-    additional_data: (list of) pandas dataframes or data files (optional)
+    additional_data: (list of) Pandas DataFrames or data files (optional)
          Additional data to include for a specific analysis.
          This must be given in the same format as specified in the
-         country_data_file. (utf-8 encoded tab separated data, same
+         country_data file. (utf-8 encoded tab separated data, same
          column headers in all files)
 
     Returns
@@ -115,16 +115,16 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
 
 
 def convert(*args, **kargs):
-    """ Wraper around CountryConverter.convert()
+    """ Wrapper around CountryConverter.convert()
 
-    Uses the same paramter. This function has the same performance as
-    CountryConverter.convert for one call; for multiple calls its better to
+    Uses the same parameters. This function has the same performance as
+    CountryConverter.convert for one call; for multiple calls it is better to
     instantiate a common CountryConverter (this avoid loading the source data
     file multiple times).
 
     Note
     ----
-    A lot of the functioality can also be done directly in pandas dataframes.
+    A lot of the functionality can also be done directly in Pandas DataFrames.
     For example:
     cc = CountryConverter()
     names = ['USA', 'SWZ', 'PRI']
@@ -139,8 +139,8 @@ def convert(*args, **kargs):
         Source classification
 
     to : str, optional
-        Output classification (valid str for an index of
-        country_data.txt), default: name_short
+        Output classification (valid str for an index of the
+        country data file), default: name_short
 
     enforce_list : boolean, optional
         If True, enforces the output to be list (if only one name was passed)
@@ -153,11 +153,11 @@ def convert(*args, **kargs):
         Fill in value for not found entries. If None, keep the input value
         (default: 'not found')
 
-    country_data : pandas dataframe or path to data file (optional)
+    country_data : Pandas DataFrame or path to data file (optional)
         This is by default set to COUNTRY_DATA_FILE - the standard (tested)
         country list for coco.
 
-    additional_data: (list of) pandas dataframes or data files (optional)
+    additional_data: (list of) Pandas DataFrames or data files (optional)
          Additional data to include for a specific analysis.
          This must be given in the same format as specified in the
          country_data_file. (utf-8 encoded tab separated data, same
@@ -180,8 +180,8 @@ class CountryConverter():
     Attributes
     ----------
 
-    data : pandas DataFrame
-        Raw data read from country_data.txt
+    data : Pandas DataFrame
+        Raw data read from the country data file
 
     """
 
@@ -195,7 +195,7 @@ class CountryConverter():
             Name of the country/region to convert.
 
         exclude_prefix : list of valid regex strings
-            List of indicators with negate the subsequent country/region.
+            List of indicators which negate the subsequent country/region.
             These prefixes and everything following will not be converted.
             E.g. 'Asia excluding China' becomes 'Asia' and
             'China excluding Hong Kong' becomes 'China' prior to conversion
@@ -222,14 +222,14 @@ class CountryConverter():
         Parameters
         ----------
 
-        country_data : pandas dataframe or path to data file
+        country_data : Pandas DataFrame or path to data file
             This is by default set to COUNTRY_DATA_FILE - the standard
             (tested) country list for coco.
 
-        additional_data: (list of) pandas dataframes or data files
+        additional_data: (list of) Pandas DataFrames or data files
             Additioanl data to include for a specific analysis.
             This must be given in the same format as specified in the
-            country_data_file. (utf-8 encoded tab separated data, same
+            country_data file. (utf-8 encoded tab separated data, same
             column headers in all files)
         """
 
@@ -282,8 +282,8 @@ class CountryConverter():
 
         Note
         ----
-        A lot of the functionality can also be done directly in pandas
-        dataframes.
+        A lot of the functionality can also be done directly in Pandas
+        DataFrames.
         For example:
         coco = CountryConverter()
         names = ['USA', 'SWZ', 'PRI']
@@ -301,7 +301,7 @@ class CountryConverter():
             3 (ISO3) characters long; for longer names 'regex' is assumed.
 
         to : str, optional
-            Output classification (valid index of the country_data.txt),
+            Output classification (valid index of the country_data file),
             default: ISO3
 
         enforce_list : boolean, optional
@@ -316,7 +316,7 @@ class CountryConverter():
             (default: 'not found')
 
         exclude_prefix : list of valid regex strings
-            List of indicators with negate the subsequent country/region.
+            List of indicators which negate the subsequent country/region.
             These prefixes and everything following will not be converted.
             E.g. 'Asia excluding China' becomes 'Asia' and
             'China excluding Hong Kong' becomes 'China' prior to conversion
@@ -327,7 +327,7 @@ class CountryConverter():
         list or str, depending on enforce_list
 
         """
-        # The list to tuple conversion is necessary for matlab interface
+        # The list to tuple conversion is necessary for Matlab interface
         names = list(names) if (
                 isinstance(names, tuple) or
                 isinstance(names, set)) else names
@@ -393,7 +393,7 @@ class CountryConverter():
         else:
             return outlist
 
-    def EU28in(self, to='name_short'):
+    def EU28as(self, to='name_short'):
         """
         Return EU28 countries in the specified classification
 
@@ -401,18 +401,18 @@ class CountryConverter():
         ----------
         to : str, optional
             Output classification (valid str for an index of
-            country_data.txt), default: name_short
+            country_data file), default: name_short
 
         Returns
         -------
-        pandas dataframe
+        Pandas DataFrame
 
         """
         if type(to) is str:
             to = [to]
         return self.data[self.data.EU < 2015][to]
 
-    def EU27in(self, to='name_short'):
+    def EU27as(self, to='name_short'):
         """
         Return EU27 countries in the specified classification
 
@@ -420,49 +420,49 @@ class CountryConverter():
         ----------
         to : str, optional
             Output classification (valid str for an index of
-            country_data.txt), default: name_short
+            country_data file), default: name_short
 
         Returns
         -------
-        pandas dataframe
+        Pandas DataFrame
 
         """
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.EU < 2013][to]
 
-    def OECDin(self, to='name_short'):
+    def OECDas(self, to='name_short'):
         """
-        Return OECD memberstates in the specified classification
+        Return OECD member states in the specified classification
 
         Parameters
         ----------
         to : str, optional
             Output classification (valid str for an index of
-            country_data.txt), default: name_short
+            country_data file), default: name_short
 
         Returns
         -------
-        pandas dataframe
+        Pandas DataFrame
 
         """
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.OECD > 0][to]
 
-    def UNin(self, to='name_short'):
+    def UNas(self, to='name_short'):
         """
-        Return UN memberstates in the specified classification
+        Return UN member states in the specified classification
 
         Parameters
         ----------
         to : str, optional
             Output classification (valid str for an index of
-            country_data.txt), default: name_short
+            country_data file), default: name_short
 
         Returns
         -------
-        pandas dataframe
+        Pandas DataFrame
 
         """
         if isinstance(to, str):
@@ -471,31 +471,31 @@ class CountryConverter():
 
     @property
     def EU28(self):
-        """ EU28 memberstates (standard name_short) -
-            use EU28in() for any other classification
+        """ EU28 member states (standard name_short) -
+            use EU28as() for any other classification
         """
-        return self.EU28in(to='name_short')
+        return self.EU28as(to='name_short')
 
     @property
     def EU27(self):
-        """ EU27 memberstates (standard name_short) -
-            use EU27in() for any other classification
+        """ EU27 member states (standard name_short) -
+            use EU27as() for any other classification
         """
-        return self.EU27in(to='name_short')
+        return self.EU27as(to='name_short')
 
     @property
     def OECD(self):
-        """ OECD memberstates (standard name_short) -
-            use OECDin() for any other classification
+        """ OECD member states (standard name_short) -
+            use OECDas() for any other classification
         """
-        return self.OECDin(to='name_short')
+        return self.OECDas(to='name_short')
 
     @property
     def UN(self):
-        """ UN memberstates (standard name_short) -
-        use UNin() for any other classification
+        """ UN member states (standard name_short) -
+        use UNas() for any other classification
         """
-        return self.UNin(to='name_short')
+        return self.UNas(to='name_short')
 
     @property
     def valid_class(self):
@@ -590,7 +590,7 @@ def _parse_arg(valid_classifications):
     parser.add_argument('names',
                         help=('List of countries to convert '
                               '(space separated, country names consisting of '
-                              'multiple words must be put in quoation marks). '
+                              'multiple words must be put in quotation marks).'
                               'Possible classifications: ' +
                               ', '.join(valid_classifications) +
                               '; NB: long, official and short are provided '

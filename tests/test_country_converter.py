@@ -7,7 +7,7 @@ import collections
 TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, '..'))
 
-import country_converter as coco  # nopep8
+import country_converter as coco  # noqa
 
 regex_test_files = [nn for nn in os.listdir(TESTPATH)
                     if (nn[:10] == 'test_regex') and

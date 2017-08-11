@@ -1,0 +1,12 @@
+@article{Stadler2017,
+  doi = {10.21105/joss.00332},
+  url = {https://doi.org/10.21105/joss.00332},
+  year  = {2017},
+  month = {aug},
+  publisher = {The Open Journal},
+  volume = {2},
+  number = {16},
+  author = {Konstantin Stadler},
+  title = {The country converter coco - a Python package for converting country names between different classification schemes},
+  journal = {The Journal of Open Source Software}
+}
