@@ -279,7 +279,7 @@ Currently the following classification schemes are available:
 #) ISO2 (ISO 3166-1 alpha-2)
 #) ISO3 (ISO 3166-1 alpha-3)
 #) ISO - numeric (ISO 3166-1 numeric)
-#) UN numeric code (which follows to a large extend ISO - numeric)
+#) UN numeric code (M.49 - follows to a large extend ISO-numeric)
 #) A standard or short name
 #) The "official" name
 #) Continent
@@ -299,6 +299,8 @@ Data sources and further reading
 Most of the underlying data can be found in Wikipedia.
 https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
 UN regions/codes are given on the United Nation Statistical Division (unstats_) webpage.
+For the differences between the ISO numeric and UN (M.49) codes 
+see https://en.wikipedia.org/wiki/UN_M.49.
 EXIOBASE_ and WIOD_ classification were extracted from the respective databases.
 The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages.
 
