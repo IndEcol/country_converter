@@ -1,6 +1,13 @@
 Change Log
 ===========
 
+0.5.3 - 20170811
+----------------
+
+Minor bugfixes with UN codes and regions.
+
+Fixing issue 22 and 23
+
 0.5.2 - 20170807
 ----------------
 

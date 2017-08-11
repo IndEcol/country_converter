@@ -7,7 +7,7 @@ American Samoa	American Samoa	^(?=.*americ).*samoa	AS	ASM	16	16	Oceania	Polynesi
 Andorra	Principality of Andorra	andorra	AD	AND	20	20	Europe	Southern Europe	WW	WE	WE	ROW				1993
 Angola	Republic of Angola	angola	AO	AGO	24	24	Africa	Middle Africa	WW	WF	WF	ROW				1976
 Anguilla	Anguilla	anguill?a	AI	AIA	660	660	America	Caribbean	WW	WL	WL	ROW				
-Antarctica	Antarctica	antarctica	AQ	ATA	10		Antarctica		WW	WA	WA	ROW				
+Antarctica	Antarctica	antarctica	AQ	ATA	10	10	Antarctica	Antarctica	WW	WA	WA	ROW				
 Antigua and Barbuda	Antigua and Barbuda	antigua	AG	ATG	28	28	America	Caribbean	WW	WL	WL	ROW				1981
 Argentina	Argentine Republic	argentin	AR	ARG	32	32	America	South America	WW	WL	WL	ROW				1945
 Armenia	Republic of Armenia	armenia	AM	ARM	51	51	Asia	Western Asia	WW	WA	WA	ROW				1992
@@ -29,10 +29,10 @@ Bolivia	Plurinational State of Bolivia	bolivia	BO	BOL	68	68	America	South Americ
 Bonaire, Saint Eustatius and Saba	Bonaire, Saint Eustatius and Saba	^(?=.*bonaire).*eustatius|^(?=.*carib).*netherlands|\bbes.?islands	BQ	BES	535	535	America	Caribbean	WW	WL	WL	ROW				
 Bosnia and Herzegovina	Bosnia and Herzegovina	herzegovina|bosnia	BA	BIH	70	70	Europe	Southern Europe	WW	WE	WE	ROW				1992
 Botswana	Republic of Botswana	botswana|bechuana	BW	BWA	72	72	Africa	Southern Africa	WW	WF	WF	ROW				1966
-Bouvet Island	Bouvet Island	bouvet	BV	BVT	74		Antarctica		WW	WA	WA	ROW				
+Bouvet Island	Bouvet Island	bouvet	BV	BVT	74	74	Antarctica	South America	WW	WA	WA	ROW				
 Brazil	Federative Republic of Brazil	brazil	BR	BRA	76	76	America	South America	BR	BR	BR	Bra				1945
 British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1			Antarctica		WW	WA	WA	ROW				
-British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	Asia		WW	WA	WA	ROW				
+British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	Africa	Eastern Africa	WW	WA	WA	ROW				
 Brunei Darussalam	Nation of Brunei, Abode of Peace	brunei	BN	BRN	96	96	Asia	South-Eastern Asia	WW	WA	WA	ROW				1984
 Bulgaria	Republic of Bulgaria	bulgaria	BG	BGR	100	100	Europe	Eastern Europe	BG	BG	BG	Bgr		2007		1955
 Burkina Faso	Burkina Faso	burkina|\bfaso|upper.?volta	BF	BFA	854	854	Africa	Western Africa	WW	WF	WF	ROW				1960
@@ -47,8 +47,8 @@ Chad	Republic of Chad	\bchad	TD	TCD	148	148	Africa	Middle Africa	WW	WF	WF	ROW			
 Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	Europe	Northern Europe	WW	WE	WE	ROW				
 Chile	Republic of Chile	\bchile	CL	CHL	152	152	America	South America	WW	WL	WL	ROW	2010			1945
 China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	Asia	Eastern Asia	CN	CN	CN	Chn				1945
-Christmas Island	Christmas Island	christmas	CX	CXR	162		Oceania		WW	WA	WA	ROW				
-Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166		Asia		WW	WA	WA	ROW				
+Christmas Island	Christmas Island	christmas	CX	CXR	162	162	Asia	Australia and New Zealand	WW	WA	WA	ROW				
+Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166	166	Asia	Australia and New Zealand	WW	WA	WA	ROW				
 Colombia	Republic of Colombia	colombia	CO	COL	170	170	America	South America	WW	WL	WL	ROW				1945
 Comoros	Union of the Comoros	comoro	KM	COM	174	174	Africa	Eastern Africa	WW	WF	WF	ROW				1975
 DR Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^the\ congo$|^RDC$|^DROC$	CD	COD	180	180	Africa	Middle Africa	WW	WF	WF	ROW				1960
@@ -79,7 +79,7 @@ Finland	Republic of Finland	finland	FI	FIN	246	246	Europe	Northern Europe	FI	FI	
 France	French Republic	^(?!.*\bdep).*france|french.?republic|\bgaul	FR	FRA	250	250	Europe	Western Europe	FR	FR	FR	Fra	1961	1958	1999	1945
 French Guiana	Guiana	^(?=.*french).*guiana|guiana	GF	GUF	254	254	Africa	South America	WW	WL	WL	ROW				
 French Polynesia	French Polynesia	french.?polynesia	PF	PYF	258	258	Oceania	Polynesia	WW	WA	WA	ROW				
-French Southern Territories	Territory of the French Southern and Antarctic Lands	french.?southern|\bfr.*\bso.*\ban.*\b\bt	TF	ATF	260		Africa		WW	WF	WF	ROW				
+French Southern Territories	Territory of the French Southern and Antarctic Lands	french.?southern|\bfr.*\bso.*\ban.*\b\bt	TF	ATF	260	260	Africa	Eastern Africa	WW	WF	WF	ROW				
 Gabon	Gabonese Republic	gabon	GA	GAB	266	266	Africa	Middle Africa	WW	WF	WF	ROW				1960
 Gambia	Republic of the Gambia	gambia	GM	GMB	270	270	Africa	Western Africa	WW	WF	WF	ROW				1965
 Georgia	Georgia	^(?!.*south).*georgia	GE	GEO	268	268	Asia	Western Asia	WW	WA	WA	ROW				1992
@@ -96,7 +96,7 @@ Guinea	Republic of Guinea	^(?!.*eq)(?!.*span)(?!.*bissau)(?!.*portu)(?!.*new).*g
 Guinea-Bissau	Republic of Guinea-Bissau	^(.*portu).*guinea|guinea.*bissau	GW	GNB	624	624	Africa	Western Africa	WW	WF	WF	ROW				1974
 Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	America	South America	WW	WL	WL	ROW				1966
 Haiti	Republic of Haiti	(ha(i|\xef|\xc3\xaf)ti)	HT	HTI	332	332	America	Caribbean	WW	WL	WL	ROW				1945
-Heard and Mc Donald Islands	Heard and mc donald islands	heard.*mc.*donald	HM	HMD	334		Asia		WW	WA	WA	ROW				
+Heard and Mc Donald Islands	Heard and mc donald islands	heard.*mc.*donald	HM	HMD	334	334	Asia	Australia and New Zealand	WW	WA	WA	ROW				
 Honduras	Republic of Honduras	^(?!.*brit).*honduras	HN	HND	340	340	America	Central America	WW	WL	WL	ROW				1945
 Hong Kong	Hong Kong SAR	.*hong.*kong	HK	HKG	344	344	Asia	Eastern Asia	WW	WA	WA	ROW				
 Hungary	Republic of Hungary	hungary	HU	HUN	348	348	Europe	Eastern Europe	HU	HU	HU	Hun	1996	2004		1955
@@ -198,7 +198,7 @@ Slovenia	Republic of Slovenia	slovenia	SI	SVN	705	705	Europe	Southern Europe	SI	
 Solomon Islands	Solomon Islands	solomon	SB	SLB	90	90	Oceania	Melanesia	WW	WA	WA	ROW				1978
 Somalia	Federal Republic of Somalia	somali	SO	SOM	706	706	Africa	Eastern Africa	WW	WF	WF	ROW				1960
 South Africa	Republic of South Africa	\bs(\.|outh).*africa	ZA	ZAF	710	710	Africa	Southern Africa	ZA	ZA	ZA	ROW				1945
-South Georgia and  South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239		Antarctica		WW	WA	WA	ROW				
+South Georgia and  South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239	239	Antarctica	South America	WW	WA	WA	ROW				
 South Korea	Republic of Korea	^(?!.*dem)(?!.*peo)(?!.*nor).*\bkorea|\br\.?o\.?k\b	KR	KOR	410	410	Asia	Eastern Asia	KR	KR	KR	Kor	1996			1991
 South Sudan	Republic of South Sudan	\bs\w*.?sudan	SS	SSD	728	728	Africa	Eastern Africa	WW	WF	WF	ROW				2011
 Spain	Kingdom of Spain	spain	ES	ESP	724	724	Europe	Southern Europe	ES	ES	ES	Esp	1961	1986	1999	1955
@@ -235,7 +235,7 @@ Ukraine	Ukraine	ukrain	UA	UKR	804	804	Europe	Eastern Europe	WW	WE	WE	ROW				1945
 United Arab Emirates	United Arab Emirates	emirates|^u\.?a\.?e\.?$|united.?arab.?em	AE	ARE	784	784	Asia	Western Asia	WW	WM	WM	ROW				1971
 United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|GB)	GB	GBR	826	826	Europe	Northern Europe	GB	GB	GB	Gbr	1961	1973		1945
 United States	United States of America	^(?!.*islands).*united.?states|^u\.?s\.?a\.?$|^u\.?s\.?$	US	USA	840	840	America	Northern America	US	US	US	USA	1961			1945
-United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581		Oceania		WW	WA	WA	ROW				
+United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581	581	Oceania	Micronesia	WW	WA	WA	ROW				
 Uruguay	Oriental Republic of Uruguay	uruguay	UY	URY	858	858	America	South America	WW	WL	WL	ROW				1945
 Uzbekistan	Republic of Uzbekistan	uzbek	UZ	UZB	860	860	Asia	Central Asia	WW	WA	WA	ROW				1992
 Vanuatu	Republic of Vanuatu	vanuatu|new.?hebrides	VU	VUT	548	548	Oceania	Melanesia	WW	WA	WA	ROW				1981
