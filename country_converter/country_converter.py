@@ -234,6 +234,10 @@ class CountryConverter():
         """
 
         must_be_unique = ['name_short', 'name_official', 'regex']
+        must_be_string = must_be_unique + (['ISO2', 'ISO3',
+                                            'continent', 'UNregion',
+                                            'EXIO1', 'EXIO2', 'EXIO3',
+                                            'WIOD'])
 
         def test_for_unique_names(df, data_name='passed dataframe',
                                   report_fun=logging.error):
@@ -247,7 +251,9 @@ class CountryConverter():
                 ret = data
                 test_for_unique_names(data)
             else:
-                ret = pd.read_table(data, sep='\t', encoding='utf-8')
+                ret = pd.read_table(data, sep='\t', encoding='utf-8',
+                                    converters={str_col: str
+                                                for str_col in must_be_string})
                 test_for_unique_names(ret, data)
             return ret
 
@@ -645,7 +651,9 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        # main()
+        coco = CountryConverter()
+        coco.data
     except Exception as excep:
         logging.exception(excep)
         raise

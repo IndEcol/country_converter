@@ -130,3 +130,15 @@ def test_additional_country_data():
                                                        to='name_short')
     assert pd.np.nan is converter_extended.convert('XXX', src='ISO3',
                                                    to='continent')
+
+
+def test_special_cases():
+    """ Some test for special cases which occurred during development.
+
+    These are test for specific issues turned up.
+    """
+    converter = coco.CountryConverter().convert
+
+    # issue 22 - namibia iso2 na interpreted as not a number
+    assert converter('NA', to='ISO3') == 'NAM'
+    assert converter('NAM', to='ISO2') == 'NA'
