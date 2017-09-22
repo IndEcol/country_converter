@@ -168,7 +168,7 @@ Norway	Kingdom of Norway	norway	NO	NOR	578	578	Europe	Northern Europe	NO	NO	NO	R
 Oman	Sultanate of Oman	\boman|trucial	OM	OMN	512	512	Asia	Western Asia	WW	WM	WM	ROW				1971
 Pakistan	Islamic Republic of Pakistan	^(?!.*east).*paki?stan	PK	PAK	586	586	Asia	Southern Asia	WW	WA	WA	ROW				1947
 Palau	Republic of Palau	palau	PW	PLW	585	585	Oceania	Micronesia	WW	WA	WA	ROW				1994
-Palestine	State of Palestine	palestin|\bgaza|west.?bank	PS	PAL	275	275	Asia	Western Asia	WW	WM	WM	ROW				
+Palestine	State of Palestine	palestin|\bgaza|west.?bank	PS	PSE	275	275	Asia	Western Asia	WW	WM	WM	ROW				
 Panama	Republic of Panama	panama	PA	PAN	591	591	America	Central America	WW	WL	WL	ROW				1945
 Papua New Guinea	Independent State of Papua New Guinea	papua|\bp.*\bn.*\bguin.*|^p\.?n\.?g\.?$|new.?guinea	PG	PNG	598	598	Oceania	Melanesia	WW	WA	WA	ROW				1975
 Paraguay	Republic of Paraguay	paraguay	PY	PRY	600	600	America	South America	WW	WL	WL	ROW				1945
