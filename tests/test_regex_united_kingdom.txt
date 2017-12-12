@@ -1,0 +1,8 @@
+name_short	name_test
+United Kingdom	United Kingdom
+United Kingdom	UK
+United Kingdom	GB
+United Kingdom	GBR
+United Kingdom	uk
+United Kingdom	u.k.
+United Kingdom	U.K

@@ -233,7 +233,7 @@ Tuvalu	Tuvalu	tuvalu	TV	TUV	798	798	Oceania	Polynesia	WW	WA	WA	ROW				2000
 Uganda	Republic of Uganda	uganda	UG	UGA	800	800	Africa	Eastern Africa	WW	WF	WF	ROW				1962
 Ukraine	Ukraine	ukrain	UA	UKR	804	804	Europe	Eastern Europe	WW	WE	WE	ROW				1945
 United Arab Emirates	United Arab Emirates	emirates|^u\.?a\.?e\.?$|united.?arab.?em	AE	ARE	784	784	Asia	Western Asia	WW	WM	WM	ROW				1971
-United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|GB)	GB	GBR	826	826	Europe	Northern Europe	GB	GB	GB	Gbr	1961	1973		1945
+United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|gb)	GB	GBR	826	826	Europe	Northern Europe	GB	GB	GB	Gbr	1961	1973		1945
 United States	United States of America	^(?!.*islands).*united.?states|^u\.?s\.?a\.?$|^u\.?s\.?$	US	USA	840	840	America	Northern America	US	US	US	USA	1961			1945
 United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581	581	Oceania	Micronesia	WW	WA	WA	ROW				
 Uruguay	Oriental Republic of Uruguay	uruguay	UY	URY	858	858	America	South America	WW	WL	WL	ROW				1945
