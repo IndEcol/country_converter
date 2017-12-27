@@ -1,6 +1,13 @@
 Change Log
 ===========
 
+0.6dev - 
+--------
+
+aggregation functionality with
+
+  - method get_correspondance_dict in CountryConverter
+
 0.5.3 - 20170811
 ----------------
 
