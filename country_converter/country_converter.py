@@ -15,29 +15,29 @@ COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
 
-
-def build_agg_vec(original_countries, 
-                  aggregates,
-                  missing_countries='test',
-                  merge_multiple_string='_&_',
-                  log_missing_countries=None,
-                  log_merge_multiple_strings=None,
-                  coco=None,
-                  as_dataframe='sparse'):
-    """ Builds an aggregation vector
+def agg_conc(original_countries,
+             aggregates,
+             missing_countries='test',
+             merge_multiple_string='_&_',
+             log_missing_countries=None,
+             log_merge_multiple_strings=None,
+             coco=None,
+             as_dataframe='sparse',
+             original_countries_class=None):
+    """ Builds an aggregation concordance dict, vec or matrix
 
     Parameters
     ----------
 
     original_countries: list or str
-        List of countries to aggregated, also accepts and 
-        valid column name of CountryConverter.data 
+        List of countries to aggregated, also accepts and
+        valid column name of CountryConverter.data
 
     aggregates: list of dict or str
-        List of aggregation information. This can either 
-        be dict mapping the names of 'original_countries' to 
+        List of aggregation information. This can either
+        be dict mapping the names of 'original_countries' to
         aggregates, or a valid column name of CountryConverter.data
-        Aggregation happens in order given in this parameter. 
+        Aggregation happens in order given in this parameter.
         Thus, country assigned to an aggregate are not re-assigned by
         the following aggregation information.
 
@@ -59,7 +59,7 @@ def build_agg_vec(original_countries,
         'original_countries' but missing in all 'aggregates'.
         For example, pass
         lambda x: logging.error('Country {} missing'.format(x))
-        to log errors for such countries. 
+        to log errors for such countries.
         Default: do nothing
 
     log_merge_multiple_strings: function, optional
@@ -80,7 +80,19 @@ def build_agg_vec(original_countries,
         only two collumns with the original and aggregated names are
         returned.
 
-    """ 
+    original_countries_class: str, optional
+        Valid column name of CountryConverter.data.
+        This parameter is needed if a list of countries is passed
+        to 'orginal_countries' and strings corresponding to data in
+        CountryConverter.data are used subsequently. Can be omitted
+        otherwise.
+
+    Returns
+    -------
+
+    OrderedDict or DataFrame (defined by 'as_dataframe')
+
+    """
 
     if coco is None:
         coco = CountryConverter()
@@ -89,8 +101,9 @@ def build_agg_vec(original_countries,
         original_countries_class = original_countries
         original_countries = coco.data[original_countries].values
     else:
-        original_countries_class = coco._get_input_format_from_name(
-            original_countries[0])
+        original_countries_class = (original_countries_class or
+                                    coco._get_input_format_from_name(
+                                        original_countries[0]))
 
     if type(aggregates) is not list:
         aggregates = [aggregates]
@@ -108,7 +121,7 @@ def build_agg_vec(original_countries,
                 except KeyError:
                     entry = None
 
-                if type(entry) is list: 
+                if type(entry) is list:
                     if 1 < len(entry):
                         if merge_multiple_string:
                             entry = merge_multiple_string.join([
@@ -119,7 +132,7 @@ def build_agg_vec(original_countries,
                             log_merge_multiple_strings(country)
                     else:
                         entry = entry[0]
-                
+
                 correspond[country] = entry
 
     for country in original_countries:
@@ -127,7 +140,7 @@ def build_agg_vec(original_countries,
             if missing_countries is True:
                 correspond[country] = country
             elif missing_countries is False:
-                del correspond[country] 
+                del correspond[country]
             else:
                 correspond[country] = missing_countries
             if log_missing_countries:
@@ -136,48 +149,16 @@ def build_agg_vec(original_countries,
     if as_dataframe:
         correspond = pd.DataFrame.from_dict(
             correspond, orient='index').reset_index()
-        correspond.columns = ['original', 'aggregated'] 
-        if ((type(as_dataframe) is str) and 
+        correspond.columns = ['original', 'aggregated']
+        if ((type(as_dataframe) is str) and
                 (as_dataframe[0].lower() == 'f')):
+            _co_list = correspond.original
             correspond['val'] = 1
             correspond = correspond.set_index(
                 ['original', 'aggregated']).unstack().fillna(0)['val']
-            correspond = correspond.loc[original_countries]
+            correspond = correspond.loc[_co_list]
 
     return correspond
-
-def devtest():
-    cc = CountryConverter()
-    # original_countries=['c1', 'c2', 'c3', 'c4']
-    # aggregates=[
-        # {'c1':'r1', 'c2':'r1', 'c3':'r2'},
-    # ]
-    original_countries = ['AT', 'TW', 'XX', 'US', 'WA']
-    # original_countries = 'ISO2'
-    # original_countries = cc.data.EXIO2
-    aggregates = [
-        # cc.get_correspondance_dict('WIOD', 'EU'),
-        # cc.get_correspondance_dict('WIOD', 'OECD'),
-        # cc.get_correspondance_dict('EXIO2', 'EU'),
-        # cc.get_correspondance_dict('EXIO2', 'OECD'),
-        'EU', 'OECD', 'continent'
-
-    ]
-
-    x = build_agg_vec(original_countries, 
-                      aggregates,
-                      merge_multiple_string=None,
-                      # merge_multiple_string="_",
-                      missing_countries=True,
-                      log_missing_countries = None,
-                      log_merge_multiple_strings = None,
-                      as_dataframe='full'
-                      )
-    # locals().update(x)
-    print(x)
-    return x
-
-
 
 
 def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
@@ -674,7 +655,9 @@ class CountryConverter():
         """ Valid strings for the converter """
         return list(self.data.columns)
 
-    def get_correspondance_dict(self, classA, classB, restrict=None, replace_numeric=True):
+    def get_correspondance_dict(self, classA, classB,
+                                restrict=None,
+                                replace_numeric=True):
         """ Returns a correspondance between classification A and B as dict
 
         Parameters
@@ -687,25 +670,26 @@ class CountryConverter():
             Valid classification (column name of data).
 
         restrict: boolean vector of size cc.data, optional
-            where cc is the name of the CountryConverter instance.
-            Used to restrict the data sheet if necessary.
-            E.g. to convert to countries which were OECD members before 1970 use
-            cc.get_correspondance_dict('ISO3', 'OECD', restrict=cc.data.OECD < 1970)
+            where cc is the name of the CountryConverter instance.  Used to
+            restrict the data sheet if necessary.  E.g. to convert to countries
+            which were OECD members before 1970 use
+            cc.get_correspondance_dict('ISO3', 'OECD', restrict=cc.data.OECD <
+            1970)
 
         replace_numeric: boolean, optional
             If True (default) replace numeric values with the column header.
-            This can be used if get a correspondance to, for example, 'OECD' instead
-            of to the OECD membership years. Set to False if the actual numbers are
-            required (as for UNcode).
+            This can be used if get a correspondance to, for example, 'OECD'
+            instead of to the OECD membership years. Set to False if the actual
+            numbers are required (as for UNcode).
 
         Returns
         -------
-        dict with 
-            keys: based on classA 
+        dict with
+            keys: based on classA
             items: list of correspoding entries in classB or None
-    
+
         """
-        result = {nn:None for nn in self.data[classA].values}
+        result = {nn: None for nn in self.data[classA].values}
 
         if restrict is None:
             df = self.data.copy()
@@ -713,15 +697,14 @@ class CountryConverter():
             df = self.data[restrict].copy()
 
         if replace_numeric and df[classB].dtype.kind in 'bifc':
-            df.loc[~df[classB].isnull(),classB] = classB
-            df.loc[df[classB].isnull(),classB] = None
+            df.loc[~df[classB].isnull(), classB] = classB
+            df.loc[df[classB].isnull(), classB] = None
 
-        result.update(df.groupby(classA).
-                         aggregate(lambda x: list(x.unique())).
-                         to_dict()[classB])
+        result.update(df.groupby(classA)
+                        .aggregate(lambda x: list(x.unique()))
+                        .to_dict()[classB])
 
         return result
-
 
     def _validate_input_para(self, para, column_names):
         """ Convert the input classificaton para to the correct df column name

@@ -2,7 +2,9 @@ import os
 import sys
 import pytest
 import pandas as pd
+from pandas.util.testing import assert_frame_equal
 import collections
+from collections import OrderedDict
 
 TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, '..'))
@@ -142,3 +144,192 @@ def test_special_cases():
     # issue 22 - namibia iso2 na interpreted as not a number
     assert converter('NA', to='ISO3') == 'NAM'
     assert converter('NAM', to='ISO2') == 'NA'
+
+
+def test_get_correspondance_dict_standard():
+    """ Standard test case for get_correspondance_dict method
+    """
+    classA = 'EXIO1'
+    classB = 'continent'
+    cc = coco.CountryConverter()
+    corr = cc.get_correspondance_dict(classA=classA,
+                                      classB=classB)
+    assert type(corr) == dict
+    assert len(corr) == 44
+    assert corr['DE'] == ['Europe']
+    assert corr['ZA'] == ['Africa']
+    assert corr['WW'] == ['Asia', 'Europe',
+                          'Africa', 'Oceania',
+                          'America', 'Antarctica']
+
+
+def test_get_correspondance_dict_numeric_replace():
+    """ Numeric replacement test of get_correspondance_dict method
+    """
+    classA = 'EXIO1'
+    classB = 'OECD'
+    cc = coco.CountryConverter()
+    corr_str = cc.get_correspondance_dict(classA=classA,
+                                          classB=classB,
+                                          replace_numeric=True)
+    assert type(corr_str) == dict
+    assert len(corr_str) == 44
+    assert corr_str['JP'] == ['OECD']
+    assert corr_str['ZA'] == [None]
+    assert None in corr_str['WW']
+    assert 'OECD' in corr_str['WW']
+    assert len(corr_str['WW']) == 2
+
+    corr_num = cc.get_correspondance_dict(classA=classA,
+                                          classB=classB,
+                                          replace_numeric=False)
+    assert type(corr_num) == dict
+    assert len(corr_num) == 44
+    assert corr_num['JP'] == [1964]
+    assert pd.np.isnan(corr_num['ZA'])
+    assert 2010 in corr_num['WW']
+    assert 1961 in corr_num['WW']
+    assert len(corr_num['WW']) == 4
+
+
+def test_build_agg_conc_custom():
+    """ Minimal test of the aggregation concordance building functionality
+    """
+
+    original_countries = ['c1', 'c2', 'c3', 'c4']
+    aggregates = [{'c1': 'r1', 'c2': 'r1', 'c3': 'r2'}]
+
+    agg_dict_wmiss = coco.agg_conc(original_countries,
+                                   aggregates,
+                                   merge_multiple_string=None,
+                                   missing_countries=True,
+                                   log_missing_countries=None,
+                                   log_merge_multiple_strings=None,
+                                   as_dataframe=False
+                                   )
+
+    assert agg_dict_wmiss == OrderedDict([('c1', 'r1'),
+                                          ('c2', 'r1'),
+                                          ('c3', 'r2'),
+                                          ('c4', 'c4')])
+
+    agg_dict_replace = coco.agg_conc(original_countries,
+                                     aggregates,
+                                     merge_multiple_string=None,
+                                     missing_countries='RoW',
+                                     log_missing_countries=None,
+                                     log_merge_multiple_strings=None,
+                                     as_dataframe=False
+                                     )
+
+    assert agg_dict_replace == OrderedDict([('c1', 'r1'),
+                                            ('c2', 'r1'),
+                                            ('c3', 'r2'),
+                                            ('c4', 'RoW')])
+
+    agg_vec_womiss = coco.agg_conc(original_countries,
+                                   aggregates,
+                                   merge_multiple_string=None,
+                                   missing_countries=False,
+                                   log_missing_countries=None,
+                                   log_merge_multiple_strings=None,
+                                   as_dataframe='sparse'
+                                   )
+
+    expected_vec = pd.DataFrame(data=[['c1', 'r1'],
+                                      ['c2', 'r1'],
+                                      ['c3', 'r2'],
+                                      ],
+                                columns=['original', 'aggregated']
+                                )
+
+    assert_frame_equal(agg_vec_womiss, expected_vec)
+
+    agg_matrix_womiss = coco.agg_conc(original_countries,
+                                      aggregates,
+                                      merge_multiple_string=None,
+                                      missing_countries=False,
+                                      log_missing_countries=None,
+                                      log_merge_multiple_strings=None,
+                                      as_dataframe='full'
+                                      )
+
+    expected_matrix = pd.DataFrame(data=[[1.0, 0.0],
+                                         [1.0, 0.0],
+                                         [0.0, 1.0],
+                                         ],
+                                   columns=['r1', 'r2'],
+                                   index=['c1', 'c2', 'c3'],
+                                   )
+    expected_matrix.index.names = ['original']
+    expected_matrix.columns.names = ['aggregated']
+
+    assert_frame_equal(agg_matrix_womiss, expected_matrix)
+
+
+def test_build_agg_conc_exio():
+    """ Some agg_conc test with a subset of exio countries
+    """
+
+    original_countries = ['TW', 'XX', 'AT', 'US', 'WA']
+    aggregates = [
+        'EU', 'OECD', 'continent'
+    ]
+
+    agg_dict_replace = coco.agg_conc(original_countries,
+                                     aggregates,
+                                     merge_multiple_string=False,
+                                     missing_countries='RoW',
+                                     log_missing_countries=None,
+                                     log_merge_multiple_strings=None,
+                                     as_dataframe=False
+                                     )
+
+    assert agg_dict_replace == OrderedDict([('TW', 'Asia'),
+                                            ('XX', 'RoW'),
+                                            ('AT', 'EU'),
+                                            ('US', 'OECD'),
+                                            ('WA', 'RoW')])
+
+    agg_dict_skip = coco.agg_conc(original_countries,
+                                  aggregates,
+                                  merge_multiple_string=False,
+                                  missing_countries=False,
+                                  log_missing_countries=None,
+                                  log_merge_multiple_strings=None,
+                                  as_dataframe=False
+                                  )
+
+    assert agg_dict_skip == OrderedDict([('TW', 'Asia'),
+                                         ('AT', 'EU'),
+                                         ('US', 'OECD')])
+
+    agg_matrix_skip = coco.agg_conc(original_countries,
+                                    aggregates,
+                                    merge_multiple_string=False,
+                                    missing_countries=False,
+                                    log_missing_countries=None,
+                                    log_merge_multiple_strings=None,
+                                    as_dataframe='full'
+                                    )
+
+    assert agg_matrix_skip.index.tolist() == ['TW', 'AT', 'US']
+
+    aggregates_oecd_first = [
+        'OECD', 'EU', {'WA': 'RoW', 'WF': 'RoW'}
+    ]
+
+    agg_dict_oecd_eu = coco.agg_conc(original_countries,
+                                     aggregates_oecd_first,
+                                     merge_multiple_string=False,
+                                     missing_countries=True,
+                                     log_missing_countries=None,
+                                     log_merge_multiple_strings=None,
+                                     as_dataframe=False
+                                     )
+
+    assert agg_dict_oecd_eu == OrderedDict([('TW', 'TW'),
+                                            ('XX', 'XX'),
+                                            ('AT', 'OECD'),
+                                            ('US', 'OECD'),
+                                            ('WA', 'RoW')])
