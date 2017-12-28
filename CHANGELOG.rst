@@ -4,6 +4,10 @@ Change Log
 0.6dev - 
 --------
 
+only_UNmember as parameter at the init, allowing for only using UNmembers for the conversion
+
+Eora country codes, based on Eora26 (deviates from the country names provided separetly at worldmrio.com)
+
 aggregation functionality with
 
   - method get_correspondance_dict in CountryConverter

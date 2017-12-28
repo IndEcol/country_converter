@@ -315,9 +315,12 @@ def convert(*args, **kargs):
     list or str, depending on enforce_list
 
     """
-    init = {'country_data': COUNTRY_DATA_FILE, 'additional_data': None}
+    init = {'country_data': COUNTRY_DATA_FILE,
+            'additional_data': None,
+            'only_UNmember': False}
     init.update({kk: kargs.get(kk) for kk in init.keys() if kk in kargs})
     coco = CountryConverter(**init)
+    kargs = {kk: ii for kk, ii in kargs.items() if kk not in init.keys()}
     return coco.convert(*args, **kargs)
 
 
@@ -364,7 +367,8 @@ class CountryConverter():
         return {'clean_name': split_entries[0],
                 'excluded_countries': split_entries[1:]}
 
-    def __init__(self, country_data=COUNTRY_DATA_FILE, additional_data=None):
+    def __init__(self, country_data=COUNTRY_DATA_FILE,
+                 additional_data=None, only_UNmember=False):
         """
         Parameters
         ----------
@@ -378,6 +382,13 @@ class CountryConverter():
             This must be given in the same format as specified in the
             country_data file. (utf-8 encoded tab separated data, same
             column headers in all files)
+
+        only_UNmember: boolean, optional
+            If True, only load countries currently being UN members from
+            the standard data file. If False (default) load the full list
+            of countries. In this case, also countries currently not existing
+            (USSR) or with overlapping territories are included.
+
         """
 
         must_be_unique = ['name_short', 'name_official', 'regex']
@@ -405,6 +416,8 @@ class CountryConverter():
             return ret
 
         basic_df = data_loader(country_data)
+        if only_UNmember:
+            basic_df.dropna(subset=['UNmember'], inplace=True)
 
         if additional_data is None:
             additional_data = []

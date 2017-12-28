@@ -134,6 +134,11 @@ def test_additional_country_data():
                                                    to='continent')
 
 
+def test_UNmember():
+    cc = coco.CountryConverter(only_UNmember=True)
+    assert len(cc.data) == 193
+
+
 def test_special_cases():
     """ Some test for special cases which occurred during development.
 
