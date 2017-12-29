@@ -30,62 +30,54 @@ def agg_conc(original_countries,
     ----------
 
     original_countries: list or str
-        List of countries to aggregated, also accepts and
-        valid column name of CountryConverter.data
+        List of countries to aggregated, also accepts and valid column name of
+        CountryConverter.data
 
     aggregates: list of dict or str
-        List of aggregation information. This can either
-        be dict mapping the names of 'original_countries' to
-        aggregates, or a valid column name of CountryConverter.data
-        Aggregation happens in order given in this parameter.
-        Thus, country assigned to an aggregate are not re-assigned by
-        the following aggregation information.
+        List of aggregation information. This can either be dict mapping the
+        names of 'original_countries' to aggregates, or a valid column name of
+        CountryConverter.data Aggregation happens in order given in this
+        parameter.  Thus, country assigned to an aggregate are not re-assigned
+        by the following aggregation information.
 
     missing_countries: str, boolean, None
-        Entry to fill in for countries in 'original_countries'
-        which do not appear in 'aggregates'.
-        str: Use the given name for all missing countries
-        True: Use the name in original_countries for missing countries
-        False: Skip these countries
-        None: Use None for these countries
+        Entry to fill in for countries in 'original_countries' which do not
+        appear in 'aggregates'.  str: Use the given name for all missing
+        countries True: Use the name in original_countries for missing
+        countries False: Skip these countries None: Use None for these
+        countries
 
     merge_multiple_string: str or None, optional
-        If multiple correspondance entries are given in
-        one of the aggregates join them with the given string (default: '_&_'.
-        To skip these enries, pass None. 
+        If multiple correspondance entries are given in one of the aggregates
+        join them with the given string (default: '_&_'.  To skip these enries,
+        pass None.
 
     log_missing_countries: function, optional
         This function is called with country is country is in
         'original_countries' but missing in all 'aggregates'.
         For example, pass
         lambda x: logging.error('Country {} missing'.format(x))
-        to log errors for such countries.
-        Default: do nothing
+        to log errors for such countries.  Default: do nothing
 
     log_merge_multiple_strings: function, optional
         Function to call for logging multiple strings, see
-        log_missing_countries
-        Default: do nothing
+        log_missing_countries Default: do nothing
 
     coco: instance of CountryConverter, optional
-        CountryConverter instance used for the conversion.
-        Pass a custom one if additional data is needed in addition
-        to the custom country converter file.
-        If None (default), the bare CountryConverter is used
+        CountryConverter instance used for the conversion.  Pass a custom one
+        if additional data is needed in addition to the custom country
+        converter file.  If None (default), the bare CountryConverter is used
 
     as_dataframe: boolean or st, optional
-        If False, output as OrderedDict.
-        If True or str, output as pandas dataframe.
-        If str and 'full', output as a full matrix, otherwise
-        only two collumns with the original and aggregated names are
-        returned.
+        If False, output as OrderedDict.  If True or str, output as pandas
+        dataframe.  If str and 'full', output as a full matrix, otherwise only
+        two collumns with the original and aggregated names are returned.
 
     original_countries_class: str, optional
-        Valid column name of CountryConverter.data.
-        This parameter is needed if a list of countries is passed
-        to 'orginal_countries' and strings corresponding to data in
-        CountryConverter.data are used subsequently. Can be omitted
-        otherwise.
+        Valid column name of CountryConverter.data.  This parameter is needed
+        if a list of countries is passed to 'orginal_countries' and strings
+        corresponding to data in CountryConverter.data are used subsequently.
+        Can be omitted otherwise.
 
     Returns
     -------
