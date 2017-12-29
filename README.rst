@@ -1,7 +1,7 @@
 country converter
 =================
 
-The country converter (coco) is a Python package to convert country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names.
+The country converter (coco) is a Python package to convert and match country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names. Coco can also be used to build aggregation concordance matrices between the different classifications.
 
 .. image:: https://badge.fury.io/py/country_converter.svg
     :target: https://badge.fury.io/py/country_converter
@@ -269,12 +269,24 @@ information - all functions available in Python (for example passing additional
 data files, specifying the output in case of missing data) work also in Matlab
 by passing arguments through the pyargs function.
 
+
+
+Building concordances for country aggregation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Coco provides a function for building concordance vectors, matrices and dictionaries between
+different classifications. This can be used in python as well as in matlab.  
+For furter information see (country_converter_aggregation_helper.ipynb_)
+
+.. _country_converter_aggregation_helper.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_aggregation_helper.ipynb
+
+
 .. _Classifications:
 
 Classification schemes
 ----------------------
 
-Currently the following classification schemes are available:
+Currently the following classification schemes are available (see also Data sources below for further information):
 
 #) ISO2 (ISO 3166-1 alpha-2)
 #) ISO3 (ISO 3166-1 alpha-3)
@@ -284,13 +296,14 @@ Currently the following classification schemes are available:
 #) The "official" name
 #) Continent
 #) UN region
-#) EXIOBASE 1 classification
-#) EXIOBASE 2 classification
-#) EXIOBASE 2 classification
-#) WIOD classification
-#) OECD membership (per year)
-#) UN membership (per year)
-#) EU membership (per year)
+#) EXIOBASE_ 1 classification
+#) EXIOBASE_ 2 classification
+#) EXIOBASE_ 2 classification
+#) WIOD_ classification
+#) Eora_
+#) OECD_ membership (per year)
+#) UN_ membership (per year)
+#) EU_ membership (per year)
 
 
 Data sources and further reading
@@ -301,7 +314,9 @@ https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
 UN regions/codes are given on the United Nation Statistical Division (unstats_) webpage.
 For the differences between the ISO numeric and UN (M.49) codes 
 see https://en.wikipedia.org/wiki/UN_M.49.
-EXIOBASE_ and WIOD_ classification were extracted from the respective databases.
+EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective databases.
+For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
+updated for different names used in the Eora26 database.
 The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
@@ -310,7 +325,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _EU: http://europa.eu/about-eu/countries/index_en.htm
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/home
-
+.. _Eora: http://www.worldmrio.com/
 
 
 Communication, issues, bugs and enhancements

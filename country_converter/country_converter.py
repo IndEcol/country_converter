@@ -49,10 +49,10 @@ def agg_conc(original_countries,
         False: Skip these countries
         None: Use None for these countries
 
-    merge_multiple_string: str or None
+    merge_multiple_string: str or None, optional
         If multiple correspondance entries are given in
-        one of the aggregates join them with the given string.
-        To skip these enries, pass None
+        one of the aggregates join them with the given string (default: '_&_'.
+        To skip these enries, pass None. 
 
     log_missing_countries: function, optional
         This function is called with country is country is in

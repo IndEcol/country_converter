@@ -6,11 +6,13 @@ Change Log
 
 only_UNmember as parameter at the init, allowing for only using UNmembers for the conversion
 
-Eora country codes, based on Eora26 (deviates from the country names provided separetly at worldmrio.com)
+Eora(26) country codes
 
-aggregation functionality with
+Aggregation concordance building functionality with
 
   - method get_correspondance_dict in CountryConverter
+  - function agg_conc which build concordance matrices in various formats
+  - notebook tutorial
 
 0.5.3 - 20170811
 ----------------
