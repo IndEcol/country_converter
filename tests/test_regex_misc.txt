@@ -55,6 +55,7 @@ Macedonia	"Macedonia, the former yugoslav republic of"
 Macedonia	Former Yugoslav Republic of Macedonia
 Macedonia	The former Yugoslav Republic of Macedonia
 Marshall Islands	Marshall Isds
+Martinique	martinique
 "Micronesia, Fed. Sts."	FS Micronesia
 "Micronesia, Fed. Sts."	Micronesia (Federated States of)
 Moldova	Rep. of Moldova
@@ -82,6 +83,12 @@ South Georgia and  South Sandwich Is.	South georgia and the south sandwich islan
 St. Helena	Saint Helena
 St. Kitts and Nevis	Saint kitts and nevis
 St. Lucia	Saint lucia
+Saint-Martin	St. Martin
+Saint-Martin	Saint Martin
+Saint-Martin	Saint Martin (French)
+Sint Maarten	Saint Martin (Dutch)
+Sint Maarten	Saint Martin (Dutch)
+Sint Maarten	St. Maarten
 St. Pierre and Miquelon	St. pierre and miquelon
 St. Vincent and the Grenadines	Saint Vincent/Grenadines
 St. Vincent and the Grenadines	Saint vincent and the grenadines

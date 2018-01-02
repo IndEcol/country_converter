@@ -1,6 +1,21 @@
 Change Log
 ===========
 
+0.6.0 - 20180102
+-----------------
+
+Aggregation concordance building functionality with
+
+  - method get_correspondance_dict in CountryConverter
+  - function agg_conc which build concordance matrices in various formats
+  - notebook tutorial
+
+Include Eora(26) country codes
+
+CountryConverter accepts a parameter only_UNmember to restrict the concordances to UN member countries.
+
+Fix and close Issue #28 (Wrong ISO3 code for Palestine) and #25 (Non-standard codes).
+
 0.5.4 - 20170922
 ----------------
 
