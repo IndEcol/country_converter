@@ -41,6 +41,14 @@ Country_converter is registered at PyPI. From the command line:
 
     pip install country_converter --upgrade
 
+To install from the Anaconda_ Cloud use:    
+
+::
+    
+   conda install -c konstantinstadler country_converter
+
+.. _Anaconda: https://anaconda.org/konstantinstadler/country_converter
+
 Alternatively, the source code is available on GitHub_.
 
 .. _GitHub: https://github.com/konstantinstadler/country_converter
