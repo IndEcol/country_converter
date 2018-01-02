@@ -7,8 +7,8 @@ The country converter (coco) is a Python package to convert and match country na
     :target: https://badge.fury.io/py/country_converter
 .. image:: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113/status.svg
     :target: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113
-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.838248.svg
-   :target: https://doi.org/10.5281/zenodo.838248
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.838035.svg
+   :target: https://doi.org/10.5281/zenodo.838035
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
     :target: https://www.gnu.org/licenses/gpl-3.0
 .. image:: https://travis-ci.org/konstantinstadler/country_converter.svg?branch=master
