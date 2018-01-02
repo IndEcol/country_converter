@@ -1,6 +1,11 @@
 Change Log
 ===========
 
+0.6.1 - 20180102
+-----------------
+
+Minor spelling fixes
+
 0.6.0 - 20180102
 -----------------
 
@@ -15,6 +20,11 @@ Include Eora(26) country codes
 CountryConverter accepts a parameter only_UNmember to restrict the concordances to UN member countries.
 
 Fix and close Issue #28 (Wrong ISO3 code for Palestine) and #25 (Non-standard codes).
+
+0.5.4 - 20170922
+----------------
+
+Corrected Palestine ISO3 code to PSE
 
 0.5.3 - 20170811
 ----------------
