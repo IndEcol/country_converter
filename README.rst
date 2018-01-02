@@ -1,7 +1,7 @@
 country converter
 =================
 
-The country converter (coco) is a Python package to convert and match country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names. Coco can also be used to build aggregation concordance matrices between the different classifications.
+The country converter (coco) is a Python package to convert and match country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names. Coco can also be used to build aggregation concordance matrices between different classification schemes.
 
 .. image:: https://badge.fury.io/py/country_converter.svg
     :target: https://badge.fury.io/py/country_converter
@@ -305,6 +305,21 @@ Currently the following classification schemes are available (see also Data sour
 #) UN_ membership (per year)
 #) EU_ membership (per year)
 
+
+Coco contains offical recognised codes as well as non-standard codes for disputed or dissolved countries. 
+To restrict the set to only the official recognized UN members, pass
+
+.. code:: python
+
+    import country_converter as coco
+    cc_all = coco.CountryConverter()
+    cc_UN = coco.CountryConverter(only_UNmember=True)
+
+    cc_all.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
+    cc_UN.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
+
+cc_all results in ['Palestine', 'Kosovo', 'Zanzibar', 'France'], whereas cc_UN converts to ['not found', 'not found', 'not found', 'France'].
+Note that the underlying dataframe is available at the attribute .data (e.g. cc_all.data).
 
 Data sources and further reading
 --------------------------------
