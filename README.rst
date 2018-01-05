@@ -358,10 +358,9 @@ Communication, issues, bugs and enhancements
 
 Please use the issue tracker for documenting bugs, proposing enhancements and all other communication related to coco.
 
-You can follow me on twitter_ or mastodon_ to get the latest news about all my open-source and research projects (and occasionally some random retweets).
+You can follow me on twitter_ to get the latest news about all my open-source and research projects (and occasionally some random retweets).
 
 .. _twitter: https://twitter.com/kst_stadler
-.. _mastodon: https://mastodon.rocks/@kstadler
 
 Contributing
 ---------------
