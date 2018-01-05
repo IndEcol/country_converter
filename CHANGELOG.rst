@@ -1,6 +1,12 @@
 Change Log
 ===========
 
+0.6.2 - 20180105
+-----------------
+
+Switched WIOD country names to upper case to fit the WIOD database case
+
+
 0.6.1 - 20180102
 -----------------
 
