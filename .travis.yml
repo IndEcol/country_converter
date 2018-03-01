@@ -8,6 +8,6 @@ install:
   - pip install pytest-cov python-coveralls
   - pip install -r requirements.txt
 script:
-    py.test --pep8 -vv --cov
+    py.test --pep8 -vv --cov country_converter
 after_success:
     coveralls
