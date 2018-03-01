@@ -5,5 +5,9 @@ python:
 install:
   - pip install pytest-pep8
   - pip install .
+  - pip install pytest-cov python-coveralls
   - pip install -r requirements.txt
-script: pytest --pep8
+script:
+    py.test --pep8 -vv example.py --cov example
+after_success:
+    coveralls
