@@ -361,7 +361,8 @@ class CountryConverter():
                 'excluded_countries': split_entries[1:]}
 
     def __init__(self, country_data=COUNTRY_DATA_FILE,
-                 additional_data=None, only_UNmember=False, include_obsolete=False):
+                 additional_data=None, only_UNmember=False,
+                 include_obsolete=False):
         """
         Parameters
         ----------
