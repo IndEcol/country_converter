@@ -338,3 +338,47 @@ def test_build_agg_conc_exio():
                                             ('AT', 'OECD'),
                                             ('US', 'OECD'),
                                             ('WA', 'RoW')])
+
+
+def test_match():
+    match_these = ['norway', 'united_states', 'china', 'taiwan']
+    master_list = ['USA', 'The Swedish Kingdom', 'Norway is a Kingdom too',
+                   'Peoples Republic of China', 'Republic of China']
+    matching_dict = coco.match(match_these, master_list)
+    assert matching_dict['china'] == 'Peoples Republic of China'
+    assert matching_dict['taiwan'] == 'Republic of China'
+    assert matching_dict['norway'] == 'Norway is a Kingdom too'
+
+
+def test_wrapper_convert():
+    assert 'US' == coco.convert('usa', src='regex', to='ISO2')
+
+
+def test_EU_output():
+    cc = coco.CountryConverter()
+    EU28 = cc.EU28as('ISO2')
+    assert len(EU28 == 28)
+    assert cc.convert('Croatia', to='ISO2') in EU28.ISO2.values
+    EU27 = cc.EU27as('ISO2')
+    assert len(EU27 == 27)
+    assert cc.convert('Croatia', to='ISO2') not in EU27.ISO2.values
+
+
+def test_OECD_output():
+    cc = coco.CountryConverter()
+    oecd = cc.OECDas('ISO3')
+    assert cc.convert('Netherlands', to='ISO3') in oecd.values
+
+
+def test_UN_output():
+    cc = coco.CountryConverter()
+    un = coco.CountryConverter().UNas('ISO3')
+    assert cc.convert('Netherlands', to='ISO3') in un.values
+
+
+def test_properties():
+    cc = coco.CountryConverter()
+    assert all(cc.EU28 == cc.EU28as(to='name_short'))
+    assert all(cc.EU27 == cc.EU27as(to='name_short'))
+    assert all(cc.OECD == cc.OECDas(to='name_short'))
+    assert all(cc.UN == cc.UNas(to='name_short'))
