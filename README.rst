@@ -317,18 +317,22 @@ Currently the following classification schemes are available (see also Data sour
 
 
 Coco contains offical recognised codes as well as non-standard codes for disputed or dissolved countries. 
-To restrict the set to only the official recognized UN members, pass
+To restrict the set to only the official recognized UN members or include obsolete countries, pass
 
 .. code:: python
 
     import country_converter as coco
-    cc_all = coco.CountryConverter()
+    cc = coco.CountryConverter()
     cc_UN = coco.CountryConverter(only_UNmember=True)
+    cc_all = coco.CountryConverter(include_obsolete=True)
 
-    cc_all.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
-    cc_UN.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
+    cc.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
+    cc_UN.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
+    cc_all.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
 
-cc_all results in ['Palestine', 'Kosovo', 'Zanzibar', 'France'], whereas cc_UN converts to ['not found', 'not found', 'not found', 'France'].
+cc results in ['Palestine', 'Kosovo', 'not found', 'France'], whereas cc_UN converts to
+['not found', 'not found', 'not found', 'France'] and cc_all converts to
+['Palestine', 'Kosovo', 'Zanzibar', 'France']
 Note that the underlying dataframe is available at the attribute .data (e.g. cc_all.data).
 
 Data sources and further reading
@@ -351,6 +355,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/home
 .. _Eora: http://www.worldmrio.com/
+.. _Statoids: http://www.statoids.com/w3166his.html
 
 
 Communication, issues, bugs and enhancements

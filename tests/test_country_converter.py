@@ -74,7 +74,7 @@ def test_name_official():
 
 
 def test_alternative_names(get_regex_test_data):
-    converter = coco.CountryConverter()
+    converter = coco.CountryConverter(include_obsolete=True)
     not_found_id = 'XXX'
     for row in get_regex_test_data.data.iterrows():
         name_test = row[1].name_test
@@ -137,6 +137,15 @@ def test_additional_country_data():
 def test_UNmember():
     cc = coco.CountryConverter(only_UNmember=True)
     assert len(cc.data) == 193
+
+
+def test_obsolete():
+    cc = coco.CountryConverter()
+    assert len(cc.data) == 250
+    cc = coco.CountryConverter(include_obsolete=False)
+    assert len(cc.data) == 250
+    cc = coco.CountryConverter(include_obsolete=True)
+    assert len(cc.data) == 256
 
 
 def test_special_cases():

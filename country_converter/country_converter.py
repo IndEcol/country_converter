@@ -309,7 +309,8 @@ def convert(*args, **kargs):
     """
     init = {'country_data': COUNTRY_DATA_FILE,
             'additional_data': None,
-            'only_UNmember': False}
+            'only_UNmember': False,
+            'include_obsolete': False}
     init.update({kk: kargs.get(kk) for kk in init.keys() if kk in kargs})
     coco = CountryConverter(**init)
     kargs = {kk: ii for kk, ii in kargs.items() if kk not in init.keys()}
@@ -360,7 +361,7 @@ class CountryConverter():
                 'excluded_countries': split_entries[1:]}
 
     def __init__(self, country_data=COUNTRY_DATA_FILE,
-                 additional_data=None, only_UNmember=False):
+                 additional_data=None, only_UNmember=False, include_obsolete=False):
         """
         Parameters
         ----------
@@ -380,6 +381,10 @@ class CountryConverter():
             the standard data file. If False (default) load the full list
             of countries. In this case, also countries currently not existing
             (USSR) or with overlapping territories are included.
+
+        include_obsolete: boolean, optional
+            If True, includes countries that have become obsolete. If
+            False (default) only includes currently valid countries.
 
         """
 
@@ -410,6 +415,9 @@ class CountryConverter():
         basic_df = data_loader(country_data)
         if only_UNmember:
             basic_df.dropna(subset=['UNmember'], inplace=True)
+
+        if not include_obsolete:
+            basic_df = basic_df[basic_df.obsolete.isnull()]
 
         if additional_data is None:
             additional_data = []
@@ -626,6 +634,25 @@ class CountryConverter():
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.UNmember > 0][to]
+
+    def obsoleteas(self, to='name_short'):
+        """
+        Return obsolete countries in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.obsolete > 0][to]
 
     @property
     def EU28(self):
