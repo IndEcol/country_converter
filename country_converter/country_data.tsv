@@ -31,7 +31,7 @@ Bosnia and Herzegovina	Bosnia and Herzegovina	herzegovina|bosnia	BA	BIH	70	70	Eu
 Botswana	Republic of Botswana	botswana|bechuana	BW	BWA	72	72	Africa	Southern Africa	WW	WF	WF	RoW	BWA				1966	
 Bouvet Island	Bouvet Island	bouvet	BV	BVT	74	74	Antarctica	South America	WW	WA	WA	RoW						
 Brazil	Federative Republic of Brazil	brazil	BR	BRA	76	76	America	South America	BR	BR	BR	BRA	BRA				1945	
-British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1			Antarctica		WW	WA	WA	RoW						Y
+British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1			Antarctica		WW	WA	WA	RoW						1979
 British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	Africa	Eastern Africa	WW	WA	WA	RoW						
 British Virgin Islands	British Virgin Islands	^(?=.*\bu\.?\s?k).*virgin|^(?=.*br.*).*virgin|^(?=.*kingdom).*virgin|BVI	VG	VGB	92	92	America	Caribbean	WW	WL	WL	RoW	VGB					
 Brunei Darussalam	Nation of Brunei, Abode of Peace	brunei	BN	BRN	96	96	Asia	South-Eastern Asia	WW	WA	WA	RoW	BRN				1984	
@@ -45,7 +45,7 @@ Canada	Canada	canada	CA	CAN	124	124	America	Northern America	CA	CA	CA	CAN	CAN	19
 Cayman Islands	Cayman Islands	cayman	KY	CYM	136	136	America	Caribbean	WW	WL	WL	RoW	CYM					
 Central African Republic	Central African Republic	central.?african.?rep.*	CF	CAF	140	140	Africa	Middle Africa	WW	WF	WF	RoW	CAF				1960	
 Chad	Republic of Chad	\bchad	TD	TCD	148	148	Africa	Middle Africa	WW	WF	WF	RoW	TCD				1960	
-Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	Europe	Northern Europe	WW	WE	WE	RoW						Y
+Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	Europe	Northern Europe	WW	WE	WE	RoW						2006
 Chile	Republic of Chile	\bchile	CL	CHL	152	152	America	South America	WW	WL	WL	RoW	CHL	2010			1945	
 China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	Asia	Eastern Asia	CN	CN	CN	CHN	CHN				1945	
 Christmas Island	Christmas Island	christmas	CX	CXR	162	162	Asia	Australia and New Zealand	WW	WA	WA	RoW						
@@ -157,7 +157,7 @@ Namibia	Republic of Namibia	namibia	NA	NAM	516	516	Africa	Southern Africa	WW	WF	
 Nauru	Republic of Nauru	nauru	NR	NRU	520	520	Oceania	Polynesia	WW	WA	WA	RoW	NRU				1999	
 Nepal	Federal Democratic Republic of Nepal	nepal	NP	NPL	524	524	Asia	Southern Asia	WW	WA	WA	RoW	NPL				1955	
 Netherlands	Kingdom of the Netherlands	^(?!.*\bant)(?!.*\bcarib).*netherlands	NL	NLD	528	528	Europe	Western Europe	NL	NL	NL	NLD	NLD	1961	1958	1999	1945	
-Netherlands Antilles	Netherlands Antilles	^(?=.*\bant).*(neth.*|dutch)	AN	ANT	530		America		WW	WL	WL	RoW	ANT					Y
+Netherlands Antilles	Netherlands Antilles	^(?=.*\bant).*(neth.*|dutch)	AN	ANT	530		America		WW	WL	WL	RoW	ANT					2010
 New Caledonia	New Caledonia	new.?caledonia	NC	NCL	540	540	Oceania	Melanesia	WW	WA	WA	RoW	NCL					
 New Zealand	New Zealand	(new|n)?.? *zealand	NZ	NZL	554	554	Oceania	Australia and New Zealand	WW	WA	WA	RoW	NZL	1973			1945	
 Nicaragua	Republic of Nicaragua	nicaragua	NI	NIC	558	558	America	Central America	WW	WL	WL	RoW	NIC				1945	
@@ -205,7 +205,7 @@ South Africa	Republic of South Africa	\bs(\.|outh).*africa	ZA	ZAF	710	710	Africa
 South Georgia and  South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239	239	Antarctica	South America	WW	WA	WA	RoW						
 South Korea	Republic of Korea	^(?!.*dem)(?!.*peo)(?!.*nor).*\bkorea|\br\.?o\.?k\b	KR	KOR	410	410	Asia	Eastern Asia	KR	KR	KR	KOR	KOR	1996			1991	
 South Sudan	Republic of South Sudan	\bs\w*.?sudan	SS	SSD	728	728	Africa	Eastern Africa	WW	WF	WF	RoW	SDS				2011	
-Soviet Union (former)	Union of Soviet Socialist Republics (former)	USSR|soviet	SU	SUN	810	810	Europe	Eastern Europe	WW	WE	WE	RoW	USR					Y
+Soviet Union (former)	Union of Soviet Socialist Republics (former)	USSR|soviet	SU	SUN	810	810	Europe	Eastern Europe	WW	WE	WE	RoW	USR					1992
 Spain	Kingdom of Spain	spain	ES	ESP	724	724	Europe	Southern Europe	ES	ES	ES	ESP	ESP	1961	1986	1999	1955	
 Sri Lanka	Democratic Socialist Republic of Sri Lanka	sri.?lanka|ceylon	LK	LKA	144	144	Asia	Southern Asia	WW	WA	WA	RoW	LKA				1955	
 St. Barths	Territorial collectivity of Saint-Barthélemy	barth|barts	BL	BLM	652	652	America	Caribbean	WW	WL	WL	RoW	BLM					
@@ -223,7 +223,7 @@ Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	Europe	Western Europe
 Syria	Syrian Arab Republic	syria	SY	SYR	760	760	Asia	Western Asia	WW	WM	WM	RoW	SYR				1945	
 Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$	TW	TWN	158		Asia	Eastern Asia	TW	TW	TW	TWN	TWN					
 Tajikistan	Republic of Tajikistan	tajik	TJ	TJK	762	762	Asia	Central Asia	WW	WA	WA	RoW	TJK				1992	
-Tanganjika	Republic of Tanganyika	tanganjika|tanganyika		EAT			Africa	Eastern Africa	WW	WF	WF	RoW						Y
+Tanganjika	Republic of Tanganyika	tanganjika|tanganyika		EAT			Africa	Eastern Africa	WW	WF	WF	RoW						1964
 Tanzania	United Republic of Tanzania	tanzania(?!: zan.*)	TZ	TZA	834	834	Africa	Eastern Africa	WW	WF	WF	RoW	TZA				1961	
 Thailand	Kingdom of Thailand	thailand|\bsiam	TH	THA	764	764	Asia	South-Eastern Asia	WW	WA	WA	RoW	THA				1946	
 Timor-Leste	Democratic Republic of Timor-Leste	^(?=.*leste).*timor|^(?=.*east).*timor	TL	TLS	626	626	Asia	South-Eastern Asia	WW	WA	WA	RoW	TLS				2002	
@@ -253,5 +253,5 @@ Wallis and Futuna Islands	Wallis and Futuna Islands	futuna|wallis	WF	WLF	876	876
 Western Sahara	Western Sahara	\bw.*sahara	EH	ESH	732	732	Africa	Northern Africa	WW	WF	WF	RoW	ESH					
 Yemen	Republic of Yemen	yemen	YE	YEM	887	887	Asia	Western Asia	WW	WM	WM	RoW	YEM				1947	
 Zambia	Republic of Zambia	zambia|northern.?rhodesia	ZM	ZMB	894	894	Africa	Eastern Africa	WW	WF	WF	RoW	ZMB				1964	
-Zanzibar	Zanzibar	zanz|.*tanzania:?zanzibar		EAZ			Africa	Eastern Africa	WW	WF	WF	RoW						Y
+Zanzibar	Zanzibar	zanz|.*tanzania:?zanzibar		EAZ			Africa	Eastern Africa	WW	WF	WF	RoW						1964
 Zimbabwe	Republic of Zimbabwe	zimbabwe|^(?!.*northern).*rhodesia	ZW	ZWE	716	716	Africa	Eastern Africa	WW	WF	WF	RoW	ZWE				1980	
