@@ -10,6 +10,7 @@ TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, '..'))
 
 import country_converter as coco  # noqa
+from country_converter.country_converter import _parse_arg  # noqa
 
 regex_test_files = [nn for nn in os.listdir(TESTPATH)
                     if (nn[:10] == 'test_regex') and
@@ -339,6 +340,20 @@ def test_build_agg_conc_exio():
                                             ('US', 'OECD'),
                                             ('WA', 'RoW')])
 
+    aggregates = 'EU'
+    agg_dict_full_exio = coco.agg_conc('EXIO2',
+                                       aggregates,
+                                       merge_multiple_string=False,
+                                       missing_countries='RoW',
+                                       log_missing_countries=None,
+                                       log_merge_multiple_strings=None,
+                                       as_dataframe=False
+                                       )
+
+    assert len(agg_dict_full_exio) == 48
+    assert agg_dict_full_exio['US'] == 'RoW'
+    assert agg_dict_full_exio['AT'] == 'EU'
+
 
 def test_match():
     match_these = ['norway', 'united_states', 'china', 'taiwan']
@@ -348,10 +363,26 @@ def test_match():
     assert matching_dict['china'] == 'Peoples Republic of China'
     assert matching_dict['taiwan'] == 'Republic of China'
     assert matching_dict['norway'] == 'Norway is a Kingdom too'
+    match_string_from = 'united states'
+    match_string_to_correct = 'USA'
+    matching_dict = coco.match(match_string_from, match_string_to_correct)
+    assert matching_dict['united states'] == 'USA'
+    match_from = ('united states')
+    match_false = ('abc')
+    matching_dict = coco.match(match_from, match_false)
+    assert matching_dict['united states'] == 'not_found'
+    matching_dict = coco.match(match_false, match_false)
+    assert matching_dict['abc'] == 'not_found'
 
 
 def test_wrapper_convert():
     assert 'US' == coco.convert('usa', src='regex', to='ISO2')
+    assert 'AT' == coco.convert('40', to='ISO2')
+
+
+def test_convert_wrong_classification():
+    with pytest.raises(KeyError) as e:
+        coco.convert('usa', src='abc')
 
 
 def test_EU_output():
@@ -382,3 +413,10 @@ def test_properties():
     assert all(cc.EU27 == cc.EU27as(to='name_short'))
     assert all(cc.OECD == cc.OECDas(to='name_short'))
     assert all(cc.UN == cc.UNas(to='name_short'))
+
+
+def test_parser():
+    sys.argv = ['AT']
+    args = _parse_arg(coco.CountryConverter().valid_class)
+    assert args.src == None  # noqa
+    assert args.to == 'ISO3'
