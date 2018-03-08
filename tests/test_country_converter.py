@@ -385,6 +385,12 @@ def test_UN_output():
     assert cc.convert('Netherlands', to='ISO3') in un.values
 
 
+def test_obsolete_output():
+    cc = coco.CountryConverter(include_obsolete=True)
+    obsolete = coco.CountryConverter(include_obsolete=True).obsoleteas('ISO3')
+    assert cc.convert('Netherlands Antilles', to='ISO3') in obsolete.values
+
+
 def test_properties():
     cc = coco.CountryConverter()
     assert all(cc.EU28 == cc.EU28as(to='name_short'))
