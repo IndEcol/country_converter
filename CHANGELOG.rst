@@ -1,6 +1,13 @@
 Change Log
 ===========
 
+0.6.4 - 20180308
+-----------------
+
+Improved test coverage
+Changed ISO3 for Kosovo from KSV to XKV
+
+
 0.6.3 - 20180105
 -----------------
 
