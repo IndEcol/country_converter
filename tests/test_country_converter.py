@@ -2,6 +2,7 @@ import os
 import sys
 import pytest
 import pandas as pd
+import logging
 from pandas.util.testing import assert_frame_equal
 import collections
 from collections import OrderedDict
@@ -218,7 +219,9 @@ def test_build_agg_conc_custom():
                                    aggregates,
                                    merge_multiple_string=None,
                                    missing_countries=True,
-                                   log_missing_countries=None,
+                                   log_missing_countries=(
+                                       lambda x: logging.error(
+                                           'Country {} missing'.format(x))),
                                    log_merge_multiple_strings=None,
                                    as_dataframe=False
                                    )
@@ -280,6 +283,32 @@ def test_build_agg_conc_custom():
     expected_matrix.columns.names = ['aggregated']
 
     assert_frame_equal(agg_matrix_womiss, expected_matrix)
+
+    original_countries = ['c1', 'c2', 'c3', 'c4']
+    aggregates = [{'c1': ['r1', 'r2'], 'c2': 'r1', 'c3': 'r2'}]
+    agg_matrix_double_region = coco.agg_conc(original_countries,
+                                             aggregates,
+                                             merge_multiple_string='_&_',
+                                             missing_countries=False,
+                                             log_missing_countries=None,
+                                             log_merge_multiple_strings=(
+                                                 lambda x: logging.warning(
+                                                     'Country {} belongs to '
+                                                     'multiple '
+                                                     'regions'.format(x))),
+                                             as_dataframe='full'
+                                             )
+    expected_matrix = pd.DataFrame(data=[[0.0, 1.0, 0.0],
+                                         [1.0, 0.0, 0.0],
+                                         [0.0, 0.0, 1.0],
+                                         ],
+                                   columns=['r1', 'r1_&_r2', 'r2'],
+                                   index=['c1', 'c2', 'c3'],
+                                   )
+    expected_matrix.index.names = ['original']
+    expected_matrix.columns.names = ['aggregated']
+
+    assert_frame_equal(agg_matrix_double_region, expected_matrix)
 
 
 def test_build_agg_conc_exio():
@@ -376,8 +405,8 @@ def test_match():
     match_string_to_correct = 'USA'
     matching_dict = coco.match(match_string_from, match_string_to_correct)
     assert matching_dict['united states'] == 'USA'
-    match_from = ('united states')
-    match_false = ('abc')
+    match_from = ('united states',)
+    match_false = ('abc',)
     matching_dict = coco.match(match_from, match_false)
     assert matching_dict['united states'] == 'not_found'
     matching_dict = coco.match(match_false, match_false)
