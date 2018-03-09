@@ -1,6 +1,15 @@
 Change Log
 ===========
 
+0.6.5 - 20180309
+-----------------
+
+Coco now includes as switch for including obsolete countries (off by default),
+see https://github.com/konstantinstadler/country_converter#classification-schemes
+
+Further improved test coverage
+
+
 0.6.4 - 20180308
 -----------------
 

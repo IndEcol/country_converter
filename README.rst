@@ -348,7 +348,8 @@ see https://en.wikipedia.org/wiki/UN_M.49.
 EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective databases.
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
 updated for different names used in the Eora26 database.
-The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages.
+The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages, 
+informatio about obsolete country codes on the Statoids_ webpage.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
