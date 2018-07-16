@@ -316,6 +316,7 @@ Currently the following classification schemes are available (see also Data sour
 #) OECD_ membership (per year)
 #) UN_ membership (per year)
 #) EU_ membership (per year)
+#) Cecilia_ 2050 classification
 
 
 Coco contains offical recognised codes as well as non-standard codes for disputed or dissolved countries. 
@@ -359,6 +360,7 @@ informatio about obsolete country codes on the Statoids_ webpage.
 .. _WIOD: http://www.wiod.org/home
 .. _Eora: http://www.worldmrio.com/
 .. _Statoids: http://www.statoids.com/w3166his.html
+.. _Cecilia: https://cecilia2050.eu/system/files/De%20Koning%20et%20al.%20%282014%29_Scenarios%20for%202050_0.pdf
 
 
 Communication, issues, bugs and enhancements
