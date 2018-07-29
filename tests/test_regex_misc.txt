@@ -29,6 +29,10 @@ Curacao	Curacao
 Czech Republic	Czech Rep.
 Dominican Republic	Dominican Rep.
 Egypt	"Egypt, Arab Rep."
+Eswatini	Swaziland
+Eswatini	Eswatini
+Eswatini	Kingdom of Eswatini
+Eswatini	Kingdom of Swaziland
 Faeroe Islands	Faeroe Isds
 Faeroe Islands	Faroe Islands
 Falkland Islands	Falkland islands (malvinas)

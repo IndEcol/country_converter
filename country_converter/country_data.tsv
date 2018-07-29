@@ -72,6 +72,7 @@ El Salvador	Republic of El Salvador	el.?salvador	SV	SLV	222	222	America	Central 
 Equatorial Guinea	Republic of Equatorial Guinea	guine.*eq|eq.*guine|^(?=.*span).*guinea	GQ	GNQ	226	226	Africa	Middle Africa	WW	WF	WF	RoW	GNQ				1968		RoW
 Eritrea	State of Eritrea	eritrea	ER	ERI	232	232	Africa	Eastern Africa	WW	WF	WF	RoW	ERI				1993		RoW
 Estonia	Republic of Estonia	estonia	EE	EST	233	233	Europe	Northern Europe	EE	EE	EE	EST	EST	2010	2004	2011	1991		EU
+Eswatini	Kingdom of Eswatini	swaziland|eswatini	SZ	SWZ	748	748	Africa	Southern Africa	WW	WF	WF	RoW	SWZ				1968		RoW
 Ethiopia	Federal Democratic Republic of Ethiopia	ethiopia|abyssinia	ET	ETH	231	231	Africa	Eastern Africa	WW	WF	WF	RoW	ETH				1945		RoW
 Faeroe Islands	Faeroe Islands	faroe|faeroe	FO	FRO	234	234	Europe	Northern Europe	WW	WE	WE	RoW	FRO						RoW
 Falkland Islands	Falkland Islands (Malvinas)	falkland|malvinas	FK	FLK	238	238	America	South America	WW	WL	WL	RoW	FLK						RoW
@@ -217,7 +218,6 @@ St. Vincent and the Grenadines	Saint Vincent and the Grenadines	vincent	VC	VCT	6
 Sudan	Republic of the Sudan	^(?!.*\bs(?!u)).*sudan	SD	SDN	729	729	Africa	Northern Africa	WW	WF	WF	RoW	SUD				1956		RoW
 Suriname	Republic of Suriname	surinam|dutch.?guiana	SR	SUR	740	740	America	South America	WW	WL	WL	RoW	SUR				1975		RoW
 Svalbard and Jan Mayen Islands	Svalbard and Jan Mayen Islands	^(?!norway).*svalbard	SJ	SJM	744	744	Europe	Northern Europe	WW	WE	WE	RoW	SJM						RoW
-Swaziland	Kingdom of Swaziland	swaziland	SZ	SWZ	748	748	Africa	Southern Africa	WW	WF	WF	RoW	SWZ				1968		RoW
 Sweden	Kingdom of Sweden	swedish|sweden	SE	SWE	752	752	Europe	Northern Europe	SE	SE	SE	SWE	SWE	1961	1995		1946		EU
 Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	Europe	Western Europe	CH	CH	CH	RoW	CHE	1961			2002		HI
 Syria	Syrian Arab Republic	syria	SY	SYR	760	760	Asia	Western Asia	WW	WM	WM	RoW	SYR				1945		RoW
