@@ -43,7 +43,7 @@ French Guiana	French Guiana
 French Polynesia	French polynesia
 Gambia	"Gambia, The"
 Guam	Guam (US)
-Heard and Mc Donald Islands	Heard and McDonald Islands (AU)
+Heard and McDonald Islands	Heard and McDonald Islands (AU)
 Iran	Islamic Republic of Iran
 Iran	Iran (Islamic Republic of)
 Iran	"Iran, Islamic Republic of"

@@ -99,7 +99,7 @@ Guinea	Republic of Guinea	^(?!.*eq)(?!.*span)(?!.*bissau)(?!.*portu)(?!.*new).*g
 Guinea-Bissau	Republic of Guinea-Bissau	^(.*portu).*guinea|guinea.*bissau	GW	GNB	624	624	Africa	Western Africa	WW	WF	WF	RoW	GNB				1974		RoW
 Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	America	South America	WW	WL	WL	RoW	GUY				1966		RoW
 Haiti	Republic of Haiti	(ha(i|\xef|\xc3\xaf)ti)	HT	HTI	332	332	America	Caribbean	WW	WL	WL	RoW	HTI				1945		RoW
-Heard and Mc Donald Islands	Heard and mc donald islands	heard.*mc.*donald	HM	HMD	334	334	Asia	Australia and New Zealand	WW	WA	WA	RoW							RoW
+Heard and McDonald Islands	Territory of Heard Island and McDonald Islands	heard.*mc.*donald	HM	HMD	334	334	Asia	Australia and New Zealand	WW	WA	WA	RoW							RoW
 Honduras	Republic of Honduras	^(?!.*brit).*honduras	HN	HND	340	340	America	Central America	WW	WL	WL	RoW	HND				1945		RoW
 Hong Kong	Hong Kong SAR	.*hong.*kong	HK	HKG	344	344	Asia	Eastern Asia	WW	WA	WA	RoW	HKG						RoW
 Hungary	Republic of Hungary	hungary	HU	HUN	348	348	Europe	Eastern Europe	HU	HU	HU	HUN	HUN	1996	2004		1955		EU
