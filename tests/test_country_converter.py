@@ -2,6 +2,7 @@ import os
 import sys
 import pytest
 import pandas as pd
+import logging
 from pandas.util.testing import assert_frame_equal
 import collections
 from collections import OrderedDict
@@ -10,6 +11,7 @@ TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, '..'))
 
 import country_converter as coco  # noqa
+from country_converter.country_converter import _parse_arg  # noqa
 
 regex_test_files = [nn for nn in os.listdir(TESTPATH)
                     if (nn[:10] == 'test_regex') and
@@ -74,7 +76,7 @@ def test_name_official():
 
 
 def test_alternative_names(get_regex_test_data):
-    converter = coco.CountryConverter()
+    converter = coco.CountryConverter(include_obsolete=True)
     not_found_id = 'XXX'
     for row in get_regex_test_data.data.iterrows():
         name_test = row[1].name_test
@@ -137,6 +139,15 @@ def test_additional_country_data():
 def test_UNmember():
     cc = coco.CountryConverter(only_UNmember=True)
     assert len(cc.data) == 193
+
+
+def test_obsolete():
+    cc = coco.CountryConverter()
+    assert len(cc.data) == 250
+    cc = coco.CountryConverter(include_obsolete=False)
+    assert len(cc.data) == 250
+    cc = coco.CountryConverter(include_obsolete=True)
+    assert len(cc.data) == 256
 
 
 def test_special_cases():
@@ -208,7 +219,9 @@ def test_build_agg_conc_custom():
                                    aggregates,
                                    merge_multiple_string=None,
                                    missing_countries=True,
-                                   log_missing_countries=None,
+                                   log_missing_countries=(
+                                       lambda x: logging.error(
+                                           'Country {} missing'.format(x))),
                                    log_merge_multiple_strings=None,
                                    as_dataframe=False
                                    )
@@ -270,6 +283,32 @@ def test_build_agg_conc_custom():
     expected_matrix.columns.names = ['aggregated']
 
     assert_frame_equal(agg_matrix_womiss, expected_matrix)
+
+    original_countries = ['c1', 'c2', 'c3', 'c4']
+    aggregates = [{'c1': ['r1', 'r2'], 'c2': 'r1', 'c3': 'r2'}]
+    agg_matrix_double_region = coco.agg_conc(original_countries,
+                                             aggregates,
+                                             merge_multiple_string='_&_',
+                                             missing_countries=False,
+                                             log_missing_countries=None,
+                                             log_merge_multiple_strings=(
+                                                 lambda x: logging.warning(
+                                                     'Country {} belongs to '
+                                                     'multiple '
+                                                     'regions'.format(x))),
+                                             as_dataframe='full'
+                                             )
+    expected_matrix = pd.DataFrame(data=[[0.0, 1.0, 0.0],
+                                         [1.0, 0.0, 0.0],
+                                         [0.0, 0.0, 1.0],
+                                         ],
+                                   columns=['r1', 'r1_&_r2', 'r2'],
+                                   index=['c1', 'c2', 'c3'],
+                                   )
+    expected_matrix.index.names = ['original']
+    expected_matrix.columns.names = ['aggregated']
+
+    assert_frame_equal(agg_matrix_double_region, expected_matrix)
 
 
 def test_build_agg_conc_exio():
@@ -338,3 +377,90 @@ def test_build_agg_conc_exio():
                                             ('AT', 'OECD'),
                                             ('US', 'OECD'),
                                             ('WA', 'RoW')])
+
+    aggregates = 'EU'
+    agg_dict_full_exio = coco.agg_conc('EXIO2',
+                                       aggregates,
+                                       merge_multiple_string=False,
+                                       missing_countries='RoW',
+                                       log_missing_countries=None,
+                                       log_merge_multiple_strings=None,
+                                       as_dataframe=False
+                                       )
+
+    assert len(agg_dict_full_exio) == 48
+    assert agg_dict_full_exio['US'] == 'RoW'
+    assert agg_dict_full_exio['AT'] == 'EU'
+
+
+def test_match():
+    match_these = ['norway', 'united_states', 'china', 'taiwan']
+    master_list = ['USA', 'The Swedish Kingdom', 'Norway is a Kingdom too',
+                   'Peoples Republic of China', 'Republic of China']
+    matching_dict = coco.match(match_these, master_list)
+    assert matching_dict['china'] == 'Peoples Republic of China'
+    assert matching_dict['taiwan'] == 'Republic of China'
+    assert matching_dict['norway'] == 'Norway is a Kingdom too'
+    match_string_from = 'united states'
+    match_string_to_correct = 'USA'
+    matching_dict = coco.match(match_string_from, match_string_to_correct)
+    assert matching_dict['united states'] == 'USA'
+    match_from = ('united states',)
+    match_false = ('abc',)
+    matching_dict = coco.match(match_from, match_false)
+    assert matching_dict['united states'] == 'not_found'
+    matching_dict = coco.match(match_false, match_false)
+    assert matching_dict['abc'] == 'not_found'
+
+
+def test_wrapper_convert():
+    assert 'US' == coco.convert('usa', src='regex', to='ISO2')
+    assert 'AT' == coco.convert('40', to='ISO2')
+
+
+def test_convert_wrong_classification():
+    with pytest.raises(KeyError) as e:
+        coco.convert('usa', src='abc')
+
+
+def test_EU_output():
+    cc = coco.CountryConverter()
+    EU28 = cc.EU28as('ISO2')
+    assert len(EU28 == 28)
+    assert cc.convert('Croatia', to='ISO2') in EU28.ISO2.values
+    EU27 = cc.EU27as('ISO2')
+    assert len(EU27 == 27)
+    assert cc.convert('Croatia', to='ISO2') not in EU27.ISO2.values
+
+
+def test_OECD_output():
+    cc = coco.CountryConverter()
+    oecd = cc.OECDas('ISO3')
+    assert cc.convert('Netherlands', to='ISO3') in oecd.values
+
+
+def test_UN_output():
+    cc = coco.CountryConverter()
+    un = coco.CountryConverter().UNas('ISO3')
+    assert cc.convert('Netherlands', to='ISO3') in un.values
+
+
+def test_obsolete_output():
+    cc = coco.CountryConverter(include_obsolete=True)
+    obsolete = coco.CountryConverter(include_obsolete=True).obsoleteas('ISO3')
+    assert cc.convert('Netherlands Antilles', to='ISO3') in obsolete.values
+
+
+def test_properties():
+    cc = coco.CountryConverter()
+    assert all(cc.EU28 == cc.EU28as(to='name_short'))
+    assert all(cc.EU27 == cc.EU27as(to='name_short'))
+    assert all(cc.OECD == cc.OECDas(to='name_short'))
+    assert all(cc.UN == cc.UNas(to='name_short'))
+
+
+def test_parser():
+    sys.argv = ['AT']
+    args = _parse_arg(coco.CountryConverter().valid_class)
+    assert args.src == None  # noqa
+    assert args.to == 'ISO3'

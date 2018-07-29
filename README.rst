@@ -13,6 +13,8 @@ The country converter (coco) is a Python package to convert and match country na
     :target: https://www.gnu.org/licenses/gpl-3.0
 .. image:: https://travis-ci.org/konstantinstadler/country_converter.svg?branch=master
     :target: https://travis-ci.org/konstantinstadler/country_converter
+.. image:: https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master
+    :target: https://coveralls.io/github/konstantinstadler/country_converter?branch=master
 .. image:: https://anaconda.org/konstantinstadler/country_converter/badges/version.svg   
    :target: https://anaconda.org/konstantinstadler/country_converter
 
@@ -317,18 +319,22 @@ Currently the following classification schemes are available (see also Data sour
 
 
 Coco contains offical recognised codes as well as non-standard codes for disputed or dissolved countries. 
-To restrict the set to only the official recognized UN members, pass
+To restrict the set to only the official recognized UN members or include obsolete countries, pass
 
 .. code:: python
 
     import country_converter as coco
-    cc_all = coco.CountryConverter()
+    cc = coco.CountryConverter()
     cc_UN = coco.CountryConverter(only_UNmember=True)
+    cc_all = coco.CountryConverter(include_obsolete=True)
 
-    cc_all.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
-    cc_UN.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
+    cc.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
+    cc_UN.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
+    cc_all.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
 
-cc_all results in ['Palestine', 'Kosovo', 'Zanzibar', 'France'], whereas cc_UN converts to ['not found', 'not found', 'not found', 'France'].
+cc results in ['Palestine', 'Kosovo', 'not found', 'France'], whereas cc_UN converts to
+['not found', 'not found', 'not found', 'France'] and cc_all converts to
+['Palestine', 'Kosovo', 'Zanzibar', 'France']
 Note that the underlying dataframe is available at the attribute .data (e.g. cc_all.data).
 
 Data sources and further reading
@@ -342,7 +348,8 @@ see https://en.wikipedia.org/wiki/UN_M.49.
 EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective databases.
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
 updated for different names used in the Eora26 database.
-The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages.
+The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages, 
+informatio about obsolete country codes on the Statoids_ webpage.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
@@ -351,6 +358,7 @@ The membership of OECD_, UN_ and EU_ can be found at the membership organisation
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/home
 .. _Eora: http://www.worldmrio.com/
+.. _Statoids: http://www.statoids.com/w3166his.html
 
 
 Communication, issues, bugs and enhancements
