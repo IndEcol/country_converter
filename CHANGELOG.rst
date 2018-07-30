@@ -1,6 +1,14 @@
 Change Log
 ===========
 
+0.6.6 - 20180729
+----------------
+
+
+- Added Cecilia2050 classification (merging pull request #36 (with some futher modifications)
+- Changing Swaziland to Eswatini, following the official name change in April 2018 (https://unterm.un.org/UNTERM/Display/Record/UNHQ/NA/01b637e1-1497-4825-b73d-e0114a7f4d22 …). Closes issue #35
+- Removed space from McDonald in "Heard and Mc Donald Islands" and updated offical name to "Territory of Heard Island and McDonald Islands". Closes issus #34.
+
 0.6.5 - 20180309
 -----------------
 
