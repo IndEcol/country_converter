@@ -9,6 +9,7 @@ setup(
         'a Python package for converting country names '
         'between different classifications schemes.'),
     long_description=open('README.rst').read(),
+    license='GNU General Public License v3 (GPLv3)',
     url='https://github.com/konstantinstadler/country_converter',
     author='Konstantin Stadler',
     author_email='konstantin.stadler@ntnu.no',
