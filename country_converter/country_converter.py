@@ -427,7 +427,7 @@ class CountryConverter():
 
         add_data = [data_loader(df) for df in additional_data]
         self.data = pd.concat([basic_df] + add_data, ignore_index=True,
-                              axis=0)
+                              axis=0, sort=True)
 
         test_for_unique_names(
             self.data,
