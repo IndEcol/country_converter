@@ -524,7 +524,7 @@ class CountryConverter():
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
                         result_list.append(
-                            self.data.ix[ind_regex, to].values[0])
+                            self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:
                         logging.warning('More then one regular expression '
                                         'match for {}'.format(spec_name))
