@@ -407,7 +407,7 @@ class CountryConverter():
                 ret = data
                 test_for_unique_names(data)
             else:
-                ret = pd.read_table(data, sep='\t', encoding='utf-8',
+                ret = pd.read_csv(data, sep='\t', encoding='utf-8',
                                     converters={str_col: str
                                                 for str_col in must_be_string})
                 test_for_unique_names(ret, data)

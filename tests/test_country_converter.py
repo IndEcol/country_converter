@@ -25,8 +25,8 @@ def get_regex_test_data(request):
                                     ['data_name', 'data'])
     return retval(
         request.param,
-        pd.read_table(os.path.join(TESTPATH, request.param),
-                      encoding='utf-8'))
+        pd.read_csv(os.path.join(TESTPATH, request.param),
+                      sep='\t', encoding='utf-8'))
 
 
 def test_name_short():
