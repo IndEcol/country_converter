@@ -203,7 +203,7 @@ Slovenia	Republic of Slovenia	slovenia	SI	SVN	705	705	Europe	Southern Europe	SI	
 Solomon Islands	Solomon Islands	solomon	SB	SLB	90	90	Oceania	Melanesia	WW	WA	WA	RoW	SLB				1978		RoW
 Somalia	Federal Republic of Somalia	somali	SO	SOM	706	706	Africa	Eastern Africa	WW	WF	WF	RoW	SOM				1960		RoW
 South Africa	Republic of South Africa	\bs(\.|outh).*africa	ZA	ZAF	710	710	Africa	Southern Africa	ZA	ZA	ZA	RoW	ZAF				1945		BX
-South Georgia and  South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239	239	Antarctica	South America	WW	WA	WA	RoW							RoW
+South Georgia and South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239	239	Antarctica	South America	WW	WA	WA	RoW							RoW
 South Korea	Republic of Korea	^(?!.*dem)(?!.*peo)(?!.*nor).*\bkorea|\br\.?o\.?k\b	KR	KOR	410	410	Asia	Eastern Asia	KR	KR	KR	KOR	KOR	1996			1991		HI
 South Sudan	Republic of South Sudan	\bs\w*.?sudan	SS	SSD	728	728	Africa	Eastern Africa	WW	WF	WF	RoW	SDS				2011		RoW
 Soviet Union (former)	Union of Soviet Socialist Republics (former)	USSR|soviet	SU	SUN	810	810	Europe	Eastern Europe	WW	WE	WE	RoW	USR					1992	RoW
