@@ -190,7 +190,7 @@ Rwanda	Republic of Rwanda	rwanda	RW	RWA	646	646	Africa	Eastern Africa	WW	WF	WF	R
 Saint-Martin	Saint-Martin (French part)	^(?!.*maarten)(?!.*saba)(?!.*dutch).*martin\b	MF	MAF	663	663	America	Caribbean	WW	WL	WL	RoW	MAF						RoW
 Samoa	Independent State of Samoa	^(?!.*amer.*)samoa|(\bindep.*samoa)	WS	WSM	882	882	Oceania	Polynesia	WW	WA	WA	RoW	WSM				1976		RoW
 San Marino	Republic of San Marino	san.?marino	SM	SMR	674	674	Europe	Southern Europe	WW	WE	WE	RoW	SMR				1992		RoW
-Sao Tome and Principe	Democratic Republic of SÃ£o TomÃ© and PrÃ­ncipe	tome|tomÃ©	ST	STP	678	678	Africa	Middle Africa	WW	WF	WF	RoW	STP				1975		RoW
+Sao Tome and Principe	Democratic Republic of São Tomé and Príncipe	tome|tomé	ST	STP	678	678	Africa	Middle Africa	WW	WF	WF	RoW	STP				1975		RoW
 Saudi Arabia	Kingdom of Saudi Arabia	\bsa\w*.?arabia	SA	SAU	682	682	Asia	Western Asia	WW	WM	WM	RoW	SAU				1945		RoW
 Senegal	Republic of Senegal	senegal	SN	SEN	686	686	Africa	Western Africa	WW	WF	WF	RoW	SEN				1960		RoW
 Serbia	Republic of Serbia	^(?!.*monte).*serbia.*	RS	SRB	688	688	Europe	Southern Europe	WW	WE	WE	RoW	SRB				2000		RoW
