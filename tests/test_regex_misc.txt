@@ -82,8 +82,8 @@ Russia	Russian Federation
 Slovakia	Slovakia (slovak republic)
 Solomon Islands	Solomon Isds
 South Africa	Southern African Customs Union
-South Georgia and  South Sandwich Is.	South Georgia and the South Sandwichs Islands (UK)
-South Georgia and  South Sandwich Is.	South georgia and the south sandwich islands
+South Georgia and South Sandwich Is.	South Georgia and the South Sandwichs Islands (UK)
+South Georgia and South Sandwich Is.	South georgia and the south sandwich islands
 St. Helena	Saint Helena
 St. Kitts and Nevis	Saint kitts and nevis
 St. Lucia	Saint lucia
