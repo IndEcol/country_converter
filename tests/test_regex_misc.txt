@@ -67,6 +67,9 @@ Moldova	"Moldova, republic of"
 Moldova	Republic of Moldova
 Myanmar	Burma
 Netherlands Antilles	Neth. Antilles
+Netherlands Antilles	neth antil
+Netherlands Antilles	netherlands antilles
+Netherlands	netherlands
 New Caledonia	New caledonia
 Norfolk Island	Norfolk island
 Norfolk Island	Norfolk Isds
