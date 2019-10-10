@@ -408,8 +408,8 @@ class CountryConverter():
                 test_for_unique_names(data)
             else:
                 ret = pd.read_csv(data, sep='\t', encoding='utf-8',
-                                    converters={str_col: str
-                                                for str_col in must_be_string})
+                                  converters={str_col: str
+                                              for str_col in must_be_string})
                 test_for_unique_names(ret, data)
             return ret
 
@@ -428,7 +428,6 @@ class CountryConverter():
         add_data = [data_loader(df) for df in additional_data]
         self.data = pd.concat([basic_df] + add_data, ignore_index=True,
                               axis=0, sort=True)
-
         test_for_unique_names(
             self.data,
             data_name='merged data - keep last one',
@@ -842,6 +841,10 @@ def _parse_arg(valid_classifications):
     parser.add_argument('-o', '--output_sep',
                         help=('Seperator for output names '
                               '(default: space), e.g. "," '))
+    parser.add_argument('-i', '--include_obsolete',
+                        action='store_true',
+                        help=('Flag for including obsolete countries '
+                              'in the search'))
     parser.add_argument('-n', '--not_found',
                         default='not found',
                         help=('Fill in value for none found entries. '
@@ -855,11 +858,13 @@ def _parse_arg(valid_classifications):
                               'data file; default: not found)'))
 
     args = parser.parse_args()
+    if args.names == []:
+        parser.print_help()
     args.src = args.src or None
     args.to = args.to or 'ISO3'
     args.not_found = args.not_found if args.not_found != 'None' else None
     args.output_sep = args.output_sep or ' '
-
+    
     return args
 
 
@@ -867,7 +872,8 @@ def main():
     """ Main entry point - used for command line call
     """
     args = _parse_arg(CountryConverter().valid_class)
-    coco = CountryConverter(additional_data=args.additional_data)
+    coco = CountryConverter(additional_data=args.additional_data, 
+                            include_obsolete=args.include_obsolete)
     converted_names = coco.convert(
         names=args.names,
         src=args.src,

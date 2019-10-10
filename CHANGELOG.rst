@@ -1,6 +1,13 @@
 Change Log
 ===========
 
+0.6.7 - dev
+----------------
+
+* fixed various country spellings
+* Calling the command line (coco) without arguments prints help message
+* Deprecated pandas methods (ix, read_table) replaced
+
 0.6.6 - 20180729
 ----------------
 
