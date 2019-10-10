@@ -407,7 +407,7 @@ class CountryConverter():
                 ret = data
                 test_for_unique_names(data)
             else:
-                ret = pd.read_table(data, sep='\t', encoding='utf-8',
+                ret = pd.read_csv(data, sep='\t', encoding='utf-8',
                                     converters={str_col: str
                                                 for str_col in must_be_string})
                 test_for_unique_names(ret, data)
@@ -427,7 +427,7 @@ class CountryConverter():
 
         add_data = [data_loader(df) for df in additional_data]
         self.data = pd.concat([basic_df] + add_data, ignore_index=True,
-                              axis=0)
+                              axis=0, sort=True)
 
         test_for_unique_names(
             self.data,
@@ -524,7 +524,7 @@ class CountryConverter():
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
                         result_list.append(
-                            self.data.ix[ind_regex, to].values[0])
+                            self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:
                         logging.warning('More then one regular expression '
                                         'match for {}'.format(spec_name))
