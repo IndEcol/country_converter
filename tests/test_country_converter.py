@@ -460,7 +460,12 @@ def test_properties():
 
 
 def test_parser():
-    sys.argv = ['AT']
+    sys.argv = ['AT', 'US']
     args = _parse_arg(coco.CountryConverter().valid_class)
-    assert args.src == None  # noqa
-    assert args.to == 'ISO3'
+    assert args.src == None   # noqa
+    assert args.to == None    # noqa
+
+    sys.argv = ['EXIO1']
+    args = _parse_arg(coco.CountryConverter().valid_class)
+    assert args.src == None    # noqa
+    assert args.to == None     # noqa

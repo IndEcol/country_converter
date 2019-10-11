@@ -7,6 +7,7 @@ import argparse
 import logging
 import os
 import re
+import sys
 from collections import OrderedDict
 import pandas as pd
 from country_converter.version import __version__
@@ -31,7 +32,7 @@ def agg_conc(original_countries,
 
     original_countries: list or str
         List of countries to aggregated, also accepts and valid column name of
-        CountryConverter.data
+        CountryConverter.data (e.g. name_short, WIOD, ...)
 
     aggregates: list of dict or str
         List of aggregation information. This can either be dict mapping the
@@ -90,7 +91,8 @@ def agg_conc(original_countries,
         coco = CountryConverter()
 
     if type(original_countries) is str:
-        original_countries_class = original_countries
+        original_countries_class = (original_countries_class or
+                                    original_countries)
         original_countries = coco.data[original_countries].values
     else:
         original_countries_class = (original_countries_class or
@@ -559,6 +561,181 @@ class CountryConverter():
         else:
             return outlist
 
+    def EXIO1as(self, to=None):
+        """ Returns the unique EXIO1 regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to EXIO1
+            is returned. If 'to' is None (default) the EXIO1
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='EXIO1',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.EXIO1.unique()).sort_values(0)
+
+    def EXIO2as(self, to=None):
+        """ Returns the unique EXIO2 regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to EXIO2
+            is returned. If 'to' is None (default) the EXIO2
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='EXIO2',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.EXIO2.unique()).sort_values(0)
+
+    def EXIO3as(self, to=None):
+        """ Returns the unique EXIO3 regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to EXIO3
+            is returned. If 'to' is None (default) the EXIO3
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='EXIO3',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.EXIO3.unique()).sort_values(0)
+
+    def WIODas(self, to=None):
+        """ Returns the unique WIOD regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to WIOD
+            is returned. If 'to' is None (default) the WIOD
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='WIOD',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.WIOD.unique()).sort_values(0)
+
+    def Eoraas(self, to=None):
+        """ Returns the unique Eora regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to Eora
+            is returned. If 'to' is None (default) the Eora
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='Eora',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.Eora.unique()).sort_values(0)
+
+    def MESSAGEas(self, to=None):
+        """ Returns the unique MESSAGE regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to MESSAGE
+            is returned. If 'to' is None (default) the MESSAGE
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='MESSAGE',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.MESSAGE.unique()).sort_values(0)
+
+    def Cecilia2050as(self, to=None):
+        """ Returns the unique Cecilia2050 regions or converted to 'to'
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file). If this is given, a pandas
+            dataframe with the correspondance from 'to' to Cecilia2050
+            is returned. If 'to' is None (default) the Cecilia2050
+            classification name is returned.
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        if to:
+            conc = agg_conc(to,
+                            aggregates='Cecilia2050',
+                            missing_countries='n/a',
+                            as_dataframe=True)
+            return conc
+        return pd.DataFrame(self.data.Cecilia2050.unique()).sort_values(0)
+
     def EU28as(self, to='name_short'):
         """
         Return EU28 countries in the specified classification
@@ -574,6 +751,10 @@ class CountryConverter():
         Pandas DataFrame
 
         """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
         if type(to) is str:
             to = [to]
         return self.data[self.data.EU < 2015][to]
@@ -593,6 +774,10 @@ class CountryConverter():
         Pandas DataFrame
 
         """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.EU < 2013][to]
@@ -612,6 +797,9 @@ class CountryConverter():
         Pandas DataFrame
 
         """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.OECD > 0][to]
@@ -631,9 +819,151 @@ class CountryConverter():
         Pandas DataFrame
 
         """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.UNmember > 0][to]
+
+    def BRICas(self, to='name_short'):
+        """
+        Return BRIC member states in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.BRIC == 'BRIC'][to]
+
+    def APECas(self, to='name_short'):
+        """
+        Return APEC member states in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.APEC == 'APEC'][to]
+
+    def BASICas(self, to='name_short'):
+        """
+        Return BASIC member states in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.BASIC == 'BASIC'][to]
+
+    def CISas(self, to='name_short'):
+        """
+        Return CIS member states in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.CIS == 'CIS'][to]
+
+    def G7as(self, to='name_short'):
+        """
+        Return G7 member states in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.G7 == 'G7'][to]
+
+    def G20as(self, to='name_short'):
+        """
+        Return G20 member states in the specified classification
+
+        Parameters
+        ----------
+        to : str, optional
+            Output classification (valid str for an index of
+            country_data file), default: name_short
+
+        Returns
+        -------
+        Pandas DataFrame
+
+        """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
+        if isinstance(to, str):
+            to = [to]
+        return self.data[self.data.G20 == 'G20'][to]
 
     def obsoleteas(self, to='name_short'):
         """
@@ -650,9 +980,62 @@ class CountryConverter():
         Pandas DataFrame
 
         """
+        # This is required to have a consistent API for the CLI
+        if not to:
+            to = 'name_short'
+
         if isinstance(to, str):
             to = [to]
         return self.data[self.data.obsolete > 0][to]
+
+    @property
+    def EXIO1(self):
+        """ EXIO1 classification
+            use EXIO1as() for correspondance to other class.
+        """
+        return self.EXIO1as(to=None)
+
+    @property
+    def EXIO2(self):
+        """ EXIO2 classification
+            use EXIO2as() for correspondance to other class.
+        """
+        return self.EXIO2as(to=None)
+
+    @property
+    def EXIO3(self):
+        """ EXIO3 classification
+            use EXIO3as() for correspondance to other class.
+        """
+        return self.EXIO3as(to=None)
+
+    @property
+    def WIOD(self):
+        """ WIOD classification
+            use WIODas() for correspondance to other class.
+        """
+        return self.WIODas(to=None)
+
+    @property
+    def Eora(self):
+        """ Eora classification
+            use Eoraas() for correspondance to other class.
+        """
+        return self.Eoraas(to=None)
+
+    @property
+    def MESSAGE(self):
+        """ MESSAGE classification
+            use MESSAGEas() for correspondance to other class.
+        """
+        return self.MESSAGEas(to=None)
+
+    @property
+    def Cecilia2050(self):
+        """ Cecilia2050 classification
+            use Cecilia2050as() for correspondance to other class.
+        """
+        return self.Cecilia2050as(to=None)
 
     @property
     def EU28(self):
@@ -681,6 +1064,48 @@ class CountryConverter():
         use UNas() for any other classification
         """
         return self.UNas(to='name_short')
+
+    @property
+    def BRIC(self):
+        """ BRIC states (standard name_short) -
+        use BRICas() for any other classification
+        """
+        return self.BRICas(to='name_short')
+
+    @property
+    def APEC(self):
+        """ APEC states (standard name_short) -
+        use APECas() for any other classification
+        """
+        return self.APECas(to='name_short')
+
+    @property
+    def BASIC(self):
+        """ BASIC states (standard name_short) -
+        use BASICas() for any other classification
+        """
+        return self.BASICas(to='name_short')
+
+    @property
+    def CIS(self):
+        """ CIS states (standard name_short) -
+        use CISas() for any other classification
+        """
+        return self.CISas(to='name_short')
+
+    @property
+    def G7(self):
+        """ G7 states (standard name_short) -
+        use G7as() for any other classification
+        """
+        return self.G7as(to='name_short')
+
+    @property
+    def G20(self):
+        """ G20 states (standard name_short) -
+        use G20as() for any other classification
+        """
+        return self.G20as(to='name_short')
 
     @property
     def valid_class(self):
@@ -829,8 +1254,16 @@ def _parse_arg(valid_classifications):
                               'multiple words must be put in quotation marks).'
                               'Possible classifications: ' +
                               ', '.join(valid_classifications) +
-                              '; NB: long, official and short are provided '
-                              'as shortcuts for the names classifications'
+                              '; NB: "long", "official" and "short" are '
+                              'provided '
+                              'as shortcuts for the names classifications.\n\n'
+                              'Most of the aggregated classifications (e.g. '
+                              '"EXIO1", "UN", "EU") can also be passed. This '
+                              'returns a list of countries included in the '
+                              'specific classification. When the parameter '
+                              '"to" is also specified, the correspondence '
+                              'of "src" to the given classification '
+                              'is returned.'
                               ), nargs='*')
     parser.add_argument('-s', '--src', '--source', '-f', '--from',
                         help=('Classification of the names given, '
@@ -839,7 +1272,7 @@ def _parse_arg(valid_classifications):
                         help=('Required classification of the passed names'
                               '(default: "ISO3"'))
     parser.add_argument('-o', '--output_sep',
-                        help=('Seperator for output names '
+                        help=('Separator for output names '
                               '(default: space), e.g. "," '))
     parser.add_argument('-i', '--include_obsolete',
                         action='store_true',
@@ -863,21 +1296,72 @@ def _parse_arg(valid_classifications):
     args = parser.parse_args()
     if args.names == []:
         parser.print_help()
-    args.src = args.src or None
-    args.to = args.to or 'ISO3'
-    args.not_found = args.not_found if args.not_found != 'None' else None
-    args.output_sep = args.output_sep or ' '
 
     return args
+
+
+def cli_output(conv_names, sep):
+    """ Helper function for printing to the console
+    """
+    pd.set_option('max_rows', len(conv_names))
+    if type(conv_names) is pd.DataFrame:
+        if len(conv_names.columns) == 1:
+            conv_names = conv_names.iloc[:, 0].tolist()
+        elif len(conv_names.columns) == 2:
+            for row in conv_names.iterrows():
+                print(str(row[1][0]) + sep + str(row[1][1]))
+            return
+    print(sep.join(
+        [str(etr) for etr in conv_names] if
+        isinstance(conv_names, list) else [str(conv_names)]))
 
 
 def main():
     """ Main entry point - used for command line call
     """
     args = _parse_arg(CountryConverter().valid_class)
+
+    args.output_sep = args.output_sep or ' '
+    args.src = args.src or None
+    args.not_found = args.not_found if args.not_found != 'None' else None
+
     coco = CountryConverter(additional_data=args.additional_data,
                             include_obsolete=args.include_obsolete,
-                            only_UNmember=args.UNmember_only,)
+                            only_UNmember=args.UNmember_only)
+
+    if len(args.names) == 1:
+        special_regions = {
+            'EXIO1': coco.EXIO1as,
+            'EXIO2': coco.EXIO2as,
+            'EXIO3': coco.EXIO3as,
+            'WIOD': coco.WIODas,
+            'Eora': coco.Eoraas,
+            'MESSAGE': coco.MESSAGEas,
+            'OECD': coco.OECDas,
+            'EU27': coco.EU27as,
+            'EU28': coco.EU28as,
+            'EU': coco.EU28as,
+            'UNmember': coco.UNas,
+            'UN': coco.UNas,
+            'obsolete': coco.obsoleteas,
+            'Cecilia2050': coco.Cecilia2050as,
+            'BRIC': coco.BRICas,
+            'APEC': coco.APECas,
+            'BASIC': coco.BASICas,
+            'CIS': coco.CISas,
+            'G7': coco.G7as,
+            'G20': coco.G20as,
+        }
+
+        for kk, fun in special_regions.items():
+            if args.names[0].lower() == kk.lower():
+                res = fun(to=args.to)
+                cli_output(res, args.output_sep)
+                sys.exit()
+
+    # args.to converted here b/c orginal is required for the special cases
+    args.to = args.to or 'ISO3'
+
     converted_names = coco.convert(
         names=args.names,
         src=args.src,
@@ -885,9 +1369,8 @@ def main():
         enforce_list=False,
         not_found=args.not_found)
 
-    print(args.output_sep.join(
-        [str(etr) for etr in converted_names] if
-        isinstance(converted_names, list) else [str(converted_names)]))
+    cli_output(converted_names, args.output_sep)
+    sys.exit()
 
 
 if __name__ == "__main__":
