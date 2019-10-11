@@ -6,9 +6,11 @@ DR Congo	DR Congo
 DR Congo	Congo (Democratic Republic of the)
 DR Congo	DROC
 DR Congo	Congo-Kinshasa
+DR Congo	Congo, Dem. Rep.
 Congo Republic	Congo-Brazzaville
 Congo Republic	Rep Congo
 Congo Republic	Congo Rep.
 Congo Republic	Congo, Rep.
 Congo Republic	Congo,  Rep.
 Congo Republic	Republic of the Congo
+Congo Republic	Congo, Rep.

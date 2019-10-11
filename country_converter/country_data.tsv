@@ -52,7 +52,7 @@ Christmas Island	Christmas Island	christmas	CX	CXR	162	162	Asia	Australia and Ne
 Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166	166	Asia	Australia and New Zealand	WW	WA	WA	RoW								RoW						
 Colombia	Republic of Colombia	colombia	CO	COL	170	170	America	South America	WW	WL	WL	RoW	COL	LAC				1945		RoW						
 Comoros	Union of the Comoros	comoro	KM	COM	174	174	Africa	Eastern Africa	WW	WF	WF	RoW	COM	AFR				1975		RoW						
-Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo.+republic$|^congo.+rep\.$|^congo$|\bcongo.*brazza.*	CG	COG	178	178	Africa	Middle Africa	WW	WF	WF	RoW	COG	AFR				1960		RoW						
+Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo[,;\s]*(?!.*dem)rep.*?$|^congo$|\bcongo.*brazza.*	CG	COG	178	178	Africa	Middle Africa	WW	WF	WF	RoW	COG	AFR				1960		RoW						
 Cook Islands	Cook Islands	\bcook	CK	COK	184	184	Oceania	Polynesia	WW	WA	WA	RoW	COK							RoW						
 Costa Rica	Republic of Costa Rica	costa.?rica	CR	CRI	188	188	America	Central America	WW	WL	WL	RoW	CRI	LAC				1945		RoW						
 Cote d'Ivoire	Republic of Côte d'Ivoire	.*(ivoire|ivory)	CI	CIV	384	384	Africa	Western Africa	WW	WF	WF	RoW	CIV	AFR				1960		RoW						
@@ -65,7 +65,7 @@ Denmark	Kingdom of Denmark	denmark	DK	DNK	208	208	Europe	Northern Europe	DK	DK	D
 Djibouti	Republic of Djibouti	djibouti	DJ	DJI	262	262	Africa	Eastern Africa	WW	WF	WF	RoW	DJI	AFR				1977		RoW						
 Dominica	Commonwealth of Dominica	dominica(?!n)	DM	DMA	212	212	America	Caribbean	WW	WL	WL	RoW	DMA	LAC				1978		RoW						
 Dominican Republic	Dominican Republic	dominican	DO	DOM	214	214	America	Caribbean	WW	WL	WL	RoW	DOM	LAC				1945		RoW						
-DR Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^the\ congo$|^RDC$|^DROC$	CD	COD	180	180	Africa	Middle Africa	WW	WF	WF	RoW	COD	AFR				1960		RoW						
+DR Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^the\ congo$|^RDC$|^DROC$|\bcongo.*dem.*	CD	COD	180	180	Africa	Middle Africa	WW	WF	WF	RoW	COD	AFR				1960		RoW						
 Ecuador	Republic of Ecuador	ecuador	EC	ECU	218	218	America	South America	WW	WL	WL	RoW	ECU	LAC				1945		RoW						
 Egypt	Arab Republic of Egypt	egypt	EG	EGY	818	818	Africa	Northern Africa	WW	WM	WM	RoW	EGY	MEA				1945		RoW						
 El Salvador	Republic of El Salvador	el.?salvador	SV	SLV	222	222	America	Central America	WW	WL	WL	RoW	SLV	LAC				1945		RoW						
