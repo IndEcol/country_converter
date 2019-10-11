@@ -7,6 +7,9 @@ Change Log
 * fixed various country spellings
 * Calling the command line (coco) without arguments prints help message
 * Deprecated pandas methods (ix, read_table) replaced
+* CLI interface allows to 
+   - include obsolete countries (--include_obsolete, -i)
+   - restrict to only UN membersstates (--UNmember_only, -u)
 
 0.6.6 - 20180729
 ----------------

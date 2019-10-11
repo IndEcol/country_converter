@@ -215,6 +215,29 @@ and to specifiy an additional data file which will overwrite existing country ma
 
 See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile.
 
+The flags --UNmember_only (-u) and --include_obsolete (-i) restrict the search 
+to UN memberstates only or extend it to also include currently obsolete 
+countries. For example, the `Netherlands Antilles`_ were dissolved in 2010. In 
+order, thus
+
+.. _Netherlands Antilles: https://en.wikipedia.org/wiki/Netherlands_Antilles
+
+
+:: 
+
+   coco "Netherlands Antilles"
+
+results in "not found". The search, however, can be extended to recently 
+dissolved countries by:
+
+
+:: 
+
+   coco "Netherlands Antilles" -i
+
+which results in 'ANT'.
+
+
 For further information call the help by
 
 ::

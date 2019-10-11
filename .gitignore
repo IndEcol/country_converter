@@ -10,4 +10,4 @@ tags
 /.cache
 /.idea
 /doc/.ipynb_checkpoints/
-
+.~*

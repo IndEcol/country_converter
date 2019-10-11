@@ -495,8 +495,8 @@ class CountryConverter():
         """
         # The list to tuple conversion is necessary for Matlab interface
         names = list(names) if (
-                isinstance(names, tuple) or
-                isinstance(names, set)) else names
+            isinstance(names, tuple) or
+            isinstance(names, set)) else names
 
         names = names if isinstance(names, list) else [names]
 
@@ -534,8 +534,8 @@ class CountryConverter():
 
                 result_list = [etr[0] for etr in
                                self.data[_match_col.str.contains(
-                                    '^' + spec_name + '$', flags=re.IGNORECASE,
-                                    na=False)][to].values]
+                                   '^' + spec_name + '$', flags=re.IGNORECASE,
+                                   na=False)][to].values]
 
             if len(result_list) == 0:
                 logging.warning(
@@ -760,7 +760,7 @@ class CountryConverter():
             'name_official': ['official', 'long_name', 'long'],
             'UNcode': ['un', 'unnumeric'],
             'ISOnumeric': ['isocode'],
-            }
+        }
 
         for item in alt_valid_names.items():
             if para.lower() in item[1]:
@@ -845,6 +845,9 @@ def _parse_arg(valid_classifications):
                         action='store_true',
                         help=('Flag for including obsolete countries '
                               'in the search'))
+    parser.add_argument('-u', '--UNmember_only',
+                        action='store_true',
+                        help=('Flag for including only UN member states'))
     parser.add_argument('-n', '--not_found',
                         default='not found',
                         help=('Fill in value for none found entries. '
@@ -864,7 +867,7 @@ def _parse_arg(valid_classifications):
     args.to = args.to or 'ISO3'
     args.not_found = args.not_found if args.not_found != 'None' else None
     args.output_sep = args.output_sep or ' '
-    
+
     return args
 
 
@@ -872,8 +875,9 @@ def main():
     """ Main entry point - used for command line call
     """
     args = _parse_arg(CountryConverter().valid_class)
-    coco = CountryConverter(additional_data=args.additional_data, 
-                            include_obsolete=args.include_obsolete)
+    coco = CountryConverter(additional_data=args.additional_data,
+                            include_obsolete=args.include_obsolete,
+                            only_UNmember=args.UNmember_only,)
     converted_names = coco.convert(
         names=args.names,
         src=args.src,
