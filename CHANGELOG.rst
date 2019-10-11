@@ -10,6 +10,8 @@ Change Log
 * CLI interface allows to 
    - include obsolete countries (--include_obsolete, -i)
    - restrict to only UN membersstates (--UNmember_only, -u)
+   - return classifications (e.g. coco OECD or coco EXIO1)
+* Extended classification helper
 
 0.6.6 - 20180729
 ----------------

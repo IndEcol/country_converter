@@ -217,11 +217,12 @@ See https://github.com/konstantinstadler/country_converter/tree/master/tests/cus
 
 The flags --UNmember_only (-u) and --include_obsolete (-i) restrict the search 
 to UN memberstates only or extend it to also include currently obsolete 
-countries. For example, the `Netherlands Antilles`_ were dissolved in 2010. In 
-order, thus
+countries. For example, the `Netherlands Antilles`_ were dissolved in 2010.
 
 .. _Netherlands Antilles: https://en.wikipedia.org/wiki/Netherlands_Antilles
 
+
+Thus: 
 
 :: 
 
@@ -237,6 +238,30 @@ dissolved countries by:
 
 which results in 'ANT'.
 
+In addition to the countries, the coco command line tool also accepts 
+various country classifications (EXIO1, EXIO2, EXIO3, WIOD, Eora, MESSAGE, 
+OECD, EU27, EU28, UN, obsolete, Cecilia2050, BRIC, APEC, BASIC, CIS, G7, G20).
+One of these can be passed by
+
+::
+   
+   coco G20
+
+which lists all countries in that classification.
+
+For the classifications covering almost all countries (MRIO and IAM 
+classifications)
+
+::
+
+   coco EXIO3
+
+lists the unique classification names. When passing a --to parameter, a 
+simplified correspondence of the chosen classification is printed:
+
+::
+
+   coco EXIO3 --to ISO3
 
 For further information call the help by
 
@@ -333,16 +358,22 @@ Currently the following classification schemes are available (see also Data sour
 #) UN region
 #) EXIOBASE_ 1 classification
 #) EXIOBASE_ 2 classification
-#) EXIOBASE_ 2 classification
+#) EXIOBASE_ 3 classification
 #) WIOD_ classification
 #) Eora_
 #) OECD_ membership (per year)
+#) MESSAGE_ 11-region classification
 #) UN_ membership (per year)
 #) EU_ membership (per year)
 #) Cecilia_ 2050 classification
+#) APEC_
+#) BRIC_
+#) BASIC_
+#) CIS_ (as by 2019, excl. Turkmenistan)
+#) G7_
+#) G20_ (listing all EU member states as individual members)
 
-
-Coco contains offical recognised codes as well as non-standard codes for disputed or dissolved countries. 
+Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
 To restrict the set to only the official recognized UN members or include obsolete countries, pass
 
 .. code:: python
@@ -371,9 +402,11 @@ For the differences between the ISO numeric and UN (M.49) codes
 see https://en.wikipedia.org/wiki/UN_M.49.
 EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective databases.
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
-updated for different names used in the Eora26 database.
+updated for different names used in the Eora26 database. The MESSAGE 
+classification follows the 11-region aggregation given in the MESSAGE_ model 
+regions description.
 The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages, 
-informatio about obsolete country codes on the Statoids_ webpage.
+information about obsolete country codes on the Statoids_ webpage.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
@@ -382,8 +415,16 @@ informatio about obsolete country codes on the Statoids_ webpage.
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/home
 .. _Eora: http://www.worldmrio.com/
+.. _MESSAGE: http://www.iiasa.ac.at/web/home/research/researchPrograms/Energy/MESSAGE-model-regions.en.html
 .. _Statoids: http://www.statoids.com/w3166his.html
 .. _Cecilia: https://cecilia2050.eu/system/files/De%20Koning%20et%20al.%20%282014%29_Scenarios%20for%202050_0.pdf
+.. _APEC: https://en.wikipedia.org/wiki/Asia-Pacific_Economic_Cooperation
+.. _BRIC: https://en.wikipedia.org/wiki/BRIC 
+.. _BASIC: https://en.wikipedia.org/wiki/BASIC_countries
+.. _CIS: https://en.wikipedia.org/wiki/Commonwealth_of_Independent_States
+.. _G7: https://en.wikipedia.org/wiki/Group_of_Seven
+.. _G20: https://en.wikipedia.org/wiki/G20
+
 
 
 Communication, issues, bugs and enhancements
