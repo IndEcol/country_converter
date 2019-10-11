@@ -1,7 +1,7 @@
 Change Log
 ===========
 
-0.6.7 - dev
+0.6.7 - 20191011
 ----------------
 
 * fixed various country spellings
