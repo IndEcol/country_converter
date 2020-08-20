@@ -108,7 +108,7 @@ India	Republic of India	india(?!.*ocea)	IN	IND	356	356	Asia	Southern Asia	IN	IN	
 Indonesia	Republic of Indonesia	indonesia	ID	IDN	360	360	Asia	South-Eastern Asia	ID	ID	ID	IDN	IDN	PAS				1950		BX		APEC				G20
 Iran	Islamic Republic of Iran	\biran|persia	IR	IRN	364	364	Asia	Southern Asia	WW	WM	WM	RoW	IRN	MEA				1945		RoW						
 Iraq	Republic of Iraq	\biraq|mesopotamia	IQ	IRQ	368	368	Asia	Western Asia	WW	WM	WM	RoW	IRQ	MEA				1945		RoW						
-Ireland	Ireland	^(?!north.*)ireland	IE	IRL	372	372	Europe	Northern Europe	IE	IE	IE	IRL	IRL	WEU	1961	1973	1999	1955		EU						G20
+Ireland	Ireland	^(?!.*north.*).*ireland	IE	IRL	372	372	Europe	Northern Europe	IE	IE	IE	IRL	IRL	WEU	1961	1973	1999	1955		EU						G20
 Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	Europe	Northern Europe	WW	WE	WE	RoW	IMN	WEU						RoW						
 Israel	State of Israel	israel	IL	ISR	376	376	Asia	Western Asia	WW	WM	WM	RoW	ISR	MEA	2010			1949		RoW						
 Italy	Italian Republic	.*italy|.*italia.*	IT	ITA	380	380	Europe	Southern Europe	IT	IT	IT	ITA	ITA	WEU	1962	1957	1999	1955		EU					G7	G20
@@ -131,7 +131,7 @@ Libya	State of Libya	libya	LY	LBY	434	434	Africa	Northern Africa	WW	WF	WF	RoW	LB
 Liechtenstein	Principality of Liechtenstein	liechtenstein	LI	LIE	438	438	Europe	Western Europe	WW	WE	WE	RoW	LIE	WEU				1990		RoW						
 Lithuania	Republic of Lithuania	lithuania	LT	LTU	440	440	Europe	Northern Europe	LT	LT	LT	LTU	LTU	EEU		2004	2015	1991		EU						G20
 Luxembourg	Grand Duchy of Luxembourg	^(?!.*belg).*luxem	LU	LUX	442	442	Europe	Western Europe	LU	LU	LU	LUX	LUX	WEU	1961	1958	1999	1945		EU						G20
-Macao	Macao SAR	.*maca(o|u)	MO	MAC	446	446	Asia	Eastern Asia	WW	WA	WA	RoW	MAC							RoW						
+Macau	Macau SAR	.*maca(o|u)	MO	MAC	446	446	Asia	Eastern Asia	WW	WA	WA	RoW	MAC							RoW						
 Macedonia	Republic of Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807	807	Europe	Southern Europe	WW	WE	WE	RoW	MKD	EEU				1993		RoW						
 Madagascar	Republic of Madagascar	madagascar|malagasy	MG	MDG	450	450	Africa	Eastern Africa	WW	WF	WF	RoW	MDG	AFR				1960		RoW						
 Malawi	Republic of Malawi	malawi|nyasa	MW	MWI	454	454	Africa	Eastern Africa	WW	WF	WF	RoW	MWI	AFR				1964		RoW						
@@ -239,7 +239,7 @@ Tuvalu	Tuvalu	tuvalu	TV	TUV	798	798	Oceania	Polynesia	WW	WA	WA	RoW	TUV					2000	
 Uganda	Republic of Uganda	uganda	UG	UGA	800	800	Africa	Eastern Africa	WW	WF	WF	RoW	UGA	AFR				1962		RoW						
 Ukraine	Ukraine	ukrain	UA	UKR	804	804	Europe	Eastern Europe	WW	WE	WE	RoW	UKR	FSU				1945		RoW						
 United Arab Emirates	United Arab Emirates	emirates|^u\.?a\.?e\.?$|united.?arab.?em	AE	ARE	784	784	Asia	Western Asia	WW	WM	WM	RoW	ARE	MEA				1971		RoW						
-United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|GB)	GB	GBR	826	826	Europe	Northern Europe	GB	GB	GB	GBR	GBR	WEU	1961	1973		1945		EU					G7	G20
+United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|gb)	GB	GBR	826	826	Europe	Northern Europe	GB	GB	GB	GBR	GBR	WEU	1961	1973		1945		EU					G7	G20
 United States	United States of America	^(?!.*islands).*united.?states|^u\.?s\.?a\.?$|^u\.?s\.?$	US	USA	840	840	America	Northern America	US	US	US	USA	USA	NAM	1961			1945		HI		APEC			G7	G20
 United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581	581	Oceania	Micronesia	WW	WA	WA	RoW								RoW						
 United States Virgin Islands	Virgin Islands of the United States	^(?=.*\bu\.?\s?s).*virgin|^(?=.*states).*virgin	VI	VIR	850	850	America	Caribbean	WW	WL	WL	RoW	VIR	NAM						RoW						

@@ -6,8 +6,9 @@ Change Log
 
 * removed support for python 3.5
 * re-established test coverage
-
-
+* fixed Ireland, UK, US regex problems - UK, GB and US are now included in the 
+  regex search term
+* changed official name of Macao to Macau
 
 
 0.6.7 - 20191011
