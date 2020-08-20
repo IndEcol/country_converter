@@ -47,6 +47,9 @@ Heard and McDonald Islands	Heard and McDonald Islands (AU)
 Iran	Islamic Republic of Iran
 Iran	Iran (Islamic Republic of)
 Iran	"Iran, Islamic Republic of"
+Ireland	"Republic of Ireland"
+Ireland	"Rep. of Ireland"
+Ireland	"Rep. Ireland"
 Kyrgyz Republic	Kyrgyzstan
 Laos	Lao People s Democratic Republic
 Laos	Lao People's Dem. Rep.
