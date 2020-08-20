@@ -1,0 +1,9 @@
+name: coco_dev
+channels: 
+    - defaults
+    - conda-forge
+dependencies: 
+    - pandas
+    - pytest=5.4.3
+    - pytest-cov
+    - pytest-pep8
