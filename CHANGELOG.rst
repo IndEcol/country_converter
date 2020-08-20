@@ -4,7 +4,9 @@ Change Log
 0.6.8d
 ----------------
 
+* removed support for python 3.5
 * re-established test coverage
+
 
 
 
