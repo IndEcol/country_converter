@@ -3,7 +3,7 @@ import sys
 import pytest
 import pandas as pd
 import logging
-from pandas.util.testing import assert_frame_equal
+from pandas.testing import assert_frame_equal
 import collections
 from collections import OrderedDict
 
@@ -132,8 +132,8 @@ def test_additional_country_data():
         additional_data=add_data)
     assert 'xxx country' == converter_extended.convert('XXX', src='ISO3',
                                                        to='name_short')
-    assert pd.np.nan is converter_extended.convert('XXX', src='ISO3',
-                                                   to='continent')
+    assert pd.isna(converter_extended.convert('XXX', src='ISO3',
+                                              to='continent'))
 
 
 def test_UNmember():
@@ -202,7 +202,7 @@ def test_get_correspondance_dict_numeric_replace():
     assert type(corr_num) == dict
     assert len(corr_num) == 44
     assert corr_num['JP'] == [1964]
-    assert pd.np.isnan(corr_num['ZA'])
+    assert pd.isna(corr_num['ZA'])
     assert 2010 in corr_num['WW']
     assert 1961 in corr_num['WW']
     assert len(corr_num['WW']) == 4

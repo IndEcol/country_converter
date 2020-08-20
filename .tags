@@ -1,10 +1,11 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
 #filter_container	htmlcov/style.css	/^#filter_container {$/;"	i
 #filter_container input	htmlcov/style.css	/^#filter_container input {$/;"	s
 #footer .content	htmlcov/style.css	/^#footer .content {$/;"	c
@@ -200,6 +201,8 @@ $c	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return
 7	htmlcov/jquery.hotkeys.js	/^			"`": "~", "1": "!", "2": "@", "3": "#", "4": "$", "5": "%", "6": "^", "7": "&",$/;"	p	class:jQuery.hotkeys.shiftNums
 8	htmlcov/jquery.hotkeys.js	/^			"8": "*", "9": "(", "0": ")", "-": "_", "=": "+", ";": ": ", "'": "\\"", ",": "<",$/;"	p	class:jQuery.hotkeys.shiftNums
 8	htmlcov/jquery.hotkeys.js	/^			8: "backspace", 9: "tab", 13: "return", 16: "shift", 17: "ctrl", 18: "alt", 19: "pause",$/;"	p	class:jQuery.hotkeys.specialKeys
+837c9913-449a-46b3-b416-b4e772464232	.idea/workspace.xml	/^      <changelist id="837c9913-449a-46b3-b416-b4e772464232" name="Default" comment="" \/>$/;"	i
+837c9913-449a-46b3-b416-b4e772464232	.idea/workspace.xml	/^    <list default="true" id="837c9913-449a-46b3-b416-b4e772464232" name="Default" comment="" \/>$/;"	i
 9	htmlcov/jquery.hotkeys.js	/^			"8": "*", "9": "(", "0": ")", "-": "_", "=": "+", ";": ": ", "'": "\\"", ",": "<",$/;"	p	class:jQuery.hotkeys.shiftNums
 9	htmlcov/jquery.hotkeys.js	/^			8: "backspace", 9: "tab", 13: "return", 16: "shift", 17: "ctrl", 18: "alt", 19: "pause",$/;"	p	class:jQuery.hotkeys.specialKeys
 96	htmlcov/jquery.hotkeys.js	/^			96: "0", 97: "1", 98: "2", 99: "3", 100: "4", 101: "5", 102: "6", 103: "7",$/;"	p	class:jQuery.hotkeys.specialKeys
@@ -730,6 +733,7 @@ AnonymousFunction94663cbc0c00	htmlcov/coverage_html.js	/^    $(".button_toggle_e
 AnonymousFunction94663cbc0d00	htmlcov/coverage_html.js	/^    $(".button_toggle_mis").click(function (evt) {coverage.toggle_lines(evt.target, "mis");});$/;"	f
 AnonymousFunction94663cbc0e00	htmlcov/coverage_html.js	/^    $(".button_toggle_par").click(function (evt) {coverage.toggle_lines(evt.target, "par");});$/;"	f
 AnonymousFunction94663cbc0f00	htmlcov/coverage_html.js	/^    c.missed_lines.each(function () {$/;"	f
+Ant Build	.idea/workspace.xml	/^      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type=/;"	i
 B	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f	function:AnonymousFunction2f96f8ee2700
 BASIC	README.rst	/^.. _BASIC: https:\/\/en.wikipedia.org\/wiki\/BASIC_countries$/;"	T	section:Data sources and further reading
 BASIC	country_converter/country_converter.py	/^    def BASIC(self):$/;"	m	class:CountryConverter
@@ -758,6 +762,7 @@ Citing the country converter   	README.rst	/^Citing the country converter   $/;"
 Classification schemes	README.rst	/^Classification schemes$/;"	s	chapter:country converter
 Classifications	README.rst	/^.. _Classifications:$/;"	T	subsection:Building concordances for country aggregation
 Command line usage	README.rst	/^Command line usage$/;"	t	subsection:Basic usage
+Commander	.idea/workspace.xml	/^      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type=/;"	i
 Communication, issues, bugs and enhancements	README.rst	/^Communication, issues, bugs and enhancements$/;"	s	chapter:country converter
 Contributing	README.rst	/^Contributing$/;"	s	chapter:country converter
 Contributing to coco	CONTRIBUTING.rst	/^Contributing to coco$/;"	c
@@ -769,8 +774,12 @@ Coverage for country_converter/version.py : 100%	htmlcov/country_converter_versi
 Coverage for tests/__init__.py : 100%	htmlcov/tests___init___py.html	/^        <\/h1>$/;"	h
 Coverage for tests/test_country_converter.py : 100%	htmlcov/tests_test_country_converter_py.html	/^        <\/h1>$/;"	h
 Coverage report: 99%	htmlcov/index.html	/^        <\/h1>$/;"	h
+Cvs	.idea/workspace.xml	/^      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCK/;"	i
 D	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f
 Data sources and further reading	README.rst	/^Data sources and further reading$/;"	s	chapter:country converter
+Database	.idea/workspace.xml	/^      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="/;"	i
+Debug	.idea/workspace.xml	/^      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DO/;"	i
+Default	.idea/workspace.xml	/^    <task active="true" id="Default" summary="Default task">$/;"	i
 EU	README.rst	/^.. _EU: http:\/\/europa.eu\/about-eu\/countries\/index_en.htm$/;"	T	section:Data sources and further reading
 EU27	build/lib/country_converter/country_converter.py	/^    def EU27(self):$/;"	m	class:CountryConverter
 EU27	country_converter/country_converter.py	/^    def EU27(self):$/;"	m	class:CountryConverter
@@ -791,7 +800,10 @@ Eb	htmlcov/jquery.min.js	/^if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typ
 Eora	README.rst	/^.. _Eora: http:\/\/www.worldmrio.com\/$/;"	T	section:Data sources and further reading
 Eora	country_converter/country_converter.py	/^    def Eora(self):$/;"	m	class:CountryConverter
 Eoraas	country_converter/country_converter.py	/^    def Eoraas(self, to=None):$/;"	m	class:CountryConverter
+Event Log	.idea/workspace.xml	/^      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type/;"	i
+Favorites	.idea/workspace.xml	/^      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="/;"	i
 Fb	htmlcov/jquery.min.js	/^if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c.pop()||m.guid++/;"	f
+Find	.idea/workspace.xml	/^      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOC/;"	i
 G	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f
 G20	README.rst	/^.. _G20: https:\/\/en.wikipedia.org\/wiki\/G20$/;"	T	section:Data sources and further reading
 G20	country_converter/country_converter.py	/^    def G20(self):$/;"	m	class:CountryConverter
@@ -800,7 +812,9 @@ G7	README.rst	/^.. _G7: https:\/\/en.wikipedia.org\/wiki\/Group_of_Seven$/;"	T	s
 G7	country_converter/country_converter.py	/^    def G7(self):$/;"	m	class:CountryConverter
 G7as	country_converter/country_converter.py	/^    def G7as(self, to='name_short'):$/;"	m	class:CountryConverter
 GitHub	README.rst	/^.. _GitHub: https:\/\/github.com\/konstantinstadler\/country_converter$/;"	T	section:Installation
+Hierarchy	.idea/workspace.xml	/^      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type=/;"	i
 I	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f
+Inspection	.idea/workspace.xml	/^      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_typ/;"	i
 Installation	README.rst	/^Installation$/;"	s	chapter:country converter
 J	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f
 Journal of Open Source Software	README.rst	/^.. _Journal of Open Source Software: http:\/\/joss.theoj.org\/$/;"	T	section:Acknowledgements
@@ -810,6 +824,7 @@ MESSAGE	README.rst	/^.. _MESSAGE: http:\/\/www.iiasa.ac.at\/web\/home\/research\
 MESSAGE	country_converter/country_converter.py	/^    def MESSAGE(self):$/;"	m	class:CountryConverter
 MESSAGEas	country_converter/country_converter.py	/^    def MESSAGEas(self, to=None):$/;"	m	class:CountryConverter
 Mc	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	f
+Message	.idea/workspace.xml	/^      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="/;"	i
 Motivation	README.rst	/^Motivation$/;"	s	chapter:country converter
 Nc	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	f
 Netherlands Antilles	README.rst	/^.. _Netherlands Antilles: https:\/\/en.wikipedia.org\/wiki\/Netherlands_Antilles$/;"	T	subsubsection:Command line usage
@@ -825,6 +840,9 @@ P	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==type
 Pandas	CONTRIBUTING.rst	/^.. _Pandas: https:\/\/pandas.pydata.org\/$/;"	T	section:Running and extending the tests
 Pandas	README.rst	/^.. _Pandas: http:\/\/pandas.pydata.org\/$/;"	T	section:Installation
 Pc	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	f
+Project	.idea/workspace.xml	/^      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOC/;"	i
+ProjectPane	.idea/workspace.xml	/^      <pane id="ProjectPane">$/;"	i
+Python Console	.idea/workspace.xml	/^      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal/;"	i
 Python-iso3166	README.rst	/^.. _Python-iso3166: https:\/\/github.com\/deactivated\/python-iso3166$/;"	T	section:Related software
 Q	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f
 R	htmlcov/jquery.min.js	/^if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c.pop()||m.guid++/;"	f
@@ -832,10 +850,16 @@ References	JOSS/paper.md	/^# References$/;"	c
 Regular expressions	CONTRIBUTING.rst	/^Regular expressions$/;"	S	section:Updating the country table
 Related software	README.rst	/^Related software$/;"	s	chapter:country converter
 Robert Gieseke	README.rst	/^.. _Robert Gieseke: https:\/\/github.com\/rgieseke$/;"	T	section:Acknowledgements
+Run	.idea/workspace.xml	/^      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCK/;"	i
 Running and extending the tests	CONTRIBUTING.rst	/^Running and extending the tests$/;"	s	chapter:Contributing to coco
+Scope	.idea/workspace.xml	/^      <pane id="Scope" \/>$/;"	i
+Scratches	.idea/workspace.xml	/^      <pane id="Scratches" \/>$/;"	i
 Statoids	README.rst	/^.. _Statoids: http:\/\/www.statoids.com\/w3166his.html$/;"	T	section:Data sources and further reading
+Structure	.idea/workspace.xml	/^      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="/;"	i
 Summary	JOSS/paper.md	/^# Summary$/;"	c
 TESTPATH	tests/test_country_converter.py	/^TESTPATH = os.path.dirname(os.path.abspath(__file__))$/;"	v
+TODO	.idea/workspace.xml	/^      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOC/;"	i
+Terminal	.idea/workspace.xml	/^      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type=/;"	i
 UN	README.rst	/^.. _UN: http:\/\/www.un.org\/en\/members\/$/;"	T	section:Data sources and further reading
 UN	build/lib/country_converter/country_converter.py	/^    def UN(self):$/;"	m	class:CountryConverter
 UN	country_converter/country_converter.py	/^    def UN(self):$/;"	m	class:CountryConverter
@@ -848,6 +872,7 @@ Use in Matlab	README.rst	/^Use in Matlab$/;"	t	subsection:Basic usage
 Use within Python	README.rst	/^Use within Python$/;"	t	subsection:Basic usage
 Vb	htmlcov/jquery.min.js	/^if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c.pop()||m.guid++/;"	f
 Vc	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	f
+Version Control	.idea/workspace.xml	/^      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" interna/;"	i
 Vincent Arel-Bundock	README.rst	/^.. _Vincent Arel-Bundock: http:\/\/arelbundock.com\/$/;"	T	section:Acknowledgements
 WIOD	README.rst	/^.. _WIOD: http:\/\/www.wiod.org\/home$/;"	T	section:Data sources and further reading
 WIOD	country_converter/country_converter.py	/^    def WIOD(self):$/;"	m	class:CountryConverter
@@ -3212,6 +3237,7 @@ source	htmlcov/tests_test_country_converter_py.html	/^<div id="source">$/;"	I
 special	htmlcov/jquery.hotkeys.js	/^		jQuery.event.special[ this ] = { add: keyHandler };$/;"	c	class:jQuery.event
 special	htmlcov/jquery.min.js	/^if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c.pop()||m.guid++/;"	c	class:m.event
 specialKeys	htmlcov/jquery.hotkeys.js	/^		specialKeys: {$/;"	c	class:jQuery.hotkeys
+stadler_rest_2014	JOSS/paper.bib	/^@article{stadler_rest_2014,$/;"	a
 state	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	m	class:AnonymousFunction2f96f8eeb200.d
 statusCode	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	m	class:AnonymousFunction2f96f8ee19200.v
 stop	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	f	function:c
@@ -5321,6 +5347,7 @@ tests_test_country_converter_py	htmlcov/status.json	/^{"format":1,"version":"4.5
 textExtraction	htmlcov/jquery.tablesorter.min.js	/^(function($){$.extend({tablesorter:new function(){var parsers=[],widgets=[];this.defaults={cssHe/;"	p	class:AnonymousFunction4f631b030100.defaults
 th	htmlcov/style.css	/^html, body, h1, h2, h3, p, table, td, th {$/;"	s
 then	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	m	class:AnonymousFunction2f96f8eeb200.d
+timmer_world_2012	JOSS/paper.bib	/^@article{timmer_world_2012,$/;"	a
 to_first_chunk	htmlcov/coverage_html.js	/^coverage.to_first_chunk = function () {$/;"	f	function:coverage
 to_next_chunk	htmlcov/coverage_html.js	/^coverage.to_next_chunk = function () {$/;"	f	function:coverage
 to_next_chunk_nicely	htmlcov/coverage_html.js	/^coverage.to_next_chunk_nicely = function () {$/;"	f	function:coverage
@@ -5352,6 +5379,7 @@ width	htmlcov/jquery.isonscreen.js	/^				width: $(window).width(),$/;"	p	class:j
 widthFixed	htmlcov/jquery.tablesorter.min.js	/^(function($){$.extend({tablesorter:new function(){var parsers=[],widgets=[];this.defaults={cssHe/;"	p	class:AnonymousFunction4f631b030100.defaults
 wire_up_filter	htmlcov/coverage_html.js	/^coverage.wire_up_filter = function () {$/;"	f	function:coverage
 wire_up_help_panel	htmlcov/coverage_html.js	/^coverage.wire_up_help_panel = function () {$/;"	f	function:coverage
+wood_global_2014	JOSS/paper.bib	/^@article{wood_global_2014,$/;"	a
 x	htmlcov/jquery.min.js	/^},cur:function(){var a=Zb.propHooks[this.prop];return a&&a.get?a.get(this):Zb.propHooks._default/;"	f
 xb	htmlcov/jquery.min.js	/^!function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.documen/;"	f
 yb	htmlcov/jquery.min.js	/^if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c.pop()||m.guid++/;"	f
