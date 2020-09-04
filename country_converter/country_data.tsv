@@ -221,7 +221,7 @@ Svalbard and Jan Mayen Islands	Svalbard and Jan Mayen Islands	^(?!norway).*svalb
 Sweden	Kingdom of Sweden	swedish|sweden	SE	SWE	752	752	Europe	Northern Europe	SE	SE	SE	SWE	SWE	WEU	1961	1995		1946		EU						G20
 Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	Europe	Western Europe	CH	CH	CH	RoW	CHE	WEU	1961			2002		HI						
 Syria	Syrian Arab Republic	syria	SY	SYR	760	760	Asia	Western Asia	WW	WM	WM	RoW	SYR	MEA				1945		RoW						
-Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$	TW	TWN	158		Asia	Eastern Asia	TW	TW	TW	TWN	TWN	PAS						HI		APEC				
+Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$|^taiwan r\.?o\.?c\.?$	TW	TWN	158		Asia	Eastern Asia	TW	TW	TW	TWN	TWN	PAS						HI		APEC				
 Tajikistan	Republic of Tajikistan	tajik	TJ	TJK	762	762	Asia	Central Asia	WW	WA	WA	RoW	TJK	FSU				1992		RoW				CIS		
 Tanganjika	Republic of Tanganyika	tanganjika|tanganyika		EAT			Africa	Eastern Africa	WW	WF	WF	RoW							1964	RoW						
 Tanzania	United Republic of Tanzania	tanzania(?!: zan.*)	TZ	TZA	834	834	Africa	Eastern Africa	WW	WF	WF	RoW	TZA	AFR				1961		RoW						
