@@ -15,6 +15,8 @@ from country_converter.version import __version__
 COUNTRY_DATA_FILE = os.path.join(
     os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
 
+log = logging.getLogger(__name__)
+
 
 def agg_conc(original_countries,
              aggregates,
@@ -220,7 +222,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
                 match_dict_a[name_a].append(regex)
 
         if len(match_dict_a[name_a]) == 0:
-            logging.warning('Could not identify {} in list_a'.format(name_a))
+            log.warning('Could not identify {} in list_a'.format(name_a))
             _not_found_entry = name_a if not not_found else not_found
             name_dict_a[name_a].append(_not_found_entry)
             if not enforce_sublist:
@@ -228,7 +230,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
             continue
 
         if len(match_dict_a[name_a]) > 1:
-            logging.warning(
+            log.warning(
                 'Multiple matches for name {} in list_a'.format(name_a))
 
         for match_case in match_dict_a[name_a]:
@@ -239,15 +241,15 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
                     name_dict_a[name_a].append(name_b)
 
         if b_matches == 0:
-            logging.warning(
+            log.warning(
                 'Could not find any '
                 'correspondence for {} in list_b'.format(name_a))
             _not_found_entry = name_a if not not_found else not_found
             name_dict_a[name_a].append(_not_found_entry)
 
         if b_matches > 1:
-            logging.warning('Multiple matches for '
-                            'name {} in list_b'.format(name_a))
+            log.warning('Multiple matches for '
+                        'name {} in list_b'.format(name_a))
 
         if not enforce_sublist and (len(name_dict_a[name_a]) == 1):
             name_dict_a[name_a] = name_dict_a[name_a][0]
@@ -398,7 +400,7 @@ class CountryConverter():
                                             'WIOD'])
 
         def test_for_unique_names(df, data_name='passed dataframe',
-                                  report_fun=logging.error):
+                                  report_fun=log.error):
             for name_entry in must_be_unique:
                 if df[name_entry].duplicated().any():
                     report_fun('Duplicated values in column {} of {}'.format(
@@ -433,7 +435,7 @@ class CountryConverter():
         test_for_unique_names(
             self.data,
             data_name='merged data - keep last one',
-            report_fun=logging.warning)
+            report_fun=log.warning)
 
         for name_entry in must_be_unique:
             self.data.drop_duplicates(subset=[name_entry],
@@ -527,8 +529,8 @@ class CountryConverter():
                         result_list.append(
                             self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:
-                        logging.warning('More then one regular expression '
-                                        'match for {}'.format(spec_name))
+                        log.warning('More then one regular expression '
+                                    'match for {}'.format(spec_name))
 
             else:
                 _match_col = self.data[src_format].astype(
@@ -540,7 +542,7 @@ class CountryConverter():
                                    na=False)][to].values]
 
             if len(result_list) == 0:
-                logging.warning(
+                log.warning(
                     '{} not found in {}'.format(spec_name, src_format))
                 _fillin = not_found or spec_name
                 outlist[ind_names] = [_fillin] if enforce_list else _fillin
@@ -1379,5 +1381,5 @@ if __name__ == "__main__":   # pragma: no cover
         coco = CountryConverter()
         coco.data
     except Exception as excep:
-        logging.exception(excep)
+        log.exception(excep)
         raise
