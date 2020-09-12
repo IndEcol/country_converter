@@ -1561,7 +1561,7 @@
 <p id="t106" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t107" class="stm run hide_run">    <span class="key">for</span> <span class="nam">agg</span> <span class="key">in</span> <span class="nam">aggregates</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t108" class="stm run hide_run">        <span class="key">if</span> <span class="nam">type</span><span class="op">(</span><span class="nam">agg</span><span class="op">)</span> <span class="key">is</span> <span class="nam">str</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
-<p id="t109" class="stm run hide_run">            <span class="nam">agg</span> <span class="op">=</span> <span class="nam">coco</span><span class="op">.</span><span class="nam">get_correspondance_dict</span><span class="op">(</span><span class="nam">original_countries_class</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t109" class="stm run hide_run">            <span class="nam">agg</span> <span class="op">=</span> <span class="nam">coco</span><span class="op">.</span><span class="nam">get_correspondence_dict</span><span class="op">(</span><span class="nam">original_countries_class</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t110" class="pln">                                               <span class="nam">agg</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t111" class="stm run hide_run">        <span class="key">for</span> <span class="nam">country</span> <span class="key">in</span> <span class="nam">original_countries</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t112" class="stm run hide_run">            <span class="key">if</span> <span class="nam">correspond</span><span class="op">.</span><span class="nam">get</span><span class="op">(</span><span class="nam">country</span><span class="op">)</span> <span class="key">is</span> <span class="key">None</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
@@ -2567,7 +2567,7 @@
 <p id="t1112" class="pln">        <span class="str">""" Valid strings for the converter """</span><span class="strut">&nbsp;</span></p>
 <p id="t1113" class="stm run hide_run">        <span class="key">return</span> <span class="nam">list</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">data</span><span class="op">.</span><span class="nam">columns</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t1114" class="pln"><span class="strut">&nbsp;</span></p>
-<p id="t1115" class="stm run hide_run">    <span class="key">def</span> <span class="nam">get_correspondance_dict</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">classA</span><span class="op">,</span> <span class="nam">classB</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t1115" class="stm run hide_run">    <span class="key">def</span> <span class="nam">get_correspondence_dict</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">classA</span><span class="op">,</span> <span class="nam">classB</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t1116" class="pln">                                <span class="nam">restrict</span><span class="op">=</span><span class="key">None</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
 <p id="t1117" class="pln">                                <span class="nam">replace_numeric</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t1118" class="pln">        <span class="str">""" Returns a correspondance between classification A and B as dict</span><span class="strut">&nbsp;</span></p>
@@ -2585,7 +2585,7 @@
 <p id="t1130" class="pln"><span class="str">            where cc is the name of the CountryConverter instance.  Used to</span><span class="strut">&nbsp;</span></p>
 <p id="t1131" class="pln"><span class="str">            restrict the data sheet if necessary.  E.g. to convert to countries</span><span class="strut">&nbsp;</span></p>
 <p id="t1132" class="pln"><span class="str">            which were OECD members before 1970 use</span><span class="strut">&nbsp;</span></p>
-<p id="t1133" class="pln"><span class="str">            cc.get_correspondance_dict('ISO3', 'OECD', restrict=cc.data.OECD &lt;</span><span class="strut">&nbsp;</span></p>
+<p id="t1133" class="pln"><span class="str">            cc.get_correspondence_dict('ISO3', 'OECD', restrict=cc.data.OECD &lt;</span><span class="strut">&nbsp;</span></p>
 <p id="t1134" class="pln"><span class="str">            1970)</span><span class="strut">&nbsp;</span></p>
 <p id="t1135" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t1136" class="pln"><span class="str">        replace_numeric: boolean, optional</span><span class="strut">&nbsp;</span></p>

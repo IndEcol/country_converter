@@ -45,23 +45,32 @@ Changing the code base
 
 If you plan any changes to the source code of this repo, please first discuss the change you wish to make via a filing an issue (labelled Enhancement or Bug) before making a change.
 All code contribution must be provided as pull requests connected to a filed issue.
-Use numpy style docstrings_ and follow pep8_ style guide.
+Use numpy style docstrings_ and lint using black_ and isort_, and follow the pep8_ style guide.
 The latter is a requirement to pass the tests before merging a pull request.
 Since coco is already used in research projects, please aim for keeping compatibility with previous versions.
 
+The following commands can be used to automatically apply the black_ and isort_ formatting.
+.. code-block:: command
+
+   pip install black isort
+   isort --project country_converter --profile black .
+   black .
+
 .. _docstrings: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 .. _pep8: https://www.python.org/dev/peps/pep-0008/
+.. _black: https://github.com/psf/black/
+.. _isort: https://github.com/pycqa/isort/
 
 Running and extending the tests
 -------------------------------
 
 Before filing a pull request, make sure your changes pass all tests.
-Coco uses the py.test_ package with the pytest-pep8_ extension for testing.
+Coco uses the pytest_ package with the pytest-pep8_ extension for testing.
 To run the tests install these two packages (and the Pandas_ dependency) and run
 
 ::
 
-    py.test -v -pep8
+    pytest -v -pep8
 
 in the root of your local copy of coco.
 
@@ -76,7 +85,7 @@ These tests check
 To specify a new test set just add a tab-separated file with headers "name_short" and "name_test" and provide name (corresponding to the short name in the main classification file) and the alternative name which should be tested (one pair per row in the file).
 If the file name starts with "test\_regex\_" it will be automatically recognised by the test functions.
 
-.. _py.test: http://pytest.org/
+.. _pytest: http://pytest.org/
 .. _pytest-pep8: https://pypi.python.org/pypi/pytest-pep8
 .. _Pandas: https://pandas.pydata.org/
 
