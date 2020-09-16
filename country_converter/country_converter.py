@@ -30,7 +30,7 @@ def agg_conc(
     as_dataframe="sparse",
     original_countries_class=None,
 ):
-    """ Builds an aggregation concordance dict, vec or matrix
+    """Builds an aggregation concordance dict, vec or matrix
 
     Parameters
     ----------
@@ -167,7 +167,7 @@ def match(
     country_data=COUNTRY_DATA_FILE,
     additional_data=None,
 ):
-    """ Matches the country names given in two lists into a dictionary.
+    """Matches the country names given in two lists into a dictionary.
 
     This function matches names given in list_a to the one provided in list_b
     using regular expressions defined in country_data.
@@ -263,7 +263,7 @@ def match(
 
 
 def convert(*args, **kargs):
-    """ Wrapper around CountryConverter.convert()
+    """Wrapper around CountryConverter.convert()
 
     Uses the same parameters. This function has the same performance as
     CountryConverter.convert for one call; for multiple calls it is better to
@@ -329,7 +329,7 @@ def convert(*args, **kargs):
 
 
 class CountryConverter:
-    """ Main class for converting countries
+    """Main class for converting countries
 
     Attributes
     ----------
@@ -341,7 +341,7 @@ class CountryConverter:
 
     @staticmethod
     def _separate_exclude_cases(name, exclude_prefix):
-        """ Splits the excluded
+        """Splits the excluded
 
         Parameters
         ----------
@@ -468,7 +468,7 @@ class CountryConverter:
         not_found="not found",
         exclude_prefix=None,
     ):
-        """ Convert names from a list to another list.
+        """Convert names from a list to another list.
 
         Note
         ----
@@ -592,7 +592,7 @@ class CountryConverter:
             return outlist
 
     def EXIO1as(self, to=None):
-        """ Returns the unique EXIO1 regions or converted to 'to'
+        """Returns the unique EXIO1 regions or converted to 'to'
 
         Parameters
         ----------
@@ -616,7 +616,7 @@ class CountryConverter:
         return pd.DataFrame(self.data.EXIO1.unique()).sort_values(0)
 
     def EXIO2as(self, to=None):
-        """ Returns the unique EXIO2 regions or converted to 'to'
+        """Returns the unique EXIO2 regions or converted to 'to'
 
         Parameters
         ----------
@@ -640,7 +640,7 @@ class CountryConverter:
         return pd.DataFrame(self.data.EXIO2.unique()).sort_values(0)
 
     def EXIO3as(self, to=None):
-        """ Returns the unique EXIO3 regions or converted to 'to'
+        """Returns the unique EXIO3 regions or converted to 'to'
 
         Parameters
         ----------
@@ -664,7 +664,7 @@ class CountryConverter:
         return pd.DataFrame(self.data.EXIO3.unique()).sort_values(0)
 
     def WIODas(self, to=None):
-        """ Returns the unique WIOD regions or converted to 'to'
+        """Returns the unique WIOD regions or converted to 'to'
 
         Parameters
         ----------
@@ -688,7 +688,7 @@ class CountryConverter:
         return pd.DataFrame(self.data.WIOD.unique()).sort_values(0)
 
     def Eoraas(self, to=None):
-        """ Returns the unique Eora regions or converted to 'to'
+        """Returns the unique Eora regions or converted to 'to'
 
         Parameters
         ----------
@@ -712,7 +712,7 @@ class CountryConverter:
         return pd.DataFrame(self.data.Eora.unique()).sort_values(0)
 
     def MESSAGEas(self, to=None):
-        """ Returns the unique MESSAGE regions or converted to 'to'
+        """Returns the unique MESSAGE regions or converted to 'to'
 
         Parameters
         ----------
@@ -736,7 +736,7 @@ class CountryConverter:
         return pd.DataFrame(self.data.MESSAGE.unique()).sort_values(0)
 
     def Cecilia2050as(self, to=None):
-        """ Returns the unique Cecilia2050 regions or converted to 'to'
+        """Returns the unique Cecilia2050 regions or converted to 'to'
 
         Parameters
         ----------
@@ -1013,119 +1013,119 @@ class CountryConverter:
 
     @property
     def EXIO1(self):
-        """ EXIO1 classification
-            use EXIO1as() for correspondence to other class.
+        """EXIO1 classification
+        use EXIO1as() for correspondence to other class.
         """
         return self.EXIO1as(to=None)
 
     @property
     def EXIO2(self):
-        """ EXIO2 classification
-            use EXIO2as() for correspondence to other class.
+        """EXIO2 classification
+        use EXIO2as() for correspondence to other class.
         """
         return self.EXIO2as(to=None)
 
     @property
     def EXIO3(self):
-        """ EXIO3 classification
-            use EXIO3as() for correspondence to other class.
+        """EXIO3 classification
+        use EXIO3as() for correspondence to other class.
         """
         return self.EXIO3as(to=None)
 
     @property
     def WIOD(self):
-        """ WIOD classification
-            use WIODas() for correspondence to other class.
+        """WIOD classification
+        use WIODas() for correspondence to other class.
         """
         return self.WIODas(to=None)
 
     @property
     def Eora(self):
-        """ Eora classification
-            use Eoraas() for correspondence to other class.
+        """Eora classification
+        use Eoraas() for correspondence to other class.
         """
         return self.Eoraas(to=None)
 
     @property
     def MESSAGE(self):
-        """ MESSAGE classification
-            use MESSAGEas() for correspondence to other class.
+        """MESSAGE classification
+        use MESSAGEas() for correspondence to other class.
         """
         return self.MESSAGEas(to=None)
 
     @property
     def Cecilia2050(self):
-        """ Cecilia2050 classification
-            use Cecilia2050as() for correspondence to other class.
+        """Cecilia2050 classification
+        use Cecilia2050as() for correspondence to other class.
         """
         return self.Cecilia2050as(to=None)
 
     @property
     def EU28(self):
-        """ EU28 member states (standard name_short) -
-            use EU28as() for any other classification
+        """EU28 member states (standard name_short) -
+        use EU28as() for any other classification
         """
         return self.EU28as(to="name_short")
 
     @property
     def EU27(self):
-        """ EU27 member states (standard name_short) -
-            use EU27as() for any other classification
+        """EU27 member states (standard name_short) -
+        use EU27as() for any other classification
         """
         return self.EU27as(to="name_short")
 
     @property
     def OECD(self):
-        """ OECD member states (standard name_short) -
-            use OECDas() for any other classification
+        """OECD member states (standard name_short) -
+        use OECDas() for any other classification
         """
         return self.OECDas(to="name_short")
 
     @property
     def UN(self):
-        """ UN member states (standard name_short) -
+        """UN member states (standard name_short) -
         use UNas() for any other classification
         """
         return self.UNas(to="name_short")
 
     @property
     def BRIC(self):
-        """ BRIC states (standard name_short) -
+        """BRIC states (standard name_short) -
         use BRICas() for any other classification
         """
         return self.BRICas(to="name_short")
 
     @property
     def APEC(self):
-        """ APEC states (standard name_short) -
+        """APEC states (standard name_short) -
         use APECas() for any other classification
         """
         return self.APECas(to="name_short")
 
     @property
     def BASIC(self):
-        """ BASIC states (standard name_short) -
+        """BASIC states (standard name_short) -
         use BASICas() for any other classification
         """
         return self.BASICas(to="name_short")
 
     @property
     def CIS(self):
-        """ CIS states (standard name_short) -
+        """CIS states (standard name_short) -
         use CISas() for any other classification
         """
         return self.CISas(to="name_short")
 
     @property
     def G7(self):
-        """ G7 states (standard name_short) -
+        """G7 states (standard name_short) -
         use G7as() for any other classification
         """
         return self.G7as(to="name_short")
 
     @property
     def G20(self):
-        """ G20 states (standard name_short) -
+        """G20 states (standard name_short) -
         use G20as() for any other classification
         """
         return self.G20as(to="name_short")
@@ -1138,7 +1138,7 @@ class CountryConverter:
     def get_correspondence_dict(
         self, classA, classB, restrict=None, replace_numeric=True
     ):
-        """ Returns a correspondence between classification A and B as dict
+        """Returns a correspondence between classification A and B as dict
 
         Parameters
         ----------
@@ -1187,7 +1187,7 @@ class CountryConverter:
         return result
 
     def _validate_input_para(self, para, column_names):
-        """ Convert the input classification para to the correct df column name
+        """Convert the input classification para to the correct df column name
 
         Parameters
         ----------
@@ -1224,7 +1224,7 @@ class CountryConverter:
         return validated_para
 
     def _get_input_format_from_name(self, name):
-        """ Determines the input format based on the given country name
+        """Determines the input format based on the given country name
 
         Parameters
         ----------
@@ -1250,7 +1250,7 @@ class CountryConverter:
 
 
 def _parse_arg(valid_classifications):
-    """ Command line parser for coco
+    """Command line parser for coco
 
     Parameters
     ----------
@@ -1356,8 +1356,7 @@ def _parse_arg(valid_classifications):
 
 
 def cli_output(conv_names, sep):
-    """ Helper function for printing to the console
-    """
+    """Helper function for printing to the console"""
     pd.set_option("max_rows", len(conv_names))
     if type(conv_names) is pd.DataFrame:
         if len(conv_names.columns) == 1:
@@ -1376,8 +1375,7 @@ def cli_output(conv_names, sep):
 
 
 def main():
-    """ Main entry point - used for command line call
-    """
+    """Main entry point - used for command line call"""
     args = _parse_arg(CountryConverter().valid_class)
 
     args.output_sep = args.output_sep or " "

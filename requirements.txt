@@ -1,4 +1,7 @@
-pandas >= 0.17.0
-pytest >= 4.0.0
+pandas >= 1.0
+pytest >= 5.4.0
 pytest-cov >= 2.7.0
-pytest-pep8 >= 1.0.6
+isort >= 5.5.2
+black >= 19.10
+python-coveralls
+pytest-black

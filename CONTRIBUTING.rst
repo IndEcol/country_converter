@@ -46,7 +46,7 @@ Changing the code base
 If you plan any changes to the source code of this repo, please first discuss the change you wish to make via a filing an issue (labelled Enhancement or Bug) before making a change.
 All code contribution must be provided as pull requests connected to a filed issue.
 Use numpy style docstrings_ and lint using black_ and isort_, and follow the pep8_ style guide.
-The latter is a requirement to pass the tests before merging a pull request.
+Passing the black_ and isort_ liter is a requirement to pass the tests before merging a pull request.
 Since coco is already used in research projects, please aim for keeping compatibility with previous versions.
 
 The following commands can be used to automatically apply the black_ and isort_ formatting.
@@ -65,7 +65,7 @@ Running and extending the tests
 -------------------------------
 
 Before filing a pull request, make sure your changes pass all tests.
-Coco uses the pytest_ package with the pytest-pep8_ extension for testing.
+Coco uses the pytest_ package with the pytest-black_ extension and isort_ for testing.
 To run the tests install these two packages (and the Pandas_ dependency) and run
 
 ::
@@ -87,6 +87,7 @@ If the file name starts with "test\_regex\_" it will be automatically recognised
 
 .. _pytest: http://pytest.org/
 .. _pytest-pep8: https://pypi.python.org/pypi/pytest-pep8
+.. _pytest-black: https://pypi.org/project/pytest-black/
 .. _Pandas: https://pandas.pydata.org/
 
 

@@ -4,13 +4,11 @@ python:
   - "3.7"
   - "3.8"
 install:
-  - pip install pytest-pep8 black isort
-  - pip install .
-  - pip install pytest-cov python-coveralls
   - pip install -r requirements.txt
+  - pip install python-coveralls
+  - pip install .
 script:
   - isort --project country_converter --profile black --check-only .
-  - black --check .
-  - pytest --pep8 -vv --cov country_converter
+  - pytest --black -vv --cov country_converter
 after_success:
     coveralls

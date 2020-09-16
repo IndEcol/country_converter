@@ -4,11 +4,28 @@ Change Log
 0.6.8d
 ----------------
 
+Breaking
+^^^^^^^^
+
 * removed support for python 3.5
-* re-established test coverage
+* minimum pandas version = 1.0
+
+Classifications
+^^^^^^^^^^^^^^^
+
+* Updated Lithuania OECD membership
 * fixed Ireland, UK, US regex problems - UK, GB and US are now included in the 
   regex search term
 * changed official name of Macao to Macau
+
+TODO: IAM classifications
+
+Internals
+^^^^^^^^^
+
+* using black and isort for the code style
+* logger used in the country_converter is named (based on module __name__)
+* re-established test coverage
 
 
 0.6.7 - 20191011
@@ -69,7 +86,7 @@ Minor spelling fixes
 
 Aggregation concordance building functionality with
 
-  - method get_correspondence_dict in CountryConverter
+  - method get_correspondance_dict in CountryConverter
   - function agg_conc which build concordance matrices in various formats
   - notebook tutorial
 

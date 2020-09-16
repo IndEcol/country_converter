@@ -8,11 +8,12 @@ import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal
 
+import country_converter as coco  # noqa
+from country_converter.country_converter import _parse_arg  # noqa
+
 TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, ".."))
 
-import country_converter as coco  # noqa
-from country_converter.country_converter import _parse_arg  # noqa
 
 regex_test_files = [
     nn
@@ -32,8 +33,7 @@ def get_regex_test_data(request):
 
 
 def test_name_short():
-    """ Tests if there is a unique matching of name_short to regular expressions
-    """
+    """Tests if there is a unique matching of name_short to regular expressions"""
     converter = coco.CountryConverter()
     not_found_id = "XXX"
     for row in converter.data.iterrows():
@@ -61,8 +61,7 @@ def test_name_short():
 
 
 def test_name_official():
-    """ Tests if there is a unique matching of name_official to regular expressions
-    """
+    """Tests if there is a unique matching of name_official to regular expressions"""
     converter = coco.CountryConverter()
     not_found_id = "XXX"
     for row in converter.data.iterrows():
@@ -163,7 +162,7 @@ def test_obsolete():
 
 
 def test_special_cases():
-    """ Some test for special cases which occurred during development.
+    """Some test for special cases which occurred during development.
 
     These are test for specific issues turned up.
     """
@@ -175,8 +174,7 @@ def test_special_cases():
 
 
 def test_get_correspondance_dict_standard():
-    """ Standard test case for get_correspondence_dict method
-    """
+    """Standard test case for get_correspondence_dict method"""
     classA = "EXIO1"
     classB = "continent"
     cc = coco.CountryConverter()
@@ -196,8 +194,7 @@ def test_get_correspondance_dict_standard():
 
 
 def test_get_correspondence_dict_numeric_replace():
-    """ Numeric replacement test of get_correspondence_dict method
-    """
+    """Numeric replacement test of get_correspondence_dict method"""
     classA = "EXIO1"
     classB = "OECD"
     cc = coco.CountryConverter()
@@ -225,8 +222,7 @@ def test_get_correspondence_dict_numeric_replace():
 
 
 def test_build_agg_conc_custom():
-    """ Minimal test of the aggregation concordance building functionality
-    """
+    """Minimal test of the aggregation concordance building functionality"""
 
     original_countries = ["c1", "c2", "c3", "c4"]
     aggregates = [{"c1": "r1", "c2": "r1", "c3": "r2"}]
@@ -323,8 +319,7 @@ def test_build_agg_conc_custom():
 
 
 def test_build_agg_conc_exio():
-    """ Some agg_conc test with a subset of exio countries
-    """
+    """Some agg_conc test with a subset of exio countries"""
 
     original_countries = ["TW", "XX", "AT", "US", "WA"]
     aggregates = ["EU", "OECD", "continent"]
