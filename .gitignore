@@ -3,6 +3,7 @@
 *.pyc
 *.egg-info
 tags
+.tags
 /dist/
 /build/
 /__pycache__
