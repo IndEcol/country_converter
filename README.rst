@@ -17,6 +17,8 @@ The country converter (coco) is a Python package to convert and match country na
     :target: https://coveralls.io/github/konstantinstadler/country_converter?branch=master
 .. image:: https://anaconda.org/konstantinstadler/country_converter/badges/version.svg   
    :target: https://anaconda.org/konstantinstadler/country_converter
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
 
 |
 
@@ -55,12 +57,11 @@ Alternatively, the source code is available on GitHub_.
 
 .. _GitHub: https://github.com/konstantinstadler/country_converter
 
-The package depends on Pandas_; for testing py.test_ is required.
+The package depends on Pandas_; for testing pytest_ is required.
 For further information on running the tests see `CONTRIBUTING.rst`_.
 
 .. _Pandas: http://pandas.pydata.org/
-
-.. _py.test: http://pytest.org/
+.. _pytest: http://pytest.org/
 
 Usage
 -----
@@ -207,7 +208,7 @@ The command line tool also allows to specify the output for none found entries, 
 
     coco CAN Peru US Mexico Venezuela UK Arendelle --not_found=None
 
-and to specifiy an additional data file which will overwrite existing country matchings
+and to specify an additional data file which will overwrite existing country matching
 
 ::
 
@@ -216,7 +217,7 @@ and to specifiy an additional data file which will overwrite existing country ma
 See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile.
 
 The flags --UNmember_only (-u) and --include_obsolete (-i) restrict the search 
-to UN memberstates only or extend it to also include currently obsolete 
+to UN member states only or extend it to also include currently obsolete
 countries. For example, the `Netherlands Antilles`_ were dissolved in 2010.
 
 .. _Netherlands Antilles: https://en.wikipedia.org/wiki/Netherlands_Antilles
@@ -274,8 +275,8 @@ Use in Matlab
 """""""""""""
 
 Newer (tested in 2016a) versions of Matlab allow to directly call Python
-functions and libaries.  This requires a Python version >= 3.4 installed in the
-sytem path (e.g. through Anaconda).
+functions and libraries.  This requires a Python version >= 3.4 installed in the
+system path (e.g. through Anaconda).
 
 To test, try this in Matlab:
 
@@ -300,7 +301,7 @@ And in matlab:
     ISO2_cellarray = cellfun(@char,cell(ISO2_pythontype),'UniformOutput',false);
 
 
-Alternativley, as a long oneliner:
+Alternatively, as a long oneliner:
 
 .. code:: matlab
 
@@ -336,7 +337,7 @@ Building concordances for country aggregation
 
 Coco provides a function for building concordance vectors, matrices and dictionaries between
 different classifications. This can be used in python as well as in matlab.  
-For furter information see (country_converter_aggregation_helper.ipynb_)
+For further information see (country_converter_aggregation_helper.ipynb_)
 
 .. _country_converter_aggregation_helper.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_aggregation_helper.ipynb
 

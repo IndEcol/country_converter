@@ -69,7 +69,7 @@ Minor spelling fixes
 
 Aggregation concordance building functionality with
 
-  - method get_correspondance_dict in CountryConverter
+  - method get_correspondence_dict in CountryConverter
   - function agg_conc which build concordance matrices in various formats
   - notebook tutorial
 
