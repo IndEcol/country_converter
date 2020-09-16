@@ -129,7 +129,7 @@ Lesotho	Kingdom of Lesotho	lesotho|basuto	LS	LSO	426	426	Africa	Southern Africa	
 Liberia	Republic of Liberia	liberia	LR	LBR	430	430	Africa	Western Africa	WW	WF	WF	RoW	LBR	AFR				1945		RoW						
 Libya	State of Libya	libya	LY	LBY	434	434	Africa	Northern Africa	WW	WF	WF	RoW	LBY	MEA				1955		RoW						
 Liechtenstein	Principality of Liechtenstein	liechtenstein	LI	LIE	438	438	Europe	Western Europe	WW	WE	WE	RoW	LIE	WEU				1990		RoW						
-Lithuania	Republic of Lithuania	lithuania	LT	LTU	440	440	Europe	Northern Europe	LT	LT	LT	LTU	LTU	EEU		2004	2015	1991		EU						G20
+Lithuania	Republic of Lithuania	lithuania	LT	LTU	440	440	Europe	Northern Europe	LT	LT	LT	LTU	LTU	EEU	2018	2004	2015	1991		EU						G20
 Luxembourg	Grand Duchy of Luxembourg	^(?!.*belg).*luxem	LU	LUX	442	442	Europe	Western Europe	LU	LU	LU	LUX	LUX	WEU	1961	1958	1999	1945		EU						G20
 Macau	Macau SAR	.*maca(o|u)	MO	MAC	446	446	Asia	Eastern Asia	WW	WA	WA	RoW	MAC							RoW						
 Macedonia	Republic of Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807	807	Europe	Southern Europe	WW	WE	WE	RoW	MKD	EEU				1993		RoW						
