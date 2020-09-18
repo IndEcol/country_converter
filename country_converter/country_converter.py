@@ -114,7 +114,7 @@ def agg_conc(
             agg = coco.get_correspondence_dict(original_countries_class, agg)
         for country in original_countries:
             # if country=='US':
-                # import ipdb; ipdb.set_trace()
+            # import ipdb; ipdb.set_trace()
             if correspond.get(country) is None:
                 try:
                     entry = agg[country]
@@ -462,9 +462,9 @@ class CountryConverter:
 
         self.data.reset_index(drop=True, inplace=True)
         self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
-    
-        # the following section adds shortcuts to all classifications to the 
-        # class. 
+
+        # the following section adds shortcuts to all classifications to the
+        # class.
         def fun_provider(df, datacol):
             def fun_provided(to):
                 return df.loc[:, [to, datacol]].dropna()
@@ -474,7 +474,6 @@ class CountryConverter:
         for col in self.data.columns:
             self.__setattr__(col, self.data.loc[:, ["name_short", col]].dropna())
             self.__setattr__(col + "as", fun_provider(self.data, col))
-
 
     def convert(
         self,
@@ -641,7 +640,7 @@ class CountryConverter:
             numbers are required (as for UNcode).
 
         replace_nan: value or string, optional
-            String/Value to replace nan values in classA. If this string is 
+            String/Value to replace nan values in classA. If this string is
             given, the return dict will include a key based on 'replace_nan'.
             Otherwise (default), these entries are omitted.
 
