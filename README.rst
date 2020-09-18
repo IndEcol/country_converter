@@ -146,7 +146,7 @@ Note: for this, an instance of CountryConverter is required.
     print(oecd_since_1995)
     print(eu_until_1980)
 
-Some properties provide direct access to affiliations:
+All classifications can be directly accessed by: 
 
 .. code:: python
 
@@ -160,6 +160,21 @@ and the classification schemes available:
 .. code:: python
 
     cc.valid_class
+
+If you rather need a dictionary describing the classification/membership use:
+
+.. code:: python
+
+    import country_converter as coco
+    cc = coco.CountryConverter()
+    cc.get_correspondance_dict('EXIO3', 'ISO3')
+
+to also include countries not assigned within a specific classification use:
+
+.. code:: python
+
+    cc.get_correspondance_dict('EU27', 'ISO2', replace_nan='NonEU')
+
 
 
 The regular expressions can also be used to match any list of countries to any other. For example:
@@ -405,9 +420,13 @@ EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective dat
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
 updated for different names used in the Eora26 database. The MESSAGE 
 classification follows the 11-region aggregation given in the MESSAGE_ model 
-regions description.
+regions description. The IMAGE_ classification is based on the "region 
+classification map": https://models.pbl.nl/image/index.php/Welcome_to_IMAGE_3.0_Documentation.
 The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages, 
 information about obsolete country codes on the Statoids_ webpage.
+
+TO EEA https://en.wikipedia.org/wiki/European_Economic_Area including UK and 
+associated regions as described in the wiki
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
@@ -425,6 +444,7 @@ information about obsolete country codes on the Statoids_ webpage.
 .. _CIS: https://en.wikipedia.org/wiki/Commonwealth_of_Independent_States
 .. _G7: https://en.wikipedia.org/wiki/Group_of_Seven
 .. _G20: https://en.wikipedia.org/wiki/G20
+.. _IMAGE: https://models.pbl.nl/image/index.php/Welcome_to_IMAGE_3.0_Documentation
 
 
 
