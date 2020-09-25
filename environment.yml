@@ -12,6 +12,5 @@ dependencies:
     - pytest-black
     - pytest-cov
     - coveralls
-    - pytest-isort
     - pytest=5.4.3
 
