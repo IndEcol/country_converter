@@ -3,5 +3,5 @@ pytest >= 5.4.0
 pytest-cov >= 2.7.0
 isort >= 5.5.2
 black >= 19.10b0
-python-coveralls
+coveralls
 pytest-black
