@@ -20,8 +20,6 @@ The country converter (coco) is a Python package to convert and match country na
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
-|
-
 
 .. contents:: Table of Contents
 
@@ -34,7 +32,7 @@ To further complicate the matter, instead of using one of the existing standards
 
 The country converter (coco) automates the conversion from different standards and version of country names.
 Internally, coco is based on a table specifying the different ISO and UN standards per country together with the official name and a regular expression which aim to match all English versions of a specific country name.
-In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see `Classification schemes`_ below).
+In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO and IAM databases (see `Classification schemes`_ below).
 
 Installation
 ------------
@@ -167,13 +165,13 @@ If you rather need a dictionary describing the classification/membership use:
 
     import country_converter as coco
     cc = coco.CountryConverter()
-    cc.get_correspondance_dict('EXIO3', 'ISO3')
+    cc.get_correspondence_dict('EXIO3', 'ISO3')
 
 to also include countries not assigned within a specific classification use:
 
 .. code:: python
 
-    cc.get_correspondance_dict('EU27', 'ISO2', replace_nan='NonEU')
+    cc.get_correspondence_dict('EU27', 'ISO2', replace_nan='NonEU')
 
 
 
@@ -379,8 +377,12 @@ Currently the following classification schemes are available (see also Data sour
 #) Eora_
 #) OECD_ membership (per year)
 #) MESSAGE_ 11-region classification
+#) IMAGE_
+#) REMIND_
 #) UN_ membership (per year)
-#) EU_ membership (per year)
+#) EU_ membership (including EU12, EU15, EU25, EU27, EU27_2007, EU28)
+#) EEA_ membership
+#) Schengen_ region
 #) Cecilia_ 2050 classification
 #) APEC_
 #) BRIC_
@@ -420,18 +422,24 @@ EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective dat
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
 updated for different names used in the Eora26 database. The MESSAGE 
 classification follows the 11-region aggregation given in the MESSAGE_ model 
-regions description. The IMAGE_ classification is based on the "region 
-classification map": https://models.pbl.nl/image/index.php/Welcome_to_IMAGE_3.0_Documentation.
-The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages, 
+regions description. The IMAGE_ classification is based on the "`region 
+classification map`_", for REMIND_ we received a country mapping from the model 
+developers. 
+The membership of OECD_ and UN_ can be found at the membership organisations' webpages, 
 information about obsolete country codes on the Statoids_ webpage.
-
-TO EEA https://en.wikipedia.org/wiki/European_Economic_Area including UK and 
-associated regions as described in the wiki
+The situation for the EU_ got complicated due to the Brexit process. For the 
+naming, coco follows the `Eurostat glossary`_, thus EU27 refers to the EU 
+without UK, whereas EU27_2007 refers to the EU without Croatia (the status 
+after the 2007 enlargement). The shortcut EU always links to the most recent 
+classification. The EEA_ agreements are still valid for the UK (status September 2020, Brexit transition period - as `described here  <https://en.wikipedia.org/wiki/European_Economic_Area>`_), thus UK is currently included in the EEA.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
 .. _UN: http://www.un.org/en/members/
-.. _EU: http://europa.eu/about-eu/countries/index_en.htm
+.. _EU: https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements
+.. _Schengen: https://en.wikipedia.org/wiki/Schengen_Area
+.. _`Eurostat glossary`: https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements
+.. _EEA: https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:European_Economic_Area_(EEA)
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/home
 .. _Eora: http://www.worldmrio.com/
@@ -445,6 +453,8 @@ associated regions as described in the wiki
 .. _G7: https://en.wikipedia.org/wiki/Group_of_Seven
 .. _G20: https://en.wikipedia.org/wiki/G20
 .. _IMAGE: https://models.pbl.nl/image/index.php/Welcome_to_IMAGE_3.0_Documentation
+.. _REMIND: https://www.pik-potsdam.de/en/institute/departments/transformation-pathways/models/remind
+.. _`region classification map`: https://models.pbl.nl/image/index.php/Region_classification_map
 
 
 
