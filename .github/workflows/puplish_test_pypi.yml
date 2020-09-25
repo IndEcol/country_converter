@@ -31,9 +31,6 @@ jobs:
         run: |
           pip install . -U
           python setup.py sdist
-      - name: Twine checks
-        run: |
-          twine check dist/*
       - name: Upload
         uses: pypa/gh-action-pypi-publish@master
         with:
