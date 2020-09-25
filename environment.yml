@@ -6,9 +6,11 @@ channels:
 dependencies: 
     - black
     - ipython
+    - jupyterlab
     - isort
     - pandas
     - pytest-black
     - pytest-cov
     - pytest-isort
     - pytest=5.4.3
+

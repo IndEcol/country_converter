@@ -457,178 +457,59 @@ def test_EU_output():
     cc = coco.CountryConverter()
     EU28 = cc.EU28as("ISO2")
     assert len(EU28 == 28)
-    assert cc.convert("Croatia", to="ISO2") in EU28.ISO2.values
+    assert cc.convert("Croatia", to="ISO2") in EU28.ISO2.tolist()
     EU27 = cc.EU27as("ISO2")
     assert len(EU27 == 27)
-    assert cc.convert("Croatia", to="ISO2") not in EU27.ISO2.values
+    assert cc.convert("Croatia", to="ISO2") in EU27.ISO2.tolist()
+    assert cc.convert("UK", src="regex", to="ISO2") not in EU27.ISO2.tolist()
+    EU27_2007 = cc.EU27_2007as("ISO2")
+    assert len(EU27_2007 == 27)
+    assert cc.convert("Croatia", to="ISO2") not in EU27_2007.ISO2.tolist()
+    assert cc.convert("UK", src="regex", to="ISO2") in EU27_2007.ISO2.tolist()
 
 
 def test_EXIO_output():
     cc = coco.CountryConverter()
-    exio1 = cc.EXIO1
-    exio2 = cc.EXIO2
-    exio3 = cc.EXIO3
+    exio1 = cc.EXIO1.EXIO1.unique()
+    exio2 = cc.EXIO2.EXIO2.unique()
+    exio3 = cc.EXIO3.EXIO3.unique()
     assert len(exio1) == 44
     assert len(exio2) == 48
     assert len(exio3) == 49
-    assert "WW" in exio1.values
-    assert "WA" in exio2.values
-    assert "WA" in exio3.values
-    exio1iso3 = cc.EXIO1as(to="ISO3").set_index("original")
-    exio2iso3 = cc.EXIO2as(to="ISO3").set_index("original")
-    exio3iso3 = cc.EXIO3as(to="ISO3").set_index("original")
-
-    assert exio1iso3.loc["AFG", "aggregated"] == "WW"
-    assert exio2iso3.loc["AFG", "aggregated"] == "WA"
-    assert exio3iso3.loc["AFG", "aggregated"] == "WA"
-    assert exio1iso3.loc["DEU", "aggregated"] == "DE"
-    assert exio2iso3.loc["DEU", "aggregated"] == "DE"
-    assert exio3iso3.loc["DEU", "aggregated"] == "DE"
+    assert "WW" in exio1
+    assert "WA" in exio2
+    assert "WA" in exio3
 
 
 def test_WIOD_output():
     cc = coco.CountryConverter()
-    ws = cc.WIOD
-    wi = cc.WIODas(to="ISO2").set_index("original")
+    ws = cc.WIOD.WIOD.unique()
     assert len(ws) == 41
-    assert "RoW" in ws.values
-    assert "NLD" in ws.values
-    assert wi.loc["AF", "aggregated"] == "RoW"
-    assert wi.loc["AT", "aggregated"] == "AUT"
+    assert "RoW" in ws
+    assert "NLD" in ws
 
 
 def test_Eora_output():
     cc = coco.CountryConverter()
-    es = cc.Eora
-    ei = cc.Eoraas(to="ISO2").set_index("original")
-    assert len(es) == 238
-    assert "AUT" in es.values
-    assert "AFG" in es.values
-    assert ei.loc["AF", "aggregated"] == "AFG"
-    assert ei.loc["AT", "aggregated"] == "AUT"
+    es = cc.Eora.Eora.unique()
+    assert "AUT" in es
+    assert "AFG" in es
 
 
 def test_MESSAGE_output():
     cc = coco.CountryConverter()
-    ms = cc.MESSAGE
-    mi = cc.MESSAGEas(to="ISO3").set_index("original")
-    assert len(ms) == 12
-    assert "PAO" in ms.values
-    assert "SAS" in ms.values
-    assert mi.loc["AUT", "aggregated"] == "WEU"
-
-
-def test_BRIC_output():
-    cc = coco.CountryConverter()
-    bs = cc.BRIC
-    bi = cc.BRICas(to="ISO2")
-    bn = cc.BRICas(to=None)
-    assert len(bs) == 4 == len(bi) == len(bn)
-    assert "Brazil" in bs.values
-    assert "Brazil" in bn.values
-    assert "CN" in bi.values
-
-
-def test_APEC_output():
-    cc = coco.CountryConverter()
-    aa = cc.APEC
-    ai = cc.APECas(to="ISO2")
-    an = cc.APECas(to=None)
-    assert len(aa) == 21 == len(ai) == len(an)
-    assert "Taiwan" in aa.values
-    assert "Russia" in an.values
-    assert "RU" in ai.values
-
-
-def test_BASIC_output():
-    cc = coco.CountryConverter()
-    ba = cc.BASIC
-    bi = cc.BASICas(to="ISO2")
-    bn = cc.BASICas(to=None)
-    assert len(ba) == 4 == len(bi) == len(bn)
-    assert "Brazil" in ba.values
-    assert "Brazil" in bn.values
-    assert "IN" in bi.values
-
-
-def test_CIS_output():
-    cc = coco.CountryConverter()
-    ca = cc.CIS
-    ci = cc.CISas(to="ISO2")
-    cn = cc.CISas(to=None)
-    assert len(ca) == 8 == len(ci) == len(cn)
-    assert "Belarus" in ca.values
-    assert "Armenia" in cn.values
-    assert "RU" in ci.values
-
-
-def test_G7_20_output():
-    cc = coco.CountryConverter()
-    G7a = cc.G7
-    G7i = cc.G7as(to="ISO2")
-    G7n = cc.G7as(to=None)
-    G20a = cc.G20
-    G20i = cc.G20as(to="ISO2")
-    G20n = cc.G20as(to=None)
-
-    assert len(G7a) == 7
-    # Not testing the length of G20 b/c of mixup with EU
-
-    assert "Italy" in G7a.values
-    assert "Japan" in G7n.values
-    assert "US" in G7i.values
-    assert "Slovenia" in G20a.values
-    assert "Turkey" in G20n.values
-    assert "US" in G20i.values
-
-
-def test_obsolute_output():
-    cc = coco.CountryConverter(include_obsolete=True)
-    oi = cc.obsoleteas(to="ISO2")
-    on = cc.obsoleteas(to=None)
-    assert "Zanzibar" in on.values
-    assert "SU" in oi.values
-
-
-def test_Cecilia_output():
-    cc = coco.CountryConverter()
-    cs = cc.Cecilia2050
-    ci = cc.Cecilia2050as(to="ISO3").set_index("original")
-    assert len(cs) == 4
-    assert "RoW" in ci.values
-    assert "EU" in ci.values
-    assert ci.loc["AUT", "aggregated"] == "EU"
-    assert ci.loc["AFG", "aggregated"] == "RoW"
-
-
-def test_OECD_output():
-    cc = coco.CountryConverter()
-    oecd = cc.OECDas("ISO3")
-    assert cc.convert("Netherlands", to="ISO3") in oecd.values
-
-
-def test_UN_output():
-    cc = coco.CountryConverter()
-    un = coco.CountryConverter().UNas("ISO3")
-    assert cc.convert("Netherlands", to="ISO3") in un.values
-
-
-def test_obsolete_output():
-    cc = coco.CountryConverter(include_obsolete=True)
-    obsolete = coco.CountryConverter(include_obsolete=True).obsoleteas("ISO3")
-    assert cc.convert("Netherlands Antilles", to="ISO3") in obsolete.values
+    ms = cc.MESSAGE.MESSAGE.unique()
+    assert len(ms) == 11
+    assert "PAO" in ms
+    assert "SAS" in ms
 
 
 def test_properties():
     cc = coco.CountryConverter()
     assert all(cc.EU28 == cc.EU28as(to="name_short"))
-    assert all(cc.EU28 == cc.EU28as(to=None))
     assert all(cc.EU27 == cc.EU27as(to="name_short"))
-    assert all(cc.EU27 == cc.EU27as(to=None))
     assert all(cc.OECD == cc.OECDas(to="name_short"))
-    assert all(cc.OECD == cc.OECDas(to=None))
     assert all(cc.UN == cc.UNas(to="name_short"))
-    assert all(cc.UN == cc.UNas(to=None))
 
 
 def test_parser():
@@ -658,7 +539,7 @@ def test_full_cli(capsys):
     with pytest.raises(SystemExit) as e_sys:
         coco.main()
     out, err = capsys.readouterr()
-    assert "AUT" in out
+    assert "Austria" in out
     assert e_sys.type == SystemExit
 
     # classification

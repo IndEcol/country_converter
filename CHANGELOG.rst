@@ -1,7 +1,7 @@
 Change Log
 ===========
 
-0.6.8d
+0.7.0d
 ----------------
 
 Breaking
@@ -9,20 +9,33 @@ Breaking
 
 * removed support for python 3.5
 * minimum pandas version = 1.0
+* The classifications for the EU are now based on names (EU27, EU15, ...) - the 
+  years have been removed (Brexit had made this necessary).
+* The output of the class level attributes and methods for the classifications 
+  (e.g. coco.OECD or coco.EXIO3as()) has changed
+* The standard output of the command line changed from ISO3 to short names, 
+  pass --to=ISO3 for the previous behaviour
 
 Classifications
 ^^^^^^^^^^^^^^^
 
+* Added EU12, EU15, EU25, EU27_2007, EU28 and EU27 classification. This follows
+  the names as explained here https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements
+* The classification EU is linked to EU27 (thus status after Brexit) 
+* The classification UN is a shortcut for UNmember
+* Added IAM IMAGE and REMIND classifications
+* Added EEA, for now including UK as it is still in place
+* Added Schengen region classification
 * Updated Lithuania OECD membership
 * fixed Ireland, UK, US regex problems - UK, GB and US are now included in the 
   regex search term
 * changed official name of Macao to Macau
 
-TODO: IAM classifications
-
 Internals
 ^^^^^^^^^
 
+* Adding class level attributes for the shortcuts to the classifications is now automated
+* multiple bug and spelling fixes
 * using black and isort for the code style
 * logger used in the country_converter is named (based on module __name__)
 * re-established test coverage
