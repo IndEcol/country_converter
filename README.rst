@@ -413,11 +413,11 @@ Note that the underlying dataframe is available at the attribute .data (e.g. cc_
 Data sources and further reading
 --------------------------------
 
-Most of the underlying data can be found in Wikipedia.
-https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
+Most of the underlying data can be found in Wikipedia, the page describing 
+`ISO 3166-1 <https://en.wikipedia.org/wiki/ISO_3166-1>`_ is a good starting point.
 UN regions/codes are given on the United Nation Statistical Division (unstats_) webpage.
-For the differences between the ISO numeric and UN (M.49) codes 
-see https://en.wikipedia.org/wiki/UN_M.49.
+The differences between the ISO numeric and UN (M.49) codes 
+are `also explained at wikipedia <https://en.wikipedia.org/wiki/UN_M.49>`_.
 EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective databases.
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
 updated for different names used in the Eora26 database. The MESSAGE 
@@ -493,7 +493,7 @@ Citing the country converter
 Version 0.5 of the country converter was published in the `Journal of Open Source Software`_.
 To cite the country converter in publication please use:
 
-Stadler, K. (2017). The country converter coco - a Python package for converting country names between different classification schemes. The Journal of Open Source Software. doi: http://dx.doi.org/10.21105/joss.00332
+Stadler, K. (2017). The country converter coco - a Python package for converting country names between different classification schemes. The Journal of Open Source Software. doi: `10.21105/joss.00332 <http://dx.doi.org/10.21105/joss.00332>`_
 
 For the full bibtex key see CITATION_
 
