@@ -4,11 +4,11 @@ python:
   - "3.7"
   - "3.8"
 install:
+  - pip install coveralls
   - pip install -r requirements.txt
-  - pip install python-coveralls==4.5.4
   - pip install .
 script:
   - isort --project country_converter --profile black --check-only .
-  - pytest --black -vv --cov country_converter
+  - coverage run pytest --black -vv country_converter
 after_success:
     coveralls
