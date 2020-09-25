@@ -1,4 +1,4 @@
-name: Deploy to PyPi and Test PyPi
+name: Deploy to PyPi
 
 on: 
   release:
@@ -36,8 +36,6 @@ jobs:
           twine check dist/*
       - name: Upload
         uses: pypa/gh-action-pypi-publish@master
-          with:
-            user: __token__
-            password: ${{ secrets.COCO_PYPI_PW }}
-
-
+        with:
+          user: __token__
+          password: ${{ secrets.COCO_PYPI_PW }}

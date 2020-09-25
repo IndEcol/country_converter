@@ -34,8 +34,8 @@ jobs:
           twine check dist/*
       - name: Upload
         uses: pypa/gh-action-pypi-publish@master
-          with:
-            user: __token__
-            password: ${{ secrets.GENERIC_TEST_PYPI_UPLOAD }}
-            repository_url: https://test.pypi.org/legacy/
+        with:
+          user: __token__
+          password: ${{ secrets.GENERIC_TEST_PYPI_UPLOAD }}
+          repository_url: https://test.pypi.org/legacy/
 
