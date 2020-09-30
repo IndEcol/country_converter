@@ -43,11 +43,14 @@ Country_converter is registered at PyPI. From the command line:
 
     pip install country_converter --upgrade
 
-To install from the Anaconda_ Cloud use:    
+The country converter is also available from the `conda forge 
+<https://conda-forge.org/>` and can be installed using conda with (if you don't 
+have the conda_forge channel added to your conda config add "-c conda-forge", 
+see `the install instructions here <https://github.com/conda-forge/country_converter-feedstock>`).
 
 ::
     
-   conda install -c konstantinstadler country_converter
+   conda install country_converter
 
 .. _Anaconda: https://anaconda.org/konstantinstadler/country_converter
 

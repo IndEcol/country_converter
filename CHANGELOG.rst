@@ -1,6 +1,16 @@
 Change Log
 ===========
 
+0.7.1d
+----------------
+
+
+Misc
+^^^^^^^^
+
+* changed the description for installing from conda forge
+
+
 0.7.0 - 20200925
 ----------------
 
