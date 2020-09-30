@@ -23,7 +23,7 @@ Regular expressions
 
 The easiest way to contribute to coco is by improving the regular expressions used for matching a specific country name.
 If you come across a country name which currently is not matched by the regular expressions included in country_converter/country_data.tsv add or modify the regular expression for this country in the column "regex".
-For a good introduction in the used regular expression syntax see https://docs.python.org/3.5/library/re.html .
+For a good introduction in the used regular expression syntax see https://docs.python.org/3.8/library/re.html .
 In particular, make use of the or symbol "|" to include multiple regular expressions for one country.
 See the entry for "Czech Republic" for a relatively simple example, "Republic of the Congo" for a more advanced case.
 IMPORTANT: new regular expressions must not break the already present matchings.
@@ -34,10 +34,8 @@ New country classification
 
 If you think a certain country classification is missing from coco, you can simply add them as new columns in country_converter/country_data.tsv.
 For fixed country classifications (as for example the "continent") just add a new column with the corresponding name.
-For a classification which changes over time (as for example "OECD") make an new column and provide the year at with the country obtained its membership.
-Optional: you can add a new property for accessing a specific membership.
-See the available properties for EU28, OECD, etc in the class CountryConverter in country_converter/country_converter.py for how to do that and continue reading at
-"Changing the code base".
+For a classification which changes over time (as for example "OECD") make an new column and provide the year at which the country obtained its membership.
+New properties are added automatically to the CountryConverter class for all columns in this file.
 New classifications must also be added to the README.rst at the section "Classification schemes"
 
 Changing the code base
@@ -56,6 +54,10 @@ The following commands can be used to automatically apply the black_ and isort_ 
    isort --project country_converter --profile black .
    black .
 
+If you are using Conda you can build a development environment from environment.yml which includes all packages necessary for development and running.
+
+Check the "script" part in .travis.yml to check the required tests.
+
 .. _docstrings: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 .. _pep8: https://www.python.org/dev/peps/pep-0008/
 .. _black: https://github.com/psf/black/
@@ -70,7 +72,7 @@ To run the tests install these two packages (and the Pandas_ dependency) and run
 
 ::
 
-    pytest -v -pep8
+    pytest -vv --black
 
 in the root of your local copy of coco.
 

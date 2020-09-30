@@ -9,6 +9,7 @@ Misc
 ^^^^^^^^
 
 * changed the description for installing from conda forge
+* updated contributing.rst
 
 
 0.7.0 - 20200925
