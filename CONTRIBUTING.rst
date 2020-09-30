@@ -51,7 +51,7 @@ Since coco is already used in research projects, please aim for keeping compatib
 
 The following commands can be used to automatically apply the black_ and isort_ formatting.
 
-::
+.. code-block:: bash
 
    pip install black isort
    isort --project country_converter --profile black .
