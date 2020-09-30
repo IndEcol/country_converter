@@ -50,7 +50,8 @@ Passing the black_ and isort_ liter is a requirement to pass the tests before me
 Since coco is already used in research projects, please aim for keeping compatibility with previous versions.
 
 The following commands can be used to automatically apply the black_ and isort_ formatting.
-.. code-block:: command
+
+::
 
    pip install black isort
    isort --project country_converter --profile black .
