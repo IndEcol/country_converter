@@ -5,6 +5,8 @@ The country converter (coco) is a Python package to convert and match country na
 
 .. image:: https://badge.fury.io/py/country-converter.svg
     :target: https://badge.fury.io/py/country_converter
+.. image:: https://anaconda.org/conda-forge/country_converter/badges/version.svg   
+    :target: https://anaconda.org/conda-forge/country_converter
 .. image:: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113/status.svg
     :target: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.838035.svg
@@ -15,8 +17,6 @@ The country converter (coco) is a Python package to convert and match country na
     :target: https://travis-ci.org/konstantinstadler/country_converter
 .. image:: https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master
     :target: https://coveralls.io/github/konstantinstadler/country_converter?branch=master
-.. image:: https://anaconda.org/konstantinstadler/country_converter/badges/version.svg   
-   :target: https://anaconda.org/konstantinstadler/country_converter
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
@@ -43,11 +43,14 @@ Country_converter is registered at PyPI. From the command line:
 
     pip install country_converter --upgrade
 
-To install from the Anaconda_ Cloud use:    
+The country converter is also available from the `conda forge 
+<https://conda-forge.org/>`_ and can be installed using conda with (if you don't 
+have the conda_forge channel added to your conda config add "-c conda-forge", 
+see `the install instructions here <https://github.com/conda-forge/country_converter-feedstock>`_):
 
 ::
     
-   conda install -c konstantinstadler country_converter
+   conda install country_converter
 
 .. _Anaconda: https://anaconda.org/konstantinstadler/country_converter
 
