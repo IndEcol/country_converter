@@ -218,7 +218,7 @@ def test_get_correspondence_dict_numeric_replace():
     assert pd.isna(corr_num["ZA"])
     assert 2010 in corr_num["WW"]
     assert 1961 in corr_num["WW"]
-    assert len(corr_num["WW"]) == 4
+    assert len(corr_num["WW"]) == 5
 
 
 def test_build_agg_conc_custom():
