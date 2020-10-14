@@ -14,6 +14,7 @@ Misc
 
 * changed the description for installing from conda forge
 * updated contributing.rst
+* explained logging settings in the readme
 
 
 0.7.0 - 20200925

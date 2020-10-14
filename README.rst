@@ -194,14 +194,17 @@ The following example demonstrates how to configure the `coco` logging behaviour
 
 .. code:: python
 
-    import logging                                                                                                                                                                   import country_converter as coco                                                                                                                                                 
-    logging.basicConfig(level=logging.INFO)                                                                                                                                       
-    coco.convert("asdf")                                                                                                                                                                                         
-    # WARNING:country_converter.country_converter:asdf not found in regex
-    # Out: 'not found'
+   import logging
+   import country_converter as coco
+   logging.basicConfig(level=logging.INFO)
+   coco.convert("asdf")
+   # WARNING:country_converter.country_converter:asdf not found in regex
+   # Out: 'not found'
 
-    coco_logger = coco.logging.getLogger()                                                                                                                                           coco_logger.setLevel(logging.CRITICAL)                                                                                                                                           coco.convert("asdf")                                                                                                                                                                                         
-    # Out: 'not found'
+   coco_logger = coco.logging.getLogger()
+   coco_logger.setLevel(logging.CRITICAL)
+   coco.convert("asdf")
+   # Out: 'not found'
 
 
 See the IPython Notebook (country_converter_examples.ipynb_) for more information.
