@@ -4,6 +4,7 @@ on:
   push:
       branches:
         - master
+        - develop
 jobs:
   build_and_deploy:
     name: Build the release and deploy to test pypi
