@@ -1,37 +1,44 @@
 #!/usr/bin/env python3
-""" country_converter - Classification converter for countries
-
-"""
+""" country_converter - Classification converter for countries"""
 
 import argparse
 import logging
 import os
+import pprint
 import re
+import sys
 from collections import OrderedDict
+
 import pandas as pd
+
 from country_converter.version import __version__
 
 COUNTRY_DATA_FILE = os.path.join(
-    os.path.split(os.path.abspath(__file__))[0], 'country_data.tsv')
+    os.path.split(os.path.abspath(__file__))[0], "country_data.tsv"
+)
+
+log = logging.getLogger(__name__)
 
 
-def agg_conc(original_countries,
-             aggregates,
-             missing_countries='test',
-             merge_multiple_string='_&_',
-             log_missing_countries=None,
-             log_merge_multiple_strings=None,
-             coco=None,
-             as_dataframe='sparse',
-             original_countries_class=None):
-    """ Builds an aggregation concordance dict, vec or matrix
+def agg_conc(
+    original_countries,
+    aggregates,
+    missing_countries="missing",
+    merge_multiple_string="_&_",
+    log_missing_countries=None,
+    log_merge_multiple_strings=None,
+    coco=None,
+    as_dataframe="sparse",
+    original_countries_class=None,
+):
+    """Builds an aggregation concordance dict, vec or matrix
 
     Parameters
     ----------
 
     original_countries: list or str
         List of countries to aggregated, also accepts and valid column name of
-        CountryConverter.data
+        CountryConverter.data (e.g. name_short, WIOD, ...)
 
     aggregates: list of dict or str
         List of aggregation information. This can either be dict mapping the
@@ -48,8 +55,8 @@ def agg_conc(original_countries,
         countries
 
     merge_multiple_string: str or None, optional
-        If multiple correspondance entries are given in one of the aggregates
-        join them with the given string (default: '_&_'.  To skip these enries,
+        If multiple correspondence entries are given in one of the aggregates
+        join them with the given string (default: '_&_'.  To skip these entries,
         pass None.
 
     log_missing_countries: function, optional
@@ -71,11 +78,11 @@ def agg_conc(original_countries,
     as_dataframe: boolean or st, optional
         If False, output as OrderedDict.  If True or str, output as pandas
         dataframe.  If str and 'full', output as a full matrix, otherwise only
-        two collumns with the original and aggregated names are returned.
+        two columns with the original and aggregated names are returned.
 
     original_countries_class: str, optional
         Valid column name of CountryConverter.data.  This parameter is needed
-        if a list of countries is passed to 'orginal_countries' and strings
+        if a list of countries is passed to 'original_countries' and strings
         corresponding to data in CountryConverter.data are used subsequently.
         Can be omitted otherwise.
 
@@ -90,23 +97,24 @@ def agg_conc(original_countries,
         coco = CountryConverter()
 
     if type(original_countries) is str:
-        original_countries_class = original_countries
+        original_countries_class = original_countries_class or original_countries
         original_countries = coco.data[original_countries].values
     else:
-        original_countries_class = (original_countries_class or
-                                    coco._get_input_format_from_name(
-                                        original_countries[0]))
+        original_countries_class = (
+            original_countries_class
+            or coco._get_input_format_from_name(original_countries[0])
+        )
 
     if type(aggregates) is not list:
         aggregates = [aggregates]
 
     correspond = OrderedDict.fromkeys(original_countries)
-
     for agg in aggregates:
         if type(agg) is str:
-            agg = coco.get_correspondance_dict(original_countries_class,
-                                               agg)
+            agg = coco.get_correspondence_dict(original_countries_class, agg)
         for country in original_countries:
+            # if country=='US':
+            # import ipdb; ipdb.set_trace()
             if correspond.get(country) is None:
                 try:
                     entry = agg[country]
@@ -116,14 +124,15 @@ def agg_conc(original_countries,
                 if type(entry) is list:
                     if 1 < len(entry):
                         if merge_multiple_string:
-                            entry = merge_multiple_string.join([
-                                str(e) for e in entry])
+                            entry = merge_multiple_string.join([str(e) for e in entry])
                         else:
                             entry = None
                         if log_merge_multiple_strings:
                             log_merge_multiple_strings(country)
                     else:
                         entry = entry[0]
+                        if pd.isna(entry):
+                            entry = None
 
                 correspond[country] = entry
 
@@ -139,23 +148,30 @@ def agg_conc(original_countries,
                 log_missing_countries(country)
 
     if as_dataframe:
-        correspond = pd.DataFrame.from_dict(
-            correspond, orient='index').reset_index()
-        correspond.columns = ['original', 'aggregated']
-        if ((type(as_dataframe) is str) and
-                (as_dataframe[0].lower() == 'f')):
+        correspond = pd.DataFrame.from_dict(correspond, orient="index").reset_index()
+        correspond.columns = ["original", "aggregated"]
+        if (type(as_dataframe) is str) and (as_dataframe[0].lower() == "f"):
             _co_list = correspond.original
-            correspond['val'] = 1
-            correspond = correspond.set_index(
-                ['original', 'aggregated']).unstack().fillna(0)['val']
+            correspond["val"] = 1
+            correspond = (
+                correspond.set_index(["original", "aggregated"])
+                .unstack()
+                .fillna(0)["val"]
+            )
             correspond = correspond.loc[_co_list]
 
     return correspond
 
 
-def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
-          country_data=COUNTRY_DATA_FILE, additional_data=None):
-    """ Matches the country names given in two lists into a dictionary.
+def match(
+    list_a,
+    list_b,
+    not_found="not_found",
+    enforce_sublist=False,
+    country_data=COUNTRY_DATA_FILE,
+    additional_data=None,
+):
+    """Matches the country names given in two lists into a dictionary.
 
     This function matches names given in list_a to the one provided in list_b
     using regular expressions defined in country_data.
@@ -209,7 +225,6 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
     match_dict_a = dict()
 
     for name_a in list_a:
-
         name_dict_a[name_a] = []
         match_dict_a[name_a] = []
 
@@ -218,7 +233,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
                 match_dict_a[name_a].append(regex)
 
         if len(match_dict_a[name_a]) == 0:
-            logging.warning('Could not identify {} in list_a'.format(name_a))
+            log.warning("Could not identify {} in list_a".format(name_a))
             _not_found_entry = name_a if not not_found else not_found
             name_dict_a[name_a].append(_not_found_entry)
             if not enforce_sublist:
@@ -226,8 +241,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
             continue
 
         if len(match_dict_a[name_a]) > 1:
-            logging.warning(
-                'Multiple matches for name {} in list_a'.format(name_a))
+            log.warning("Multiple matches for name {} in list_a".format(name_a))
 
         for match_case in match_dict_a[name_a]:
             b_matches = 0
@@ -237,15 +251,14 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
                     name_dict_a[name_a].append(name_b)
 
         if b_matches == 0:
-            logging.warning(
-                'Could not find any '
-                'correspondence for {} in list_b'.format(name_a))
+            log.warning(
+                "Could not find any " "correspondence for {} in list_b".format(name_a)
+            )
             _not_found_entry = name_a if not not_found else not_found
             name_dict_a[name_a].append(_not_found_entry)
 
         if b_matches > 1:
-            logging.warning('Multiple matches for '
-                            'name {} in list_b'.format(name_a))
+            log.warning("Multiple matches for " "name {} in list_b".format(name_a))
 
         if not enforce_sublist and (len(name_dict_a[name_a]) == 1):
             name_dict_a[name_a] = name_dict_a[name_a][0]
@@ -254,7 +267,7 @@ def match(list_a, list_b, not_found='not_found', enforce_sublist=False,
 
 
 def convert(*args, **kargs):
-    """ Wrapper around CountryConverter.convert()
+    """Wrapper around CountryConverter.convert()
 
     Uses the same parameters. This function has the same performance as
     CountryConverter.convert for one call; for multiple calls it is better to
@@ -307,17 +320,20 @@ def convert(*args, **kargs):
     list or str, depending on enforce_list
 
     """
-    init = {'country_data': COUNTRY_DATA_FILE,
-            'additional_data': None,
-            'only_UNmember': False}
+    init = {
+        "country_data": COUNTRY_DATA_FILE,
+        "additional_data": None,
+        "only_UNmember": False,
+        "include_obsolete": False,
+    }
     init.update({kk: kargs.get(kk) for kk in init.keys() if kk in kargs})
     coco = CountryConverter(**init)
     kargs = {kk: ii for kk, ii in kargs.items() if kk not in init.keys()}
     return coco.convert(*args, **kargs)
 
 
-class CountryConverter():
-    """ Main class for converting countries
+class CountryConverter:
+    """Main class for converting countries
 
     Attributes
     ----------
@@ -329,7 +345,7 @@ class CountryConverter():
 
     @staticmethod
     def _separate_exclude_cases(name, exclude_prefix):
-        """ Splits the excluded
+        """Splits the excluded
 
         Parameters
         ----------
@@ -354,13 +370,17 @@ class CountryConverter():
 
         """
 
-        excluder = re.compile('|'.join(exclude_prefix))
+        excluder = re.compile("|".join(exclude_prefix))
         split_entries = excluder.split(name)
-        return {'clean_name': split_entries[0],
-                'excluded_countries': split_entries[1:]}
+        return {"clean_name": split_entries[0], "excluded_countries": split_entries[1:]}
 
-    def __init__(self, country_data=COUNTRY_DATA_FILE,
-                 additional_data=None, only_UNmember=False):
+    def __init__(
+        self,
+        country_data=COUNTRY_DATA_FILE,
+        additional_data=None,
+        only_UNmember=False,
+        include_obsolete=False,
+    ):
         """
         Parameters
         ----------
@@ -370,7 +390,7 @@ class CountryConverter():
             (tested) country list for coco.
 
         additional_data: (list of) Pandas DataFrames or data files
-            Additioanl data to include for a specific analysis.
+            Additional data to include for a specific analysis.
             This must be given in the same format as specified in the
             country_data file. (utf-8 encoded tab separated data, same
             column headers in all files)
@@ -381,35 +401,48 @@ class CountryConverter():
             of countries. In this case, also countries currently not existing
             (USSR) or with overlapping territories are included.
 
+        include_obsolete: boolean, optional
+            If True, includes countries that have become obsolete. If
+            False (default) only includes currently valid countries.
+
         """
 
-        must_be_unique = ['name_short', 'name_official', 'regex']
-        must_be_string = must_be_unique + (['ISO2', 'ISO3',
-                                            'continent', 'UNregion',
-                                            'EXIO1', 'EXIO2', 'EXIO3',
-                                            'WIOD'])
+        must_be_unique = ["name_short", "name_official", "regex"]
+        must_be_string = must_be_unique + (
+            ["ISO2", "ISO3", "continent", "UNregion", "EXIO1", "EXIO2", "EXIO3", "WIOD"]
+        )
 
-        def test_for_unique_names(df, data_name='passed dataframe',
-                                  report_fun=logging.error):
+        def test_for_unique_names(
+            df, data_name="passed dataframe", report_fun=log.error
+        ):
             for name_entry in must_be_unique:
                 if df[name_entry].duplicated().any():
-                    report_fun('Duplicated values in column {} of {}'.format(
-                        name_entry, data_name))
+                    report_fun(
+                        "Duplicated values in column {} of {}".format(
+                            name_entry, data_name
+                        )
+                    )
 
         def data_loader(data):
             if isinstance(data, pd.DataFrame):
                 ret = data
                 test_for_unique_names(data)
             else:
-                ret = pd.read_table(data, sep='\t', encoding='utf-8',
-                                    converters={str_col: str
-                                                for str_col in must_be_string})
+                ret = pd.read_csv(
+                    data,
+                    sep="\t",
+                    encoding="utf-8",
+                    converters={str_col: str for str_col in must_be_string},
+                )
                 test_for_unique_names(ret, data)
             return ret
 
         basic_df = data_loader(country_data)
         if only_UNmember:
-            basic_df.dropna(subset=['UNmember'], inplace=True)
+            basic_df.dropna(subset=["UNmember"], inplace=True)
+
+        if not include_obsolete:
+            basic_df = basic_df[basic_df.obsolete.isnull()]
 
         if additional_data is None:
             additional_data = []
@@ -417,26 +450,41 @@ class CountryConverter():
             additional_data = [additional_data]
 
         add_data = [data_loader(df) for df in additional_data]
-        self.data = pd.concat([basic_df] + add_data, ignore_index=True,
-                              axis=0)
-
+        self.data = pd.concat(
+            [basic_df] + add_data, ignore_index=True, axis=0, sort=True
+        )
         test_for_unique_names(
-            self.data,
-            data_name='merged data - keep last one',
-            report_fun=logging.warning)
+            self.data, data_name="merged data - keep last one", report_fun=log.warning
+        )
 
         for name_entry in must_be_unique:
-            self.data.drop_duplicates(subset=[name_entry],
-                                      keep='last', inplace=True)
+            self.data.drop_duplicates(subset=[name_entry], keep="last", inplace=True)
 
         self.data.reset_index(drop=True, inplace=True)
-        self.regexes = [re.compile(entry, re.IGNORECASE)
-                        for entry in self.data.regex]
+        self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
 
-    def convert(self, names, src=None, to='ISO3', enforce_list=False,
-                not_found='not found',
-                exclude_prefix=['excl\\w.*', 'without', 'w/o']):
-        """ Convert names from a list to another list.
+        # the following section adds shortcuts to all classifications to the
+        # class.
+        def fun_provider(df, datacol):
+            def fun_provided(to):
+                return df.loc[:, [to, datacol]].dropna()
+
+            return fun_provided
+
+        for col in self.data.columns:
+            self.__setattr__(col, self.data.loc[:, ["name_short", col]].dropna())
+            self.__setattr__(col + "as", fun_provider(self.data, col))
+
+    def convert(
+        self,
+        names,
+        src=None,
+        to="ISO3",
+        enforce_list=False,
+        not_found="not found",
+        exclude_prefix=None,
+    ):
+        """Convert names from a list to another list.
 
         Note
         ----
@@ -485,10 +533,15 @@ class CountryConverter():
         list or str, depending on enforce_list
 
         """
+        if exclude_prefix is None:
+            exclude_prefix = ["excl\\w.*", "without", "w/o"]
+
         # The list to tuple conversion is necessary for Matlab interface
-        names = list(names) if (
-                isinstance(names, tuple) or
-                isinstance(names, set)) else names
+        names = (
+            list(names)
+            if (isinstance(names, tuple) or isinstance(names, set))
+            else names
+        )
 
         names = names if isinstance(names, list) else [names]
 
@@ -496,42 +549,45 @@ class CountryConverter():
 
         outlist = names.copy()
 
-        to = [self._validate_input_para(to, self.data.columns)]
+        to = [self._validate_input_para(to, self.data.columns.tolist())]
 
-        exclude_split = {name: self._separate_exclude_cases(name,
-                                                            exclude_prefix)
-                         for name in names}
+        exclude_split = {
+            name: self._separate_exclude_cases(name, exclude_prefix) for name in names
+        }
 
         for ind_names, current_name in enumerate(names):
-            spec_name = exclude_split[current_name]['clean_name']
+            spec_name = exclude_split[current_name]["clean_name"]
 
             if src is None:
                 src_format = self._get_input_format_from_name(spec_name)
             else:
-                src_format = self._validate_input_para(src, self.data.columns)
+                src_format = self._validate_input_para(src, self.data.columns.tolist())
 
-            if src_format.lower() == 'regex':
+            if src_format.lower() == "regex":
                 result_list = []
                 for ind_regex, ccregex in enumerate(self.regexes):
                     if ccregex.search(spec_name):
-                        result_list.append(
-                            self.data.ix[ind_regex, to].values[0])
+                        result_list.append(self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:
-                        logging.warning('More then one regular expression '
-                                        'match for {}'.format(spec_name))
+                        log.warning(
+                            "More then one regular expression "
+                            "match for {}".format(spec_name)
+                        )
 
             else:
-                _match_col = self.data[src_format].astype(
-                    str).str.replace('\\..*', '')
+                _match_col = self.data[src_format].astype(str).str.replace("\\..*", "")
 
-                result_list = [etr[0] for etr in
-                               self.data[_match_col.str.contains(
-                                    '^' + spec_name + '$', flags=re.IGNORECASE,
-                                    na=False)][to].values]
+                result_list = [
+                    etr[0]
+                    for etr in self.data[
+                        _match_col.str.contains(
+                            "^" + spec_name + "$", flags=re.IGNORECASE, na=False
+                        )
+                    ][to].values
+                ]
 
             if len(result_list) == 0:
-                logging.warning(
-                    '{} not found in {}'.format(spec_name, src_format))
+                log.warning("{} not found in {}".format(spec_name, src_format))
                 _fillin = not_found or spec_name
                 outlist[ind_names] = [_fillin] if enforce_list else _fillin
             else:
@@ -551,119 +607,15 @@ class CountryConverter():
         else:
             return outlist
 
-    def EU28as(self, to='name_short'):
-        """
-        Return EU28 countries in the specified classification
-
-        Parameters
-        ----------
-        to : str, optional
-            Output classification (valid str for an index of
-            country_data file), default: name_short
-
-        Returns
-        -------
-        Pandas DataFrame
-
-        """
-        if type(to) is str:
-            to = [to]
-        return self.data[self.data.EU < 2015][to]
-
-    def EU27as(self, to='name_short'):
-        """
-        Return EU27 countries in the specified classification
-
-        Parameters
-        ----------
-        to : str, optional
-            Output classification (valid str for an index of
-            country_data file), default: name_short
-
-        Returns
-        -------
-        Pandas DataFrame
-
-        """
-        if isinstance(to, str):
-            to = [to]
-        return self.data[self.data.EU < 2013][to]
-
-    def OECDas(self, to='name_short'):
-        """
-        Return OECD member states in the specified classification
-
-        Parameters
-        ----------
-        to : str, optional
-            Output classification (valid str for an index of
-            country_data file), default: name_short
-
-        Returns
-        -------
-        Pandas DataFrame
-
-        """
-        if isinstance(to, str):
-            to = [to]
-        return self.data[self.data.OECD > 0][to]
-
-    def UNas(self, to='name_short'):
-        """
-        Return UN member states in the specified classification
-
-        Parameters
-        ----------
-        to : str, optional
-            Output classification (valid str for an index of
-            country_data file), default: name_short
-
-        Returns
-        -------
-        Pandas DataFrame
-
-        """
-        if isinstance(to, str):
-            to = [to]
-        return self.data[self.data.UNmember > 0][to]
-
-    @property
-    def EU28(self):
-        """ EU28 member states (standard name_short) -
-            use EU28as() for any other classification
-        """
-        return self.EU28as(to='name_short')
-
-    @property
-    def EU27(self):
-        """ EU27 member states (standard name_short) -
-            use EU27as() for any other classification
-        """
-        return self.EU27as(to='name_short')
-
-    @property
-    def OECD(self):
-        """ OECD member states (standard name_short) -
-            use OECDas() for any other classification
-        """
-        return self.OECDas(to='name_short')
-
-    @property
-    def UN(self):
-        """ UN member states (standard name_short) -
-        use UNas() for any other classification
-        """
-        return self.UNas(to='name_short')
-
     @property
     def valid_class(self):
         """ Valid strings for the converter """
         return list(self.data.columns)
 
-    def get_correspondance_dict(self, classA, classB,
-                                restrict=None,
-                                replace_numeric=True):
-        """ Returns a correspondance between classification A and B as dict
+    def get_correspondence_dict(
+        self, classA, classB, restrict=None, replace_numeric=True, replace_nan=None
+    ):
+        """Returns a correspondence between classification A and B as dict
 
         Parameters
         ----------
@@ -678,41 +630,49 @@ class CountryConverter():
             where cc is the name of the CountryConverter instance.  Used to
             restrict the data sheet if necessary.  E.g. to convert to countries
             which were OECD members before 1970 use
-            cc.get_correspondance_dict('ISO3', 'OECD', restrict=cc.data.OECD <
+            cc.get_correspondence_dict('ISO3', 'OECD', restrict=cc.data.OECD <
             1970)
 
         replace_numeric: boolean, optional
             If True (default) replace numeric values with the column header.
-            This can be used if get a correspondance to, for example, 'OECD'
+            This can be used if get a correspondence to, for example, 'OECD'
             instead of to the OECD membership years. Set to False if the actual
             numbers are required (as for UNcode).
+
+        replace_nan: value or string, optional
+            String/Value to replace nan values in classA. If this string is
+            given, the return dict will include a key based on 'replace_nan'.
+            Otherwise (default), these entries are omitted.
 
         Returns
         -------
         dict with
             keys: based on classA
-            items: list of correspoding entries in classB or None
+            items: list of corresponding entries in classB or None
 
         """
-        result = {nn: None for nn in self.data[classA].values}
-
         if restrict is None:
-            df = self.data.copy()
+            df = self.data.loc[:, [classA, classB]].copy()
         else:
-            df = self.data[restrict].copy()
+            df = self.data[restrict].loc[:, [classA, classB]].copy()
 
-        if replace_numeric and df[classB].dtype.kind in 'bifc':
-            df.loc[~df[classB].isnull(), classB] = classB
-            df.loc[df[classB].isnull(), classB] = None
+        if replace_nan:
+            df.loc[:, classA].fillna(replace_nan, inplace=True)
 
-        result.update(df.groupby(classA)
-                        .aggregate(lambda x: list(x.unique()))
-                        .to_dict()[classB])
+        if replace_numeric:
+            if df[classB].dtype.kind in "bifc":
+                df.loc[~df[classB].isnull(), classB] = classB
+                df.loc[df[classB].isnull(), classB] = None
+            if df[classA].dtype.kind in "bifc":
+                df.loc[~df[classA].isnull(), classA] = classA
+                df.loc[df[classA].isnull(), classA] = None
+
+        result = df.groupby(classA).agg(lambda x: list(x.unique())).to_dict()[classB]
 
         return result
 
     def _validate_input_para(self, para, column_names):
-        """ Convert the input classificaton para to the correct df column name
+        """Convert the input classification para to the correct df column name
 
         Parameters
         ----------
@@ -729,11 +689,11 @@ class CountryConverter():
         lower_case_valid_class = [et.lower() for et in self.valid_class]
 
         alt_valid_names = {
-            'name_short': ['short', 'short_name', 'name', 'names'],
-            'name_official': ['official', 'long_name', 'long'],
-            'UNcode': ['un', 'unnumeric'],
-            'ISOnumeric': ['isocode'],
-            }
+            "name_short": ["short", "short_name", "name", "names"],
+            "name_official": ["official", "long_name", "long"],
+            "UNcode": ["un", "unnumeric"],
+            "ISOnumeric": ["isocode"],
+        }
 
         for item in alt_valid_names.items():
             if para.lower() in item[1]:
@@ -741,15 +701,15 @@ class CountryConverter():
 
         try:
             validated_para = self.valid_class[
-                lower_case_valid_class.index(para.lower())]
+                lower_case_valid_class.index(para.lower())
+            ]
         except ValueError:
-            raise KeyError(
-                '{} is not a valid country classification'.format(para))
+            raise KeyError("{} is not a valid country classification".format(para))
 
         return validated_para
 
     def _get_input_format_from_name(self, name):
-        """ Determines the input format based on the given country name
+        """Determines the input format based on the given country name
 
         Parameters
         ----------
@@ -763,19 +723,19 @@ class CountryConverter():
         """
         try:
             int(name)
-            src_format = 'ISOnumeric'
+            src_format = "ISOnumeric"
         except ValueError:
             if len(name) == 2:
-                src_format = 'ISO2'
+                src_format = "ISO2"
             elif len(name) == 3:
-                src_format = 'ISO3'
+                src_format = "ISO3"
             else:
-                src_format = 'regex'
+                src_format = "regex"
         return src_format
 
 
 def _parse_arg(valid_classifications):
-    """ Command line parser for coco
+    """Command line parser for coco
 
     Parameters
     ----------
@@ -790,73 +750,159 @@ def _parse_arg(valid_classifications):
     """
 
     parser = argparse.ArgumentParser(
-        description=('The country converter (coco): a Python package for '
-                     'converting country names between '
-                     'different classifications schemes. '
-                     'Version: {}'.format(__version__)
-                     ), prog='coco', usage=('%(prog)s --names --src --to]'))
+        description=(
+            "The country converter (coco): a Python package for "
+            "converting country names between "
+            "different classifications schemes. "
+            "Version: {}".format(__version__)
+        ),
+        prog="coco",
+        usage=("%(prog)s --names --src --to]"),
+    )
 
-    parser.add_argument('names',
-                        help=('List of countries to convert '
-                              '(space separated, country names consisting of '
-                              'multiple words must be put in quotation marks).'
-                              'Possible classifications: ' +
-                              ', '.join(valid_classifications) +
-                              '; NB: long, official and short are provided '
-                              'as shortcuts for the names classifications'
-                              ), nargs='*')
-    parser.add_argument('-s', '--src', '--source', '-f', '--from',
-                        help=('Classification of the names given, '
-                              '(default: inferred from names)'))
-    parser.add_argument('-t', '--to',
-                        help=('Required classification of the passed names'
-                              '(default: "ISO3"'))
-    parser.add_argument('-o', '--output_sep',
-                        help=('Seperator for output names '
-                              '(default: space), e.g. "," '))
-    parser.add_argument('-n', '--not_found',
-                        default='not found',
-                        help=('Fill in value for none found entries. '
-                              'If "None" (string), keep the input value '
-                              '(default: not found)'))
-    parser.add_argument('-a', '--additional_data',
-                        help=('Data file with additional country data'
-                              '(Same format as the original data file - '
-                              'utf-8 encoded tab separated data, same '
-                              'column headers as in the general country '
-                              'data file; default: not found)'))
+    parser.add_argument(
+        "names",
+        help=(
+            "List of countries to convert "
+            "(space separated, country names consisting of "
+            "multiple words must be put in quotation marks)."
+            "Possible classifications: "
+            + ", ".join(valid_classifications)
+            + '; NB: "long", "official" and "short" are '
+            "provided "
+            "as shortcuts for the names classifications.\n\n"
+            "Most of the aggregated classifications (e.g. "
+            '"EXIO1", "UN", "EU") can also be passed. This '
+            "returns a list of countries included in the "
+            "specific classification. When the parameter "
+            '"to" is also specified, the correspondence '
+            'of "src" to the given classification '
+            "is returned."
+        ),
+        nargs="*",
+    )
+    parser.add_argument(
+        "-s",
+        "--src",
+        "--source",
+        "-f",
+        "--from",
+        help=("Classification of the names given, " "(default: inferred from names)"),
+    )
+    parser.add_argument(
+        "-t",
+        "--to",
+        help=("Required classification of the passed names" '(default: "ISO3"'),
+    )
+    parser.add_argument(
+        "-o",
+        "--output_sep",
+        "--sep",
+        help=("Separator for output names " '(default: space), e.g. "," '),
+    )
+    parser.add_argument(
+        "-i",
+        "--include_obsolete",
+        action="store_true",
+        help=("Flag for including obsolete countries " "in the search"),
+    )
+    parser.add_argument(
+        "-u",
+        "--UNmember_only",
+        action="store_true",
+        help=("Flag for including only UN member states"),
+    )
+    parser.add_argument(
+        "-n",
+        "--not_found",
+        default="not found",
+        help=(
+            "Fill in value for none found entries. "
+            'If "None" (string), keep the input value '
+            "(default: not found)"
+        ),
+    )
+    parser.add_argument(
+        "-a",
+        "--additional_data",
+        help=(
+            "Data file with additional country data"
+            "(Same format as the original data file - "
+            "utf-8 encoded tab separated data, same "
+            "column headers as in the general country "
+            "data file; default: not found)"
+        ),
+    )
 
     args = parser.parse_args()
-    args.src = args.src or None
-    args.to = args.to or 'ISO3'
-    args.not_found = args.not_found if args.not_found != 'None' else None
-    args.output_sep = args.output_sep or ' '
+    if not args.names:
+        parser.print_help()
 
     return args
 
 
+def cli_output(conv_names, sep):
+    """Helper function for printing to the console"""
+    pd.set_option("max_rows", len(conv_names))
+    if type(conv_names) is pd.DataFrame:
+        if len(conv_names.columns) == 1:
+            conv_names = conv_names.iloc[:, 0].tolist()
+        elif len(conv_names.columns) == 2:
+            for row in conv_names.iterrows():
+                print(str(row[1][0]) + sep + str(row[1][1]))
+            return
+    print(
+        sep.join(
+            [str(etr) for etr in conv_names]
+            if isinstance(conv_names, list)
+            else [str(conv_names)]
+        )
+    )
+
+
 def main():
-    """ Main entry point - used for command line call
-    """
+    """Main entry point - used for command line call"""
     args = _parse_arg(CountryConverter().valid_class)
-    coco = CountryConverter(additional_data=args.additional_data)
+
+    args.output_sep = args.output_sep or " "
+    args.src = args.src or None
+    args.not_found = args.not_found if args.not_found != "None" else None
+    args.to = args.to if args.to else "name_short"
+
+    coco = CountryConverter(
+        additional_data=args.additional_data,
+        include_obsolete=args.include_obsolete,
+        only_UNmember=args.UNmember_only,
+    )
+
+    if len(args.names) == 1:
+        name = args.names[0]
+
+        if name in coco.data.columns:
+            res = coco.get_correspondence_dict(name, args.to)
+            for k, v in res.items():
+                if len(res.keys()) > 1:
+                    print(k + ": ", end="")
+                print(args.output_sep.join([str(etr) for etr in v]))
+            sys.exit()
+
     converted_names = coco.convert(
         names=args.names,
         src=args.src,
         to=args.to,
         enforce_list=False,
-        not_found=args.not_found)
+        not_found=args.not_found,
+    )
 
-    print(args.output_sep.join(
-        [str(etr) for etr in converted_names] if
-        isinstance(converted_names, list) else [str(converted_names)]))
+    cli_output(converted_names, args.output_sep)
+    sys.exit()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     try:
         # main()
         coco = CountryConverter()
         coco.data
     except Exception as excep:
-        logging.exception(excep)
+        log.exception(excep)
         raise

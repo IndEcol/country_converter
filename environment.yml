@@ -1,0 +1,16 @@
+name: coco_dev
+channels: 
+    - defaults
+    - anaconda
+    - conda-forge
+dependencies: 
+    - black
+    - ipython
+    - jupyterlab
+    - isort
+    - pandas
+    - pytest-black
+    - pytest-cov
+    - coveralls
+    - pytest=5.4.3
+

@@ -3,8 +3,10 @@ country converter
 
 The country converter (coco) is a Python package to convert and match country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names. Coco can also be used to build aggregation concordance matrices between different classification schemes.
 
-.. image:: https://badge.fury.io/py/country_converter.svg
+.. image:: https://badge.fury.io/py/country-converter.svg
     :target: https://badge.fury.io/py/country_converter
+.. image:: https://anaconda.org/conda-forge/country_converter/badges/version.svg   
+    :target: https://anaconda.org/conda-forge/country_converter
 .. image:: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113/status.svg
     :target: http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.838035.svg
@@ -13,10 +15,10 @@ The country converter (coco) is a Python package to convert and match country na
     :target: https://www.gnu.org/licenses/gpl-3.0
 .. image:: https://travis-ci.org/konstantinstadler/country_converter.svg?branch=master
     :target: https://travis-ci.org/konstantinstadler/country_converter
-.. image:: https://anaconda.org/konstantinstadler/country_converter/badges/version.svg   
-   :target: https://anaconda.org/konstantinstadler/country_converter
-
-|
+.. image:: https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master
+    :target: https://coveralls.io/github/konstantinstadler/country_converter?branch=master
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
 
 
 .. contents:: Table of Contents
@@ -30,7 +32,7 @@ To further complicate the matter, instead of using one of the existing standards
 
 The country converter (coco) automates the conversion from different standards and version of country names.
 Internally, coco is based on a table specifying the different ISO and UN standards per country together with the official name and a regular expression which aim to match all English versions of a specific country name.
-In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO databases (see `Classification schemes`_ below).
+In addition, coco includes classification based on UN-, EU-, OECD-membership, UN regions specifications, continents and various MRIO and IAM databases (see `Classification schemes`_ below).
 
 Installation
 ------------
@@ -41,11 +43,14 @@ Country_converter is registered at PyPI. From the command line:
 
     pip install country_converter --upgrade
 
-To install from the Anaconda_ Cloud use:    
+The country converter is also available from the `conda forge 
+<https://conda-forge.org/>`_ and can be installed using conda with (if you don't 
+have the conda_forge channel added to your conda config add "-c conda-forge", 
+see `the install instructions here <https://github.com/conda-forge/country_converter-feedstock>`_):
 
 ::
     
-   conda install -c konstantinstadler country_converter
+   conda install country_converter
 
 .. _Anaconda: https://anaconda.org/konstantinstadler/country_converter
 
@@ -53,12 +58,11 @@ Alternatively, the source code is available on GitHub_.
 
 .. _GitHub: https://github.com/konstantinstadler/country_converter
 
-The package depends on Pandas_; for testing py.test_ is required.
+The package depends on Pandas_; for testing pytest_ is required.
 For further information on running the tests see `CONTRIBUTING.rst`_.
 
 .. _Pandas: http://pandas.pydata.org/
-
-.. _py.test: http://pytest.org/
+.. _pytest: http://pytest.org/
 
 Usage
 -----
@@ -143,7 +147,7 @@ Note: for this, an instance of CountryConverter is required.
     print(oecd_since_1995)
     print(eu_until_1980)
 
-Some properties provide direct access to affiliations:
+All classifications can be directly accessed by: 
 
 .. code:: python
 
@@ -157,6 +161,21 @@ and the classification schemes available:
 .. code:: python
 
     cc.valid_class
+
+If you rather need a dictionary describing the classification/membership use:
+
+.. code:: python
+
+    import country_converter as coco
+    cc = coco.CountryConverter()
+    cc.get_correspondence_dict('EXIO3', 'ISO3')
+
+to also include countries not assigned within a specific classification use:
+
+.. code:: python
+
+    cc.get_correspondence_dict('EU27', 'ISO2', replace_nan='NonEU')
+
 
 
 The regular expressions can also be used to match any list of countries to any other. For example:
@@ -205,13 +224,61 @@ The command line tool also allows to specify the output for none found entries, 
 
     coco CAN Peru US Mexico Venezuela UK Arendelle --not_found=None
 
-and to specifiy an additional data file which will overwrite existing country matchings
+and to specify an additional data file which will overwrite existing country matching
 
 ::
 
     coco Congo --additional_data path/to/datafile.csv
 
 See https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt for an example of an additional datafile.
+
+The flags --UNmember_only (-u) and --include_obsolete (-i) restrict the search 
+to UN member states only or extend it to also include currently obsolete
+countries. For example, the `Netherlands Antilles`_ were dissolved in 2010.
+
+.. _Netherlands Antilles: https://en.wikipedia.org/wiki/Netherlands_Antilles
+
+
+Thus: 
+
+:: 
+
+   coco "Netherlands Antilles"
+
+results in "not found". The search, however, can be extended to recently 
+dissolved countries by:
+
+
+:: 
+
+   coco "Netherlands Antilles" -i
+
+which results in 'ANT'.
+
+In addition to the countries, the coco command line tool also accepts 
+various country classifications (EXIO1, EXIO2, EXIO3, WIOD, Eora, MESSAGE, 
+OECD, EU27, EU28, UN, obsolete, Cecilia2050, BRIC, APEC, BASIC, CIS, G7, G20).
+One of these can be passed by
+
+::
+   
+   coco G20
+
+which lists all countries in that classification.
+
+For the classifications covering almost all countries (MRIO and IAM 
+classifications)
+
+::
+
+   coco EXIO3
+
+lists the unique classification names. When passing a --to parameter, a 
+simplified correspondence of the chosen classification is printed:
+
+::
+
+   coco EXIO3 --to ISO3
 
 For further information call the help by
 
@@ -224,8 +291,8 @@ Use in Matlab
 """""""""""""
 
 Newer (tested in 2016a) versions of Matlab allow to directly call Python
-functions and libaries.  This requires a Python version >= 3.4 installed in the
-sytem path (e.g. through Anaconda).
+functions and libraries.  This requires a Python version >= 3.4 installed in the
+system path (e.g. through Anaconda).
 
 To test, try this in Matlab:
 
@@ -250,7 +317,7 @@ And in matlab:
     ISO2_cellarray = cellfun(@char,cell(ISO2_pythontype),'UniformOutput',false);
 
 
-Alternativley, as a long oneliner:
+Alternatively, as a long oneliner:
 
 .. code:: matlab
 
@@ -286,7 +353,7 @@ Building concordances for country aggregation
 
 Coco provides a function for building concordance vectors, matrices and dictionaries between
 different classifications. This can be used in python as well as in matlab.  
-For furter information see (country_converter_aggregation_helper.ipynb_)
+For further information see (country_converter_aggregation_helper.ipynb_)
 
 .. _country_converter_aggregation_helper.ipynb: http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_aggregation_helper.ipynb
 
@@ -308,49 +375,90 @@ Currently the following classification schemes are available (see also Data sour
 #) UN region
 #) EXIOBASE_ 1 classification
 #) EXIOBASE_ 2 classification
-#) EXIOBASE_ 2 classification
+#) EXIOBASE_ 3 classification
 #) WIOD_ classification
 #) Eora_
 #) OECD_ membership (per year)
+#) MESSAGE_ 11-region classification
+#) IMAGE_
+#) REMIND_
 #) UN_ membership (per year)
-#) EU_ membership (per year)
+#) EU_ membership (including EU12, EU15, EU25, EU27, EU27_2007, EU28)
+#) EEA_ membership
+#) Schengen_ region
+#) Cecilia_ 2050 classification
+#) APEC_
+#) BRIC_
+#) BASIC_
+#) CIS_ (as by 2019, excl. Turkmenistan)
+#) G7_
+#) G20_ (listing all EU member states as individual members)
 
-
-Coco contains offical recognised codes as well as non-standard codes for disputed or dissolved countries. 
-To restrict the set to only the official recognized UN members, pass
+Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
+To restrict the set to only the official recognized UN members or include obsolete countries, pass
 
 .. code:: python
 
     import country_converter as coco
-    cc_all = coco.CountryConverter()
+    cc = coco.CountryConverter()
     cc_UN = coco.CountryConverter(only_UNmember=True)
+    cc_all = coco.CountryConverter(include_obsolete=True)
 
-    cc_all.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
-    cc_UN.convert(['PSE', 'KSV', 'EAZ', 'FRA'], to='name_short')
+    cc.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
+    cc_UN.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
+    cc_all.convert(['PSE', 'XKX', 'EAZ', 'FRA'], to='name_short')
 
-cc_all results in ['Palestine', 'Kosovo', 'Zanzibar', 'France'], whereas cc_UN converts to ['not found', 'not found', 'not found', 'France'].
+cc results in ['Palestine', 'Kosovo', 'not found', 'France'], whereas cc_UN converts to
+['not found', 'not found', 'not found', 'France'] and cc_all converts to
+['Palestine', 'Kosovo', 'Zanzibar', 'France']
 Note that the underlying dataframe is available at the attribute .data (e.g. cc_all.data).
 
 Data sources and further reading
 --------------------------------
 
-Most of the underlying data can be found in Wikipedia.
-https://en.wikipedia.org/wiki/ISO_3166-1 is a good starting point.
+Most of the underlying data can be found in Wikipedia, the page describing 
+`ISO 3166-1 <https://en.wikipedia.org/wiki/ISO_3166-1>`_ is a good starting point.
 UN regions/codes are given on the United Nation Statistical Division (unstats_) webpage.
-For the differences between the ISO numeric and UN (M.49) codes 
-see https://en.wikipedia.org/wiki/UN_M.49.
+The differences between the ISO numeric and UN (M.49) codes 
+are `also explained at wikipedia <https://en.wikipedia.org/wiki/UN_M.49>`_.
 EXIOBASE_, WIOD_ and Eora_ classification were extracted from the respective databases.
 For Eora_, the names are based on the 'Country names' csv file provided on the webpage, but
-updated for different names used in the Eora26 database.
-The membership of OECD_, UN_ and EU_ can be found at the membership organisations' webpages.
+updated for different names used in the Eora26 database. The MESSAGE 
+classification follows the 11-region aggregation given in the MESSAGE_ model 
+regions description. The IMAGE_ classification is based on the "`region 
+classification map`_", for REMIND_ we received a country mapping from the model 
+developers. 
+The membership of OECD_ and UN_ can be found at the membership organisations' webpages, 
+information about obsolete country codes on the Statoids_ webpage.
+The situation for the EU_ got complicated due to the Brexit process. For the 
+naming, coco follows the `Eurostat glossary`_, thus EU27 refers to the EU 
+without UK, whereas EU27_2007 refers to the EU without Croatia (the status 
+after the 2007 enlargement). The shortcut EU always links to the most recent 
+classification. The EEA_ agreements are still valid for the UK (status September 2020, Brexit transition period - as `described here  <https://en.wikipedia.org/wiki/European_Economic_Area>`_), thus UK is currently included in the EEA.
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
 .. _UN: http://www.un.org/en/members/
-.. _EU: http://europa.eu/about-eu/countries/index_en.htm
+.. _EU: https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements
+.. _Schengen: https://en.wikipedia.org/wiki/Schengen_Area
+.. _`Eurostat glossary`: https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements
+.. _EEA: https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:European_Economic_Area_(EEA)
 .. _EXIOBASE: http://exiobase.eu/
 .. _WIOD: http://www.wiod.org/home
 .. _Eora: http://www.worldmrio.com/
+.. _MESSAGE: http://www.iiasa.ac.at/web/home/research/researchPrograms/Energy/MESSAGE-model-regions.en.html
+.. _Statoids: http://www.statoids.com/w3166his.html
+.. _Cecilia: https://cecilia2050.eu/system/files/De%20Koning%20et%20al.%20%282014%29_Scenarios%20for%202050_0.pdf
+.. _APEC: https://en.wikipedia.org/wiki/Asia-Pacific_Economic_Cooperation
+.. _BRIC: https://en.wikipedia.org/wiki/BRIC 
+.. _BASIC: https://en.wikipedia.org/wiki/BASIC_countries
+.. _CIS: https://en.wikipedia.org/wiki/Commonwealth_of_Independent_States
+.. _G7: https://en.wikipedia.org/wiki/Group_of_Seven
+.. _G20: https://en.wikipedia.org/wiki/G20
+.. _IMAGE: https://models.pbl.nl/image/index.php/Welcome_to_IMAGE_3.0_Documentation
+.. _REMIND: https://www.pik-potsdam.de/en/institute/departments/transformation-pathways/models/remind
+.. _`region classification map`: https://models.pbl.nl/image/index.php/Region_classification_map
+
 
 
 Communication, issues, bugs and enhancements
@@ -388,7 +496,7 @@ Citing the country converter
 Version 0.5 of the country converter was published in the `Journal of Open Source Software`_.
 To cite the country converter in publication please use:
 
-Stadler, K. (2017). The country converter coco - a Python package for converting country names between different classification schemes. The Journal of Open Source Software. doi: http://dx.doi.org/10.21105/joss.00332
+Stadler, K. (2017). The country converter coco - a Python package for converting country names between different classification schemes. The Journal of Open Source Software. doi: `10.21105/joss.00332 <http://dx.doi.org/10.21105/joss.00332>`_
 
 For the full bibtex key see CITATION_
 

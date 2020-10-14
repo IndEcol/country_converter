@@ -29,6 +29,10 @@ Curacao	Curacao
 Czech Republic	Czech Rep.
 Dominican Republic	Dominican Rep.
 Egypt	"Egypt, Arab Rep."
+Eswatini	Swaziland
+Eswatini	Eswatini
+Eswatini	Kingdom of Eswatini
+Eswatini	Kingdom of Swaziland
 Faeroe Islands	Faeroe Isds
 Faeroe Islands	Faroe Islands
 Falkland Islands	Falkland islands (malvinas)
@@ -39,10 +43,13 @@ French Guiana	French Guiana
 French Polynesia	French polynesia
 Gambia	"Gambia, The"
 Guam	Guam (US)
-Heard and Mc Donald Islands	Heard and McDonald Islands (AU)
+Heard and McDonald Islands	Heard and McDonald Islands (AU)
 Iran	Islamic Republic of Iran
 Iran	Iran (Islamic Republic of)
 Iran	"Iran, Islamic Republic of"
+Ireland	"Republic of Ireland"
+Ireland	"Rep. of Ireland"
+Ireland	"Rep. Ireland"
 Kyrgyz Republic	Kyrgyzstan
 Laos	Lao People s Democratic Republic
 Laos	Lao People's Dem. Rep.
@@ -63,6 +70,9 @@ Moldova	"Moldova, republic of"
 Moldova	Republic of Moldova
 Myanmar	Burma
 Netherlands Antilles	Neth. Antilles
+Netherlands Antilles	neth antil
+Netherlands Antilles	netherlands antilles
+Netherlands	netherlands
 New Caledonia	New caledonia
 Norfolk Island	Norfolk island
 Norfolk Island	Norfolk Isds
@@ -78,8 +88,8 @@ Russia	Russian Federation
 Slovakia	Slovakia (slovak republic)
 Solomon Islands	Solomon Isds
 South Africa	Southern African Customs Union
-South Georgia and  South Sandwich Is.	South Georgia and the South Sandwichs Islands (UK)
-South Georgia and  South Sandwich Is.	South georgia and the south sandwich islands
+South Georgia and South Sandwich Is.	South Georgia and the South Sandwichs Islands (UK)
+South Georgia and South Sandwich Is.	South georgia and the south sandwich islands
 St. Helena	Saint Helena
 St. Kitts and Nevis	Saint kitts and nevis
 St. Lucia	Saint lucia

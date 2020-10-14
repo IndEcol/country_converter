@@ -3,6 +3,7 @@
 *.pyc
 *.egg-info
 tags
+.tags
 /dist/
 /build/
 /__pycache__
@@ -10,4 +11,4 @@ tags
 /.cache
 /.idea
 /doc/.ipynb_checkpoints/
-
+.~*

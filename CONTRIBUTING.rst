@@ -23,7 +23,7 @@ Regular expressions
 
 The easiest way to contribute to coco is by improving the regular expressions used for matching a specific country name.
 If you come across a country name which currently is not matched by the regular expressions included in country_converter/country_data.tsv add or modify the regular expression for this country in the column "regex".
-For a good introduction in the used regular expression syntax see https://docs.python.org/3.5/library/re.html .
+For a good introduction in the used regular expression syntax see https://docs.python.org/3.8/library/re.html .
 In particular, make use of the or symbol "|" to include multiple regular expressions for one country.
 See the entry for "Czech Republic" for a relatively simple example, "Republic of the Congo" for a more advanced case.
 IMPORTANT: new regular expressions must not break the already present matchings.
@@ -34,10 +34,8 @@ New country classification
 
 If you think a certain country classification is missing from coco, you can simply add them as new columns in country_converter/country_data.tsv.
 For fixed country classifications (as for example the "continent") just add a new column with the corresponding name.
-For a classification which changes over time (as for example "OECD") make an new column and provide the year at with the country obtained its membership.
-Optional: you can add a new property for accessing a specific membership.
-See the available properties for EU28, OECD, etc in the class CountryConverter in country_converter/country_converter.py for how to do that and continue reading at
-"Changing the code base".
+For a classification which changes over time (as for example "OECD") make an new column and provide the year at which the country obtained its membership.
+New properties are added automatically to the CountryConverter class for all columns in this file.
 New classifications must also be added to the README.rst at the section "Classification schemes"
 
 Changing the code base
@@ -45,23 +43,37 @@ Changing the code base
 
 If you plan any changes to the source code of this repo, please first discuss the change you wish to make via a filing an issue (labelled Enhancement or Bug) before making a change.
 All code contribution must be provided as pull requests connected to a filed issue.
-Use numpy style docstrings_ and follow pep8_ style guide.
-The latter is a requirement to pass the tests before merging a pull request.
+Use numpy style docstrings_ and lint using black_ and isort_, and follow the pep8_ style guide.
+Passing the black_ and isort_ liter is a requirement to pass the tests before merging a pull request.
 Since coco is already used in research projects, please aim for keeping compatibility with previous versions.
+
+The following commands can be used to automatically apply the black_ and isort_ formatting.
+
+.. code-block:: bash
+
+   pip install black isort
+   isort --project country_converter --profile black .
+   black .
+
+If you are using Conda you can build a development environment from environment.yml which includes all packages necessary for development and running.
+
+Check the "script" part in .travis.yml to check the required tests.
 
 .. _docstrings: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 .. _pep8: https://www.python.org/dev/peps/pep-0008/
+.. _black: https://github.com/psf/black/
+.. _isort: https://github.com/pycqa/isort/
 
 Running and extending the tests
 -------------------------------
 
 Before filing a pull request, make sure your changes pass all tests.
-Coco uses the py.test_ package with the pytest-pep8_ extension for testing.
+Coco uses the pytest_ package with the pytest-black_ extension and isort_ for testing.
 To run the tests install these two packages (and the Pandas_ dependency) and run
 
 ::
 
-    py.test -v -pep8
+    pytest -vv --black
 
 in the root of your local copy of coco.
 
@@ -76,8 +88,9 @@ These tests check
 To specify a new test set just add a tab-separated file with headers "name_short" and "name_test" and provide name (corresponding to the short name in the main classification file) and the alternative name which should be tested (one pair per row in the file).
 If the file name starts with "test\_regex\_" it will be automatically recognised by the test functions.
 
-.. _py.test: http://pytest.org/
+.. _pytest: http://pytest.org/
 .. _pytest-pep8: https://pypi.python.org/pypi/pytest-pep8
+.. _pytest-black: https://pypi.org/project/pytest-black/
 .. _Pandas: https://pandas.pydata.org/
 
 

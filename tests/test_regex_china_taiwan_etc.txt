@@ -16,6 +16,6 @@ Hong Kong	"China, Hong Kong Special Administrative Region"
 Hong Kong	"Hong Kong, China"
 Hong Kong	Hong kong
 Hong Kong	"China, Hong Kong SAR"
-Macao	China: Macao SAR
-Macao	"China, Macao Special Administrative Region"
-Macao	"China, Macao SAR"
+Macau	China: Macao SAR
+Macau	"China, Macao Special Administrative Region"
+Macau	"China, Macao SAR"

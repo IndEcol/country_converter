@@ -1,9 +1,13 @@
 language: python
 python:
-  - "3.5"
   - "3.6"
+  - "3.7"
+  - "3.8"
 install:
-  - pip install pytest-pep8
-  - pip install .
   - pip install -r requirements.txt
-script: pytest --pep8
+  - pip install .
+script:
+  - isort --project country_converter --profile black --check-only .
+  - coverage run -m pytest --black -vv
+after_success:
+    coveralls
