@@ -187,6 +187,24 @@ The regular expressions can also be used to match any list of countries to any o
                    'Peoples Republic of China', 'Republic of China' ]
 
     matching_dict = coco.match(match_these, master_list)
+    
+
+Country converter by default provides a warning to the python `logging` logger if no match is found.
+The following example demonstrates how to configure the `coco` logging behaviour.
+
+.. code:: python
+
+   import logging
+   import country_converter as coco
+   logging.basicConfig(level=logging.INFO)
+   coco.convert("asdf")
+   # WARNING:country_converter.country_converter:asdf not found in regex
+   # Out: 'not found'
+
+   coco_logger = coco.logging.getLogger()
+   coco_logger.setLevel(logging.CRITICAL)
+   coco.convert("asdf")
+   # Out: 'not found'
 
 
 See the IPython Notebook (country_converter_examples.ipynb_) for more information.

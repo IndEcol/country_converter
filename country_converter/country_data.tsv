@@ -50,7 +50,7 @@ Chile	Republic of Chile	\bchile	CL	CHL	152	152	America	South America	WW	WL	WL	Ro
 China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	Asia	Eastern Asia	CN	CN	CN	CHN	CHN	CPA	China region	CHA												1945	1945		BX	BRIC	APEC	BASIC			G20
 Christmas Island	Christmas Island	christmas	CX	CXR	162	162	Asia	Australia and New Zealand	WW	WA	WA	RoW				OAS															RoW						
 Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166	166	Asia	Australia and New Zealand	WW	WA	WA	RoW				OAS															RoW						
-Colombia	Republic of Colombia	colombia	CO	COL	170	170	America	South America	WW	WL	WL	RoW	COL	LAC	Rest of South America	LAM												1945	1945		RoW						
+Colombia	Republic of Colombia	colombia	CO	COL	170	170	America	South America	WW	WL	WL	RoW	COL	LAC	Rest of South America	LAM	2020											1945	1945		RoW						
 Comoros	Union of the Comoros	comoro	KM	COM	174	174	Africa	Eastern Africa	WW	WF	WF	RoW	COM	AFR	Eastern Africa	SSA												1975	1975		RoW						
 Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo[,;\s]*(?!.*dem)rep.*?$|^congo$|\bcongo.*brazza.*	CG	COG	178	178	Africa	Middle Africa	WW	WF	WF	RoW	COG	AFR	Western Africa	SSA												1960	1960		RoW						
 Cook Islands	Cook Islands	\bcook	CK	COK	184	184	Oceania	Polynesia	WW	WA	WA	RoW	COK		Oceania	OAS															RoW						
