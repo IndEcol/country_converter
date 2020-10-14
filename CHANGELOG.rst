@@ -4,6 +4,10 @@ Change Log
 0.7.1d
 ----------------
 
+Classifications
+^^^^^^^^^^^^^^^^^^^^
+
+* added 2020 OECD membership for Colombia
 
 Misc
 ^^^^^^^^
