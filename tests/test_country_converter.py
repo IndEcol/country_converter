@@ -129,6 +129,7 @@ def test_additional_country_file():
     assert converter_basic.convert("Congo") == "COG"
     assert converter_extended.convert("Congo") == "COD"
     assert converter_extended.convert("wirtland", to="name_short") == "Wirtland"
+    assert 250 == converter_extended.convert("Congo", to="FAOcode")
 
 
 def test_additional_country_data():
@@ -551,3 +552,11 @@ def test_full_cli(capsys):
     assert "WW" in out
     assert e_sys.type == SystemExit
     sys.argv = _sysargv
+
+
+def test_fao_number_codes():
+    cc = coco.CountryConverter()
+    assert 21 == cc.convert("BRA", to="FAOcode")
+    assert 223 == cc.convert("TUR", to="FAOcode")
+    assert 67 == cc.convert("FIN", to="FAOcode")
+    assert 117 == cc.convert("KOR", to="FAOcode")
