@@ -412,6 +412,7 @@ Currently the following classification schemes are available (see also Data sour
 #) G7_
 #) G20_ (listing all EU member states as individual members)
 #) FAOcode_ (numeric)
+
 Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
 To restrict the set to only the official recognized UN members or include obsolete countries, pass
 
