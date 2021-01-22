@@ -1,5 +1,0 @@
-FAO_code	name_test
-351	"China, People's Republic of"
-96	"Hong Kong"
-214	"Taiwan"
-
