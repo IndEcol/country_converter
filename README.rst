@@ -162,6 +162,13 @@ and the classification schemes available:
 
     cc.valid_class
 
+There is also a methdod for only getting country classifications (thus omitting 
+any grouping of countries):
+
+.. code:: python
+
+    cc.valid_country_classifications
+
 If you rather need a dictionary describing the classification/membership use:
 
 .. code:: python

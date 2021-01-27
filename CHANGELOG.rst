@@ -1,6 +1,28 @@
 Change Log
 ===========
 
+
+0.7.2 - 20210127
+----------------
+
+Classifications
+^^^^^^^^^^^^^^^^
+
+* added FAOcode (numerical FAO code)
+
+API
+^^^^
+
+* added CountryConverter().valid_country_classifications which gives all country classifications (without any aggregation like continents or models)
+
+
+Bug Fixes
+^^^^^^^^^
+
+* French Guyana resettled to America (was Africa before) (fixes #76)
+* D.P.R of Korea resolves to North Korea (fixes #79)
+
+
 0.7.1 - 20201014
 ----------------
 
