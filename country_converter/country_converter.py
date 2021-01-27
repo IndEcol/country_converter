@@ -612,6 +612,15 @@ class CountryConverter:
         """ Valid strings for the converter """
         return list(self.data.columns)
 
+    @property
+    def valid_country_classifications(self):
+        """ All classifications available for countries without any aggregation"""
+        return [
+            cname
+            for cname in self.data.columns
+            if not (self.data[cname].dropna().duplicated().any() or cname == "obsolete")
+        ]
+
     def get_correspondence_dict(
         self, classA, classB, restrict=None, replace_numeric=True, replace_nan=None
     ):
