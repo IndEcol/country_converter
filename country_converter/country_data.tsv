@@ -79,7 +79,7 @@ Falkland Islands	Falkland Islands (Malvinas)	falkland|malvinas	FK	FLK	238	238	65
 Fiji	Republic of Fiji	fiji	FJ	FJI	242	242	66	Oceania	Melanesia	WW	WA	WA	RoW	FJI	PAS	Oceania	OAS												1970	1970		RoW						
 Finland	Republic of Finland	finland	FI	FIN	246	246	67	Europe	Northern Europe	FI	FI	FI	FIN	FIN	WEU	Western Europe	EUR	1969	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen	1999	1955	1955		EU						G20
 France	French Republic	^(?!.*\bdep).*france|french.?republic|\bgaul	FR	FRA	250	250	68	Europe	Western Europe	FR	FR	FR	FRA	FRA	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU					G7	G20
-French Guiana	Guiana	^(?=.*french).*guiana|guiana	GF	GUF	254	254	69	Africa	South America	WW	WL	WL	RoW	GUF	LAC	Rest of South America	LAM															RoW						
+French Guiana	Guiana	^(?=.*french).*guiana|guiana	GF	GUF	254	254	69	America	South America	WW	WL	WL	RoW	GUF	LAC	Rest of South America	LAM															RoW						
 French Polynesia	French Polynesia	french.?polynesia	PF	PYF	258	258	70	Oceania	Polynesia	WW	WA	WA	RoW	PYF	PAS	Oceania	OAS															RoW						
 French Southern Territories	Territory of the French Southern and Antarctic Lands	french.?southern|\bfr.*\bso.*\ban.*\b\bt	TF	ATF	260	260	71	Africa	Eastern Africa	WW	WF	WF	RoW				OAS															RoW						
 Gabon	Gabonese Republic	gabon	GA	GAB	266	266	74	Africa	Middle Africa	WW	WF	WF	RoW	GAB	AFR	Western Africa	SSA												1960	1960		RoW						
