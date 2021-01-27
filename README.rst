@@ -411,6 +411,7 @@ Currently the following classification schemes are available (see also Data sour
 #) CIS_ (as by 2019, excl. Turkmenistan)
 #) G7_
 #) G20_ (listing all EU member states as individual members)
+#) FAOcode_ (numeric)
 
 Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
 To restrict the set to only the official recognized UN members or include obsolete countries, pass
@@ -476,7 +477,7 @@ classification. The EEA_ agreements are still valid for the UK (status September
 .. _IMAGE: https://models.pbl.nl/image/index.php/Welcome_to_IMAGE_3.0_Documentation
 .. _REMIND: https://www.pik-potsdam.de/en/institute/departments/transformation-pathways/models/remind
 .. _`region classification map`: https://models.pbl.nl/image/index.php/Region_classification_map
-
+.. _FAOcode: http://www.fao.org/faostat/en/#definitions
 
 
 Communication, issues, bugs and enhancements

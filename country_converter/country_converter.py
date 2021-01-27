@@ -691,8 +691,9 @@ class CountryConverter:
         alt_valid_names = {
             "name_short": ["short", "short_name", "name", "names"],
             "name_official": ["official", "long_name", "long"],
-            "UNcode": ["un", "unnumeric"],
+            "UNcode": ["un", "unnumeric","M49"],
             "ISOnumeric": ["isocode"],
+            "FAOcode": ["fao", "faonumeric"],
         }
 
         for item in alt_valid_names.items():
