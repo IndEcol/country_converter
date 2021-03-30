@@ -1,5 +1,6 @@
 import collections
 import logging
+import warnings
 import os
 import sys
 from collections import OrderedDict
@@ -15,11 +16,13 @@ TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, ".."))
 
 
+# Additional test data
 regex_test_files = [
     nn
     for nn in os.listdir(TESTPATH)
     if (nn[:10] == "test_regex") and (os.path.splitext(nn)[1] == ".txt")
 ]
+non_matching_data = os.path.join(TESTPATH, "should_not_match.txt")
 custom_data = os.path.join(TESTPATH, "custom_data_example.txt")
 
 
@@ -560,3 +563,17 @@ def test_fao_number_codes():
     assert 223 == cc.convert("TUR", to="FAOcode")
     assert 67 == cc.convert("FIN", to="FAOcode")
     assert 117 == cc.convert("KOR", to="FAOcode")
+
+
+def test_non_matchingn():
+    with open(non_matching_data, "r") as nmd:
+        content = [line.strip() for line in nmd.readlines()]
+    non_countries = [nc for nc in content if not nc.startswith("#") and nc != ""]
+
+    not_found_indicator = "nope"
+    with warnings.catch_warnings():
+        warnings.filterwarnings('ignore', message='not found')
+        for reg_name in non_countries:
+            assert not_found_indicator == coco.convert(
+                reg_name, src="regex", to="ISO3", not_found=not_found_indicator
+            )

@@ -65,6 +65,7 @@ Marshall Islands	Marshall Isds
 Martinique	martinique
 "Micronesia, Fed. Sts."	FS Micronesia
 "Micronesia, Fed. Sts."	Micronesia (Federated States of)
+Mexico	Mexiko
 Moldova	Rep. of Moldova
 Moldova	"Moldova, republic of"
 Moldova	Republic of Moldova
@@ -83,6 +84,7 @@ Palestine	Occ. Palestinian Terr.
 Palestine	Occupied Palestinian Territory
 Palestine	"Palestinian territory, occupied"
 Pitcairn	Pitcairn Islands
+Papua New Guinea	P. N. Guinea
 Reunion	Réunion
 Russia	Russian Federation
 Slovakia	Slovakia (slovak republic)

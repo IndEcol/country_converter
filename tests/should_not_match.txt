@@ -1,0 +1,17 @@
+# Names found in databases which should not match any countries
+
+# Found in "Global Burden of Disease DB" - reported in issue #86
+Southern Sub-Saharan Africa
+Mexico City
+New Jersey
+West Papua 
+Papua 
+Sweden except Stockholm
+New Mexico
+Norfolk
+
+# General cases
+Georgia (US state)
+New Holland
+Belgium and Luxembourg
+Zealand
