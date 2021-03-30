@@ -14,6 +14,7 @@ Development
 ^^^^^^^^^^^^^^^^
 
 * functionality for testing regions which should not match
+* handle pandas future regex warning 
 
 
 0.7.2 - 20210127
