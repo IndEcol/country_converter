@@ -572,7 +572,7 @@ def test_non_matchingn():
 
     not_found_indicator = "nope"
     with warnings.catch_warnings():
-        warnings.filterwarnings('ignore', message='not found')
+        warnings.filterwarnings("ignore", message="not found")
         for reg_name in non_countries:
             assert not_found_indicator == coco.convert(
                 reg_name, src="regex", to="ISO3", not_found=not_found_indicator

@@ -575,7 +575,11 @@ class CountryConverter:
                         )
 
             else:
-                _match_col = self.data[src_format].astype(str).str.replace("\\..*", "", regex=True)
+                _match_col = (
+                    self.data[src_format]
+                    .astype(str)
+                    .str.replace("\\..*", "", regex=True)
+                )
 
                 result_list = [
                     etr[0]
