@@ -1,6 +1,20 @@
 Change Log
 ===========
 
+0.7.3 - dev
+----------------
+
+Bug Fixes
+^^^^^^^^^
+
+* Update for regex for several regions which erroneous matched countries (solves #86)
+
+
+Development
+^^^^^^^^^^^^^^^^
+
+* functionality for testing regions which should not match
+
 
 0.7.2 - 20210127
 ----------------
