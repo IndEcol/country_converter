@@ -8,6 +8,7 @@ Bug Fixes
 ^^^^^^^^^
 
 * Update for regex for several regions which erroneous matched countries (solves #86)
+* CLI help fix (solves #81)
 
 
 Development

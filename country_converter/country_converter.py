@@ -767,7 +767,7 @@ def _parse_arg(valid_classifications):
             "Version: {}".format(__version__)
         ),
         prog="coco",
-        usage=("%(prog)s --names --src --to]"),
+        usage=("%(prog)s names --src --to]"),
     )
 
     parser.add_argument(
