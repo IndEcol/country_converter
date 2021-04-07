@@ -9,6 +9,7 @@ Bug Fixes
 
 * Update for regex for several regions which erroneous matched countries (solves #86)
 * CLI help fix (solves #81)
+* Added HKSAR for Hong Kong, N.Korea for North Korea and some Macaou tests (solves #84)
 
 
 Development
@@ -16,6 +17,7 @@ Development
 
 * functionality for testing regions which should not match
 * handle pandas future regex warning 
+* moved from travis to github actions for CI testing
 
 
 0.7.2 - 20210127
