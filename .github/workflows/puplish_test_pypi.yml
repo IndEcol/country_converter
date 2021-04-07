@@ -3,8 +3,7 @@ name: Deploy to Test PyPi
 on: 
   push:
       branches:
-        - master
-        - develop
+        - release_test
 jobs:
   build_and_deploy:
     name: Build the release and deploy to test pypi

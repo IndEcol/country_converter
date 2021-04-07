@@ -51,13 +51,14 @@ The following commands can be used to automatically apply the black_ and isort_ 
 
 .. code-block:: bash
 
-   pip install black isort
    isort --project country_converter --profile black .
    black .
 
-If you are using Conda you can build a development environment from environment.yml which includes all packages necessary for development and running.
-
-Check the "script" part in .travis.yml to check the required tests.
+If you are using Conda you can build a development environment from 
+environment.yml which includes all packages necessary for development and 
+running. For virtual environments use the requirements.txt file.
+The file format_and_test.sh can be used in Linux environments to format the 
+code according to the black_ / isort_ format and run all tests.
 
 .. _docstrings: https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
 .. _pep8: https://www.python.org/dev/peps/pep-0008/
