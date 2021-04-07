@@ -12,3 +12,4 @@ tags
 /.idea
 /doc/.ipynb_checkpoints/
 .~*
+.coverage

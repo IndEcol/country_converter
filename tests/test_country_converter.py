@@ -1,8 +1,8 @@
 import collections
 import logging
-import warnings
 import os
 import sys
+import warnings
 from collections import OrderedDict
 
 import pandas as pd
