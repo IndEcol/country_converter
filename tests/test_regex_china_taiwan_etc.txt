@@ -15,7 +15,10 @@ Hong Kong	China: Hong Kong SAR
 Hong Kong	"China, Hong Kong Special Administrative Region"
 Hong Kong	"Hong Kong, China"
 Hong Kong	Hong kong
+Hong Kong	HKSAR
 Hong Kong	"China, Hong Kong SAR"
 Macau	China: Macao SAR
+Macau	Macao SAR (China)
+Macau	Macao SAR,China
 Macau	"China, Macao Special Administrative Region"
 Macau	"China, Macao SAR"
