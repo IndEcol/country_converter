@@ -44,8 +44,8 @@ jobs:
 
     - name: Run tests
       run: |
-         isort --project pymrio --profile black --check-only .
-         coverage run --source=pymrio -m pytest --black -vv
+         isort --project country_converter --profile black --check-only .
+         coverage run --source=country_converter -m pytest --black -vv
 
     - name: Coveralls analysis
       run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls
