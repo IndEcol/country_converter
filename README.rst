@@ -13,8 +13,8 @@ The country converter (coco) is a Python package to convert and match country na
    :target: https://doi.org/10.5281/zenodo.838035
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
     :target: https://www.gnu.org/licenses/gpl-3.0
-.. image:: https://travis-ci.org/konstantinstadler/country_converter.svg?branch=master
-    :target: https://travis-ci.org/konstantinstadler/country_converter
+.. image:: https://github.com/konstantinstadler/country_converter/workflows/build/badge.svg
+    :target: https://github.com/konstantinstadler/country_converter/actions
 .. image:: https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master
     :target: https://coveralls.io/github/konstantinstadler/country_converter?branch=master
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
