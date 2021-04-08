@@ -11,6 +11,7 @@ Bug Fixes
 * CLI help fix (solves #81)
 * Added HKSAR for Hong Kong, N.Korea for North Korea and some Macaou tests (solves #84)
 * Fixed for pandas Series inputs (solves #54)
+* Fixed aggregation concordance (solves #82)
 
 
 Development
