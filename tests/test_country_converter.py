@@ -177,6 +177,29 @@ def test_special_cases():
     assert converter("NAM", to="ISO2") == "NA"
 
 
+def test_iterable_inputs():
+    """Test the different possibilites to input lists
+
+    This guards agains issue #54
+    """
+    _inp_list = ["AT", "BE", "DE", "GB", "TW"]
+
+    inputs = dict(
+        type_list=list(_inp_list),
+        type_tuple=tuple(_inp_list),
+        type_set=set(_inp_list),
+        type_series=pd.Series(_inp_list),
+        type_df_index=pd.Index(_inp_list),
+    )
+
+    outputs = {tt: sorted(coco.convert(val)) for tt, val in inputs.items()}
+
+    input_error = 23.8
+
+    with pytest.raises(TypeError) as e_sys:
+        coco.convert(input_error)
+
+
 def test_get_correspondance_dict_standard():
     """Standard test case for get_correspondence_dict method"""
     classA = "EXIO1"
@@ -563,6 +586,13 @@ def test_fao_number_codes():
     assert 223 == cc.convert("TUR", to="FAOcode")
     assert 67 == cc.convert("FIN", to="FAOcode")
     assert 117 == cc.convert("KOR", to="FAOcode")
+
+
+def test_GBD_codes():
+    cc = coco.CountryConverter()
+    assert 35 == cc.convert("Georgia", to="GBDcode")
+    assert 6 == cc.convert("China", to="GBDcode")
+    assert 92 == cc.convert("Spain", to="GBDcode")
 
 
 def test_non_matchingn():

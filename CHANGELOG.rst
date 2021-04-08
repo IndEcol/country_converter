@@ -1,8 +1,14 @@
 Change Log
 ===========
 
-0.7.3 - dev
+0.7.3 - 20210408
 ----------------
+
+Classifications
+^^^^^^^^^^^^^^^^
+
+* added GBDcode (numerical Global Burden of Disease codes)
+
 
 Bug Fixes
 ^^^^^^^^^
@@ -10,6 +16,9 @@ Bug Fixes
 * Update for regex for several regions which erroneous matched countries (solves #86)
 * CLI help fix (solves #81)
 * Added HKSAR for Hong Kong, N.Korea for North Korea and some Macaou tests (solves #84)
+* Fixed for pandas Series inputs (solves #54)
+* Fixed aggregation concordance (solves #82)
+* Indiana does not match India
 
 
 Development

@@ -1,257 +1,257 @@
-name_short	name_official	regex	ISO2	ISO3	ISOnumeric	UNcode	FAOcode	continent	UNregion	EXIO1	EXIO2	EXIO3	WIOD	Eora	MESSAGE	IMAGE	REMIND	OECD	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	EURO	UN	UNmember	obsolete	Cecilia2050	BRIC	APEC	BASIC	CIS	G7	G20
-Afghanistan	Islamic Republic of Afghanistan	afghan	AF	AFG	4	4	2	Asia	Southern Asia	WW	WA	WA	RoW	AFG	SAS	Rest of South Asia	OAS												1946	1946		RoW						
-Aland Islands	Åland Islands	\b(a|å)land	AX	ALA	248	248	284	Europe	Northern Europe	WW	WE	WE	RoW	ALA			EUR															RoW						
-Albania	Republic of Albania	albania	AL	ALB	8	8	3	Europe	Southern Europe	WW	WE	WE	RoW	ALB	EEU	Central Europe	NEU												1955	1955		RoW						
-Algeria	People's Democratic Republic of Algeria	algeria	DZ	DZA	12	12	4	Africa	Northern Africa	WW	WF	WF	RoW	DZA	MEA	Northern Africa	MEA												1962	1962		RoW						
-American Samoa	American Samoa	^(?=.*americ).*samoa	AS	ASM	16	16	5	Oceania	Polynesia	WW	WA	WA	RoW	ASM	PAS	Oceania	OAS															RoW						
-Andorra	Principality of Andorra	andorra	AD	AND	20	20	6	Europe	Southern Europe	WW	WE	WE	RoW	AND	WEU	Western Europe	NEU												1993	1993		RoW						
-Angola	Republic of Angola	angola	AO	AGO	24	24	7	Africa	Middle Africa	WW	WF	WF	RoW	AGO	AFR	Rest of Southern Africa	SSA												1976	1976		RoW						
-Anguilla	Anguilla	anguill?a	AI	AIA	660	660	258	America	Caribbean	WW	WL	WL	RoW	AIA		Central America	LAM															RoW						
-Antarctica	Antarctica	antarctica	AQ	ATA	10	10	30	Antarctica	Antarctica	WW	WA	WA	RoW				LAM															RoW						
-Antigua and Barbuda	Antigua and Barbuda	antigua	AG	ATG	28	28	8	America	Caribbean	WW	WL	WL	RoW	ATG	LAC		LAM												1981	1981		RoW						
-Argentina	Argentine Republic	argentin	AR	ARG	32	32	9	America	South America	WW	WL	WL	RoW	ARG	LAC	Rest of South America	LAM												1945	1945		RoW						G20
-Armenia	Republic of Armenia	armenia	AM	ARM	51	51	1	Asia	Western Asia	WW	WA	WA	RoW	ARM	FSU	Russia region	REF												1992	1992		RoW				CIS		
-Aruba	Aruba	^(?!.*bonaire).*\baruba	AW	ABW	533	533	22	America	Caribbean	WW	WL	WL	RoW	ABW		Central America	LAM															RoW						
-Australia	Commonwealth of Australia	australia	AU	AUS	36	36	10	Oceania	Australia and New Zealand	AU	AU	AU	AUS	AUS	PAO	Oceania	CAZ	1971											1945	1945		HI		APEC				G20
-Austria	Republic of Austria	austria	AT	AUT	40	40	11	Europe	Western Europe	AT	AT	AT	AUT	AUT	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen	1999	1955	1955		EU						G20
-Azerbaijan	Republic of Azerbaijan	azerbaijan	AZ	AZE	31	31	52	Asia	Western Asia	WW	WA	WA	RoW	AZE	FSU	Russia region	REF												1992	1992		RoW				CIS		
-Bahamas	Commonwealth of the Bahamas	bahamas	BS	BHS	44	44	12	America	Caribbean	WW	WL	WL	RoW	BHS	LAC	Central America	LAM												1973	1973		RoW						
-Bahrain	Kingdom of Bahrain	bahrain	BH	BHR	48	48	13	Asia	Western Asia	WW	WM	WM	RoW	BHR	MEA	Middle East	MEA												1971	1971		RoW						
-Bangladesh	People's Republic of Bangladesh	bangladesh|^(?=.*east).*paki?stan	BD	BGD	50	50	16	Asia	Southern Asia	WW	WA	WA	RoW	BGD	SAS	Rest of South Asia	OAS												1974	1974		RoW						
-Barbados	Barbados	barbados	BB	BRB	52	52	14	America	Caribbean	WW	WL	WL	RoW	BRB	LAC	Central America	LAM												1966	1966		RoW						
-Belarus	Republic of Belarus	belarus|byelo	BY	BLR	112	112	57	Europe	Eastern Europe	WW	WE	WE	RoW	BLR	FSU	Ukraine region	REF												1945	1945		RoW				CIS		
-Belgium	Kingdom of Belgium	^(?!.*luxem).*belgium	BE	BEL	56	56	255	Europe	Western Europe	BE	BE	BE	BEL	BEL	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU						G20
-Belize	Belize	belize|^(?=.*british).*honduras	BZ	BLZ	84	84	23	America	Central America	WW	WL	WL	RoW	BLZ	LAC	Central America	LAM												1981	1981		RoW						
-Benin	Republic of Benin	benin|dahome	BJ	BEN	204	204	53	Africa	Western Africa	WW	WF	WF	RoW	BEN	AFR	Western Africa	SSA												1960	1960		RoW						
-Bermuda	Bermuda	bermuda	BM	BMU	60	60	17	America	Northern America	WW	WL	WL	RoW	BMU	LAC	Central America	LAM															RoW						
-Bhutan	Kingdom of Bhutan	bhutan	BT	BTN	64	64	18	Asia	Southern Asia	WW	WA	WA	RoW	BTN	SAS	Rest of South Asia	OAS												1971	1971		RoW						
-Bolivia	Plurinational State of Bolivia	bolivia	BO	BOL	68	68	19	America	South America	WW	WL	WL	RoW	BOL	LAC	Rest of South America	LAM												1945	1945		RoW						
-Bonaire, Saint Eustatius and Saba	Bonaire, Saint Eustatius and Saba	^(?=.*bonaire).*eustatius|^(?=.*carib).*netherlands|\bbes.?islands	BQ	BES	535	535	278	America	Caribbean	WW	WL	WL	RoW				LAM															RoW						
-Bosnia and Herzegovina	Bosnia and Herzegovina	herzegovina|bosnia	BA	BIH	70	70	80	Europe	Southern Europe	WW	WE	WE	RoW	BIH	EEU	Central Europe	NEU												1992	1992		RoW						
-Botswana	Republic of Botswana	botswana|bechuana	BW	BWA	72	72	20	Africa	Southern Africa	WW	WF	WF	RoW	BWA	AFR	Rest of Southern Africa	SSA												1966	1966		RoW						
-Bouvet Island	Bouvet Island	bouvet	BV	BVT	74	74	31	Antarctica	South America	WW	WA	WA	RoW				LAM															RoW						
-Brazil	Federative Republic of Brazil	brazil	BR	BRA	76	76	21	America	South America	BR	BR	BR	BRA	BRA	LAC	Brazil	LAM												1945	1945		BX	BRIC		BASIC			G20
-British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1				Antarctica		WW	WA	WA	RoW																		1979	RoW						
-British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	24	Africa	Eastern Africa	WW	WA	WA	RoW		AFR		OAS															RoW						
-British Virgin Islands	British Virgin Islands	^(?=.*\bu\.?\s?k).*virgin|^(?=.*br.*).*virgin|^(?=.*kingdom).*virgin|BVI	VG	VGB	92	92	239	America	Caribbean	WW	WL	WL	RoW	VGB		Central America	LAM															RoW						
-Brunei Darussalam	Nation of Brunei, Abode of Peace	brunei	BN	BRN	96	96	26	Asia	South-Eastern Asia	WW	WA	WA	RoW	BRN	PAS	Southeastern Asia	OAS												1984	1984		RoW		APEC				
-Bulgaria	Republic of Bulgaria	bulgaria	BG	BGR	100	100	27	Europe	Eastern Europe	BG	BG	BG	BGR	BGR	EEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007				EEA			1955	1955		EU						G20
-Burkina Faso	Burkina Faso	burkina|\bfaso|upper.?volta	BF	BFA	854	854	233	Africa	Western Africa	WW	WF	WF	RoW	BFA	AFR	Western Africa	SSA												1960	1960		RoW						
-Burundi	Republic of Burundi	burundi	BI	BDI	108	108	29	Africa	Eastern Africa	WW	WF	WF	RoW	BDI	AFR	Eastern Africa	SSA												1962	1962		RoW						
-Cabo Verde	Republic of Cabo Verde	(cabo|cape) *verde	CV	CPV	132	132	35	Africa	Western Africa	WW	WF	WF	RoW	CPV	AFR	Western Africa	SSA												1975	1975		RoW						
-Cambodia	Kingdom of Cambodia	cambodia|kampuchea|khmer|^p\.?r\.?k\.?$	KH	KHM	116	116	115	Asia	South-Eastern Asia	WW	WA	WA	RoW	KHM	CPA	Southeastern Asia	OAS												1955	1955		RoW						
-Cameroon	Republic of Cameroon	cameroon	CM	CMR	120	120	32	Africa	Middle Africa	WW	WF	WF	RoW	CMR	AFR	Western Africa	SSA												1960	1960		RoW						
-Canada	Canada	canada	CA	CAN	124	124	33	America	Northern America	CA	CA	CA	CAN	CAN	NAM	Canada	CAZ	1961											1945	1945		HI		APEC			G7	G20
-Cayman Islands	Cayman Islands	cayman	KY	CYM	136	136	36	America	Caribbean	WW	WL	WL	RoW	CYM		Central America	LAM															RoW						
-Central African Republic	Central African Republic	central.?african.?rep.*	CF	CAF	140	140	37	Africa	Middle Africa	WW	WF	WF	RoW	CAF	AFR	Western Africa	SSA												1960	1960		RoW						
-Chad	Republic of Chad	\bchad	TD	TCD	148	148	39	Africa	Middle Africa	WW	WF	WF	RoW	TCD	AFR	Western Africa	SSA												1960	1960		RoW						
-Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	259	Europe	Northern Europe	WW	WE	WE	RoW		WEU											EEA					2006	RoW						
-Chile	Republic of Chile	\bchile	CL	CHL	152	152	40	America	South America	WW	WL	WL	RoW	CHL	LAC	Rest of South America	LAM	2010											1945	1945		RoW		APEC				
-China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	351	Asia	Eastern Asia	CN	CN	CN	CHN	CHN	CPA	China region	CHA												1945	1945		BX	BRIC	APEC	BASIC			G20
-Christmas Island	Christmas Island	christmas	CX	CXR	162	162	42	Asia	Australia and New Zealand	WW	WA	WA	RoW				OAS															RoW						
-Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166	166	43	Asia	Australia and New Zealand	WW	WA	WA	RoW				OAS															RoW						
-Colombia	Republic of Colombia	colombia	CO	COL	170	170	44	America	South America	WW	WL	WL	RoW	COL	LAC	Rest of South America	LAM	2020											1945	1945		RoW						
-Comoros	Union of the Comoros	comoro	KM	COM	174	174	45	Africa	Eastern Africa	WW	WF	WF	RoW	COM	AFR	Eastern Africa	SSA												1975	1975		RoW						
-Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo[,;\s]*(?!.*dem)rep.*?$|^congo$|\bcongo.*brazza.*	CG	COG	178	178	46	Africa	Middle Africa	WW	WF	WF	RoW	COG	AFR	Western Africa	SSA												1960	1960		RoW						
-Cook Islands	Cook Islands	\bcook	CK	COK	184	184	47	Oceania	Polynesia	WW	WA	WA	RoW	COK		Oceania	OAS															RoW						
-Costa Rica	Republic of Costa Rica	costa.?rica	CR	CRI	188	188	48	America	Central America	WW	WL	WL	RoW	CRI	LAC	Central America	LAM												1945	1945		RoW						
-Cote d'Ivoire	Republic of Côte d'Ivoire	.*(ivoire|ivory)	CI	CIV	384	384	107	Africa	Western Africa	WW	WF	WF	RoW	CIV	AFR	Western Africa	SSA												1960	1960		RoW						
-Croatia	Republic of Croatia	croatia|hrvatska	HR	HRV	191	191	98	Europe	Southern Europe	WW	WE	HR	RoW	HRV	EEU	Central Europe	EUR		EU	EU28	EU27					EEA			1992	1992		RoW						G20
-Cuba	Republic of Cuba	\bcuba	CU	CUB	192	192	49	America	Caribbean	WW	WL	WL	RoW	CUB	LAC		LAM												1945	1945		RoW						
-Curacao	Country of Curaçao	\bcura(c|ç)ao	CW	CUW	531	531	279	America	Caribbean	WW	WL	WL	RoW				LAM															RoW						
-Cyprus	Republic of Cyprus	cyprus	CY	CYP	196	196	50	Asia	Western Asia	CY	CY	CY	CYP	CYP	WEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007	EU25			EEA		2008	1960	1960		EU						G20
-Czech Republic	Czech Republic	^(?=.*rep).*czech.*|czechia|bohemia|.*czech.*	CZ	CZE	203	203	167	Europe	Eastern Europe	CZ	CZ	CZ	CZE	CZE	EEU	Central Europe	EUR	1995	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1993	1993		EU						G20
-Denmark	Kingdom of Denmark	denmark	DK	DNK	208	208	54	Europe	Northern Europe	DK	DK	DK	DNK	DNK	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen		1945	1945		EU						G20
-Djibouti	Republic of Djibouti	djibouti	DJ	DJI	262	262	72	Africa	Eastern Africa	WW	WF	WF	RoW	DJI	AFR	Eastern Africa	SSA												1977	1977		RoW						
-Dominica	Commonwealth of Dominica	dominica(?!n)	DM	DMA	212	212	55	America	Caribbean	WW	WL	WL	RoW	DMA	LAC	Central America	LAM												1978	1978		RoW						
-Dominican Republic	Dominican Republic	dominican	DO	DOM	214	214	56	America	Caribbean	WW	WL	WL	RoW	DOM	LAC	Central America	LAM												1945	1945		RoW						
-DR Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^the\ congo$|^RDC$|^DROC$|\bcongo.*dem.*	CD	COD	180	180	250	Africa	Middle Africa	WW	WF	WF	RoW	COD	AFR	Western Africa	SSA												1960	1960		RoW						
-Ecuador	Republic of Ecuador	ecuador	EC	ECU	218	218	58	America	South America	WW	WL	WL	RoW	ECU	LAC	Rest of South America	LAM												1945	1945		RoW						
-Egypt	Arab Republic of Egypt	egypt	EG	EGY	818	818	59	Africa	Northern Africa	WW	WM	WM	RoW	EGY	MEA	Northern Africa	MEA												1945	1945		RoW						
-El Salvador	Republic of El Salvador	el.?salvador	SV	SLV	222	222	60	America	Central America	WW	WL	WL	RoW	SLV	LAC	Central America	LAM												1945	1945		RoW						
-Equatorial Guinea	Republic of Equatorial Guinea	guine.*eq|eq.*guine|^(?=.*span).*guinea	GQ	GNQ	226	226	61	Africa	Middle Africa	WW	WF	WF	RoW	GNQ	AFR	Western Africa	SSA												1968	1968		RoW						
-Eritrea	State of Eritrea	eritrea	ER	ERI	232	232	178	Africa	Eastern Africa	WW	WF	WF	RoW	ERI	AFR	Eastern Africa	SSA												1993	1993		RoW						
-Estonia	Republic of Estonia	estonia	EE	EST	233	233	63	Europe	Northern Europe	EE	EE	EE	EST	EST	EEU	Central Europe	EUR	2010	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2011	1991	1991		EU						G20
-Eswatini	Kingdom of Eswatini	swaziland|eswatini	SZ	SWZ	748	748	209	Africa	Southern Africa	WW	WF	WF	RoW	SWZ	AFR	Rest of Southern Africa	SSA												1968	1968		RoW						
-Ethiopia	Federal Democratic Republic of Ethiopia	ethiopia|abyssinia	ET	ETH	231	231	238	Africa	Eastern Africa	WW	WF	WF	RoW	ETH	AFR	Eastern Africa	SSA												1945	1945		RoW						
-Faeroe Islands	Faeroe Islands	faroe|faeroe	FO	FRO	234	234	64	Europe	Northern Europe	WW	WE	WE	RoW	FRO	WEU	Western Europe	EUR										Schengen					RoW						
-Falkland Islands	Falkland Islands (Malvinas)	falkland|malvinas	FK	FLK	238	238	65	America	South America	WW	WL	WL	RoW	FLK		Rest of South America	LAM															RoW						
-Fiji	Republic of Fiji	fiji	FJ	FJI	242	242	66	Oceania	Melanesia	WW	WA	WA	RoW	FJI	PAS	Oceania	OAS												1970	1970		RoW						
-Finland	Republic of Finland	finland	FI	FIN	246	246	67	Europe	Northern Europe	FI	FI	FI	FIN	FIN	WEU	Western Europe	EUR	1969	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen	1999	1955	1955		EU						G20
-France	French Republic	^(?!.*\bdep).*france|french.?republic|\bgaul	FR	FRA	250	250	68	Europe	Western Europe	FR	FR	FR	FRA	FRA	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU					G7	G20
-French Guiana	Guiana	^(?=.*french).*guiana|guiana	GF	GUF	254	254	69	America	South America	WW	WL	WL	RoW	GUF	LAC	Rest of South America	LAM															RoW						
-French Polynesia	French Polynesia	french.?polynesia	PF	PYF	258	258	70	Oceania	Polynesia	WW	WA	WA	RoW	PYF	PAS	Oceania	OAS															RoW						
-French Southern Territories	Territory of the French Southern and Antarctic Lands	french.?southern|\bfr.*\bso.*\ban.*\b\bt	TF	ATF	260	260	71	Africa	Eastern Africa	WW	WF	WF	RoW				OAS															RoW						
-Gabon	Gabonese Republic	gabon	GA	GAB	266	266	74	Africa	Middle Africa	WW	WF	WF	RoW	GAB	AFR	Western Africa	SSA												1960	1960		RoW						
-Gambia	Republic of the Gambia	gambia	GM	GMB	270	270	75	Africa	Western Africa	WW	WF	WF	RoW	GMB	AFR	Western Africa	SSA												1965	1965		RoW						
-Georgia	Georgia	^(?!.*south).*georgia(?!.*US.*)	GE	GEO	268	268	73	Asia	Western Asia	WW	WA	WA	RoW	GEO	FSU	Russia region	REF												1992	1992		RoW						
-Germany	Federal Republic of Germany	^(?!e|w)(fed)?.*germany(?!,? *e|,? *w)(,? *)(\bfed)?	DE	DEU	276	276	79	Europe	Western Europe	DE	DE	DE	DEU	DEU	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1973	1973		EU					G7	G20
-Ghana	Republic of Ghana	ghana|gold.?coast	GH	GHA	288	288	81	Africa	Western Africa	WW	WF	WF	RoW	GHA	AFR	Western Africa	SSA												1957	1957		RoW						
-Gibraltar	Gibraltar	gibraltar	GI	GIB	292	292	82	Europe	Southern Europe	WW	WE	WE	RoW	GIB	WEU	Western Europe	EUR									EEA						RoW						
-Greece	Hellenic Republic	greece|hellenic|hellas	GR	GRC	300	300	84	Europe	Southern Europe	GR	GR	GR	GRC	GRC	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	2001	1945	1945		EU						G20
-Greenland	Greenland	greenland	GL	GRL	304	304	85	America	Northern America	WW	WL	WL	RoW	GRL	WEU		NEU										Schengen					RoW						
-Grenada	Grenada	grenada	GD	GRD	308	308	86	America	Caribbean	WW	WL	WL	RoW	GRD	LAC	Central America	LAM												1974	1974		RoW						
-Guadeloupe	Guadeloupe	guadeloupe	GP	GLP	312	312	87	America	Caribbean	WW	WL	WL	RoW	GLP	LAC	Central America	LAM															RoW						
-Guam	Guam	\bguam	GU	GUM	316	316	88	Oceania	Micronesia	WW	WA	WA	RoW	GUM	NAM		OAS															RoW						
-Guatemala	Republic of Guatemala	guatemala	GT	GTM	320	320	89	America	Central America	WW	WL	WL	RoW	GTM	LAC	Central America	LAM												1945	1945		RoW						
-Guernsey	Guernsey	guernsey	GG	GGY	831	831		Europe	Northern Europe	WW	WE	WE	RoW	GGY			EUR									EEA						RoW						
-Guinea	Republic of Guinea	^(?!.*eq)(?!.*span)(?!.*bissau)(?!.*pap)(?!.*new)(?!p.*n.*).*guinea	GN	GIN	324	324	90	Africa	Western Africa	WW	WF	WF	RoW	GIN	AFR	Western Africa	SSA												1958	1958		RoW						
-Guinea-Bissau	Republic of Guinea-Bissau	^(.*portu).*guinea|guinea.*bissau	GW	GNB	624	624	175	Africa	Western Africa	WW	WF	WF	RoW	GNB	AFR	Western Africa	SSA												1974	1974		RoW						
-Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	91	America	South America	WW	WL	WL	RoW	GUY	LAC	Rest of South America	LAM												1966	1966		RoW						
-Haiti	Republic of Haiti	(ha(i|\xef|\xc3\xaf)ti)	HT	HTI	332	332	93	America	Caribbean	WW	WL	WL	RoW	HTI	LAC	Central America	LAM												1945	1945		RoW						
-Heard and McDonald Islands	Territory of Heard Island and McDonald Islands	heard.*mc.*donald	HM	HMD	334	334	92	Asia	Australia and New Zealand	WW	WA	WA	RoW				CAZ															RoW						
-Honduras	Republic of Honduras	^(?!.*brit).*honduras	HN	HND	340	340	95	America	Central America	WW	WL	WL	RoW	HND	LAC	Central America	LAM												1945	1945		RoW						
-Hong Kong	Hong Kong SAR	.*hong.*kong|hksar	HK	HKG	344	344	96	Asia	Eastern Asia	WW	WA	WA	RoW	HKG	CPA	China region	CHA															RoW		APEC				
-Hungary	Republic of Hungary	hungary	HU	HUN	348	348	97	Europe	Eastern Europe	HU	HU	HU	HUN	HUN	EEU	Central Europe	EUR	1996	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1955	1955		EU						G20
-Iceland	Republic of Iceland	iceland	IS	ISL	352	352	99	Europe	Northern Europe	WW	WE	WE	RoW	ISL	WEU	Western Europe	NEU	1961								EEA	Schengen		1946	1946		RoW						
-India	Republic of India	india(?!.*ocea)	IN	IND	356	356	100	Asia	Southern Asia	IN	IN	IN	IND	IND	SAS	India	IND												1945	1945		BX	BRIC		BASIC			G20
-Indonesia	Republic of Indonesia	indonesia	ID	IDN	360	360	101	Asia	South-Eastern Asia	ID	ID	ID	IDN	IDN	PAS	Indonesia region	OAS												1950	1950		BX		APEC				G20
-Iran	Islamic Republic of Iran	\biran|persia	IR	IRN	364	364	102	Asia	Southern Asia	WW	WM	WM	RoW	IRN	MEA	Middle East	MEA												1945	1945		RoW						
-Iraq	Republic of Iraq	\biraq|mesopotamia	IQ	IRQ	368	368	103	Asia	Western Asia	WW	WM	WM	RoW	IRQ	MEA	Middle East	MEA												1945	1945		RoW						
-Ireland	Ireland	^(?!.*north.*).*ireland	IE	IRL	372	372	104	Europe	Northern Europe	IE	IE	IE	IRL	IRL	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA		1999	1955	1955		EU						G20
-Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	264	Europe	Northern Europe	WW	WE	WE	RoW	IMN	WEU		EUR									EEA						RoW						
-Israel	State of Israel	israel	IL	ISR	376	376	105	Asia	Western Asia	WW	WM	WM	RoW	ISR	MEA	Middle East	MEA	2010											1949	1949		RoW						
-Italy	Italian Republic	.*italy|.*italia.*	IT	ITA	380	380	106	Europe	Southern Europe	IT	IT	IT	ITA	ITA	WEU	Western Europe	EUR	1962	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU					G7	G20
-Jamaica	Jamaica	jamaica	JM	JAM	388	388	109	America	Caribbean	WW	WL	WL	RoW	JAM	LAC	Central America	LAM												1962	1962		RoW						
-Japan	Japan	japan	JP	JPN	392	392	110	Asia	Eastern Asia	JP	JP	JP	JPN	JPN	PAO	Japan	JPN	1964											1956	1956		HI		APEC			G7	G20
-Jersey	Jersey	^(?!.*new).*jersey	JE	JEY	832	832	283	Europe	Northern Europe	WW	WE	WE	RoW	JEY			EUR									EEA						RoW						
-Jordan	Hashemite Kingdom of Jordan	jordan	JO	JOR	400	400	112	Asia	Western Asia	WW	WM	WM	RoW	JOR	MEA	Middle East	MEA												1955	1955		RoW						
-Kazakhstan	Republic of Kazakhstan	kazak	KZ	KAZ	398	398	108	Asia	Central Asia	WW	WA	WA	RoW	KAZ	FSU	Central Asia	REF												1992	1992		RoW				CIS		
-Kenya	Republic of Kenya	kenya|british.?east.?africa|east.?africa.?prot	KE	KEN	404	404	114	Africa	Eastern Africa	WW	WF	WF	RoW	KEN	AFR	Eastern Africa	SSA												1963	1963		RoW						
-Kiribati	Republic of Kiribati	kiribati	KI	KIR	296	296	83	Oceania	Micronesia	WW	WA	WA	RoW	KIR	PAS	Oceania	OAS												1999	1999		RoW						
-Kosovo	Republic of Kosovo	kosovo	XK	XKX				Europe	Southern Europe	WW	WE	WE	RoW	KSV																		RoW						
-Kuwait	State of Kuwait	kuwait	KW	KWT	414	414	118	Asia	Western Asia	WW	WM	WM	RoW	KWT	MEA	Middle East	MEA												1963	1963		RoW						
-Kyrgyz Republic	Kyrgyz Republic	kyrgyz|kirghiz	KG	KGZ	417	417	113	Asia	Central Asia	WW	WA	WA	RoW	KGZ	FSU	Central Asia	REF												1992	1992		RoW						
-Laos	Lao People's Democratic Republic	\blaos?\b	LA	LAO	418	418	120	Asia	South-Eastern Asia	WW	WA	WA	RoW	LAO	CPA	Southeastern Asia	OAS												1955	1955		RoW						
-Latvia	Republic of Latvia	latvia	LV	LVA	428	428	119	Europe	Northern Europe	LV	LV	LV	LVA	LVA	EEU	Central Europe	EUR	2016	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2014	1991	1991		EU						G20
-Lebanon	Lebanese Republic	lebanon|lebanese	LB	LBN	422	422	121	Asia	Western Asia	WW	WM	WM	RoW	LBN	MEA	Middle East	MEA												1945	1945		RoW						
-Lesotho	Kingdom of Lesotho	lesotho|basuto	LS	LSO	426	426	122	Africa	Southern Africa	WW	WF	WF	RoW	LSO	AFR	Rest of Southern Africa	SSA												1966	1966		RoW						
-Liberia	Republic of Liberia	liberia	LR	LBR	430	430	123	Africa	Western Africa	WW	WF	WF	RoW	LBR	AFR	Western Africa	SSA												1945	1945		RoW						
-Libya	State of Libya	libya	LY	LBY	434	434	124	Africa	Northern Africa	WW	WF	WF	RoW	LBY	MEA	Northern Africa	MEA												1955	1955		RoW						
-Liechtenstein	Principality of Liechtenstein	liechtenstein	LI	LIE	438	438	125	Europe	Western Europe	WW	WE	WE	RoW	LIE	WEU	Western Europe	NEU									EEA	Schengen		1990	1990		RoW						
-Lithuania	Republic of Lithuania	lithuania	LT	LTU	440	440	126	Europe	Northern Europe	LT	LT	LT	LTU	LTU	EEU	Central Europe	EUR	2018	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2015	1991	1991		EU						G20
-Luxembourg	Grand Duchy of Luxembourg	^(?!.*belg).*luxem	LU	LUX	442	442	256	Europe	Western Europe	LU	LU	LU	LUX	LUX	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU						G20
-Macau	Macau SAR	.*maca(o|u)	MO	MAC	446	446	128	Asia	Eastern Asia	WW	WA	WA	RoW	MAC		China region	CHA															RoW						
-Macedonia	Republic of Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807	807	154	Europe	Southern Europe	WW	WE	WE	RoW	MKD	EEU	Central Europe	NEU												1993	1993		RoW						
-Madagascar	Republic of Madagascar	madagascar|malagasy	MG	MDG	450	450	129	Africa	Eastern Africa	WW	WF	WF	RoW	MDG	AFR	Eastern Africa	SSA												1960	1960		RoW						
-Malawi	Republic of Malawi	malawi|nyasa	MW	MWI	454	454	130	Africa	Eastern Africa	WW	WF	WF	RoW	MWI	AFR	Rest of Southern Africa	SSA												1964	1964		RoW						
-Malaysia	Malaysia	malaysia	MY	MYS	458	458	131	Asia	South-Eastern Asia	WW	WA	WA	RoW	MYS	PAS	Southeastern Asia	OAS												1957	1957		RoW		APEC				
-Maldives	Republic of Maldives	maldive	MV	MDV	462	462	132	Asia	Southern Asia	WW	WA	WA	RoW	MDV	SAS	Rest of South Asia	OAS												1965	1965		RoW						
-Mali	Republic of Mali	\bmali\b	ML	MLI	466	466	133	Africa	Western Africa	WW	WF	WF	RoW	MLI	AFR	Western Africa	SSA												1960	1960		RoW						
-Malta	Republic of Malta	\bmalta	MT	MLT	470	470	134	Europe	Southern Europe	MT	MT	MT	MLT	MLT	WEU	Western Europe	EUR		EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2008	1964	1964		EU						G20
-Marshall Islands	Republic of the Marshall Islands	marshall	MH	MHL	584	584	127	Oceania	Micronesia	WW	WA	WA	RoW	MHL		Oceania	OAS												1991	1991		RoW						
-Martinique	Martinique	martinique	MQ	MTQ	474	474	135	America	Caribbean	WW	WL	WL	RoW	MTQ	LAC	Central America	LAM															RoW						
-Mauritania	Islamic Republic of Mauritania	mauritania	MR	MRT	478	478	136	Africa	Western Africa	WW	WF	WF	RoW	MRT	AFR	Western Africa	SSA												1961	1961		RoW						
-Mauritius	Republic of Mauritius	mauritius	MU	MUS	480	480	137	Africa	Eastern Africa	WW	WF	WF	RoW	MUS	AFR	Eastern Africa	SSA												1968	1968		RoW						
-Mayotte	Mayotte	mayotte	YT	MYT	175	175	270	Africa	Eastern Africa	WW	WF	WF	RoW	MYT			SSA															RoW						
-Mexico	United Mexican States	^(?!.*new).*mexi(?!.*city)	MX	MEX	484	484	138	America	Central America	MX	MX	MX	MEX	MEX	LAC	Mexico	LAM	1994											1945	1945		BX		APEC				G20
-Micronesia, Fed. Sts.	Federated States of Micronesia	micronesia	FM	FSM	583	583	145	Oceania	Micronesia	WW	WA	WA	RoW	FSM		Oceania	OAS												1991	1991		RoW						
-Moldova	Republic of Moldova	moldov|b(a|e)ssarabia	MD	MDA	498	498	146	Europe	Eastern Europe	WW	WE	WE	RoW	MDA	FSU	Ukraine region	REF												1992	1992		RoW				CIS		
-Monaco	Principality of Monaco	monaco	MC	MCO	492	492	140	Europe	Western Europe	WW	WE	WE	RoW	MCO	WEU	Western Europe	NEU												1993	1993		RoW						
-Mongolia	Mongolia	mongolia	MN	MNG	496	496	141	Asia	Eastern Asia	WW	WA	WA	RoW	MNG	CPA	China region	OAS												1961	1961		RoW						
-Montenegro	Montenegro	^(?!.*serbia).*montenegro	ME	MNE	499	499	273	Europe	Southern Europe	WW	WE	WE	RoW	MNE		Central Europe	NEU												2006	2006		RoW						
-Montserrat	Montserrat	montserrat	MS	MSR	500	500	142	America	Caribbean	WW	WL	WL	RoW	MSR		Central America	LAM															RoW						
-Morocco	Kingdom of Morocco	morocco|\bmaroc	MA	MAR	504	504	143	Africa	Northern Africa	WW	WF	WF	RoW	MAR	MEA	Northern Africa	MEA												1956	1956		RoW						
-Mozambique	Republic of Mozambique	mozambique	MZ	MOZ	508	508	144	Africa	Eastern Africa	WW	WF	WF	RoW	MOZ	AFR	Rest of Southern Africa	SSA												1975	1975		RoW						
-Myanmar	Republic of the Union of Myanmar	myanmar|burma	MM	MMR	104	104	28	Asia	Eastern Asia	WW	WA	WA	RoW	MMR	PAS	Southeastern Asia	OAS												1948	1948		RoW						
-Namibia	Republic of Namibia	namibia	NA	NAM	516	516	147	Africa	Southern Africa	WW	WF	WF	RoW	NAM	AFR	Rest of Southern Africa	SSA												1990	1990		RoW						
-Nauru	Republic of Nauru	nauru	NR	NRU	520	520	148	Oceania	Polynesia	WW	WA	WA	RoW	NRU		Oceania	OAS												1999	1999		RoW						
-Nepal	Federal Democratic Republic of Nepal	nepal	NP	NPL	524	524	149	Asia	Southern Asia	WW	WA	WA	RoW	NPL	SAS	Rest of South Asia	OAS												1955	1955		RoW						
-Netherlands	Kingdom of the Netherlands	^(?!.*\bant)(?!.*\bcarib).*netherlands	NL	NLD	528	528	150	Europe	Western Europe	NL	NL	NL	NLD	NLD	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU						G20
-Netherlands Antilles	Netherlands Antilles	^(?=.*\bant).*(neth.*|dutch)	AN	ANT	530		151	America		WW	WL	WL	RoW	ANT	LAC	Central America															2010	RoW						
-New Caledonia	New Caledonia	new.?caledonia	NC	NCL	540	540	153	Oceania	Melanesia	WW	WA	WA	RoW	NCL	PAS	Oceania	OAS															RoW						
-New Zealand	New Zealand	(new|n).*zealand	NZ	NZL	554	554	156	Oceania	Australia and New Zealand	WW	WA	WA	RoW	NZL	PAO	Oceania	CAZ	1973											1945	1945		RoW		APEC				
-Nicaragua	Republic of Nicaragua	nicaragua	NI	NIC	558	558	157	America	Central America	WW	WL	WL	RoW	NIC	LAC	Central America	LAM												1945	1945		RoW						
-Niger	Republic of Niger	\bniger(?!ia)	NE	NER	562	562	158	Africa	Western Africa	WW	WF	WF	RoW	NER	AFR	Western Africa	SSA												1960	1960		RoW						
-Nigeria	Federal Republic of Nigeria	nigeria	NG	NGA	566	566	159	Africa	Western Africa	WW	WF	WF	RoW	NGA	AFR	Western Africa	SSA												1960	1960		RoW						
-Niue	Niue	niue	NU	NIU	570	570	160	Oceania	Polynesia	WW	WA	WA	RoW	NIU		Oceania	OAS															RoW						
-Norfolk Island	Norfolk Island	norfolk.*is	NF	NFK	574	574	161	Oceania	Australia and New Zealand	WW	WA	WA	RoW	NFK			OAS															RoW						
-North Korea	Democratic People's Republic of Korea	^(?=.*dem).*\bkorea|^(?=.*peo).*\bkorea|^(?=.*nor).*\bkorea|\bd\.?p\.?r\.|.*dpr.*|^(?=.*n\.).*\bkorea	KP	PRK	408	408	116	Asia	Eastern Asia	WW	WA	WA	RoW	PRK	CPA	Korea region	OAS												1991	1991		RoW						
-Northern Mariana Islands	Northern Mariana Islands	mariana	MP	MNP	580	580	163	Oceania	Micronesia	WW	WA	WA	RoW	MNP		Oceania	OAS															RoW						
-Norway	Kingdom of Norway	norway	NO	NOR	578	578	162	Europe	Northern Europe	NO	NO	NO	RoW	NOR	WEU	Western Europe	NEU	1961								EEA	Schengen		1945	1945		HI						
-Oman	Sultanate of Oman	\boman|trucial	OM	OMN	512	512	221	Asia	Western Asia	WW	WM	WM	RoW	OMN	MEA	Middle East	MEA												1971	1971		RoW						
-Pakistan	Islamic Republic of Pakistan	^(?!.*east).*paki?stan	PK	PAK	586	586	165	Asia	Southern Asia	WW	WA	WA	RoW	PAK	SAS	Rest of South Asia	OAS												1947	1947		RoW						
-Palau	Republic of Palau	palau	PW	PLW	585	585	180	Oceania	Micronesia	WW	WA	WA	RoW	PLW		Oceania	OAS												1994	1994		RoW						
-Palestine	State of Palestine	palestin|\bgaza|west.?bank	PS	PSE	275	275	299	Asia	Western Asia	WW	WM	WM	RoW	PSE			MEA															RoW						
-Panama	Republic of Panama	panama	PA	PAN	591	591	166	America	Central America	WW	WL	WL	RoW	PAN	LAC	Central America	LAM												1945	1945		RoW						
-Papua New Guinea	Independent State of Papua New Guinea	\bp.*\bn.*\bguin.*|^p\.?n\.?g\.?$|new.?guinea	PG	PNG	598	598	168	Oceania	Melanesia	WW	WA	WA	RoW	PNG	PAS	Indonesia region	OAS												1975	1975		RoW		APEC				
-Paraguay	Republic of Paraguay	paraguay	PY	PRY	600	600	169	America	South America	WW	WL	WL	RoW	PRY	LAC	Rest of South America	LAM												1945	1945		RoW						
-Peru	Republic of Peru	peru	PE	PER	604	604	170	America	South America	WW	WL	WL	RoW	PER	LAC	Rest of South America	LAM												1945	1945		RoW		APEC				
-Philippines	Republic of the Philippines	philippines	PH	PHL	608	608	171	Asia	South-Eastern Asia	WW	WA	WA	RoW	PHL	PAS	Southeastern Asia	OAS												1945	1945		RoW		APEC				
-Pitcairn	Pitcairn	pitcairn	PN	PCN	612	612	172	Oceania	Polynesia	WW	WA	WA	RoW	PCN		Oceania	OAS															RoW						
-Poland	Republic of Poland	poland	PL	POL	616	616	173	Europe	Eastern Europe	PL	PL	PL	POL	POL	EEU	Central Europe	EUR	1996	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1945	1945		EU						G20
-Portugal	Portuguese Republic	portugal|portuguese	PT	PRT	620	620	174	Europe	Southern Europe	PT	PT	PT	PRT	PRT	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU						G20
-Puerto Rico	Puerto Rico	puerto.?rico	PR	PRI	630	630	177	America	Caribbean	WW	WL	WL	RoW		NAM	Central America	LAM															RoW						
-Qatar	State of Qatar	qatar	QA	QAT	634	634	179	Asia	Western Asia	WW	WM	WM	RoW	QAT	MEA	Middle East	MEA												1971	1971		RoW						
-Reunion	Reunion	reunion|réunion	RE	REU	638	638	182	Africa	Eastern Africa	WW	WF	WF	RoW	REU	AFR	Eastern Africa	SSA															RoW						
-Romania	Romania	r(o|u|ou)mania	RO	ROU	642	642	183	Europe	Eastern Europe	RO	RO	RO	ROU	ROU	EEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007				EEA			1955	1955		EU						G20
-Russia	Russian Federation	\brussia	RU	RUS	643	643	185	Europe	Eastern Europe	RU	RU	RU	RUS	RUS	FSU	Russia region	REF												1945	1945		BX	BRIC	APEC		CIS		G20
-Rwanda	Republic of Rwanda	rwanda	RW	RWA	646	646	184	Africa	Eastern Africa	WW	WF	WF	RoW	RWA	AFR	Eastern Africa	SSA												1962	1962		RoW						
-Saint-Martin	Saint-Martin (French part)	^(?!.*maarten)(?!.*saba)(?!.*dutch).*martin\b	MF	MAF	663	663	281	America	Caribbean	WW	WL	WL	RoW	MAF			LAM															RoW						
-Samoa	Independent State of Samoa	^(?!.*amer.*)samoa|(\bindep.*samoa)|^west.*samoa	WS	WSM	882	882	244	Oceania	Polynesia	WW	WA	WA	RoW	WSM	PAS	Oceania	OAS												1976	1976		RoW						
-San Marino	Republic of San Marino	san.?marino	SM	SMR	674	674	192	Europe	Southern Europe	WW	WE	WE	RoW	SMR		Western Europe	NEU												1992	1992		RoW						
-Sao Tome and Principe	Democratic Republic of São Tomé and Príncipe	tome|tomé	ST	STP	678	678	193	Africa	Middle Africa	WW	WF	WF	RoW	STP	AFR	Western Africa	SSA												1975	1975		RoW						
-Saudi Arabia	Kingdom of Saudi Arabia	\bsa\w*.?arabia	SA	SAU	682	682	194	Asia	Western Asia	WW	WM	WM	RoW	SAU	MEA	Middle East	MEA												1945	1945		RoW						G20
-Senegal	Republic of Senegal	senegal	SN	SEN	686	686	195	Africa	Western Africa	WW	WF	WF	RoW	SEN	AFR	Western Africa	SSA												1960	1960		RoW						
-Serbia	Republic of Serbia	^(?!.*monte).*serbia.*	RS	SRB	688	688	272	Europe	Southern Europe	WW	WE	WE	RoW	SRB		Central Europe	NEU												2000	2000		RoW						
-Seychelles	Republic of Seychelles	seychell	SC	SYC	690	690	196	Africa	Eastern Africa	WW	WF	WF	RoW	SYC	AFR	Eastern Africa	SSA												1976	1976		RoW						
-Sierra Leone	Republic of Sierra Leone	sierra	SL	SLE	694	694	197	Africa	Western Africa	WW	WF	WF	RoW	SLE	AFR	Western Africa	SSA												1961	1961		RoW						
-Singapore	Republic of Singapore	singapore	SG	SGP	702	702	200	Asia	South-Eastern Asia	WW	WA	WA	RoW	SGP	PAS	Southeastern Asia	OAS												1965	1965		RoW		APEC				
-Sint Maarten	Sint Maarten (Dutch part)	^(?!.*martin)(?!.*saba).*maarten|dutch.*martin|martin.*dutch	SX	SXM	534	534	280	America	Caribbean	WW	WL	WL	RoW				LAM															RoW						
-Slovakia	Slovak Republic	^(?!.*cze).*slovak	SK	SVK	703	703	199	Europe	Eastern Europe	SK	SK	SK	SVK	SVK	EEU	Central Europe	EUR	2000	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2009	1993	1993		EU						G20
-Slovenia	Republic of Slovenia	slovenia	SI	SVN	705	705	198	Europe	Southern Europe	SI	SI	SI	SVN	SVN	EEU	Central Europe	EUR	2010	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2007	1992	1992		EU						G20
-Solomon Islands	Solomon Islands	solomon	SB	SLB	90	90	25	Oceania	Melanesia	WW	WA	WA	RoW	SLB	PAS	Oceania	OAS												1978	1978		RoW						
-Somalia	Federal Republic of Somalia	somali	SO	SOM	706	706	201	Africa	Eastern Africa	WW	WF	WF	RoW	SOM	AFR	Eastern Africa	SSA												1960	1960		RoW						
-South Africa	Republic of South Africa	\bs(\.|outh)(?!.*sahar).*africa|^r\.?s\.?a\.?$	ZA	ZAF	710	710	202	Africa	Southern Africa	ZA	ZA	ZA	RoW	ZAF	AFR	South Africa	SSA												1945	1945		BX			BASIC			G20
-South Georgia and South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239	239	271	Antarctica	South America	WW	WA	WA	RoW				LAM															RoW						
-South Korea	Republic of Korea	^(?!.*dem)(?!.*peo)(?!.*nor)(?!.*n\.)(?!.*dpr)(?!d\.p\.r).*\bkorea|\br\.?o\.?k\b	KR	KOR	410	410	117	Asia	Eastern Asia	KR	KR	KR	KOR	KOR	PAS	Korea region	OAS	1996											1991	1991		HI		APEC				G20
-South Sudan	Republic of South Sudan	\bs\w*.?sudan	SS	SSD	728	728	277	Africa	Eastern Africa	WW	WF	WF	RoW	SDS			SSA												2011	2011		RoW						
-Soviet Union (former)	Union of Soviet Socialist Republics (former)	USSR|soviet	SU	SUN	810	810		Europe	Eastern Europe	WW	WE	WE	RoW	USR																	1992	RoW						
-Spain	Kingdom of Spain	spain	ES	ESP	724	724	203	Europe	Southern Europe	ES	ES	ES	ESP	ESP	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU						G20
-Sri Lanka	Democratic Socialist Republic of Sri Lanka	sri.?lanka|ceylon	LK	LKA	144	144	38	Asia	Southern Asia	WW	WA	WA	RoW	LKA	SAS	Rest of South Asia	OAS												1955	1955		RoW						
-St. Barths	Territorial collectivity of Saint-Barthélemy	barth|barts	BL	BLM	652	652	282	America	Caribbean	WW	WL	WL	RoW	BLM			LAM															RoW						
-St. Helena	Saint Helena, Ascension and Tristan da Cunha	helena	SH	SHN	654	654	187	Africa	Western Africa	WW	WF	WF	RoW	SHN	AFR	Western Africa	SSA															RoW						
-St. Kitts and Nevis	Saint Kitts and Nevis	kitts|\bnevis	KN	KNA	659	659	188	America	Caribbean	WW	WL	WL	RoW	KNA	LAC	Central America	LAM												1983	1983		RoW						
-St. Lucia	Saint Lucia	\blucia	LC	LCA	662	662	189	America	Caribbean	WW	WL	WL	RoW	LCA	LAC	Central America	LAM												1979	1979		RoW						
-St. Pierre and Miquelon	Saint Pierre and Miquelon	miquelon	PM	SPM	666	666	190	America	Northern America	WW	WL	WL	RoW	SPM		USA	CAZ															RoW						
-St. Vincent and the Grenadines	Saint Vincent and the Grenadines	vincent	VC	VCT	670	670	191	America	Caribbean	WW	WL	WL	RoW	VCT	LAC	Central America	LAM												1980	1980		RoW						
-Sudan	Republic of the Sudan	^(?!.*\bs(?!u)).*sudan	SD	SDN	729	729		Africa	Northern Africa	WW	WF	WF	RoW	SUD	MEA	Eastern Africa	MEA												1956	1956		RoW						
-Suriname	Republic of Suriname	surinam|dutch.?guiana	SR	SUR	740	740	207	America	South America	WW	WL	WL	RoW	SUR	LAC	Rest of South America	LAM												1975	1975		RoW						
-Svalbard and Jan Mayen Islands	Svalbard and Jan Mayen Islands	^(?!norway).*svalbard	SJ	SJM	744	744	260	Europe	Northern Europe	WW	WE	WE	RoW	SJM			NEU															RoW						
-Sweden	Kingdom of Sweden	swedish|sweden(?!.*except)	SE	SWE	752	752	210	Europe	Northern Europe	SE	SE	SE	SWE	SWE	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen		1946	1946		EU						G20
-Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	211	Europe	Western Europe	CH	CH	CH	RoW	CHE	WEU	Western Europe	NEU	1961								EEA	Schengen		2002	2002		HI						
-Syria	Syrian Arab Republic	syria	SY	SYR	760	760	212	Asia	Western Asia	WW	WM	WM	RoW	SYR	MEA	Middle East	MEA												1945	1945		RoW						
-Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$|^taiwan r\.?o\.?c\.?$	TW	TWN	158		214	Asia	Eastern Asia	TW	TW	TW	TWN	TWN	PAS	China region	CHA															HI		APEC				
-Tajikistan	Republic of Tajikistan	tajik	TJ	TJK	762	762	208	Asia	Central Asia	WW	WA	WA	RoW	TJK	FSU	Central Asia	REF												1992	1992		RoW				CIS		
-Tanganjika	Republic of Tanganyika	tanganjika|tanganyika		EAT				Africa	Eastern Africa	WW	WF	WF	RoW																		1964	RoW						
-Tanzania	United Republic of Tanzania	tanzania(?!: zan.*)	TZ	TZA	834	834	215	Africa	Eastern Africa	WW	WF	WF	RoW	TZA	AFR	Rest of Southern Africa	SSA												1961	1961		RoW						
-Thailand	Kingdom of Thailand	thailand|\bsiam	TH	THA	764	764	216	Asia	South-Eastern Asia	WW	WA	WA	RoW	THA	PAS	Southeastern Asia	OAS												1946	1946		RoW		APEC				
-Timor-Leste	Democratic Republic of Timor-Leste	^(?=.*leste).*timor|^(?=.*east).*timor	TL	TLS	626	626	176	Asia	South-Eastern Asia	WW	WA	WA	RoW	TLS		Indonesia region	OAS												2002	2002		RoW						
-Togo	Togolese Republic	togo	TG	TGO	768	768	217	Africa	Western Africa	WW	WF	WF	RoW	TGO	AFR	Western Africa	SSA												1960	1960		RoW						
-Tokelau	Tokelau	tokelau	TK	TKL	772	772	218	Oceania	Polynesia	WW	WA	WA	RoW	TKL		Oceania	OAS															RoW						
-Tonga	Kingdom of Tonga	tonga	TO	TON	776	776	219	Oceania	Polynesia	WW	WA	WA	RoW	TON	PAS	Oceania	OAS												1999	1999		RoW						
-Trinidad and Tobago	Republic of Trinidad and Tobago	trinidad|tobago	TT	TTO	780	780	220	America	Caribbean	WW	WL	WL	RoW	TTO	LAC	Central America	LAM												1962	1962		RoW						
-Tunisia	Republic of Tunisia	tunisia	TN	TUN	788	788	222	Africa	Northern Africa	WW	WF	WF	RoW	TUN	MEA	Northern Africa	MEA												1956	1956		RoW						
-Turkey	Republic of Turkey	turkey	TR	TUR	792	792	223	Asia	Western Asia	TR	TR	TR	TUR	TUR	WEU	Turkey	NEU	1961											1945	1945		BX						G20
-Turkmenistan	Turkmenistan	turk-?men	TM	TKM	795	795	213	Asia	Central Asia	WW	WA	WA	RoW	TKM	FSU	Central Asia	REF												1992	1992		RoW						
-Turks and Caicos Islands	Turks and Caicos Islands	turks	TC	TCA	796	796	224	America	Caribbean	WW	WL	WL	RoW	TCA		Central America	LAM															RoW						
-Tuvalu	Tuvalu	tuvalu	TV	TUV	798	798	227	Oceania	Polynesia	WW	WA	WA	RoW	TUV		Oceania	OAS												2000	2000		RoW						
-Uganda	Republic of Uganda	uganda	UG	UGA	800	800	226	Africa	Eastern Africa	WW	WF	WF	RoW	UGA	AFR	Eastern Africa	SSA												1962	1962		RoW						
-Ukraine	Ukraine	ukrain	UA	UKR	804	804	230	Europe	Eastern Europe	WW	WE	WE	RoW	UKR	FSU	Ukraine region	REF												1945	1945		RoW						
-United Arab Emirates	United Arab Emirates	emirates|^u\.?a\.?e\.?$|united.?arab.?em	AE	ARE	784	784	225	Asia	Western Asia	WW	WM	WM	RoW	ARE	MEA	Middle East	MEA												1971	1971		RoW						
-United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|gb)	GB	GBR	826	826	229	Europe	Northern Europe	GB	GB	GB	GBR	GBR	WEU	Western Europe	EUR	1961		EU28		EU27_2007	EU25	EU15	EU12	EEA			1945	1945		EU					G7	G20
-United States	United States of America	^(?!.*islands).*united.?states|^u\.?s\.?a\.?$|^u\.?s\.?$	US	USA	840	840	231	America	Northern America	US	US	US	USA	USA	NAM	USA	USA	1961											1945	1945		HI		APEC			G7	G20
-United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581	581	232	Oceania	Micronesia	WW	WA	WA	RoW				OAS															RoW						
-United States Virgin Islands	Virgin Islands of the United States	^(?=.*\bu\.?\s?s).*virgin|^(?=.*states).*virgin	VI	VIR	850	850	240	America	Caribbean	WW	WL	WL	RoW	VIR	NAM	Central America	LAM															RoW						
-Uruguay	Oriental Republic of Uruguay	uruguay	UY	URY	858	858	234	America	South America	WW	WL	WL	RoW	URY	LAC	Rest of South America	LAM												1945	1945		RoW						
-Uzbekistan	Republic of Uzbekistan	uzbek	UZ	UZB	860	860	235	Asia	Central Asia	WW	WA	WA	RoW	UZB	FSU	Central Asia	REF												1992	1992		RoW				CIS		
-Vanuatu	Republic of Vanuatu	vanuatu|new.?hebrides	VU	VUT	548	548	155	Oceania	Melanesia	WW	WA	WA	RoW	VUT	PAS	Oceania	OAS												1981	1981		RoW						
-Vatican	Vatican City State	holy.?see|vatican|papal.?st	VA	VAT	336	336	94	Europe	Southern Europe	WW	WE	WE	RoW	VAT		Western Europe	NEU															RoW						
-Venezuela	Bolivarian Republic of Venezuela	venezuela	VE	VEN	862	862	236	America	South America	WW	WL	WL	RoW	VEN	LAC	Rest of South America	LAM												1945	1945		RoW						
-Vietnam	Socialist Republic of Vietnam	^((?!n|s|.*republic)|(?=.*socialist)).*viet.?nam(?! *,? *n| *,? *s)	VN	VNM	704	704	237	Asia	South-Eastern Asia	WW	WA	WA	RoW	VNM	CPA	Southeastern Asia	OAS												1977	1977		RoW		APEC				
-Wallis and Futuna Islands	Wallis and Futuna Islands	futuna|wallis	WF	WLF	876	876	243	Oceania	Polynesia	WW	WA	WA	RoW	WLF		Oceania	OAS															RoW						
-Western Sahara	Western Sahara	\bw.*sahara	EH	ESH	732	732	205	Africa	Northern Africa	WW	WF	WF	RoW	ESH		Northern Africa	MEA															RoW						
-Yemen	Republic of Yemen	yemen	YE	YEM	887	887	249	Asia	Western Asia	WW	WM	WM	RoW	YEM	MEA	Middle East	MEA												1947	1947		RoW						
-Zambia	Republic of Zambia	zambia|northern.?rhodesia	ZM	ZMB	894	894	251	Africa	Eastern Africa	WW	WF	WF	RoW	ZMB	AFR	Rest of Southern Africa	SSA												1964	1964		RoW						
-Zanzibar	Zanzibar	zanz|.*tanzania:?zanzibar		EAZ				Africa	Eastern Africa	WW	WF	WF	RoW																		1964	RoW						
-Zimbabwe	Republic of Zimbabwe	zimbabwe|^(?!.*northern).*rhodesia	ZW	ZWE	716	716	181	Africa	Eastern Africa	WW	WF	WF	RoW	ZWE	AFR	Rest of Southern Africa	SSA												1980	1980		RoW						
+name_short	name_official	regex	ISO2	ISO3	ISOnumeric	UNcode	FAOcode	GBDcode	continent	UNregion	EXIO1	EXIO2	EXIO3	WIOD	Eora	MESSAGE	IMAGE	REMIND	OECD	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	EURO	UN	UNmember	obsolete	Cecilia2050	BRIC	APEC	BASIC	CIS	G7	G20
+Afghanistan	Islamic Republic of Afghanistan	afghan	AF	AFG	4	4	2	160	Asia	Southern Asia	WW	WA	WA	RoW	AFG	SAS	Rest of South Asia	OAS												1946	1946		RoW						
+Aland Islands	Åland Islands	\b(a|å)land	AX	ALA	248	248	284		Europe	Northern Europe	WW	WE	WE	RoW	ALA			EUR															RoW						
+Albania	Republic of Albania	albania	AL	ALB	8	8	3	43	Europe	Southern Europe	WW	WE	WE	RoW	ALB	EEU	Central Europe	NEU												1955	1955		RoW						
+Algeria	People's Democratic Republic of Algeria	algeria	DZ	DZA	12	12	4	139	Africa	Northern Africa	WW	WF	WF	RoW	DZA	MEA	Northern Africa	MEA												1962	1962		RoW						
+American Samoa	American Samoa	^(?=.*americ).*samoa	AS	ASM	16	16	5	298	Oceania	Polynesia	WW	WA	WA	RoW	ASM	PAS	Oceania	OAS															RoW						
+Andorra	Principality of Andorra	andorra	AD	AND	20	20	6	74	Europe	Southern Europe	WW	WE	WE	RoW	AND	WEU	Western Europe	NEU												1993	1993		RoW						
+Angola	Republic of Angola	angola	AO	AGO	24	24	7	168	Africa	Middle Africa	WW	WF	WF	RoW	AGO	AFR	Rest of Southern Africa	SSA												1976	1976		RoW						
+Anguilla	Anguilla	anguill?a	AI	AIA	660	660	258		America	Caribbean	WW	WL	WL	RoW	AIA		Central America	LAM															RoW						
+Antarctica	Antarctica	antarctica	AQ	ATA	10	10	30		Antarctica	Antarctica	WW	WA	WA	RoW				LAM															RoW						
+Antigua and Barbuda	Antigua and Barbuda	antigua	AG	ATG	28	28	8	105	America	Caribbean	WW	WL	WL	RoW	ATG	LAC		LAM												1981	1981		RoW						
+Argentina	Argentine Republic	argentin	AR	ARG	32	32	9	97	America	South America	WW	WL	WL	RoW	ARG	LAC	Rest of South America	LAM												1945	1945		RoW						G20
+Armenia	Republic of Armenia	armenia	AM	ARM	51	51	1	33	Asia	Western Asia	WW	WA	WA	RoW	ARM	FSU	Russia region	REF												1992	1992		RoW				CIS		
+Aruba	Aruba	^(?!.*bonaire).*\baruba	AW	ABW	533	533	22		America	Caribbean	WW	WL	WL	RoW	ABW		Central America	LAM															RoW						
+Australia	Commonwealth of Australia	australia	AU	AUS	36	36	10	71	Oceania	Australia and New Zealand	AU	AU	AU	AUS	AUS	PAO	Oceania	CAZ	1971											1945	1945		HI		APEC				G20
+Austria	Republic of Austria	austria	AT	AUT	40	40	11	75	Europe	Western Europe	AT	AT	AT	AUT	AUT	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen	1999	1955	1955		EU						G20
+Azerbaijan	Republic of Azerbaijan	azerbaijan	AZ	AZE	31	31	52	34	Asia	Western Asia	WW	WA	WA	RoW	AZE	FSU	Russia region	REF												1992	1992		RoW				CIS		
+Bahamas	Commonwealth of the Bahamas	bahamas	BS	BHS	44	44	12	106	America	Caribbean	WW	WL	WL	RoW	BHS	LAC	Central America	LAM												1973	1973		RoW						
+Bahrain	Kingdom of Bahrain	bahrain	BH	BHR	48	48	13	140	Asia	Western Asia	WW	WM	WM	RoW	BHR	MEA	Middle East	MEA												1971	1971		RoW						
+Bangladesh	People's Republic of Bangladesh	bangladesh|^(?=.*east).*paki?stan	BD	BGD	50	50	16	161	Asia	Southern Asia	WW	WA	WA	RoW	BGD	SAS	Rest of South Asia	OAS												1974	1974		RoW						
+Barbados	Barbados	barbados	BB	BRB	52	52	14	107	America	Caribbean	WW	WL	WL	RoW	BRB	LAC	Central America	LAM												1966	1966		RoW						
+Belarus	Republic of Belarus	belarus|byelo	BY	BLR	112	112	57	57	Europe	Eastern Europe	WW	WE	WE	RoW	BLR	FSU	Ukraine region	REF												1945	1945		RoW				CIS		
+Belgium	Kingdom of Belgium	^(?!.*luxem).*belgium	BE	BEL	56	56	255	76	Europe	Western Europe	BE	BE	BE	BEL	BEL	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU						G20
+Belize	Belize	belize|^(?=.*british).*honduras	BZ	BLZ	84	84	23	108	America	Central America	WW	WL	WL	RoW	BLZ	LAC	Central America	LAM												1981	1981		RoW						
+Benin	Republic of Benin	benin|dahome	BJ	BEN	204	204	53	200	Africa	Western Africa	WW	WF	WF	RoW	BEN	AFR	Western Africa	SSA												1960	1960		RoW						
+Bermuda	Bermuda	bermuda	BM	BMU	60	60	17	305	America	Northern America	WW	WL	WL	RoW	BMU	LAC	Central America	LAM															RoW						
+Bhutan	Kingdom of Bhutan	bhutan	BT	BTN	64	64	18	162	Asia	Southern Asia	WW	WA	WA	RoW	BTN	SAS	Rest of South Asia	OAS												1971	1971		RoW						
+Bolivia	Plurinational State of Bolivia	bolivia	BO	BOL	68	68	19	121	America	South America	WW	WL	WL	RoW	BOL	LAC	Rest of South America	LAM												1945	1945		RoW						
+Bonaire, Saint Eustatius and Saba	Bonaire, Saint Eustatius and Saba	^(?=.*bonaire).*eustatius|^(?=.*carib).*netherlands|\bbes.?islands	BQ	BES	535	535	278		America	Caribbean	WW	WL	WL	RoW				LAM															RoW						
+Bosnia and Herzegovina	Bosnia and Herzegovina	herzegovina|bosnia	BA	BIH	70	70	80	44	Europe	Southern Europe	WW	WE	WE	RoW	BIH	EEU	Central Europe	NEU												1992	1992		RoW						
+Botswana	Republic of Botswana	botswana|bechuana	BW	BWA	72	72	20	193	Africa	Southern Africa	WW	WF	WF	RoW	BWA	AFR	Rest of Southern Africa	SSA												1966	1966		RoW						
+Bouvet Island	Bouvet Island	bouvet	BV	BVT	74	74	31		Antarctica	South America	WW	WA	WA	RoW				LAM															RoW						
+Brazil	Federative Republic of Brazil	brazil	BR	BRA	76	76	21	135	America	South America	BR	BR	BR	BRA	BRA	LAC	Brazil	LAM												1945	1945		BX	BRIC		BASIC			G20
+British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1					Antarctica		WW	WA	WA	RoW																		1979	RoW						
+British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	24		Africa	Eastern Africa	WW	WA	WA	RoW		AFR		OAS															RoW						
+British Virgin Islands	British Virgin Islands	^(?=.*\bu\.?\s?k).*virgin|^(?=.*br.*).*virgin|^(?=.*kingdom).*virgin|BVI	VG	VGB	92	92	239		America	Caribbean	WW	WL	WL	RoW	VGB		Central America	LAM															RoW						
+Brunei Darussalam	Nation of Brunei, Abode of Peace	brunei	BN	BRN	96	96	26	66	Asia	South-Eastern Asia	WW	WA	WA	RoW	BRN	PAS	Southeastern Asia	OAS												1984	1984		RoW		APEC				
+Bulgaria	Republic of Bulgaria	bulgaria	BG	BGR	100	100	27	45	Europe	Eastern Europe	BG	BG	BG	BGR	BGR	EEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007				EEA			1955	1955		EU						G20
+Burkina Faso	Burkina Faso	burkina|\bfaso|upper.?volta	BF	BFA	854	854	233	201	Africa	Western Africa	WW	WF	WF	RoW	BFA	AFR	Western Africa	SSA												1960	1960		RoW						
+Burundi	Republic of Burundi	burundi	BI	BDI	108	108	29	175	Africa	Eastern Africa	WW	WF	WF	RoW	BDI	AFR	Eastern Africa	SSA												1962	1962		RoW						
+Cabo Verde	Republic of Cabo Verde	(cabo|cape) *verde	CV	CPV	132	132	35	203	Africa	Western Africa	WW	WF	WF	RoW	CPV	AFR	Western Africa	SSA												1975	1975		RoW						
+Cambodia	Kingdom of Cambodia	cambodia|kampuchea|khmer|^p\.?r\.?k\.?$	KH	KHM	116	116	115	10	Asia	South-Eastern Asia	WW	WA	WA	RoW	KHM	CPA	Southeastern Asia	OAS												1955	1955		RoW						
+Cameroon	Republic of Cameroon	cameroon	CM	CMR	120	120	32	202	Africa	Middle Africa	WW	WF	WF	RoW	CMR	AFR	Western Africa	SSA												1960	1960		RoW						
+Canada	Canada	canada	CA	CAN	124	124	33	101	America	Northern America	CA	CA	CA	CAN	CAN	NAM	Canada	CAZ	1961											1945	1945		HI		APEC			G7	G20
+Cayman Islands	Cayman Islands	cayman	KY	CYM	136	136	36		America	Caribbean	WW	WL	WL	RoW	CYM		Central America	LAM															RoW						
+Central African Republic	Central African Republic	central.?african.?rep.*	CF	CAF	140	140	37	169	Africa	Middle Africa	WW	WF	WF	RoW	CAF	AFR	Western Africa	SSA												1960	1960		RoW						
+Chad	Republic of Chad	\bchad	TD	TCD	148	148	39	204	Africa	Middle Africa	WW	WF	WF	RoW	TCD	AFR	Western Africa	SSA												1960	1960		RoW						
+Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	259		Europe	Northern Europe	WW	WE	WE	RoW		WEU											EEA					2006	RoW						
+Chile	Republic of Chile	\bchile	CL	CHL	152	152	40	98	America	South America	WW	WL	WL	RoW	CHL	LAC	Rest of South America	LAM	2010											1945	1945		RoW		APEC				
+China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	351	6	Asia	Eastern Asia	CN	CN	CN	CHN	CHN	CPA	China region	CHA												1945	1945		BX	BRIC	APEC	BASIC			G20
+Christmas Island	Christmas Island	christmas	CX	CXR	162	162	42		Asia	Australia and New Zealand	WW	WA	WA	RoW				OAS															RoW						
+Cocos (Keeling) Islands	Territory of the Cocos (Keeling) Islands	\bcocos|keeling	CC	CCK	166	166	43		Asia	Australia and New Zealand	WW	WA	WA	RoW				OAS															RoW						
+Colombia	Republic of Colombia	colombia	CO	COL	170	170	44	125	America	South America	WW	WL	WL	RoW	COL	LAC	Rest of South America	LAM	2020											1945	1945		RoW						
+Comoros	Union of the Comoros	comoro	KM	COM	174	174	45	176	Africa	Eastern Africa	WW	WF	WF	RoW	COM	AFR	Eastern Africa	SSA												1975	1975		RoW						
+Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*zaire)(?!.*belg)(?!.*l\w{1,2}opoldville)(?!.*free)(^rep.*).*\bcongo.*(?!.*\bdem)(?!.*\bdr).*|\bwest.*congo|^congo[,;\s]*(?!.*dem)rep.*?$|^congo$|\bcongo.*brazza.*	CG	COG	178	178	46	170	Africa	Middle Africa	WW	WF	WF	RoW	COG	AFR	Western Africa	SSA												1960	1960		RoW						
+Cook Islands	Cook Islands	\bcook	CK	COK	184	184	47	320	Oceania	Polynesia	WW	WA	WA	RoW	COK		Oceania	OAS															RoW						
+Costa Rica	Republic of Costa Rica	costa.?rica	CR	CRI	188	188	48	126	America	Central America	WW	WL	WL	RoW	CRI	LAC	Central America	LAM												1945	1945		RoW						
+Cote d'Ivoire	Republic of Côte d'Ivoire	.*(ivoire|ivory)	CI	CIV	384	384	107	205	Africa	Western Africa	WW	WF	WF	RoW	CIV	AFR	Western Africa	SSA												1960	1960		RoW						
+Croatia	Republic of Croatia	croatia|hrvatska	HR	HRV	191	191	98	46	Europe	Southern Europe	WW	WE	HR	RoW	HRV	EEU	Central Europe	EUR		EU	EU28	EU27					EEA			1992	1992		RoW						G20
+Cuba	Republic of Cuba	\bcuba	CU	CUB	192	192	49	109	America	Caribbean	WW	WL	WL	RoW	CUB	LAC		LAM												1945	1945		RoW						
+Curacao	Country of Curaçao	\bcura(c|ç)ao	CW	CUW	531	531	279		America	Caribbean	WW	WL	WL	RoW				LAM															RoW						
+Cyprus	Republic of Cyprus	cyprus	CY	CYP	196	196	50	77	Asia	Western Asia	CY	CY	CY	CYP	CYP	WEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007	EU25			EEA		2008	1960	1960		EU						G20
+Czech Republic	Czech Republic	^(?=.*rep).*czech.*|czechia|bohemia|.*czech.*	CZ	CZE	203	203	167	47	Europe	Eastern Europe	CZ	CZ	CZ	CZE	CZE	EEU	Central Europe	EUR	1995	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1993	1993		EU						G20
+Denmark	Kingdom of Denmark	denmark	DK	DNK	208	208	54	78	Europe	Northern Europe	DK	DK	DK	DNK	DNK	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen		1945	1945		EU						G20
+Djibouti	Republic of Djibouti	djibouti	DJ	DJI	262	262	72	177	Africa	Eastern Africa	WW	WF	WF	RoW	DJI	AFR	Eastern Africa	SSA												1977	1977		RoW						
+Dominica	Commonwealth of Dominica	dominica(?!n)	DM	DMA	212	212	55	110	America	Caribbean	WW	WL	WL	RoW	DMA	LAC	Central America	LAM												1978	1978		RoW						
+Dominican Republic	Dominican Republic	dominican	DO	DOM	214	214	56	111	America	Caribbean	WW	WL	WL	RoW	DOM	LAC	Central America	LAM												1945	1945		RoW						
+DR Congo	Democratic Republic of the Congo	\bdem.*congo|congo.*\bdem|congo.*\bdr|\bdr.*congo|\bd\.?r\.?c|\bd\.?r\.?o\.?c|\br\.?d\.?c|belgian.?congo|congo.?free.?state|kinshasa|zaire|l\w{1,2}opoldville|^the\ congo$|^RDC$|^DROC$|\bcongo.*dem.*	CD	COD	180	180	250	171	Africa	Middle Africa	WW	WF	WF	RoW	COD	AFR	Western Africa	SSA												1960	1960		RoW						
+Ecuador	Republic of Ecuador	ecuador	EC	ECU	218	218	58	122	America	South America	WW	WL	WL	RoW	ECU	LAC	Rest of South America	LAM												1945	1945		RoW						
+Egypt	Arab Republic of Egypt	egypt	EG	EGY	818	818	59	141	Africa	Northern Africa	WW	WM	WM	RoW	EGY	MEA	Northern Africa	MEA												1945	1945		RoW						
+El Salvador	Republic of El Salvador	el.?salvador	SV	SLV	222	222	60	127	America	Central America	WW	WL	WL	RoW	SLV	LAC	Central America	LAM												1945	1945		RoW						
+Equatorial Guinea	Republic of Equatorial Guinea	guine.*eq|eq.*guine|^(?=.*span).*guinea	GQ	GNQ	226	226	61	172	Africa	Middle Africa	WW	WF	WF	RoW	GNQ	AFR	Western Africa	SSA												1968	1968		RoW						
+Eritrea	State of Eritrea	eritrea	ER	ERI	232	232	178	178	Africa	Eastern Africa	WW	WF	WF	RoW	ERI	AFR	Eastern Africa	SSA												1993	1993		RoW						
+Estonia	Republic of Estonia	estonia	EE	EST	233	233	63	58	Europe	Northern Europe	EE	EE	EE	EST	EST	EEU	Central Europe	EUR	2010	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2011	1991	1991		EU						G20
+Eswatini	Kingdom of Eswatini	swaziland|eswatini	SZ	SWZ	748	748	209	197	Africa	Southern Africa	WW	WF	WF	RoW	SWZ	AFR	Rest of Southern Africa	SSA												1968	1968		RoW						
+Ethiopia	Federal Democratic Republic of Ethiopia	ethiopia|abyssinia	ET	ETH	231	231	238	179	Africa	Eastern Africa	WW	WF	WF	RoW	ETH	AFR	Eastern Africa	SSA												1945	1945		RoW						
+Faeroe Islands	Faeroe Islands	faroe|faeroe	FO	FRO	234	234	64		Europe	Northern Europe	WW	WE	WE	RoW	FRO	WEU	Western Europe	EUR										Schengen					RoW						
+Falkland Islands	Falkland Islands (Malvinas)	falkland|malvinas	FK	FLK	238	238	65		America	South America	WW	WL	WL	RoW	FLK		Rest of South America	LAM															RoW						
+Fiji	Republic of Fiji	fiji	FJ	FJI	242	242	66	22	Oceania	Melanesia	WW	WA	WA	RoW	FJI	PAS	Oceania	OAS												1970	1970		RoW						
+Finland	Republic of Finland	finland	FI	FIN	246	246	67	79	Europe	Northern Europe	FI	FI	FI	FIN	FIN	WEU	Western Europe	EUR	1969	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen	1999	1955	1955		EU						G20
+France	French Republic	^(?!.*\bdep).*france|french.?republic|\bgaul	FR	FRA	250	250	68	80	Europe	Western Europe	FR	FR	FR	FRA	FRA	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU					G7	G20
+French Guiana	Guiana	^(?=.*french).*guiana|guiana	GF	GUF	254	254	69		America	South America	WW	WL	WL	RoW	GUF	LAC	Rest of South America	LAM															RoW						
+French Polynesia	French Polynesia	french.?polynesia	PF	PYF	258	258	70		Oceania	Polynesia	WW	WA	WA	RoW	PYF	PAS	Oceania	OAS															RoW						
+French Southern Territories	Territory of the French Southern and Antarctic Lands	french.?southern|\bfr.*\bso.*\ban.*\b\bt	TF	ATF	260	260	71		Africa	Eastern Africa	WW	WF	WF	RoW				OAS															RoW						
+Gabon	Gabonese Republic	gabon	GA	GAB	266	266	74	173	Africa	Middle Africa	WW	WF	WF	RoW	GAB	AFR	Western Africa	SSA												1960	1960		RoW						
+Gambia	Republic of the Gambia	gambia	GM	GMB	270	270	75	206	Africa	Western Africa	WW	WF	WF	RoW	GMB	AFR	Western Africa	SSA												1965	1965		RoW						
+Georgia	Georgia	^(?!.*south).*georgia(?!.*US.*)	GE	GEO	268	268	73	35	Asia	Western Asia	WW	WA	WA	RoW	GEO	FSU	Russia region	REF												1992	1992		RoW						
+Germany	Federal Republic of Germany	^(?!e|w)(fed)?.*germany(?!,? *e|,? *w)(,? *)(\bfed)?	DE	DEU	276	276	79	81	Europe	Western Europe	DE	DE	DE	DEU	DEU	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1973	1973		EU					G7	G20
+Ghana	Republic of Ghana	ghana|gold.?coast	GH	GHA	288	288	81	207	Africa	Western Africa	WW	WF	WF	RoW	GHA	AFR	Western Africa	SSA												1957	1957		RoW						
+Gibraltar	Gibraltar	gibraltar	GI	GIB	292	292	82		Europe	Southern Europe	WW	WE	WE	RoW	GIB	WEU	Western Europe	EUR									EEA						RoW						
+Greece	Hellenic Republic	greece|hellenic|hellas	GR	GRC	300	300	84	82	Europe	Southern Europe	GR	GR	GR	GRC	GRC	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	2001	1945	1945		EU						G20
+Greenland	Greenland	greenland	GL	GRL	304	304	85	349	America	Northern America	WW	WL	WL	RoW	GRL	WEU		NEU										Schengen					RoW						
+Grenada	Grenada	grenada	GD	GRD	308	308	86	112	America	Caribbean	WW	WL	WL	RoW	GRD	LAC	Central America	LAM												1974	1974		RoW						
+Guadeloupe	Guadeloupe	guadeloupe	GP	GLP	312	312	87		America	Caribbean	WW	WL	WL	RoW	GLP	LAC	Central America	LAM															RoW						
+Guam	Guam	\bguam	GU	GUM	316	316	88	351	Oceania	Micronesia	WW	WA	WA	RoW	GUM	NAM		OAS															RoW						
+Guatemala	Republic of Guatemala	guatemala	GT	GTM	320	320	89	128	America	Central America	WW	WL	WL	RoW	GTM	LAC	Central America	LAM												1945	1945		RoW						
+Guernsey	Guernsey	guernsey	GG	GGY	831	831			Europe	Northern Europe	WW	WE	WE	RoW	GGY			EUR									EEA						RoW						
+Guinea	Republic of Guinea	^(?!.*eq)(?!.*span)(?!.*bissau)(?!.*pap)(?!.*new)(?!p.*n.*).*guinea	GN	GIN	324	324	90	208	Africa	Western Africa	WW	WF	WF	RoW	GIN	AFR	Western Africa	SSA												1958	1958		RoW						
+Guinea-Bissau	Republic of Guinea-Bissau	^(.*portu).*guinea|guinea.*bissau	GW	GNB	624	624	175	209	Africa	Western Africa	WW	WF	WF	RoW	GNB	AFR	Western Africa	SSA												1974	1974		RoW						
+Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	91	113	America	South America	WW	WL	WL	RoW	GUY	LAC	Rest of South America	LAM												1966	1966		RoW						
+Haiti	Republic of Haiti	(ha(i|\xef|\xc3\xaf)ti)	HT	HTI	332	332	93	114	America	Caribbean	WW	WL	WL	RoW	HTI	LAC	Central America	LAM												1945	1945		RoW						
+Heard and McDonald Islands	Territory of Heard Island and McDonald Islands	heard.*mc.*donald	HM	HMD	334	334	92		Asia	Australia and New Zealand	WW	WA	WA	RoW				CAZ															RoW						
+Honduras	Republic of Honduras	^(?!.*brit).*honduras	HN	HND	340	340	95	129	America	Central America	WW	WL	WL	RoW	HND	LAC	Central America	LAM												1945	1945		RoW						
+Hong Kong	Hong Kong SAR	.*hong.*kong|hksar	HK	HKG	344	344	96		Asia	Eastern Asia	WW	WA	WA	RoW	HKG	CPA	China region	CHA															RoW		APEC				
+Hungary	Republic of Hungary	hungary	HU	HUN	348	348	97	48	Europe	Eastern Europe	HU	HU	HU	HUN	HUN	EEU	Central Europe	EUR	1996	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1955	1955		EU						G20
+Iceland	Republic of Iceland	iceland	IS	ISL	352	352	99	83	Europe	Northern Europe	WW	WE	WE	RoW	ISL	WEU	Western Europe	NEU	1961								EEA	Schengen		1946	1946		RoW						
+India	Republic of India	india(?!.*ocea)(?!na)	IN	IND	356	356	100	163	Asia	Southern Asia	IN	IN	IN	IND	IND	SAS	India	IND												1945	1945		BX	BRIC		BASIC			G20
+Indonesia	Republic of Indonesia	indonesia	ID	IDN	360	360	101	11	Asia	South-Eastern Asia	ID	ID	ID	IDN	IDN	PAS	Indonesia region	OAS												1950	1950		BX		APEC				G20
+Iran	Islamic Republic of Iran	\biran|persia	IR	IRN	364	364	102	142	Asia	Southern Asia	WW	WM	WM	RoW	IRN	MEA	Middle East	MEA												1945	1945		RoW						
+Iraq	Republic of Iraq	\biraq|mesopotamia	IQ	IRQ	368	368	103	143	Asia	Western Asia	WW	WM	WM	RoW	IRQ	MEA	Middle East	MEA												1945	1945		RoW						
+Ireland	Ireland	^(?!.*north.*).*ireland	IE	IRL	372	372	104	84	Europe	Northern Europe	IE	IE	IE	IRL	IRL	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA		1999	1955	1955		EU						G20
+Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	264		Europe	Northern Europe	WW	WE	WE	RoW	IMN	WEU		EUR									EEA						RoW						
+Israel	State of Israel	israel	IL	ISR	376	376	105	85	Asia	Western Asia	WW	WM	WM	RoW	ISR	MEA	Middle East	MEA	2010											1949	1949		RoW						
+Italy	Italian Republic	.*italy|.*italia.*	IT	ITA	380	380	106	86	Europe	Southern Europe	IT	IT	IT	ITA	ITA	WEU	Western Europe	EUR	1962	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU					G7	G20
+Jamaica	Jamaica	jamaica	JM	JAM	388	388	109	115	America	Caribbean	WW	WL	WL	RoW	JAM	LAC	Central America	LAM												1962	1962		RoW						
+Japan	Japan	japan	JP	JPN	392	392	110	67	Asia	Eastern Asia	JP	JP	JP	JPN	JPN	PAO	Japan	JPN	1964											1956	1956		HI		APEC			G7	G20
+Jersey	Jersey	^(?!.*new).*jersey	JE	JEY	832	832	283		Europe	Northern Europe	WW	WE	WE	RoW	JEY			EUR									EEA						RoW						
+Jordan	Hashemite Kingdom of Jordan	jordan	JO	JOR	400	400	112	144	Asia	Western Asia	WW	WM	WM	RoW	JOR	MEA	Middle East	MEA												1955	1955		RoW						
+Kazakhstan	Republic of Kazakhstan	kazak	KZ	KAZ	398	398	108	36	Asia	Central Asia	WW	WA	WA	RoW	KAZ	FSU	Central Asia	REF												1992	1992		RoW				CIS		
+Kenya	Republic of Kenya	kenya|british.?east.?africa|east.?africa.?prot	KE	KEN	404	404	114	180	Africa	Eastern Africa	WW	WF	WF	RoW	KEN	AFR	Eastern Africa	SSA												1963	1963		RoW						
+Kiribati	Republic of Kiribati	kiribati	KI	KIR	296	296	83	23	Oceania	Micronesia	WW	WA	WA	RoW	KIR	PAS	Oceania	OAS												1999	1999		RoW						
+Kosovo	Republic of Kosovo	kosovo	XK	XKX					Europe	Southern Europe	WW	WE	WE	RoW	KSV																		RoW						
+Kuwait	State of Kuwait	kuwait	KW	KWT	414	414	118	145	Asia	Western Asia	WW	WM	WM	RoW	KWT	MEA	Middle East	MEA												1963	1963		RoW						
+Kyrgyz Republic	Kyrgyz Republic	kyrgyz|kirghiz	KG	KGZ	417	417	113	37	Asia	Central Asia	WW	WA	WA	RoW	KGZ	FSU	Central Asia	REF												1992	1992		RoW						
+Laos	Lao People's Democratic Republic	\blaos?\b	LA	LAO	418	418	120	12	Asia	South-Eastern Asia	WW	WA	WA	RoW	LAO	CPA	Southeastern Asia	OAS												1955	1955		RoW						
+Latvia	Republic of Latvia	latvia	LV	LVA	428	428	119	59	Europe	Northern Europe	LV	LV	LV	LVA	LVA	EEU	Central Europe	EUR	2016	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2014	1991	1991		EU						G20
+Lebanon	Lebanese Republic	lebanon|lebanese	LB	LBN	422	422	121	146	Asia	Western Asia	WW	WM	WM	RoW	LBN	MEA	Middle East	MEA												1945	1945		RoW						
+Lesotho	Kingdom of Lesotho	lesotho|basuto	LS	LSO	426	426	122	194	Africa	Southern Africa	WW	WF	WF	RoW	LSO	AFR	Rest of Southern Africa	SSA												1966	1966		RoW						
+Liberia	Republic of Liberia	liberia	LR	LBR	430	430	123	210	Africa	Western Africa	WW	WF	WF	RoW	LBR	AFR	Western Africa	SSA												1945	1945		RoW						
+Libya	State of Libya	libya	LY	LBY	434	434	124	147	Africa	Northern Africa	WW	WF	WF	RoW	LBY	MEA	Northern Africa	MEA												1955	1955		RoW						
+Liechtenstein	Principality of Liechtenstein	liechtenstein	LI	LIE	438	438	125		Europe	Western Europe	WW	WE	WE	RoW	LIE	WEU	Western Europe	NEU									EEA	Schengen		1990	1990		RoW						
+Lithuania	Republic of Lithuania	lithuania	LT	LTU	440	440	126	60	Europe	Northern Europe	LT	LT	LT	LTU	LTU	EEU	Central Europe	EUR	2018	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2015	1991	1991		EU						G20
+Luxembourg	Grand Duchy of Luxembourg	^(?!.*belg).*luxem	LU	LUX	442	442	256	87	Europe	Western Europe	LU	LU	LU	LUX	LUX	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU						G20
+Macau	Macau SAR	.*maca(o|u)	MO	MAC	446	446	128		Asia	Eastern Asia	WW	WA	WA	RoW	MAC		China region	CHA															RoW						
+Macedonia	Republic of Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807	807	154	49	Europe	Southern Europe	WW	WE	WE	RoW	MKD	EEU	Central Europe	NEU												1993	1993		RoW						
+Madagascar	Republic of Madagascar	madagascar|malagasy	MG	MDG	450	450	129	181	Africa	Eastern Africa	WW	WF	WF	RoW	MDG	AFR	Eastern Africa	SSA												1960	1960		RoW						
+Malawi	Republic of Malawi	malawi|nyasa	MW	MWI	454	454	130	182	Africa	Eastern Africa	WW	WF	WF	RoW	MWI	AFR	Rest of Southern Africa	SSA												1964	1964		RoW						
+Malaysia	Malaysia	malaysia	MY	MYS	458	458	131	13	Asia	South-Eastern Asia	WW	WA	WA	RoW	MYS	PAS	Southeastern Asia	OAS												1957	1957		RoW		APEC				
+Maldives	Republic of Maldives	maldive	MV	MDV	462	462	132	14	Asia	Southern Asia	WW	WA	WA	RoW	MDV	SAS	Rest of South Asia	OAS												1965	1965		RoW						
+Mali	Republic of Mali	\bmali\b	ML	MLI	466	466	133	211	Africa	Western Africa	WW	WF	WF	RoW	MLI	AFR	Western Africa	SSA												1960	1960		RoW						
+Malta	Republic of Malta	\bmalta	MT	MLT	470	470	134	88	Europe	Southern Europe	MT	MT	MT	MLT	MLT	WEU	Western Europe	EUR		EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2008	1964	1964		EU						G20
+Marshall Islands	Republic of the Marshall Islands	marshall	MH	MHL	584	584	127	24	Oceania	Micronesia	WW	WA	WA	RoW	MHL		Oceania	OAS												1991	1991		RoW						
+Martinique	Martinique	martinique	MQ	MTQ	474	474	135		America	Caribbean	WW	WL	WL	RoW	MTQ	LAC	Central America	LAM															RoW						
+Mauritania	Islamic Republic of Mauritania	mauritania	MR	MRT	478	478	136	212	Africa	Western Africa	WW	WF	WF	RoW	MRT	AFR	Western Africa	SSA												1961	1961		RoW						
+Mauritius	Republic of Mauritius	mauritius	MU	MUS	480	480	137	183	Africa	Eastern Africa	WW	WF	WF	RoW	MUS	AFR	Eastern Africa	SSA												1968	1968		RoW						
+Mayotte	Mayotte	mayotte	YT	MYT	175	175	270		Africa	Eastern Africa	WW	WF	WF	RoW	MYT			SSA															RoW						
+Mexico	United Mexican States	^(?!.*new).*mexi(?!.*city)	MX	MEX	484	484	138	130	America	Central America	MX	MX	MX	MEX	MEX	LAC	Mexico	LAM	1994											1945	1945		BX		APEC				G20
+Micronesia, Fed. Sts.	Federated States of Micronesia	micronesia	FM	FSM	583	583	145	25	Oceania	Micronesia	WW	WA	WA	RoW	FSM		Oceania	OAS												1991	1991		RoW						
+Moldova	Republic of Moldova	moldov|b(a|e)ssarabia	MD	MDA	498	498	146	61	Europe	Eastern Europe	WW	WE	WE	RoW	MDA	FSU	Ukraine region	REF												1992	1992		RoW				CIS		
+Monaco	Principality of Monaco	monaco	MC	MCO	492	492	140	367	Europe	Western Europe	WW	WE	WE	RoW	MCO	WEU	Western Europe	NEU												1993	1993		RoW						
+Mongolia	Mongolia	mongolia	MN	MNG	496	496	141	38	Asia	Eastern Asia	WW	WA	WA	RoW	MNG	CPA	China region	OAS												1961	1961		RoW						
+Montenegro	Montenegro	^(?!.*serbia).*montenegro	ME	MNE	499	499	273	50	Europe	Southern Europe	WW	WE	WE	RoW	MNE		Central Europe	NEU												2006	2006		RoW						
+Montserrat	Montserrat	montserrat	MS	MSR	500	500	142		America	Caribbean	WW	WL	WL	RoW	MSR		Central America	LAM															RoW						
+Morocco	Kingdom of Morocco	morocco|\bmaroc	MA	MAR	504	504	143	148	Africa	Northern Africa	WW	WF	WF	RoW	MAR	MEA	Northern Africa	MEA												1956	1956		RoW						
+Mozambique	Republic of Mozambique	mozambique	MZ	MOZ	508	508	144	184	Africa	Eastern Africa	WW	WF	WF	RoW	MOZ	AFR	Rest of Southern Africa	SSA												1975	1975		RoW						
+Myanmar	Republic of the Union of Myanmar	myanmar|burma	MM	MMR	104	104	28	15	Asia	Eastern Asia	WW	WA	WA	RoW	MMR	PAS	Southeastern Asia	OAS												1948	1948		RoW						
+Namibia	Republic of Namibia	namibia	NA	NAM	516	516	147	195	Africa	Southern Africa	WW	WF	WF	RoW	NAM	AFR	Rest of Southern Africa	SSA												1990	1990		RoW						
+Nauru	Republic of Nauru	nauru	NR	NRU	520	520	148	369	Oceania	Polynesia	WW	WA	WA	RoW	NRU		Oceania	OAS												1999	1999		RoW						
+Nepal	Federal Democratic Republic of Nepal	nepal	NP	NPL	524	524	149	164	Asia	Southern Asia	WW	WA	WA	RoW	NPL	SAS	Rest of South Asia	OAS												1955	1955		RoW						
+Netherlands	Kingdom of the Netherlands	^(?!.*\bant)(?!.*\bcarib).*netherlands	NL	NLD	528	528	150	89	Europe	Western Europe	NL	NL	NL	NLD	NLD	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1945	1945		EU						G20
+Netherlands Antilles	Netherlands Antilles	^(?=.*\bant).*(neth.*|dutch)	AN	ANT	530		151		America		WW	WL	WL	RoW	ANT	LAC	Central America															2010	RoW						
+New Caledonia	New Caledonia	new.?caledonia	NC	NCL	540	540	153		Oceania	Melanesia	WW	WA	WA	RoW	NCL	PAS	Oceania	OAS															RoW						
+New Zealand	New Zealand	(new|n).*zealand	NZ	NZL	554	554	156	72	Oceania	Australia and New Zealand	WW	WA	WA	RoW	NZL	PAO	Oceania	CAZ	1973											1945	1945		RoW		APEC				
+Nicaragua	Republic of Nicaragua	nicaragua	NI	NIC	558	558	157	131	America	Central America	WW	WL	WL	RoW	NIC	LAC	Central America	LAM												1945	1945		RoW						
+Niger	Republic of Niger	\bniger(?!ia)	NE	NER	562	562	158	213	Africa	Western Africa	WW	WF	WF	RoW	NER	AFR	Western Africa	SSA												1960	1960		RoW						
+Nigeria	Federal Republic of Nigeria	nigeria	NG	NGA	566	566	159	214	Africa	Western Africa	WW	WF	WF	RoW	NGA	AFR	Western Africa	SSA												1960	1960		RoW						
+Niue	Niue	niue	NU	NIU	570	570	160	374	Oceania	Polynesia	WW	WA	WA	RoW	NIU		Oceania	OAS															RoW						
+Norfolk Island	Norfolk Island	norfolk.*is	NF	NFK	574	574	161		Oceania	Australia and New Zealand	WW	WA	WA	RoW	NFK			OAS															RoW						
+North Korea	Democratic People's Republic of Korea	^(?=.*dem).*\bkorea|^(?=.*peo).*\bkorea|^(?=.*nor).*\bkorea|\bd\.?p\.?r\.|.*dpr.*|^(?=.*n\.).*\bkorea	KP	PRK	408	408	116	7	Asia	Eastern Asia	WW	WA	WA	RoW	PRK	CPA	Korea region	OAS												1991	1991		RoW						
+Northern Mariana Islands	Northern Mariana Islands	mariana	MP	MNP	580	580	163	376	Oceania	Micronesia	WW	WA	WA	RoW	MNP		Oceania	OAS															RoW						
+Norway	Kingdom of Norway	norway	NO	NOR	578	578	162	90	Europe	Northern Europe	NO	NO	NO	RoW	NOR	WEU	Western Europe	NEU	1961								EEA	Schengen		1945	1945		HI						
+Oman	Sultanate of Oman	\boman|trucial	OM	OMN	512	512	221	150	Asia	Western Asia	WW	WM	WM	RoW	OMN	MEA	Middle East	MEA												1971	1971		RoW						
+Pakistan	Islamic Republic of Pakistan	^(?!.*east).*paki?stan	PK	PAK	586	586	165	165	Asia	Southern Asia	WW	WA	WA	RoW	PAK	SAS	Rest of South Asia	OAS												1947	1947		RoW						
+Palau	Republic of Palau	palau	PW	PLW	585	585	180	380	Oceania	Micronesia	WW	WA	WA	RoW	PLW		Oceania	OAS												1994	1994		RoW						
+Palestine	State of Palestine	palestin|\bgaza|west.?bank	PS	PSE	275	275	299	149	Asia	Western Asia	WW	WM	WM	RoW	PSE			MEA															RoW						
+Panama	Republic of Panama	panama	PA	PAN	591	591	166	132	America	Central America	WW	WL	WL	RoW	PAN	LAC	Central America	LAM												1945	1945		RoW						
+Papua New Guinea	Independent State of Papua New Guinea	\bp.*\bn.*\bguin.*|^p\.?n\.?g\.?$|new.?guinea	PG	PNG	598	598	168	26	Oceania	Melanesia	WW	WA	WA	RoW	PNG	PAS	Indonesia region	OAS												1975	1975		RoW		APEC				
+Paraguay	Republic of Paraguay	paraguay	PY	PRY	600	600	169	136	America	South America	WW	WL	WL	RoW	PRY	LAC	Rest of South America	LAM												1945	1945		RoW						
+Peru	Republic of Peru	peru	PE	PER	604	604	170	123	America	South America	WW	WL	WL	RoW	PER	LAC	Rest of South America	LAM												1945	1945		RoW		APEC				
+Philippines	Republic of the Philippines	philippines	PH	PHL	608	608	171	16	Asia	South-Eastern Asia	WW	WA	WA	RoW	PHL	PAS	Southeastern Asia	OAS												1945	1945		RoW		APEC				
+Pitcairn	Pitcairn	pitcairn	PN	PCN	612	612	172		Oceania	Polynesia	WW	WA	WA	RoW	PCN		Oceania	OAS															RoW						
+Poland	Republic of Poland	poland	PL	POL	616	616	173	51	Europe	Eastern Europe	PL	PL	PL	POL	POL	EEU	Central Europe	EUR	1996	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1945	1945		EU						G20
+Portugal	Portuguese Republic	portugal|portuguese	PT	PRT	620	620	174	91	Europe	Southern Europe	PT	PT	PT	PRT	PRT	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU						G20
+Puerto Rico	Puerto Rico	puerto.?rico	PR	PRI	630	630	177	385	America	Caribbean	WW	WL	WL	RoW		NAM	Central America	LAM															RoW						
+Qatar	State of Qatar	qatar	QA	QAT	634	634	179	151	Asia	Western Asia	WW	WM	WM	RoW	QAT	MEA	Middle East	MEA												1971	1971		RoW						
+Reunion	Reunion	reunion|réunion	RE	REU	638	638	182		Africa	Eastern Africa	WW	WF	WF	RoW	REU	AFR	Eastern Africa	SSA															RoW						
+Romania	Romania	r(o|u|ou)mania	RO	ROU	642	642	183	52	Europe	Eastern Europe	RO	RO	RO	ROU	ROU	EEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007				EEA			1955	1955		EU						G20
+Russia	Russian Federation	\brussia	RU	RUS	643	643	185	62	Europe	Eastern Europe	RU	RU	RU	RUS	RUS	FSU	Russia region	REF												1945	1945		BX	BRIC	APEC		CIS		G20
+Rwanda	Republic of Rwanda	rwanda	RW	RWA	646	646	184	185	Africa	Eastern Africa	WW	WF	WF	RoW	RWA	AFR	Eastern Africa	SSA												1962	1962		RoW						
+Saint-Martin	Saint-Martin (French part)	^(?!.*maarten)(?!.*saba)(?!.*dutch).*martin\b	MF	MAF	663	663	281		America	Caribbean	WW	WL	WL	RoW	MAF			LAM															RoW						
+Samoa	Independent State of Samoa	^(?!.*amer.*)samoa|(\bindep.*samoa)|^west.*samoa	WS	WSM	882	882	244	27	Oceania	Polynesia	WW	WA	WA	RoW	WSM	PAS	Oceania	OAS												1976	1976		RoW						
+San Marino	Republic of San Marino	san.?marino	SM	SMR	674	674	192	396	Europe	Southern Europe	WW	WE	WE	RoW	SMR		Western Europe	NEU												1992	1992		RoW						
+Sao Tome and Principe	Democratic Republic of São Tomé and Príncipe	tome|tomé	ST	STP	678	678	193	215	Africa	Middle Africa	WW	WF	WF	RoW	STP	AFR	Western Africa	SSA												1975	1975		RoW						
+Saudi Arabia	Kingdom of Saudi Arabia	\bsa\w*.?arabia	SA	SAU	682	682	194	152	Asia	Western Asia	WW	WM	WM	RoW	SAU	MEA	Middle East	MEA												1945	1945		RoW						G20
+Senegal	Republic of Senegal	senegal	SN	SEN	686	686	195	216	Africa	Western Africa	WW	WF	WF	RoW	SEN	AFR	Western Africa	SSA												1960	1960		RoW						
+Serbia	Republic of Serbia	^(?!.*monte).*serbia.*	RS	SRB	688	688	272	53	Europe	Southern Europe	WW	WE	WE	RoW	SRB		Central Europe	NEU												2000	2000		RoW						
+Seychelles	Republic of Seychelles	seychell	SC	SYC	690	690	196	186	Africa	Eastern Africa	WW	WF	WF	RoW	SYC	AFR	Eastern Africa	SSA												1976	1976		RoW						
+Sierra Leone	Republic of Sierra Leone	sierra	SL	SLE	694	694	197	217	Africa	Western Africa	WW	WF	WF	RoW	SLE	AFR	Western Africa	SSA												1961	1961		RoW						
+Singapore	Republic of Singapore	singapore	SG	SGP	702	702	200	69	Asia	South-Eastern Asia	WW	WA	WA	RoW	SGP	PAS	Southeastern Asia	OAS												1965	1965		RoW		APEC				
+Sint Maarten	Sint Maarten (Dutch part)	^(?!.*martin)(?!.*saba).*maarten|dutch.*martin|martin.*dutch	SX	SXM	534	534	280		America	Caribbean	WW	WL	WL	RoW				LAM															RoW						
+Slovakia	Slovak Republic	^(?!.*cze).*slovak	SK	SVK	703	703	199	54	Europe	Eastern Europe	SK	SK	SK	SVK	SVK	EEU	Central Europe	EUR	2000	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2009	1993	1993		EU						G20
+Slovenia	Republic of Slovenia	slovenia	SI	SVN	705	705	198	55	Europe	Southern Europe	SI	SI	SI	SVN	SVN	EEU	Central Europe	EUR	2010	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2007	1992	1992		EU						G20
+Solomon Islands	Solomon Islands	solomon	SB	SLB	90	90	25	28	Oceania	Melanesia	WW	WA	WA	RoW	SLB	PAS	Oceania	OAS												1978	1978		RoW						
+Somalia	Federal Republic of Somalia	somali	SO	SOM	706	706	201	187	Africa	Eastern Africa	WW	WF	WF	RoW	SOM	AFR	Eastern Africa	SSA												1960	1960		RoW						
+South Africa	Republic of South Africa	\bs(\.|outh)(?!.*sahar).*africa|^r\.?s\.?a\.?$	ZA	ZAF	710	710	202	196	Africa	Southern Africa	ZA	ZA	ZA	RoW	ZAF	AFR	South Africa	SSA												1945	1945		BX			BASIC			G20
+South Georgia and South Sandwich Is.	South Georgia and The South Sandwich Islands	south.?georgia|sandwich	GS	SGS	239	239	271		Antarctica	South America	WW	WA	WA	RoW				LAM															RoW						
+South Korea	Republic of Korea	^(?!.*dem)(?!.*peo)(?!.*nor)(?!.*n\.)(?!.*dpr)(?!d\.p\.r).*\bkorea|\br\.?o\.?k\b	KR	KOR	410	410	117	68	Asia	Eastern Asia	KR	KR	KR	KOR	KOR	PAS	Korea region	OAS	1996											1991	1991		HI		APEC				G20
+South Sudan	Republic of South Sudan	\bs\w*.?sudan	SS	SSD	728	728	277	435	Africa	Eastern Africa	WW	WF	WF	RoW	SDS			SSA												2011	2011		RoW						
+Soviet Union (former)	Union of Soviet Socialist Republics (former)	USSR|soviet	SU	SUN	810	810			Europe	Eastern Europe	WW	WE	WE	RoW	USR																	1992	RoW						
+Spain	Kingdom of Spain	spain	ES	ESP	724	724	203	92	Europe	Southern Europe	ES	ES	ES	ESP	ESP	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU						G20
+Sri Lanka	Democratic Socialist Republic of Sri Lanka	sri.?lanka|ceylon	LK	LKA	144	144	38	17	Asia	Southern Asia	WW	WA	WA	RoW	LKA	SAS	Rest of South Asia	OAS												1955	1955		RoW						
+St. Barths	Territorial collectivity of Saint-Barthélemy	barth|barts	BL	BLM	652	652	282		America	Caribbean	WW	WL	WL	RoW	BLM			LAM															RoW						
+St. Helena	Saint Helena, Ascension and Tristan da Cunha	helena	SH	SHN	654	654	187		Africa	Western Africa	WW	WF	WF	RoW	SHN	AFR	Western Africa	SSA															RoW						
+St. Kitts and Nevis	Saint Kitts and Nevis	kitts|\bnevis	KN	KNA	659	659	188	393	America	Caribbean	WW	WL	WL	RoW	KNA	LAC	Central America	LAM												1983	1983		RoW						
+St. Lucia	Saint Lucia	\blucia	LC	LCA	662	662	189	116	America	Caribbean	WW	WL	WL	RoW	LCA	LAC	Central America	LAM												1979	1979		RoW						
+St. Pierre and Miquelon	Saint Pierre and Miquelon	miquelon	PM	SPM	666	666	190		America	Northern America	WW	WL	WL	RoW	SPM		USA	CAZ															RoW						
+St. Vincent and the Grenadines	Saint Vincent and the Grenadines	vincent	VC	VCT	670	670	191	117	America	Caribbean	WW	WL	WL	RoW	VCT	LAC	Central America	LAM												1980	1980		RoW						
+Sudan	Republic of the Sudan	^(?!.*\bs(?!u)).*sudan	SD	SDN	729	729		522	Africa	Northern Africa	WW	WF	WF	RoW	SUD	MEA	Eastern Africa	MEA												1956	1956		RoW						
+Suriname	Republic of Suriname	surinam|dutch.?guiana	SR	SUR	740	740	207	118	America	South America	WW	WL	WL	RoW	SUR	LAC	Rest of South America	LAM												1975	1975		RoW						
+Svalbard and Jan Mayen Islands	Svalbard and Jan Mayen Islands	^(?!norway).*svalbard	SJ	SJM	744	744	260		Europe	Northern Europe	WW	WE	WE	RoW	SJM			NEU															RoW						
+Sweden	Kingdom of Sweden	swedish|sweden(?!.*except)	SE	SWE	752	752	210	93	Europe	Northern Europe	SE	SE	SE	SWE	SWE	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen		1946	1946		EU						G20
+Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	211	94	Europe	Western Europe	CH	CH	CH	RoW	CHE	WEU	Western Europe	NEU	1961								EEA	Schengen		2002	2002		HI						
+Syria	Syrian Arab Republic	syria	SY	SYR	760	760	212	153	Asia	Western Asia	WW	WM	WM	RoW	SYR	MEA	Middle East	MEA												1945	1945		RoW						
+Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$|^taiwan r\.?o\.?c\.?$	TW	TWN	158		214	8	Asia	Eastern Asia	TW	TW	TW	TWN	TWN	PAS	China region	CHA															HI		APEC				
+Tajikistan	Republic of Tajikistan	tajik	TJ	TJK	762	762	208	39	Asia	Central Asia	WW	WA	WA	RoW	TJK	FSU	Central Asia	REF												1992	1992		RoW				CIS		
+Tanganjika	Republic of Tanganyika	tanganjika|tanganyika		EAT					Africa	Eastern Africa	WW	WF	WF	RoW																		1964	RoW						
+Tanzania	United Republic of Tanzania	tanzania(?!: zan.*)	TZ	TZA	834	834	215	189	Africa	Eastern Africa	WW	WF	WF	RoW	TZA	AFR	Rest of Southern Africa	SSA												1961	1961		RoW						
+Thailand	Kingdom of Thailand	thailand|\bsiam	TH	THA	764	764	216	18	Asia	South-Eastern Asia	WW	WA	WA	RoW	THA	PAS	Southeastern Asia	OAS												1946	1946		RoW		APEC				
+Timor-Leste	Democratic Republic of Timor-Leste	^(?=.*leste).*timor|^(?=.*east).*timor	TL	TLS	626	626	176	19	Asia	South-Eastern Asia	WW	WA	WA	RoW	TLS		Indonesia region	OAS												2002	2002		RoW						
+Togo	Togolese Republic	togo	TG	TGO	768	768	217	218	Africa	Western Africa	WW	WF	WF	RoW	TGO	AFR	Western Africa	SSA												1960	1960		RoW						
+Tokelau	Tokelau	tokelau	TK	TKL	772	772	218	413	Oceania	Polynesia	WW	WA	WA	RoW	TKL		Oceania	OAS															RoW						
+Tonga	Kingdom of Tonga	tonga	TO	TON	776	776	219	29	Oceania	Polynesia	WW	WA	WA	RoW	TON	PAS	Oceania	OAS												1999	1999		RoW						
+Trinidad and Tobago	Republic of Trinidad and Tobago	trinidad|tobago	TT	TTO	780	780	220	119	America	Caribbean	WW	WL	WL	RoW	TTO	LAC	Central America	LAM												1962	1962		RoW						
+Tunisia	Republic of Tunisia	tunisia	TN	TUN	788	788	222	154	Africa	Northern Africa	WW	WF	WF	RoW	TUN	MEA	Northern Africa	MEA												1956	1956		RoW						
+Turkey	Republic of Turkey	turkey	TR	TUR	792	792	223	155	Asia	Western Asia	TR	TR	TR	TUR	TUR	WEU	Turkey	NEU	1961											1945	1945		BX						G20
+Turkmenistan	Turkmenistan	turk-?men	TM	TKM	795	795	213	40	Asia	Central Asia	WW	WA	WA	RoW	TKM	FSU	Central Asia	REF												1992	1992		RoW						
+Turks and Caicos Islands	Turks and Caicos Islands	turks	TC	TCA	796	796	224		America	Caribbean	WW	WL	WL	RoW	TCA		Central America	LAM															RoW						
+Tuvalu	Tuvalu	tuvalu	TV	TUV	798	798	227	416	Oceania	Polynesia	WW	WA	WA	RoW	TUV		Oceania	OAS												2000	2000		RoW						
+Uganda	Republic of Uganda	uganda	UG	UGA	800	800	226	190	Africa	Eastern Africa	WW	WF	WF	RoW	UGA	AFR	Eastern Africa	SSA												1962	1962		RoW						
+Ukraine	Ukraine	ukrain	UA	UKR	804	804	230	63	Europe	Eastern Europe	WW	WE	WE	RoW	UKR	FSU	Ukraine region	REF												1945	1945		RoW						
+United Arab Emirates	United Arab Emirates	emirates|^u\.?a\.?e\.?$|united.?arab.?em	AE	ARE	784	784	225	156	Asia	Western Asia	WW	WM	WM	RoW	ARE	MEA	Middle East	MEA												1971	1971		RoW						
+United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|gb)	GB	GBR	826	826	229	95	Europe	Northern Europe	GB	GB	GB	GBR	GBR	WEU	Western Europe	EUR	1961		EU28		EU27_2007	EU25	EU15	EU12	EEA			1945	1945		EU					G7	G20
+United States	United States of America	^(?!.*islands).*united.?states|^u\.?s\.?a\.?$|^u\.?s\.?$	US	USA	840	840	231	102	America	Northern America	US	US	US	USA	USA	NAM	USA	USA	1961											1945	1945		HI		APEC			G7	G20
+United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581	581	232		Oceania	Micronesia	WW	WA	WA	RoW				OAS															RoW						
+United States Virgin Islands	Virgin Islands of the United States	^(?=.*\bu\.?\s?s).*virgin|^(?=.*states).*virgin	VI	VIR	850	850	240	422	America	Caribbean	WW	WL	WL	RoW	VIR	NAM	Central America	LAM															RoW						
+Uruguay	Oriental Republic of Uruguay	uruguay	UY	URY	858	858	234	99	America	South America	WW	WL	WL	RoW	URY	LAC	Rest of South America	LAM												1945	1945		RoW						
+Uzbekistan	Republic of Uzbekistan	uzbek	UZ	UZB	860	860	235	41	Asia	Central Asia	WW	WA	WA	RoW	UZB	FSU	Central Asia	REF												1992	1992		RoW				CIS		
+Vanuatu	Republic of Vanuatu	vanuatu|new.?hebrides	VU	VUT	548	548	155	30	Oceania	Melanesia	WW	WA	WA	RoW	VUT	PAS	Oceania	OAS												1981	1981		RoW						
+Vatican	Vatican City State	holy.?see|vatican|papal.?st	VA	VAT	336	336	94		Europe	Southern Europe	WW	WE	WE	RoW	VAT		Western Europe	NEU															RoW						
+Venezuela	Bolivarian Republic of Venezuela	venezuela	VE	VEN	862	862	236	133	America	South America	WW	WL	WL	RoW	VEN	LAC	Rest of South America	LAM												1945	1945		RoW						
+Vietnam	Socialist Republic of Vietnam	^((?!n|s|.*republic)|(?=.*socialist)).*viet.?nam(?! *,? *n| *,? *s)	VN	VNM	704	704	237	20	Asia	South-Eastern Asia	WW	WA	WA	RoW	VNM	CPA	Southeastern Asia	OAS												1977	1977		RoW		APEC				
+Wallis and Futuna Islands	Wallis and Futuna Islands	futuna|wallis	WF	WLF	876	876	243		Oceania	Polynesia	WW	WA	WA	RoW	WLF		Oceania	OAS															RoW						
+Western Sahara	Western Sahara	\bw.*sahara	EH	ESH	732	732	205	199	Africa	Northern Africa	WW	WF	WF	RoW	ESH		Northern Africa	MEA															RoW						
+Yemen	Republic of Yemen	yemen	YE	YEM	887	887	249	157	Asia	Western Asia	WW	WM	WM	RoW	YEM	MEA	Middle East	MEA												1947	1947		RoW						
+Zambia	Republic of Zambia	zambia|northern.?rhodesia	ZM	ZMB	894	894	251	191	Africa	Eastern Africa	WW	WF	WF	RoW	ZMB	AFR	Rest of Southern Africa	SSA												1964	1964		RoW						
+Zanzibar	Zanzibar	zanz|.*tanzania:?zanzibar		EAZ					Africa	Eastern Africa	WW	WF	WF	RoW																		1964	RoW						
+Zimbabwe	Republic of Zimbabwe	zimbabwe|^(?!.*northern).*rhodesia	ZW	ZWE	716	716	181	198	Africa	Eastern Africa	WW	WF	WF	RoW	ZWE	AFR	Rest of Southern Africa	SSA												1980	1980		RoW						
