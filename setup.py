@@ -20,7 +20,7 @@ setup(
     entry_points={
         "console_scripts": ["coco = country_converter.country_converter:main"]
     },
-    install_requires=["pandas >= 0.17.0"],
+    install_requires=["pandas >= 1.0"],
     classifiers=[
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
