@@ -588,6 +588,13 @@ def test_fao_number_codes():
     assert 117 == cc.convert("KOR", to="FAOcode")
 
 
+def test_GBD_codes():
+    cc = coco.CountryConverter()
+    assert 35 == cc.convert("Georgia", to="GBDcode")
+    assert 6 == cc.convert("China", to="GBDcode")
+    assert 92 == cc.convert("Spain", to="GBDcode")
+
+
 def test_non_matchingn():
     with open(non_matching_data, "r") as nmd:
         content = [line.strip() for line in nmd.readlines()]

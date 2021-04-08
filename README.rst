@@ -419,6 +419,7 @@ Currently the following classification schemes are available (see also Data sour
 #) G7_
 #) G20_ (listing all EU member states as individual members)
 #) FAOcode_ (numeric)
+#) GBDcode_ (numeric - Global Burden of Disease country codes)
 
 Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
 To restrict the set to only the official recognized UN members or include obsolete countries, pass
@@ -454,13 +455,18 @@ classification follows the 11-region aggregation given in the MESSAGE_ model
 regions description. The IMAGE_ classification is based on the "`region 
 classification map`_", for REMIND_ we received a country mapping from the model 
 developers. 
+
 The membership of OECD_ and UN_ can be found at the membership organisations' webpages, 
 information about obsolete country codes on the Statoids_ webpage.
+
 The situation for the EU_ got complicated due to the Brexit process. For the 
 naming, coco follows the `Eurostat glossary`_, thus EU27 refers to the EU 
 without UK, whereas EU27_2007 refers to the EU without Croatia (the status 
 after the 2007 enlargement). The shortcut EU always links to the most recent 
 classification. The EEA_ agreements are still valid for the UK (status September 2020, Brexit transition period - as `described here  <https://en.wikipedia.org/wiki/European_Economic_Area>`_), thus UK is currently included in the EEA.
+
+The Global Burden of Disease country codes were extracted form the `GBD code 
+book available here. <https://ghdx.healthdata.org/sites/default/files/ihme_query_tool/IHME_GBD_2019_CODEBOOK.zip>`_
 
 .. _unstats: http://unstats.un.org/unsd/methods/m49/m49regin.htm
 .. _OECD: http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm
@@ -485,6 +491,7 @@ classification. The EEA_ agreements are still valid for the UK (status September
 .. _REMIND: https://www.pik-potsdam.de/en/institute/departments/transformation-pathways/models/remind
 .. _`region classification map`: https://models.pbl.nl/image/index.php/Region_classification_map
 .. _FAOcode: http://www.fao.org/faostat/en/#definitions
+.. _GBDcode: http://ghdx.healthdata.org/
 
 
 Communication, issues, bugs and enhancements
