@@ -536,16 +536,14 @@ class CountryConverter:
         if exclude_prefix is None:
             exclude_prefix = ["excl\\w.*", "without", "w/o"]
 
-        # The list to tuple conversion is necessary for Matlab interface
-        names = (
-            list(names)
-            if (isinstance(names, tuple) or isinstance(names, set))
-            else names
-        )
-
-        names = names if isinstance(names, list) else [names]
-
-        names = [str(n) for n in names]
+        if not isinstance(names, (str, int)):
+            try:
+                names = list(names)
+            except TypeError as e:
+                raise TypeError("Input names must be coercible to list") from e
+            names = [str(n) for n in names]
+        else:
+            names = [str(names)]
 
         outlist = names.copy()
 

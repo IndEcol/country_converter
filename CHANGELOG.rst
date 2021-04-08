@@ -10,6 +10,7 @@ Bug Fixes
 * Update for regex for several regions which erroneous matched countries (solves #86)
 * CLI help fix (solves #81)
 * Added HKSAR for Hong Kong, N.Korea for North Korea and some Macaou tests (solves #84)
+* Fixed for pandas Series inputs (solves #54)
 
 
 Development

@@ -177,6 +177,29 @@ def test_special_cases():
     assert converter("NAM", to="ISO2") == "NA"
 
 
+def test_iterable_inputs():
+    """Test the different possibilites to input lists
+
+    This guards agains issue #54
+    """
+    _inp_list = ["AT", "BE", "DE", "GB", "TW"]
+
+    inputs = dict(
+        type_list=list(_inp_list),
+        type_tuple=tuple(_inp_list),
+        type_set=set(_inp_list),
+        type_series=pd.Series(_inp_list),
+        type_df_index=pd.Index(_inp_list),
+    )
+
+    outputs = {tt: sorted(coco.convert(val)) for tt, val in inputs.items()}
+
+    input_error = 23.8
+
+    with pytest.raises(TypeError) as e_sys:
+        coco.convert(input_error)
+
+
 def test_get_correspondance_dict_standard():
     """Standard test case for get_correspondence_dict method"""
     classA = "EXIO1"
