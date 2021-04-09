@@ -1,3 +1,6 @@
+""" Testing the country_converter functionality
+"""
+
 import collections
 import logging
 import os
@@ -595,7 +598,7 @@ def test_GBD_codes():
     assert 92 == cc.convert("Spain", to="GBDcode")
 
 
-def test_non_matchingn():
+def test_non_matching():
     with open(non_matching_data, "r") as nmd:
         content = [line.strip() for line in nmd.readlines()]
     non_countries = [nc for nc in content if not nc.startswith("#") and nc != ""]
