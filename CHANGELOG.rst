@@ -1,6 +1,15 @@
 Change Log
 ===========
 
+
+0.7.4dev
+--------------------
+
+Development
+^^^^^^^^^^^^^^^^
+
+* added link to example script on how to parse data for adding a new classification: https://gist.github.com/konstantinstadler/dc3583a4674a39def0d4611c095eb788 
+
 0.7.3 - 20210409
 --------------------
 

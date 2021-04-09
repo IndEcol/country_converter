@@ -507,7 +507,8 @@ Contributing
 ---------------
 
 Want to contribute? Great!
-Please check `CONTRIBUTING.rst`_ if you want to help to improve coco.
+Please check `CONTRIBUTING.rst`_ if you want to help to improve coco and for 
+some pointer for how to add classifications.
 
 
 Related software
