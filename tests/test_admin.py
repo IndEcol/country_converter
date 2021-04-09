@@ -17,8 +17,7 @@ CHANGELOG_FILE = os.path.join(TESTPATH, "..", "CHANGELOG.rst")
 
 
 def test_version_consistency():
-    """ Test CHANGELOG.rst latest version consistency with module version
-    """
+    """Test CHANGELOG.rst latest version consistency with module version"""
     version_match = re.compile(r"\d+\.\d+\.\d+[a-zA-Z0-9_.]*")
     with open(CHANGELOG_FILE, "r") as cf:
         for line in cf:

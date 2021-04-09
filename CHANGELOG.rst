@@ -1,7 +1,7 @@
 Change Log
 ===========
 
-0.7.3dev - 20210408
+0.7.3 - 20210408
 --------------------
 
 Classifications
@@ -27,6 +27,7 @@ Development
 * functionality for testing regions which should not match
 * handle pandas future regex warning 
 * moved from travis to github actions for CI testing
+* restructured tests and added test for consistent CHANGELOG - module version
 
 
 0.7.2 - 20210127
