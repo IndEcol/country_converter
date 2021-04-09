@@ -1,10 +1,10 @@
 """ Testing admin stuff
 """
 
-import sys
-import warnings
 import os
 import re
+import sys
+import warnings
 
 import pytest
 
