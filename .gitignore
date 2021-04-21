@@ -13,3 +13,4 @@ tags
 /doc/.ipynb_checkpoints/
 .~*
 .coverage
+/.vscode
