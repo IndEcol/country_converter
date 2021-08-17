@@ -8,6 +8,8 @@ import pprint
 import re
 import sys
 from collections import OrderedDict
+from functools import lru_cache
+from country_converter.multiregex import Multiregex
 
 import pandas as pd
 
@@ -463,6 +465,18 @@ class CountryConverter:
         self.data.reset_index(drop=True, inplace=True)
         self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
 
+        self.multiregex = Multiregex(
+            [
+                (entry["regex"], entry_index)
+                for entry_index, entry in self.data.iterrows()
+            ]
+        )
+
+        self._conversion_data = dict()
+
+        for i, (entry_index, entry_row) in enumerate(self.data.iterrows()):
+            self._conversion_data[entry_index] = entry_row.to_dict()
+
         # the following section adds shortcuts to all classifications to the
         # class.
         def fun_provider(df, datacol):
@@ -474,6 +488,27 @@ class CountryConverter:
         for col in self.data.columns:
             self.__setattr__(col, self.data.loc[:, ["name_short", col]].dropna())
             self.__setattr__(col + "as", fun_provider(self.data, col))
+
+    # @lru_cache(maxsize=10000)
+    # def _apply_regexes(self, name, indexed_regexes, to):
+    #     result_list = []
+    #     for ind_regex, ccregex in indexed_regexes:
+    #         if ccregex.search(name):
+    #             result_list.append(self._conversion_data[ind_regex][to])
+    #         if len(result_list) > 1:
+    #             log.warning(
+    #                 "More then one regular expression " "match for {}".format(name)
+    #             )
+    #     return result_list
+
+    @lru_cache(maxsize=5000)
+    def _apply_multiregex(self, name, to):
+        results = self.multiregex(name)
+        result_list = []
+        if results:
+            entry_index, name = results
+            result_list.append(self._conversion_data[entry_index][to])
+        return result_list
 
     def convert(
         self,
@@ -562,15 +597,7 @@ class CountryConverter:
                 src_format = self._validate_input_para(src, self.data.columns.tolist())
 
             if src_format.lower() == "regex":
-                result_list = []
-                for ind_regex, ccregex in enumerate(self.regexes):
-                    if ccregex.search(spec_name):
-                        result_list.append(self.data.loc[ind_regex, to].values[0])
-                    if len(result_list) > 1:
-                        log.warning(
-                            "More then one regular expression "
-                            "match for {}".format(spec_name)
-                        )
+                result_list = self._apply_multiregex(spec_name, to[0])
 
             else:
                 _match_col = (
@@ -611,12 +638,12 @@ class CountryConverter:
 
     @property
     def valid_class(self):
-        """ Valid strings for the converter """
+        """Valid strings for the converter"""
         return list(self.data.columns)
 
     @property
     def valid_country_classifications(self):
-        """ All classifications available for countries without any aggregation"""
+        """All classifications available for countries without any aggregation"""
         return [
             cname
             for cname in self.data.columns
@@ -712,9 +739,7 @@ class CountryConverter:
                 para = item[0]
 
         try:
-            validated_para = self.valid_class[
-                lower_case_valid_class.index(para.lower())
-            ]
+            validated_para = self.valid_class[lower_case_valid_class.index(para.lower())]
         except ValueError:
             raise KeyError("{} is not a valid country classification".format(para))
 
