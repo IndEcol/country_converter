@@ -4,7 +4,6 @@
 import argparse
 import logging
 import os
-import pprint
 import re
 import sys
 from collections import OrderedDict
@@ -489,26 +488,20 @@ class CountryConverter:
             self.__setattr__(col, self.data.loc[:, ["name_short", col]].dropna())
             self.__setattr__(col + "as", fun_provider(self.data, col))
 
-    # @lru_cache(maxsize=10000)
-    # def _apply_regexes(self, name, indexed_regexes, to):
-    #     result_list = []
-    #     for ind_regex, ccregex in indexed_regexes:
-    #         if ccregex.search(name):
-    #             result_list.append(self._conversion_data[ind_regex][to])
-    #         if len(result_list) > 1:
-    #             log.warning(
-    #                 "More then one regular expression " "match for {}".format(name)
-    #             )
-    #     return result_list
-
-    @lru_cache(maxsize=5000)
-    def _apply_multiregex(self, name, to):
+    @lru_cache(maxsize=500)
+    def _apply_multiregex(self, name):
         results = self.multiregex(name)
         result_list = []
-        if results:
-            entry_index, name = results
-            result_list.append(self._conversion_data[entry_index][to])
+        matched_ids = set()
+        for entry_id, _ in results:
+            if entry_id not in matched_ids:
+                result_list.append(self._conversion_data[entry_id])
+                matched_ids.add(entry_id)
         return result_list
+
+    @lru_cache(maxsize=5000)
+    def _find_country(self, name, to):
+        return [entry[to] for entry in self._apply_multiregex(name)]
 
     def convert(
         self,
@@ -587,7 +580,6 @@ class CountryConverter:
         exclude_split = {
             name: self._separate_exclude_cases(name, exclude_prefix) for name in names
         }
-
         for ind_names, current_name in enumerate(names):
             spec_name = exclude_split[current_name]["clean_name"]
 
@@ -597,8 +589,7 @@ class CountryConverter:
                 src_format = self._validate_input_para(src, self.data.columns.tolist())
 
             if src_format.lower() == "regex":
-                result_list = self._apply_multiregex(spec_name, to[0])
-
+                result_list = self._find_country(spec_name.lower(), to[0])
             else:
                 _match_col = (
                     self.data[src_format]

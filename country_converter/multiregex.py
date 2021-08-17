@@ -20,9 +20,12 @@ class Multiregex(object):
         self._re = re.compile(restr, re.IGNORECASE)
 
     def __call__(self, s):
-        result = self._re.search(s)
-        if result:
-            groups = result.groupdict()
-            return next(
-                ((self._messages[x], groups[x]) for x in groups.keys() if groups[x])
+        result = []
+        for match in self._re.finditer(s):
+            groups = match.groupdict()
+            result.append(
+                next(
+                    ((self._messages[x], groups[x]) for x in groups.keys() if groups[x])
+                )
             )
+        return result
