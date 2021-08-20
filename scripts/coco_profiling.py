@@ -10,7 +10,7 @@ print("Done")
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Profiling disco performance")
+    parser = argparse.ArgumentParser(description="Profiling performance")
     parser.add_argument(
         "-d",
         "--data",
