@@ -234,7 +234,7 @@ def match(
                 match_dict_a[name_a].append(regex)
 
         if len(match_dict_a[name_a]) == 0:
-            log.warning("Could not identify {} in list_a".format(name_a))
+            log.debug("Could not identify {} in list_a".format(name_a))
             _not_found_entry = name_a if not not_found else not_found
             name_dict_a[name_a].append(_not_found_entry)
             if not enforce_sublist:
@@ -242,7 +242,7 @@ def match(
             continue
 
         if len(match_dict_a[name_a]) > 1:
-            log.warning("Multiple matches for name {} in list_a".format(name_a))
+            log.debug("Multiple matches for name {} in list_a".format(name_a))
 
         for match_case in match_dict_a[name_a]:
             b_matches = 0
@@ -252,14 +252,14 @@ def match(
                     name_dict_a[name_a].append(name_b)
 
         if b_matches == 0:
-            log.warning(
+            log.debug(
                 "Could not find any " "correspondence for {} in list_b".format(name_a)
             )
             _not_found_entry = name_a if not not_found else not_found
             name_dict_a[name_a].append(_not_found_entry)
 
         if b_matches > 1:
-            log.warning("Multiple matches for " "name {} in list_b".format(name_a))
+            log.debug("Multiple matches for " "name {} in list_b".format(name_a))
 
         if not enforce_sublist and (len(name_dict_a[name_a]) == 1):
             name_dict_a[name_a] = name_dict_a[name_a][0]
@@ -510,7 +510,7 @@ class CountryConverter:
         to="ISO3",
         enforce_list=False,
         not_found="not found",
-        exclude_prefix=None,
+        exclude_prefix=None
     ):
         """Convert names from a list to another list.
 
@@ -607,7 +607,7 @@ class CountryConverter:
                 ]
 
             if len(result_list) == 0:
-                log.warning("{} not found in {}".format(spec_name, src_format))
+                log.debug("{} not found in {}".format(spec_name, src_format))
                 _fillin = not_found or spec_name
                 outlist[ind_names] = [_fillin] if enforce_list else _fillin
             else:
