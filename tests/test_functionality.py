@@ -176,8 +176,6 @@ def test_special_cases():
     converter = coco.CountryConverter().convert
 
     # issue 22 - namibia iso2 na interpreted as not a number
-    breakpoint()  # DEBUG
-
     assert converter("NA", to="ISO3") == "NAM"
     assert converter("NAM", to="ISO2") == "NA"
 
