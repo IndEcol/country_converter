@@ -24,11 +24,15 @@ jobs:
     - name: Pre-install environment info
       shell: bash -l {0}
       run: | 
-        conda info
-        conda list
+        mamba info
+        mamba list
 
     - name: Install environments
+      run: |
         mamba install python=${{matrix.python-version}}
+        mamba info
+        mamba list
+
 
     #   with:
     #     python-version: 3.8
