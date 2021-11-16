@@ -7,45 +7,75 @@ jobs:
  test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
+
+
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+    - uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: ${{ matrix.python-version }}
+          auto-update-conda: true
+          channels: conda-forge,defaults
+          channel-priority: true
+          python-version: ${{ matrix.python-version }}
+    - name: Conda info
+      shell: bash -l {0}
+      run: | 
+        conda info
+        conda list
+        mamba install jupyterlab
+        conda list
 
-    - name: Cache pip
-      uses: actions/cache@v2
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-          ${{ runner.os }}-
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Install package
-      run: |
-        pip install . -U
-        python setup.py sdist
-
-    - name: Print Python version and packages
-      run: |
-         python -c "import sys; print(sys.version)"
-         pip list
-
-    - name: Run tests
-      run: |
-         isort --project country_converter --profile black --check-only .
-         coverage run --source=country_converter -m pytest --black -vv
-
-    - name: Coveralls analysis
-      run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls
+    #   with:
+    #     python-version: 3.8
+    #     mamba-version: "*"
+    #     channels: conda-forge,defaults
+    #     channel-priority: true
+    #     activate-environment: coco_dev
+    #     environment-file: environment.yml
+    #
+    #
+    #
+    #
+    #
+    #
+    # - name: Set up Python ${{ matrix.python-version }}
+    #   uses: actions/setup-python@v2
+    #   with:
+    #     python-version: ${{ matrix.python-version }}
+    #
+    # - name: Cache pip
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: ~/.cache/pip
+    #     key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-pip-
+    #       ${{ runner.os }}-
+    #
+    # - name: Install dependencies
+    #   run: |
+    #     python -m pip install --upgrade pip
+    #     pip install -r requirements.txt
+    #
+    # - name: Install package
+    #   run: |
+    #     pip install . -U
+    #     python setup.py sdist
+    #
+    # - name: Print Python version and packages
+    #   run: |
+    #      python -c "import sys; print(sys.version)"
+    #      pip list
+    #
+    # - name: Run tests
+    #   run: |
+    #      isort --project country_converter --profile black --check-only .
+    #      coverage run --source=country_converter -m pytest --black -vv
+    #
+    # - name: Coveralls analysis
+    #   run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls

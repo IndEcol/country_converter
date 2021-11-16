@@ -611,12 +611,12 @@ class CountryConverter:
 
     @property
     def valid_class(self):
-        """ Valid strings for the converter """
+        """Valid strings for the converter"""
         return list(self.data.columns)
 
     @property
     def valid_country_classifications(self):
-        """ All classifications available for countries without any aggregation"""
+        """All classifications available for countries without any aggregation"""
         return [
             cname
             for cname in self.data.columns
