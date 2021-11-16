@@ -37,10 +37,6 @@ jobs:
           environment-file: environment.yml
           use-only-tar-bz2: true   # required for caching
 
-    - name: Switch python version
-      run: |
-        mamba install python=3.8
-
     - name: List environment
       run: |
         mamba info
@@ -61,7 +57,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     defaults:
       run:
-        shell: bash -l {0}
+        # removed -l as this breaks in mac-os
+        shell: bash {0}
     strategy:
       fail-fast: false
       matrix:

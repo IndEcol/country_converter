@@ -4,11 +4,12 @@ channels:
     - anaconda
     - conda-forge
 dependencies: 
-    - black
+    - python=3.9.7
+    - black=19.10b0
     - ipython
     - jupyterlab
     - isort
-    - pandas
+    - pandas >= 1.0
     - pytest-black
     - pytest-cov
     - coveralls
