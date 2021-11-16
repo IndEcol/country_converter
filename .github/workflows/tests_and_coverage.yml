@@ -15,6 +15,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles('environment.yml') }}
+
+
     - uses: conda-incubator/setup-miniconda@v2
       with:
           auto-update-conda: true
@@ -28,29 +40,16 @@ jobs:
         mamba list
 
     - name: Install environments
+      with:
+        activate-environment: coco-dev
+        environment-file: environment.yml
+        use-only-tar-bz2: true   # required for caching
       run: |
+        # mamba env create -f environment.yml 
         mamba install python=${{matrix.python-version}}
         mamba info
         mamba list
 
-
-    #   with:
-    #     python-version: 3.8
-    #     mamba-version: "*"
-    #     channels: conda-forge,defaults
-    #     channel-priority: true
-    #     activate-environment: coco_dev
-    #     environment-file: environment.yml
-    #
-    #
-    #
-    #
-    #
-    #
-    # - name: Set up Python ${{ matrix.python-version }}
-    #   uses: actions/setup-python@v2
-    #   with:
-    #     python-version: ${{ matrix.python-version }}
     #
     # - name: Cache pip
     #   uses: actions/cache@v2
