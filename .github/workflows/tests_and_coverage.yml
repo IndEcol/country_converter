@@ -54,7 +54,7 @@ jobs:
 
  test_production:
    # Testing if the package runs on different systems/python versions
-  needs: test_development
+    needs: test_development
     runs-on: ${{ matrix.os }}
     defaults:
       run:
