@@ -5,13 +5,14 @@ on: ["push", "pull_request"]
 jobs: 
 
  test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash -l {0}
     strategy:
       fail-fast: false
       matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
         python-version: [3.6, 3.7, 3.8, 3.9]
 
 
@@ -29,7 +30,7 @@ jobs:
           ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
           hashFiles('environment.yml') }}
 
-
+    - name: Setup conda and environment
     - uses: conda-incubator/setup-miniconda@v2
       with:
           auto-update-conda: true
@@ -40,27 +41,21 @@ jobs:
           environment-file: environment.yml
           use-only-tar-bz2: true   # required for caching
 
-    - name: Environment info
-      run: | 
-        mamba info
-        mamba list
-
     - name: Switch python version
       run: |
-        # mamba env create -f environment.yml 
         mamba install python=${{matrix.python-version}}
         mamba info
         mamba list
 
-    #
-    # - name: Cache pip
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: ~/.cache/pip
-    #     key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-pip-
-    #       ${{ runner.os }}-
+    - name: Run tests
+      run: |
+         isort --project country_converter --profile black --check-only .
+         coverage run --source=country_converter -m pytest --black -vv
+
+    - name: Coveralls analysis
+      run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls
+
+
     #
     # - name: Install dependencies
     #   run: |
@@ -77,10 +72,4 @@ jobs:
     #      python -c "import sys; print(sys.version)"
     #      pip list
     #
-    # - name: Run tests
-    #   run: |
-    #      isort --project country_converter --profile black --check-only .
-    #      coverage run --source=country_converter -m pytest --black -vv
-    #
-    # - name: Coveralls analysis
-    #   run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls
+
