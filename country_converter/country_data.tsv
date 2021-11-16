@@ -154,7 +154,7 @@ Montserrat	Montserrat	montserrat	MS	MSR	500.0	500.0	142.0		America	Caribbean	WW	
 Morocco	Kingdom of Morocco	morocco|\bmaroc	MA	MAR	504.0	504.0	143.0	148.0	Africa	Northern Africa	WW	WF	WF	RoW	MAR	MEA	Northern Africa	MEA												1956.0	1956.0		RoW							Morocco
 Mozambique	Republic of Mozambique	mozambique	MZ	MOZ	508.0	508.0	144.0	184.0	Africa	Eastern Africa	WW	WF	WF	RoW	MOZ	AFR	Rest of Southern Africa	SSA												1975.0	1975.0		RoW							Mozambique
 Myanmar	Republic of the Union of Myanmar	myanmar|burma	MM	MMR	104.0	104.0	28.0	15.0	Asia	Eastern Asia	WW	WA	WA	RoW	MMR	PAS	Southeastern Asia	OAS												1948.0	1948.0		RoW							Myanmar
-Namibia	Republic of Namibia	namibia		NAM	516.0	516.0	147.0	195.0	Africa	Southern Africa	WW	WF	WF	RoW	NAM	AFR	Rest of Southern Africa	SSA												1990.0	1990.0		RoW							Namibia
+Namibia	Republic of Namibia	namibia	NA	NAM	516.0	516.0	147.0	195.0	Africa	Southern Africa	WW	WF	WF	RoW	NAM	AFR	Rest of Southern Africa	SSA												1990.0	1990.0		RoW							Namibia
 Nauru	Republic of Nauru	nauru	NR	NRU	520.0	520.0	148.0	369.0	Oceania	Polynesia	WW	WA	WA	RoW	NRU		Oceania	OAS												1999.0	1999.0		RoW							Other non-OECD Asia
 Nepal	Federal Democratic Republic of Nepal	nepal	NP	NPL	524.0	524.0	149.0	164.0	Asia	Southern Asia	WW	WA	WA	RoW	NPL	SAS	Rest of South Asia	OAS												1955.0	1955.0		RoW							Nepal
 Netherlands	Kingdom of the Netherlands	^(?!.*\bant)(?!.*\bcarib).*netherlands	NL	NLD	528.0	528.0	150.0	89.0	Europe	Western Europe	NL	NL	NL	NLD	NLD	WEU	Western Europe	EUR	1961.0	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999.0	1945.0	1945.0		EU						G20	Netherlands
