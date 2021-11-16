@@ -54,6 +54,7 @@ jobs:
 
  test_production:
    # Testing if the package runs on different systems/python versions
+  needs: test_development
     runs-on: ${{ matrix.os }}
     defaults:
       run:
@@ -76,7 +77,7 @@ jobs:
        - name: Run tests
          run: |
             pip install . -U
-            pip install pytest=5.4.3
+            pip install pytest
             python setup.py sdist
             pytest -vv
 
