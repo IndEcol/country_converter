@@ -10,11 +10,10 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-    strategy:
-      fail-fast: false
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out repository code
+      uses: actions/checkout@v2
 
     - name: Cache conda
       uses: actions/cache@v2
@@ -72,23 +71,12 @@ jobs:
        - name: Setup Python
          uses: actions/setup-python@v2
          with:
-          python-version: ${{matrix.python-version}}
+            python-version: ${{matrix.python-version}}
 
-        - name: Install package
-          run: |
+       - name: Run tests
+         run: |
             pip install . -U
-            python setup.py sdist
             pip install pytest=5.4.3
-
-
-        - name: Print Python version and packages
-          run: |
-            python -c "import sys; print(sys.version)"
-            pip list
-
-        - name: Run tests
-          run: |
-            pip install . -U
             python setup.py sdist
             pytest -vv
 
