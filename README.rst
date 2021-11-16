@@ -420,6 +420,7 @@ Currently the following classification schemes are available (see also Data sour
 #) G20_ (listing all EU member states as individual members)
 #) FAOcode_ (numeric)
 #) GBDcode_ (numeric - Global Burden of Disease country codes)
+#) IEA_ (World Energy Balances 2021)
 
 Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
 To restrict the set to only the official recognized UN members or include obsolete countries, pass
@@ -492,6 +493,7 @@ book available here. <https://ghdx.healthdata.org/sites/default/files/ihme_query
 .. _`region classification map`: https://models.pbl.nl/image/index.php/Region_classification_map
 .. _FAOcode: http://www.fao.org/faostat/en/#definitions
 .. _GBDcode: http://ghdx.healthdata.org/
+.. _IEA: https://www.iea.org/countries
 
 
 Communication, issues, bugs and enhancements
