@@ -40,6 +40,9 @@ jobs:
     - name: Switch python version
       run: |
         mamba install python=3.8
+
+    - name: List environment
+      run: |
         mamba info
         mamba list
 
