@@ -4,17 +4,14 @@ on: ["push", "pull_request"]
 
 jobs: 
 
- test:
-    runs-on: ${{ matrix.os }}
+ test_development:
+  # Testing in development environment: functionality and code-format
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
     strategy:
       fail-fast: false
-      matrix:
-        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: [3.6, 3.7, 3.8, 3.9]
-
 
     steps:
     - uses: actions/checkout@v2
@@ -43,7 +40,7 @@ jobs:
 
     - name: Switch python version
       run: |
-        mamba install python=${{matrix.python-version}}
+        mamba install python=3.8
         mamba info
         mamba list
 
@@ -56,20 +53,44 @@ jobs:
       run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls
 
 
-    #
-    # - name: Install dependencies
-    #   run: |
-    #     python -m pip install --upgrade pip
-    #     pip install -r requirements.txt
-    #
-    # - name: Install package
-    #   run: |
-    #     pip install . -U
-    #     python setup.py sdist
-    #
-    # - name: Print Python version and packages
-    #   run: |
-    #      python -c "import sys; print(sys.version)"
-    #      pip list
-    #
+ test_production:
+   # Testing if the package runs on different systems/python versions
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        python-version: [3.6, 3.7, 3.8, 3.9]
+
+    steps:
+       - name: Check out repository code
+         uses: actions/checkout@v2
+
+       - name: Setup Python
+         uses: actions/setup-python@v2
+         with:
+          python-version: ${{matrix.python-version}}
+
+        - name: Install package
+          run: |
+            pip install . -U
+            python setup.py sdist
+            pip install pytest=5.4.3
+
+
+        - name: Print Python version and packages
+          run: |
+            python -c "import sys; print(sys.version)"
+            pip list
+
+        - name: Run tests
+          run: |
+            pip install . -U
+            python setup.py sdist
+            pytest -vv
+
+
 
