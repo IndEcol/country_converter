@@ -44,6 +44,7 @@ jobs:
         activate-environment: coco-dev
         environment-file: environment.yml
         use-only-tar-bz2: true   # required for caching
+    - name: Switch python version
       run: |
         # mamba env create -f environment.yml 
         mamba install python=${{matrix.python-version}}
