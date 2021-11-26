@@ -640,6 +640,16 @@ def test_exio_three_letter():
         ) == converter.convert(
             rr[1].EXIO3, src="EXIO3", to="name_short"
         ), f"Mismatch in: {rr} "
+        assert converter.convert(
+            rr[1].EXIO2_3L, src="EXIO2_3L", to="name_short"
+        ) == converter.convert(
+            rr[1].EXIO2, src="EXIO2", to="name_short"
+        ), f"Mismatch in: {rr} "
+        assert converter.convert(
+            rr[1].EXIO1_3L, src="EXIO1_3L", to="name_short"
+        ) == converter.convert(
+            rr[1].EXIO1, src="EXIO1", to="name_short"
+        ), f"Mismatch in: {rr} "
 
 
 #### RUN PYTEST USING THE BELLOW CODE
