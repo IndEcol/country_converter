@@ -610,69 +610,39 @@ def test_non_matching():
             assert not_found_indicator == coco.convert(
                 reg_name, src="regex", to="ISO3", not_found=not_found_indicator
             )
-#NEW TEST: for three letter codes, test on Croatia
-
-def get_3L(Name_short, EXIO):
-    data = pd.read_csv('tests\country_data.tsv', sep='\t', header=0)
-    new_df = data.loc[data['name_short'] == Name_short]
-    new_df2 = new_df[EXIO+'_3L']
-    new_df2 = new_df2.reset_index()
-    return str(new_df2)
-
-def test_three_letter():
-    data = pd.read_csv('tests\country_data.tsv', sep='\t', header=0)
-    assert '   index EXIO3_3L\n0     57      HRV' == get_3L('Croatia', 'EXIO3')
-    assert '   index EXIO2_3L\n0     57      WWE' == get_3L('Croatia', 'EXIO2')
-    assert '   index EXIO1_3L\n0     57      WWW' == get_3L('Croatia', 'EXIO1')
-    assert '   index EXIO1_3L\n0    186      RUS' == get_3L('Russia', 'EXIO1')
-    assert '   index EXIO2_3L\n0    186      RUS' == get_3L('Russia', 'EXIO2')
-    assert '   index EXIO3_3L\n0    186      RUS' == get_3L('Russia', 'EXIO3')
 
 
-def test_3L_length():
-    data = pd.read_csv('tests\country_data.tsv', sep='\t', header=0)
-    assert len(get_3L('Russia', 'EXIO1')) == 35
-    assert len(get_3L('Russia', 'EXIO2')) == 35
-    assert len(get_3L('Russia', 'EXIO3')) == 35
-    assert len(get_3L('France', 'EXIO1')) == 35
-    assert len(get_3L('France', 'EXIO2')) == 35
-    assert len(get_3L('France', 'EXIO3')) == 35
-    assert len(get_3L('Croatia', 'EXIO1')) == 35
-    assert len(get_3L('Croatia', 'EXIO1')) == 35
-    assert len(get_3L('Croatia', 'EXIO1')) == 35
+def test_exio_three_letter():
+    converter = coco.CountryConverter()
+    assert "HRV" == converter.convert("Croatia", to="exio3_3l")
+    assert "WWE" == converter.convert("Croatia", to="exio2_3l")
+    assert "WWW" == converter.convert("Croatia", to="exio1_3l")
+    assert "WWM" == converter.convert("Egypt", to="exio3_3l")
+    assert "WWM" == converter.convert("Egypt", to="exio2_3l")
+    assert "WWW" == converter.convert("Egypt", to="exio1_3l")
 
-#Make sure that the new variables are all the same length as old variables 
-def test_data_length():
-    data = pd.read_csv('tests\country_data.tsv', sep='\t', header=0)
-    assert len(data['EXIO3_3L']) == 256
-    assert len(data['EXIO2_3L']) == 256
-    assert len(data['EXIO1_3L']) == 256
+    assert len(converter.data.EXIO1_3L.squeeze().unique()) == len(
+        converter.data.EXIO1.squeeze().unique()
+    )
+    assert len(converter.data.EXIO2_3L.squeeze().unique()) == len(
+        converter.data.EXIO2.squeeze().unique()
+    )
 
+    for rr in converter.data.iterrows():
+        if rr[1].EXIO3[0] == "W":
+            assert rr[1].EXIO3_3L == "W" + rr[1].EXIO3, f"Mismatch: {rr}"
+            assert rr[1].EXIO2_3L == "W" + rr[1].EXIO2, f"Mismatch: {rr}"
+            assert rr[1].EXIO1_3L == "W" + rr[1].EXIO1, f"Mismatch: {rr}"
 
-#Write function to retrieve values for the two-letter exio codes and test
-def get_2L(Name_short, EXIO):
-    data = pd.read_csv('tests\country_data.tsv', sep='\t', header=0)
-    new_df = data.loc[data['name_short'] == Name_short]
-    new_df2 = new_df[EXIO]
-    new_df2 = new_df2.reset_index()
-    return str(new_df2)
-
-def test_2L_length():
-    data = pd.read_csv('tests\country_data.tsv', sep='\t', header=0)
-    assert len(get_2L('Russia', 'EXIO1')) == 29
-    assert len(get_2L('Russia', 'EXIO2')) == 29
-    assert len(get_2L('Russia', 'EXIO3')) == 29
-    assert len(get_2L('France', 'EXIO1')) == 29
-    assert len(get_2L('France', 'EXIO2')) == 29
-    assert len(get_2L('France', 'EXIO3')) == 29
-    assert len(get_2L('Croatia', 'EXIO1')) == 29
-    assert len(get_2L('Croatia', 'EXIO2')) == 29
-    assert len(get_2L('Croatia', 'EXIO3')) == 29
-    assert len(get_2L('Egypt', 'EXIO2')) == 29
-    
+    for rr in converter.data.iterrows():
+        assert converter.convert(
+            rr[1].EXIO3_3L, src="EXIO3_3L", to="name_short"
+        ) == converter.convert(
+            rr[1].EXIO3, src="EXIO3", to="name_short"
+        ), f"Mismatch in: {rr} "
 
 
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
-#run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
+# run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
 ###New Update
