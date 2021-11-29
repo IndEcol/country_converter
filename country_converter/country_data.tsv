@@ -158,27 +158,27 @@ Namibia	Republic of Namibia	namibia	NA	NAM	516.0	516.0	147.0	195.0	Africa	Southe
 Nauru	Republic of Nauru	nauru	NR	NRU	520.0	520.0	148.0	369.0	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	NRU		Oceania	OAS												1999.0	1999.0		RoW							Other non-OECD Asia
 Nepal	Federal Democratic Republic of Nepal	nepal	NP	NPL	524.0	524.0	149.0	164.0	Asia	Southern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	NPL	SAS	Rest of South Asia	OAS												1955.0	1955.0		RoW							Nepal
 Netherlands	Kingdom of the Netherlands	^(?!.*\bant)(?!.*\bcarib).*netherlands	NL	NLD	528.0	528.0	150.0	89.0	Europe	Western Europe	NL	NL	NL	NLD	NLD	NLD	NLD	NLD	WEU	Western Europe	EUR	1961.0	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999.0	1945.0	1945.0		EU						G20	Netherlands
-Netherlands Antilles	Netherlands Antilles	^(?=.*\bant).*(neth.*|dutch)	AN	ANT	530.0		151.0		America		WW	WL	WL	WWW	WWL	WWWW	RoW	ANT	LAC	Central America															2010.0	RoW							
-New Caledonia	New Caledonia	new.?caledonia	NC	NCL	540.0	540.0	153.0		Oceania	Melanesia	WW	WA	WA	WWW	WWA	WWWW	RoW	NCL	PAS	Oceania	OAS															RoW							Other non-OECD Asia
-New Zealand	New Zealand	(new|n).*zealand	NZ	NZL	554.0	554.0	156.0	72.0	Oceania	Australia and New Zealand	WW	WA	WA	WWW	WWA	WWWW	RoW	NZL	PAO	Oceania	CAZ	1973.0											1945.0	1945.0		RoW		APEC					New Zealand
-Nicaragua	Republic of Nicaragua	nicaragua	NI	NIC	558.0	558.0	157.0	131.0	America	Central America	WW	WL	WL	WWW	WWL	WWWW	RoW	NIC	LAC	Central America	LAM												1945.0	1945.0		RoW							Nicaragua
-Niger	Republic of Niger	\bniger(?!ia)	NE	NER	562.0	562.0	158.0	213.0	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWWW	RoW	NER	AFR	Western Africa	SSA												1960.0	1960.0		RoW							Niger
-Nigeria	Federal Republic of Nigeria	nigeria	NG	NGA	566.0	566.0	159.0	214.0	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWWW	RoW	NGA	AFR	Western Africa	SSA												1960.0	1960.0		RoW							Nigeria
-Niue	Niue	niue	NU	NIU	570.0	570.0	160.0	374.0	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWWW	RoW	NIU		Oceania	OAS															RoW							Other non-OECD Asia
-Norfolk Island	Norfolk Island	norfolk.*is	NF	NFK	574.0	574.0	161.0		Oceania	Australia and New Zealand	WW	WA	WA	WWW	WWA	WWWW	RoW	NFK			OAS															RoW							Other non-OECD Asia
-North Korea	Democratic People's Republic of Korea	^(?=.*dem).*\bkorea|^(?=.*peo).*\bkorea|^(?=.*nor).*\bkorea|\bd\.?p\.?r\.|.*dpr.*|^(?=.*n\.).*\bkorea	KP	PRK	408.0	408.0	116.0	7.0	Asia	Eastern Asia	WW	WA	WA	WWW	WWA	WWWW	RoW	PRK	CPA	Korea region	OAS												1991.0	1991.0		RoW							Democratic People's Republic of Korea
-Northern Mariana Islands	Northern Mariana Islands	mariana	MP	MNP	580.0	580.0	163.0	376.0	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWWW	RoW	MNP		Oceania	OAS															RoW							Other non-OECD Asia
+Netherlands Antilles	Netherlands Antilles	^(?=.*\bant).*(neth.*|dutch)	AN	ANT	530.0		151.0		America		WW	WL	WL	WWW	WWL	WWL	RoW	ANT	LAC	Central America															2010.0	RoW							
+New Caledonia	New Caledonia	new.?caledonia	NC	NCL	540.0	540.0	153.0		Oceania	Melanesia	WW	WA	WA	WWW	WWA	WWA	RoW	NCL	PAS	Oceania	OAS															RoW							Other non-OECD Asia
+New Zealand	New Zealand	(new|n).*zealand	NZ	NZL	554.0	554.0	156.0	72.0	Oceania	Australia and New Zealand	WW	WA	WA	WWW	WWA	WWA	RoW	NZL	PAO	Oceania	CAZ	1973.0											1945.0	1945.0		RoW		APEC					New Zealand
+Nicaragua	Republic of Nicaragua	nicaragua	NI	NIC	558.0	558.0	157.0	131.0	America	Central America	WW	WL	WL	WWW	WWL	WWL	RoW	NIC	LAC	Central America	LAM												1945.0	1945.0		RoW							Nicaragua
+Niger	Republic of Niger	\bniger(?!ia)	NE	NER	562.0	562.0	158.0	213.0	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	NER	AFR	Western Africa	SSA												1960.0	1960.0		RoW							Niger
+Nigeria	Federal Republic of Nigeria	nigeria	NG	NGA	566.0	566.0	159.0	214.0	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	NGA	AFR	Western Africa	SSA												1960.0	1960.0		RoW							Nigeria
+Niue	Niue	niue	NU	NIU	570.0	570.0	160.0	374.0	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	NIU		Oceania	OAS															RoW							Other non-OECD Asia
+Norfolk Island	Norfolk Island	norfolk.*is	NF	NFK	574.0	574.0	161.0		Oceania	Australia and New Zealand	WW	WA	WA	WWW	WWA	WWA	RoW	NFK			OAS															RoW							Other non-OECD Asia
+North Korea	Democratic People's Republic of Korea	^(?=.*dem).*\bkorea|^(?=.*peo).*\bkorea|^(?=.*nor).*\bkorea|\bd\.?p\.?r\.|.*dpr.*|^(?=.*n\.).*\bkorea	KP	PRK	408.0	408.0	116.0	7.0	Asia	Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	PRK	CPA	Korea region	OAS												1991.0	1991.0		RoW							Democratic People's Republic of Korea
+Northern Mariana Islands	Northern Mariana Islands	mariana	MP	MNP	580.0	580.0	163.0	376.0	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW	MNP		Oceania	OAS															RoW							Other non-OECD Asia
 Norway	Kingdom of Norway	norway	NO	NOR	578.0	578.0	162.0	90.0	Europe	Northern Europe	NO	NO	NO	NOR	NOR	NOR	RoW	NOR	WEU	Western Europe	NEU	1961.0								EEA	Schengen		1945.0	1945.0		HI							Norway
-Oman	Sultanate of Oman	\boman|trucial	OM	OMN	512.0	512.0	221.0	150.0	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWWW	RoW	OMN	MEA	Middle East	MEA												1971.0	1971.0		RoW							Oman
-Pakistan	Islamic Republic of Pakistan	^(?!.*east).*paki?stan	PK	PAK	586.0	586.0	165.0	165.0	Asia	Southern Asia	WW	WA	WA	WWW	WWA	WWWW	RoW	PAK	SAS	Rest of South Asia	OAS												1947.0	1947.0		RoW							Pakistan
-Palau	Republic of Palau	palau	PW	PLW	585.0	585.0	180.0	380.0	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWWW	RoW	PLW		Oceania	OAS												1994.0	1994.0		RoW							Other non-OECD Asia
-Palestine	State of Palestine	palestin|\bgaza|west.?bank	PS	PSE	275.0	275.0	299.0	149.0	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWWW	RoW	PSE			MEA															RoW							Other non-OECD Asia
-Panama	Republic of Panama	panama	PA	PAN	591.0	591.0	166.0	132.0	America	Central America	WW	WL	WL	WWW	WWL	WWWW	RoW	PAN	LAC	Central America	LAM												1945.0	1945.0		RoW							Panama
-Papua New Guinea	Independent State of Papua New Guinea	\bp.*\bn.*\bguin.*|^p\.?n\.?g\.?$|new.?guinea	PG	PNG	598.0	598.0	168.0	26.0	Oceania	Melanesia	WW	WA	WA	WWW	WWA	WWWW	RoW	PNG	PAS	Indonesia region	OAS												1975.0	1975.0		RoW		APEC					Other non-OECD Asia
-Paraguay	Republic of Paraguay	paraguay	PY	PRY	600.0	600.0	169.0	136.0	America	South America	WW	WL	WL	WWW	WWL	WWWW	RoW	PRY	LAC	Rest of South America	LAM												1945.0	1945.0		RoW							Paraguay
-Peru	Republic of Peru	peru	PE	PER	604.0	604.0	170.0	123.0	America	South America	WW	WL	WL	WWW	WWL	WWWW	RoW	PER	LAC	Rest of South America	LAM												1945.0	1945.0		RoW		APEC					Peru
-Philippines	Republic of the Philippines	philippines	PH	PHL	608.0	608.0	171.0	16.0	Asia	South-Eastern Asia	WW	WA	WA	WWW	WWA	WWWW	RoW	PHL	PAS	Southeastern Asia	OAS												1945.0	1945.0		RoW		APEC					Philippines
-Pitcairn	Pitcairn	pitcairn	PN	PCN	612.0	612.0	172.0		Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWWW	RoW	PCN		Oceania	OAS															RoW							Other non-OECD Asia
+Oman	Sultanate of Oman	\boman|trucial	OM	OMN	512.0	512.0	221.0	150.0	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	OMN	MEA	Middle East	MEA												1971.0	1971.0		RoW							Oman
+Pakistan	Islamic Republic of Pakistan	^(?!.*east).*paki?stan	PK	PAK	586.0	586.0	165.0	165.0	Asia	Southern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	PAK	SAS	Rest of South Asia	OAS												1947.0	1947.0		RoW							Pakistan
+Palau	Republic of Palau	palau	PW	PLW	585.0	585.0	180.0	380.0	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW	PLW		Oceania	OAS												1994.0	1994.0		RoW							Other non-OECD Asia
+Palestine	State of Palestine	palestin|\bgaza|west.?bank	PS	PSE	275.0	275.0	299.0	149.0	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	PSE			MEA															RoW							Other non-OECD Asia
+Panama	Republic of Panama	panama	PA	PAN	591.0	591.0	166.0	132.0	America	Central America	WW	WL	WL	WWW	WWL	WWL	RoW	PAN	LAC	Central America	LAM												1945.0	1945.0		RoW							Panama
+Papua New Guinea	Independent State of Papua New Guinea	\bp.*\bn.*\bguin.*|^p\.?n\.?g\.?$|new.?guinea	PG	PNG	598.0	598.0	168.0	26.0	Oceania	Melanesia	WW	WA	WA	WWW	WWA	WWA	RoW	PNG	PAS	Indonesia region	OAS												1975.0	1975.0		RoW		APEC					Other non-OECD Asia
+Paraguay	Republic of Paraguay	paraguay	PY	PRY	600.0	600.0	169.0	136.0	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	PRY	LAC	Rest of South America	LAM												1945.0	1945.0		RoW							Paraguay
+Peru	Republic of Peru	peru	PE	PER	604.0	604.0	170.0	123.0	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	PER	LAC	Rest of South America	LAM												1945.0	1945.0		RoW		APEC					Peru
+Philippines	Republic of the Philippines	philippines	PH	PHL	608.0	608.0	171.0	16.0	Asia	South-Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	PHL	PAS	Southeastern Asia	OAS												1945.0	1945.0		RoW		APEC					Philippines
+Pitcairn	Pitcairn	pitcairn	PN	PCN	612.0	612.0	172.0		Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	PCN		Oceania	OAS															RoW							Other non-OECD Asia
 Poland	Republic of Poland	poland	PL	POL	616.0	616.0	173.0	51.0	Europe	Eastern Europe	PL	PL	PL	POL	POL	POL	POL	POL	EEU	Central Europe	EUR	1996.0	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1945.0	1945.0		EU						G20	Poland
 Portugal	Portuguese Republic	portugal|portuguese	PT	PRT	620.0	620.0	174.0	91.0	Europe	Southern Europe	PT	PT	PT	PRT	PRT	PRT	PRT	PRT	WEU	Western Europe	EUR	1961.0	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999.0	1955.0	1955.0		EU						G20	Portugal
 Puerto Rico	Puerto Rico	puerto.?rico	PR	PRI	630.0	630.0	177.0	385.0	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW		NAM	Central America	LAM															RoW							Other non-OECD Americas

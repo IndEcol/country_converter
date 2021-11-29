@@ -610,6 +610,7 @@ def test_non_matching():
             assert not_found_indicator == coco.convert(
                 reg_name, src="regex", to="ISO3", not_found=not_found_indicator
             )
+<<<<<<< HEAD
 #NEW TEST: for three letter codes, test on Croatia
 
 def get_3L(Name_short, EXIO):
@@ -670,8 +671,55 @@ def test_2L_length():
     assert len(get_2L('Croatia', 'EXIO3')) == 29
     assert len(get_2L('Egypt', 'EXIO2')) == 29
     
+=======
+
+
+def test_exio_three_letter():
+    converter = coco.CountryConverter()
+    assert "HRV" == converter.convert("Croatia", to="exio3_3l")
+    assert "WWE" == converter.convert("Croatia", to="exio2_3l")
+    assert "WWW" == converter.convert("Croatia", to="exio1_3l")
+    assert "WWM" == converter.convert("Egypt", to="exio3_3l")
+    assert "WWM" == converter.convert("Egypt", to="exio2_3l")
+    assert "WWW" == converter.convert("Egypt", to="exio1_3l")
+
+    assert len(converter.data.EXIO1_3L.squeeze().unique()) == len(
+        converter.data.EXIO1.squeeze().unique()
+    )
+    assert len(converter.data.EXIO2_3L.squeeze().unique()) == len(
+        converter.data.EXIO2.squeeze().unique()
+    )
+
+    for rr in converter.data.iterrows():
+        if rr[1].EXIO3[0] == "W":
+            assert rr[1].EXIO3_3L == "W" + rr[1].EXIO3, f"Mismatch: {rr}"
+            assert rr[1].EXIO2_3L == "W" + rr[1].EXIO2, f"Mismatch: {rr}"
+            assert rr[1].EXIO1_3L == "W" + rr[1].EXIO1, f"Mismatch: {rr}"
+
+    for rr in converter.data.iterrows():
+        assert converter.convert(
+            rr[1].EXIO3_3L, src="EXIO3_3L", to="name_short"
+        ) == converter.convert(
+            rr[1].EXIO3, src="EXIO3", to="name_short"
+        ), f"Mismatch in: {rr} "
+        assert converter.convert(
+            rr[1].EXIO2_3L, src="EXIO2_3L", to="name_short"
+        ) == converter.convert(
+            rr[1].EXIO2, src="EXIO2", to="name_short"
+        ), f"Mismatch in: {rr} "
+        assert converter.convert(
+            rr[1].EXIO1_3L, src="EXIO1_3L", to="name_short"
+        ) == converter.convert(
+            rr[1].EXIO1, src="EXIO1", to="name_short"
+        ), f"Mismatch in: {rr} "
+>>>>>>> e85f5f0a4507d9dd3ec3bf1ee09e90e1d76a0575
 
 
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
+<<<<<<< HEAD
 #run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
+=======
+# run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
+###New Update
+>>>>>>> e85f5f0a4507d9dd3ec3bf1ee09e90e1d76a0575
