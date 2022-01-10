@@ -421,6 +421,7 @@ Currently the following classification schemes are available (see also Data sour
 #) FAOcode_ (numeric)
 #) GBDcode_ (numeric - Global Burden of Disease country codes)
 #) IEA_ (World Energy Balances 2021)
+#) DACcode_ (numeric - OECD Development Assistance Committee)
 
 Coco contains official recognised codes as well as non-standard codes for disputed or dissolved countries. 
 To restrict the set to only the official recognized UN members or include obsolete countries, pass
@@ -494,6 +495,7 @@ book available here. <https://ghdx.healthdata.org/sites/default/files/ihme_query
 .. _FAOcode: http://www.fao.org/faostat/en/#definitions
 .. _GBDcode: http://ghdx.healthdata.org/
 .. _IEA: https://www.iea.org/countries
+.. _DACcode: https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm
 
 
 Communication, issues, bugs and enhancements
