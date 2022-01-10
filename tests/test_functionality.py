@@ -659,6 +659,7 @@ def test_DAC_number_codes():
     assert 347 == cc.convert("GTM", to="DACcode")
     assert 854 == cc.convert("VUT", to="DACcode")
 
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
