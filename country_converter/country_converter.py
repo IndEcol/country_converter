@@ -583,7 +583,7 @@ class CountryConverter:
                     etr[0]
                     for etr in self.data[
                         _match_col.str.contains(
-                            "^" + spec_name + "$", flags=re.IGNORECASE, na=False
+                            "^" + re.escape(spec_name) + "$", flags=re.IGNORECASE, na=False
                         )
                     ][to].values
                 ]
