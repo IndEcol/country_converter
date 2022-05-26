@@ -855,7 +855,7 @@ def _parse_arg(valid_classifications):
 
 def cli_output(conv_names, sep):
     """Helper function for printing to the console"""
-    pd.set_option("max_rows", len(str(conv_names)))
+    pd.options.display.max_rows = len(str(conv_names))
     if type(conv_names) is pd.DataFrame:
         if len(conv_names.columns) == 1:
             conv_names = conv_names.iloc[:, 0].tolist()
