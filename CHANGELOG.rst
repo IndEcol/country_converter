@@ -1,6 +1,14 @@
 Change Log
 ===========
 
+0.7.5dev
+-----------------
+
+Bug Fixes
+^^^^^^^^^
+
+* Escape characters in country names to allow for names with special symbols (brackets) in regex (#101)
+
 
 0.7.4 - 20211118
 -----------------
