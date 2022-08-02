@@ -18,6 +18,12 @@ Bug Fixes
 * Escape characters in country names to allow for names with special symbols (brackets) in regex (#101)
 * Updated regex of India to exclude Bassas Da India (#111)
 
+Development
+^^^^^^^^^^^^^^^^
+
+* Minimum required version of Black is 22.3.0
+
+
 
 0.7.4 - 20211118
 -----------------
