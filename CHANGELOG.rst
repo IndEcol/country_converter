@@ -4,6 +4,14 @@ Change Log
 0.7.5dev
 -----------------
 
+
+Classifications
+^^^^^^^^^^^^^^^^
+* Changed name from Republic of Turkey to Republic of Türkiye (see https://en.wikipedia.org/wiki/Turkey ).
+* Changed Macedonia to North Macedonia (following the Prespa agreement: https://en.wikipedia.org/wiki/Prespa_agreement).
+
+
+
 Bug Fixes
 ^^^^^^^^^
 

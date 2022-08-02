@@ -132,7 +132,7 @@ Liechtenstein	Principality of Liechtenstein	liechtenstein	LI	LIE	438.0	438.0	125
 Lithuania	Republic of Lithuania	lithuania	LT	LTU	440.0	440.0	126.0	60.0	Europe	Northern Europe	LT	LT	LT	LTU	LTU	LTU	LTU	LTU	EEU	Central Europe	EUR	2018.0	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2015.0	1991.0	1991.0		EU						G20	Lithuania
 Luxembourg	Grand Duchy of Luxembourg	^(?!.*belg).*luxem	LU	LUX	442.0	442.0	256.0	87.0	Europe	Western Europe	LU	LU	LU	LUX	LUX	LUX	LUX	LUX	WEU	Western Europe	EUR	1961.0	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999.0	1945.0	1945.0		EU						G20	Luxembourg
 Macau	Macau SAR	.*maca(o|u)	MO	MAC	446.0	446.0	128.0		Asia	Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	MAC		China region	CHA															RoW							Other non-OECD Asia
-Macedonia	Republic of Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807.0	807.0	154.0	49.0	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	MKD	EEU	Central Europe	NEU												1993.0	1993.0		RoW							Republic of North Macedonia
+North Macedonia	Republic of North Macedonia	macedonia|^f\.?y\.?r\.?o\.?m\.?$	MK	MKD	807.0	807.0	154.0	49.0	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	MKD	EEU	Central Europe	NEU												1993.0	1993.0		RoW							Republic of North Macedonia
 Madagascar	Republic of Madagascar	madagascar|malagasy	MG	MDG	450.0	450.0	129.0	181.0	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	MDG	AFR	Eastern Africa	SSA												1960.0	1960.0		RoW							Other Africa
 Malawi	Republic of Malawi	malawi|nyasa	MW	MWI	454.0	454.0	130.0	182.0	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	MWI	AFR	Rest of Southern Africa	SSA												1964.0	1964.0		RoW							Other Africa
 Malaysia	Malaysia	malaysia	MY	MYS	458.0	458.0	131.0	13.0	Asia	South-Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	MYS	PAS	Southeastern Asia	OAS												1957.0	1957.0		RoW		APEC					Malaysia
@@ -232,7 +232,7 @@ Tokelau	Tokelau	tokelau	TK	TKL	772.0	772.0	218.0	413.0	Oceania	Polynesia	WW	WA	W
 Tonga	Kingdom of Tonga	tonga	TO	TON	776.0	776.0	219.0	29.0	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	TON	PAS	Oceania	OAS												1999.0	1999.0		RoW							Other non-OECD Asia
 Trinidad and Tobago	Republic of Trinidad and Tobago	trinidad|tobago	TT	TTO	780.0	780.0	220.0	119.0	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	TTO	LAC	Central America	LAM												1962.0	1962.0		RoW							Trinidad and Tobago
 Tunisia	Republic of Tunisia	tunisia	TN	TUN	788.0	788.0	222.0	154.0	Africa	Northern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	TUN	MEA	Northern Africa	MEA												1956.0	1956.0		RoW							Tunisia
-Turkey	Republic of Turkey	turkey	TR	TUR	792.0	792.0	223.0	155.0	Asia	Western Asia	TR	TR	TR	TUR	TUR	TUR	TUR	TUR	WEU	Turkey	NEU	1961.0											1945.0	1945.0		BX						G20	Turkey
+Turkey	Republic of Türkiye	t[ü|u]rk[i|e]y	TR	TUR	792.0	792.0	223.0	155.0	Asia	Western Asia	TR	TR	TR	TUR	TUR	TUR	TUR	TUR	WEU	Turkey	NEU	1961.0											1945.0	1945.0		BX						G20	Turkey
 Turkmenistan	Turkmenistan	turk-?men	TM	TKM	795.0	795.0	213.0	40.0	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	TKM	FSU	Central Asia	REF												1992.0	1992.0		RoW							Turkmenistan
 Turks and Caicos Islands	Turks and Caicos Islands	turks	TC	TCA	796.0	796.0	224.0		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	TCA		Central America	LAM															RoW							Other non-OECD Americas
 Tuvalu	Tuvalu	tuvalu	TV	TUV	798.0	798.0	227.0	416.0	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	TUV		Oceania	OAS												2000.0	2000.0		RoW							Other non-OECD Asia
