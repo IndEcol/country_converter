@@ -1,7 +1,7 @@
 Change Log
 ===========
 
-0.7.5dev
+0.7.5 - 20220802
 -----------------
 
 
@@ -16,6 +16,7 @@ Bug Fixes
 ^^^^^^^^^
 
 * Escape characters in country names to allow for names with special symbols (brackets) in regex (#101)
+* Updated regex of India to exclude Bassas Da India (#111)
 
 
 0.7.4 - 20211118

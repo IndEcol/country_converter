@@ -104,7 +104,7 @@ Honduras	Republic of Honduras	^(?!.*brit).*honduras	HN	HND	340.0	340.0	95.0	129.
 Hong Kong	Hong Kong SAR	.*hong.*kong|hksar	HK	HKG	344.0	344.0	96.0		Asia	Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	HKG	CPA	China region	CHA															RoW		APEC					Hong Kong (China)
 Hungary	Republic of Hungary	hungary	HU	HUN	348.0	348.0	97.0	48.0	Europe	Eastern Europe	HU	HU	HU	HUN	HUN	HUN	HUN	HUN	EEU	Central Europe	EUR	1996.0	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen		1955.0	1955.0		EU						G20	Hungary
 Iceland	Republic of Iceland	iceland	IS	ISL	352.0	352.0	99.0	83.0	Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	ISL	WEU	Western Europe	NEU	1961.0								EEA	Schengen		1946.0	1946.0		RoW							Iceland
-India	Republic of India	india(?!.*ocea)(?!na)	IN	IND	356.0	356.0	100.0	163.0	Asia	Southern Asia	IN	IN	IN	IND	IND	IND	IND	IND	SAS	India	IND												1945.0	1945.0		BX	BRIC		BASIC			G20	India
+India	Republic of India	^(?!\D*(?:bassas))\D*india(?!.*ocea)(?!na)	IN	IND	356.0	356.0	100.0	163.0	Asia	Southern Asia	IN	IN	IN	IND	IND	IND	IND	IND	SAS	India	IND												1945.0	1945.0		BX	BRIC		BASIC			G20	India
 Indonesia	Republic of Indonesia	indonesia	ID	IDN	360.0	360.0	101.0	11.0	Asia	South-Eastern Asia	ID	ID	ID	IDN	IDN	IDN	IDN	IDN	PAS	Indonesia region	OAS												1950.0	1950.0		BX		APEC				G20	Indonesia
 Iran	Islamic Republic of Iran	\biran|persia	IR	IRN	364.0	364.0	102.0	142.0	Asia	Southern Asia	WW	WM	WM	WWW	WWM	WWM	RoW	IRN	MEA	Middle East	MEA												1945.0	1945.0		RoW							Islamic Republic of Iran
 Iraq	Republic of Iraq	\biraq|mesopotamia	IQ	IRQ	368.0	368.0	103.0	143.0	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	IRQ	MEA	Middle East	MEA												1945.0	1945.0		RoW							Iraq
