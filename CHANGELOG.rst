@@ -1,13 +1,28 @@
 Change Log
 ===========
 
-0.7.5dev
+0.7.5 - 20220802
 -----------------
+
+
+Classifications
+^^^^^^^^^^^^^^^^
+* Changed name from Republic of Turkey to Republic of Türkiye (see https://en.wikipedia.org/wiki/Turkey ).
+* Changed Macedonia to North Macedonia (following the Prespa agreement: https://en.wikipedia.org/wiki/Prespa_agreement).
+
+
 
 Bug Fixes
 ^^^^^^^^^
 
 * Escape characters in country names to allow for names with special symbols (brackets) in regex (#101)
+* Updated regex of India to exclude Bassas Da India (#111)
+
+Development
+^^^^^^^^^^^^^^^^
+
+* Minimum required version of Black is 22.3.0
+
 
 
 0.7.4 - 20211118

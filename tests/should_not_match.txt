@@ -10,6 +10,9 @@ Sweden except Stockholm
 New Mexico
 Norfolk
 
+# Bassas da India - see #110
+Bassas Da India
+
 # General cases
 Georgia (US state)
 New Holland
