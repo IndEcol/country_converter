@@ -462,7 +462,9 @@ class CountryConverter:
 
         self.data.reset_index(drop=True, inplace=True)
         self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
-        self.iso2_regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.ISO2]
+        self.iso2_regexes = [
+            re.compile(entry, re.IGNORECASE) for entry in self.data.ISO2
+        ]
 
         # the following section adds shortcuts to all classifications to the
         # class.
