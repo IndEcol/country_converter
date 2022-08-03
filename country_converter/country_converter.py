@@ -462,6 +462,7 @@ class CountryConverter:
 
         self.data.reset_index(drop=True, inplace=True)
         self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
+        self.iso2_regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.ISO2]
 
         # the following section adds shortcuts to all classifications to the
         # class.
@@ -561,9 +562,15 @@ class CountryConverter:
             else:
                 src_format = self._validate_input_para(src, self.data.columns.tolist())
 
-            if src_format.lower() == "regex":
+            # if src_format.lower() == "regex":
+            if src_format.lower() in ["regex", "iso2"]:
                 result_list = []
-                for ind_regex, ccregex in enumerate(self.regexes):
+                # for ind_regex, ccregex in enumerate(self.regexes):
+                if src_format.lower() == "iso2":
+                    regexes = self.iso2_regexes
+                elif src_format.lower() == "regex":
+                    regexes = self.regexes
+                for ind_regex, ccregex in enumerate(regexes):
                     if ccregex.search(spec_name):
                         result_list.append(self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:

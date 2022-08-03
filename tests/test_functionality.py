@@ -145,6 +145,7 @@ def test_additional_country_data():
             "name_official": ["longer xxx country name"],
             "regex": ["xxx country"],
             "ISO3": ["XXX"],
+            "ISO2": ["XX"],
         }
     )
     converter_extended = coco.CountryConverter(additional_data=add_data)

@@ -14,6 +14,7 @@
 ### Development
 
 - CHANGELOG format changed to markdown
+- ISO2 column accepts regex - fix #92
 
 
 
