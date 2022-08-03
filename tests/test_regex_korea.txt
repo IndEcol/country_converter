@@ -9,6 +9,7 @@ North Korea	"D.P.R. of Korea"
 North Korea	"DPR of Korea"
 North Korea	"DPR"
 North Korea	N. Korea
+North Korea	N Korea
 South Korea	"Korea, Republic of"
 South Korea	Korea
 South Korea	Rep. of Korea
