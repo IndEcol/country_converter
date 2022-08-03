@@ -61,7 +61,7 @@ Alternatively, the source code is available on
 
 The package depends on [Pandas](http://pandas.pydata.org/); for testing
 [pytest](http://pytest.org/) is required. For further information on
-running the tests see [CONTRIBUTING.rst](CONTRIBUTING.rst).
+running the tests see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Usage
 
@@ -491,7 +491,7 @@ occasionally some random retweets).
 ## Contributing
 
 Want to contribute? Great! Please check
-[CONTRIBUTING.rst](CONTRIBUTING.rst) if you want to help to improve coco
+[CONTRIBUTING.md](CONTRIBUTING.md) if you want to help to improve coco
 and for some pointer for how to add classifications.
 
 ## Related software
