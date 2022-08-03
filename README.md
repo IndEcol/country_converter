@@ -7,22 +7,15 @@ names. Coco can also be used to build aggregation concordance matrices
 between different classification schemes.
 
 [![image](https://img.shields.io/pypi/v/country-converter.svg)](https://pypi.python.org/pypi/country_converter/)
-
 [![image](https://anaconda.org/conda-forge/country_converter/badges/version.svg)](https://anaconda.org/conda-forge/country_converter)
-
+[![image](https://zenodo.org/badge/DOI/10.5281/zenodo.838035.svg)](https://doi.org/10.5281/zenodo.838035)
 [![image](http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113/status.svg)](http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113)
 
-[![image](https://zenodo.org/badge/DOI/10.5281/zenodo.838035.svg)](https://doi.org/10.5281/zenodo.838035)
-
+[![image](https://github.com/konstantinstadler/country_converter/workflows/build/badge.svg)](https://github.com/konstantinstadler/country_converter/actions)
+[![image](https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master&service=github)](https://coveralls.io/github/konstantinstadler/country_converter?branch=master)
+[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![image](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[![image](https://github.com/konstantinstadler/country_converter/workflows/build/badge.svg)](https://github.com/konstantinstadler/country_converter/actions)
-
-[![image](https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master&service=github)](https://coveralls.io/github/konstantinstadler/country_converter?branch=master)
-
-[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-Table of Contents
 
 ## Motivation
 
