@@ -2,6 +2,10 @@
 
 ## 0.7.6 - 20220802
 
+### Breaking
+
+- additional data must specify ISO2 (necessary for regex matching in ISO2)
+
 
 ### Classifications
 
@@ -13,9 +17,8 @@
 
 ### Development
 
-- CHANGELOG format changed to markdown
+- All rst files (readme, changelog, etc. format changed to markdown
 - ISO2 column accepts regex - fix #92
-
 
 
 ## 0.7.5 - 20220802
