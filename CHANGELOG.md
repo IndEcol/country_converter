@@ -1,5 +1,14 @@
 # Change Log
 
+
+## 0.7.7 - 20220805
+
+
+### Bug fixes
+
+- ISO2 did return the regex for GB|UK - fix #113
+
+
 ## 0.7.6 - 20220802
 
 ### Breaking

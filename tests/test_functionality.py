@@ -128,6 +128,18 @@ def test_alternative_names(get_regex_test_data):
         )
 
 
+def test_toISO2_conversion():
+    converter = coco.CountryConverter()
+    assert "DE" == converter.convert("DEU", src="ISO3", to="ISO2")
+    assert "GB" == converter.convert("GBR", src="ISO3", to="ISO2")
+    assert "GB" == converter.convert("UK", src="ISO2", to="ISO2")
+    assert "GB" == converter.convert("UK", to="ISO2")
+    assert "GB" == converter.convert("GB", to="ISO2")
+    assert "GB" == converter.convert("GBR", to="ISO2")
+    assert "TR" == converter.convert("TR", src="ISO2", to="ISO2")
+    assert "TR" == converter.convert("TUR", src="ISO3", to="ISO2")
+
+
 def test_additional_country_file():
     converter_basic = coco.CountryConverter()
     converter_extended = coco.CountryConverter(additional_data=custom_data)
@@ -496,7 +508,7 @@ def test_EU_output():
     EU27_2007 = cc.EU27_2007as("ISO2")
     assert len(EU27_2007 == 27)
     assert cc.convert("Croatia", to="ISO2") not in EU27_2007.ISO2.tolist()
-    assert cc.convert("UK", src="regex", to="ISO2") in EU27_2007.ISO2.tolist()
+    assert cc.convert("GB", src="regex", to="ISO2") in EU27_2007.ISO2.tolist()
 
 
 def test_EXIO_output():

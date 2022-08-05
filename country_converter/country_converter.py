@@ -470,7 +470,14 @@ class CountryConverter:
         # class.
         def fun_provider(df, datacol):
             def fun_provided(to):
-                return df.loc[:, [to, datacol]].dropna()
+                ret = df.loc[:, [to, datacol]].dropna()
+                if to in ["ISO2", "ISO3"]:
+                    ret.loc[:, to] = (
+                        ret.loc[:, to]
+                        .str.split("|")
+                        .apply(lambda x: "".join((c for c in x[0] if c.isalnum())))
+                    )
+                return ret
 
             return fun_provided
 
@@ -606,6 +613,12 @@ class CountryConverter:
             else:
                 outlist[ind_names] = []
                 for etr in result_list:
+                    if to[0].lower() in ["iso2", "iso3"]:
+                        # remove regex characters from output
+                        etr = "".join(
+                            c for c in etr.split("|")[0] if c.isalnum()
+                        ).upper()
+
                     try:
                         conv_etr = int(etr)
                     except ValueError:
