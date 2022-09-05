@@ -689,6 +689,9 @@ class CountryConverter:
 
         """
 
+        if not isinstance(series, pd.Series):
+            raise TypeError("Input must be a Pandas Series")
+
         # if `src` and `to` are the same, return without changing anything.
         if src == to:
             return series
