@@ -96,6 +96,24 @@ print(standard_names)
 print(UNmembership)
 ```
 
+In order to more efficiently convert Pandas Series, the `pandas_convert()` method can be used. The
+performance gain is especially significant for large Series. For a series containing 1 million rows
+a 4000x speedup can be achieved, compared to `convert()`.
+
+``` python
+import country_converter as coco
+import pandas as pd
+cc = coco.CountryConverter()
+
+some_countries = pd.Series(['Australia', 'Belgium', 'Brazil', 'Bulgaria', 'Cyprus', 'Czech Republic',
+                  'Guatemala', 'Mexico', 'Honduras', 'Costa Rica', 'Colombia', 'Greece', 'Hungary',
+                  'India', 'Indonesia', 'Ireland', 'Italy', 'Japan', 'Latvia', 'Lithuania',
+                  'Luxembourg', 'Malta', 'Jamaica', 'Ireland', 'Turkey', 'United Kingdom',
+                  'United States'], name='country')
+ 
+iso3_codes = cc.pandas_convert(series=some_countries, to='ISO3')                  
+```
+
 Convert between classification schemes:
 
 ``` python
