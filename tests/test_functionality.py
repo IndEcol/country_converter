@@ -10,7 +10,7 @@ from collections import OrderedDict
 
 import pandas as pd
 import pytest
-from pandas.testing import assert_frame_equal
+from pandas.testing import assert_frame_equal, assert_series_equal
 
 import country_converter as coco  # noqa
 from country_converter.country_converter import _parse_arg  # noqa
@@ -671,6 +671,91 @@ def test_DAC_number_codes():
     assert 301 == cc.convert("CAN", to="DACcode")
     assert 347 == cc.convert("GTM", to="DACcode")
     assert 854 == cc.convert("VUT", to="DACcode")
+
+
+def test_pandas_convert():
+    """This will test that the behaviour of pandas_convert is equivalent
+    to convert for Pandas Series"""
+
+    # Load the series
+    test_series = pd.read_csv(f"{TESTPATH}/test_series_data.csv", header=0)
+
+    # Create cc object
+    cc = coco.CountryConverter()
+
+    # Check type validation by passing the DataFrame
+    with pytest.raises(TypeError):
+        cc.pandas_convert(test_series, to="ISO3")
+
+    # Convert version
+    convert = pd.Series(
+        cc.convert(test_series.data, to="ISO3"), index=test_series.index, name="data"
+    )
+
+    # pandas_convert version
+    pandas_convert = cc.pandas_convert(test_series.data, to="ISO3")
+
+    assert_series_equal(convert, pandas_convert)
+
+
+def test_pandas_convert_options():
+    """This will test that the behaviour of pandas_convert is equivalent
+    to convert for Pandas Series, using various options"""
+
+    # Load the series
+    test_series = pd.read_csv(f"{TESTPATH}/test_series_data.csv", header=0)
+
+    # Create cc object
+    cc = coco.CountryConverter()
+
+    # -- Test the not_found option --
+    # Convert version
+    convert_not_found = pd.Series(
+        cc.convert(test_series.data, to="ISO2", not_found="empty"),
+        index=test_series.index,
+        name="data",
+    )
+
+    # pandas_convert version
+    pandas_not_found = cc.pandas_convert(test_series.data, to="ISO2", not_found="empty")
+
+    # Check that the Series are equal
+    assert_series_equal(convert_not_found, pandas_not_found)
+
+    # -- Test the enforce_list option --
+    # Convert version
+    convert_enforce_list = pd.Series(
+        cc.convert(test_series.data, to="UNRegion", enforce_list=True),
+        index=test_series.index,
+        name="data",
+    )
+
+    # pandas_convert version
+    pandas_enforce_list = cc.pandas_convert(
+        test_series.data, to="UNRegion", enforce_list=True
+    )
+
+    # Check that the Series are equal
+    assert_series_equal(convert_enforce_list, pandas_enforce_list)
+
+    # -- Test the exclude_prefix option --
+
+    # Convert version
+    convert_exclude_prefix = pd.Series(
+        cc.convert(
+            test_series.data, to="name", exclude_prefix=["without", "excluding"]
+        ),
+        index=test_series.index,
+        name="data",
+    )
+
+    # pandas_convert version
+    pandas_exclude_prefix = cc.pandas_convert(
+        test_series.data, to="name", exclude_prefix=["without", "excluding"]
+    )
+
+    # Check that the Series are equal
+    assert_series_equal(convert_exclude_prefix, pandas_exclude_prefix)
 
 
 #### RUN PYTEST USING THE BELLOW CODE

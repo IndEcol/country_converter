@@ -633,6 +633,87 @@ class CountryConverter:
         else:
             return outlist
 
+    def pandas_convert(
+        self,
+        series: pd.Series,
+        src=None,
+        to="ISO3",
+        enforce_list=False,
+        not_found="not found",
+        exclude_prefix=None,
+    ):
+        """Convert names from a Pandas Series to another Pandas Series.
+
+        Using this method is faster than using the convert method when dealing with
+        long Pandas Series. Depending on the size of the series, the performance increase
+        can be very significant. The longer the series, the more significant the
+        improvement. Note that if the series contains mostly unique values, more
+        memory will be used, compared to the convert method.
+
+        Parameters
+        ----------
+        series : str or list like
+            Countries in 'src' classification to convert
+            to 'to' classification.
+
+        src : str, optional
+            Source classification. If None (default), each passed name is
+            checked if it is a number (assuming UNnumeric) or 2 (ISO2) or
+            3 (ISO3) characters long; for longer names 'regex' is assumed.
+
+        to : str, optional
+            Output classification (valid index of the country_data file),
+            default: ISO3
+
+        enforce_list : boolean, optional
+            If True, enforces the output to be list (if only one name was
+            passed) or to be a list of lists (if multiple names were passed).
+            If False (default), the output will be a string (if only one name
+            was passed) or a list of str and/or lists (str if a one to one
+            matching, list otherwise).
+
+        not_found : str, optional
+            Fill in value for none found entries. If None, keep the input value
+            (default: 'not found')
+
+        exclude_prefix : list of valid regex strings
+            List of indicators which negate the subsequent country/region.
+            These prefixes and everything following will not be converted.
+            E.g. 'Asia excluding China' becomes 'Asia' and
+            'China excluding Hong Kong' becomes 'China' prior to conversion
+            Default: ['excl\\w.*', 'without', 'w/o'])
+
+        Returns
+        -------
+        A Pandas Series containing list or str, depending on enforce_list
+
+        """
+
+        if not isinstance(series, pd.Series):
+            raise TypeError("Input must be a Pandas Series")
+
+        # if `src` and `to` are the same, return without changing anything.
+        if src == to:
+            return series
+
+        # Get the unique values for mapping.
+        s_unique = series.unique()
+
+        # Create a correspondence dictionary
+        mapping = pd.Series(
+            self.convert(
+                names=s_unique,
+                src=src,
+                to=to,
+                not_found=not_found,
+                enforce_list=enforce_list,
+                exclude_prefix=exclude_prefix,
+            ),
+            index=s_unique,
+        ).to_dict()
+
+        return series.map(mapping).fillna(series if not_found is None else not_found)
+
     @property
     def valid_class(self):
         """Valid strings for the converter"""
