@@ -113,8 +113,8 @@ Tanzania	"Tanzania, united republic of"
 Tanzania	United Rep. of Tanzania
 Tanzania	United Republic of Tanzania
 Tanzania	Tanzania (United Republic of)
-Turkey	Türkiye
-Turkey	Republic of Turkey
+Türkiye	Turkey
+Türkiye	Republic of Turkey
 Timor-Leste	Democratic Republic of Timor-Leste
 Timor-Leste	East Timor
 Turks and Caicos Islands	Turks and caicos islands
