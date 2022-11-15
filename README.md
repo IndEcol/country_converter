@@ -496,9 +496,9 @@ here.](https://ghdx.healthdata.org/sites/default/files/ihme_query_tool/IHME_GBD_
 Please use the issue tracker for documenting bugs, proposing
 enhancements and all other communication related to coco.
 
-You can follow me on [twitter](https://twitter.com/kst_stadler) to get
+You can follow me on [mastodon - @kst@qoto.org](https://qoto.org/@kst) and [twitter](https://twitter.com/kst_stadler) to get
 the latest news about all my open-source and research projects (and
-occasionally some random retweets).
+occasionally some random retweets/toots).
 
 ## Contributing
 
