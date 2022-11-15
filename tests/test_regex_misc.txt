@@ -115,6 +115,7 @@ Tanzania	United Republic of Tanzania
 Tanzania	Tanzania (United Republic of)
 Türkiye	Turkey
 Türkiye	Republic of Turkey
+Türkiye	Republic of Türkiye
 Timor-Leste	Democratic Republic of Timor-Leste
 Timor-Leste	East Timor
 Turks and Caicos Islands	Turks and caicos islands
