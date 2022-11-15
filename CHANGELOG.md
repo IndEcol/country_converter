@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.7.8dev
+
+
+### Classifications
+
+- added Costa Rica as new OECD member (2021), fix #118 
+
 
 ## 0.7.7 - 20220805
 
