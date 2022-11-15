@@ -1,12 +1,13 @@
 # Change Log
 
-## 0.7.8dev
+## 0.8.0
 
 
 ### Classifications
 
 - added Costa Rica as new OECD member (2021), fix #118 
 - added GWCodes, https://www.tandfonline.com/doi/abs/10.1080/03050629908434958
+- added ccTLD (country top-level domains) via @plotski  
 - updated EEA (remove UK, Switzerland)
 - rename Turkey to Türkiye
 
