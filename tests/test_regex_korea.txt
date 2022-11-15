@@ -16,3 +16,7 @@ South Korea	Rep. of Korea
 South Korea	Republic of Korea
 South Korea	Korea (Republic of)
 South Korea	"Korea, Rep."
+South Korea	"Korea, Rep."
+South Korea	Korea, Republic
+
+

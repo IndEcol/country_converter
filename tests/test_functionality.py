@@ -244,6 +244,7 @@ def test_get_correspondence_dict_numeric_replace():
     corr_str = cc.get_correspondence_dict(
         classA=classA, classB=classB, replace_numeric=True
     )
+
     assert type(corr_str) == dict
     assert len(corr_str) == 44
     assert corr_str["JP"] == ["OECD"]
@@ -255,13 +256,14 @@ def test_get_correspondence_dict_numeric_replace():
     corr_num = cc.get_correspondence_dict(
         classA=classA, classB=classB, replace_numeric=False
     )
+
     assert type(corr_num) == dict
     assert len(corr_num) == 44
     assert corr_num["JP"] == [1964]
     assert pd.isna(corr_num["ZA"])
     assert 2010 in corr_num["WW"]
     assert 1961 in corr_num["WW"]
-    assert len(corr_num["WW"]) == 5
+    assert len(corr_num["WW"]) == 6
 
 
 def test_build_agg_conc_custom():
