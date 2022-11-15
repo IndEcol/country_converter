@@ -6,6 +6,7 @@
 ### Classifications
 
 - added Costa Rica as new OECD member (2021), fix #118 
+- added GWCodes, https://www.tandfonline.com/doi/abs/10.1080/03050629908434958
 
 
 ## 0.7.7 - 20220805

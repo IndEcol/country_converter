@@ -420,6 +420,9 @@ Data sources below for further information):
 31. [IEA](https://www.iea.org/countries) (World Energy Balances 2021)
 32. [DACcode](https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm)
     (numeric - OECD Development Assistance Committee)
+33. [ccTLD](https://en.wikipedia.org/wiki/Country_code_top-level_domain) - country code top-level domains
+34. [GWcode](https://www.tandfonline.com/doi/abs/10.1080/03050629908434958) - Gledisch & Ward numerical codes as published in https://www.andybeger.com/states/articles/statelists.html
+
 
 Coco contains official recognised codes as well as non-standard codes
 for disputed or dissolved countries. To restrict the set to only the
@@ -481,10 +484,8 @@ thus EU27 refers to the EU without UK, whereas EU27_2007 refers to the
 EU without Croatia (the status after the 2007 enlargement). The shortcut
 EU always links to the most recent classification. The
 [EEA](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:European_Economic_Area_(EEA))
-agreements are still valid for the UK (status September 2020, Brexit
-transition period - as [described
-here](https://en.wikipedia.org/wiki/European_Economic_Area)), thus UK is
-currently included in the EEA.
+agreements for the UK ended by 2021-01-01 (which also affects Guernsey, Isle of Man, Jersey and Gibraltar). 
+Switzerland is not part of the EEA but member of the single market.
 
 The Global Burden of Disease country codes were extracted form the [GBD
 code book available

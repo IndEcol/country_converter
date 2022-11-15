@@ -45,7 +45,7 @@ Canada	Canada	canada	CA	CAN	124	124	33	101	America	Northern America	CA	CA	CA	CAN
 Cayman Islands	Cayman Islands	cayman	KY	CYM	136	136	36		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	CYM		Central America	LAM															RoW							Other non-OECD Americas		ky	
 Central African Republic	Central African Republic	central.?african.?rep.*	CF	CAF	140	140	37	169	Africa	Middle Africa	WW	WF	WF	WWW	WWF	WWF	RoW	CAF	AFR	Western Africa	SSA												1960	1960		RoW							Other Africa	231	cf	482
 Chad	Republic of Chad	\bchad	TD	TCD	148	148	39	204	Africa	Middle Africa	WW	WF	WF	WWW	WWF	WWF	RoW	TCD	AFR	Western Africa	SSA												1960	1960		RoW							Other Africa	232	td	483
-Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	259		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW		WEU											EEA					2006	RoW										
+Channel Islands	Channel Islands	channel.?island.*		CHI	830	830	259		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW		WEU																2006	RoW										
 Chile	Republic of Chile	\bchile	CL	CHL	152	152	40	98	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	CHL	LAC	Rest of South America	LAM	2010											1945	1945		RoW		APEC					Chile		cl	155
 China	People's Republic of China	^(?!repub)(?!taiwan)(?!hong.*kong)(?!macao).*china(?!.*hong.*kong)(?!.*macao)|^PRC$	CN	CHN	156	156	351	6	Asia	Eastern Asia	CN	CN	CN	CHN	CHN	CHN	CHN	CHN	CPA	China region	CHA												1945	1945		BX	BRIC	APEC	BASIC			G20	People's Republic of China	730	cn	710
 Christmas Island	Christmas Island	christmas	CX	CXR	162	162	42		Asia	Australia and New Zealand	WW	WA	WA	WWW	WWA	WWA	RoW				OAS															RoW							Other non-OECD Asia		cx	
@@ -87,14 +87,14 @@ Gambia	Republic of the Gambia	gambia	GM	GMB	270	270	75	206	Africa	Western Africa
 Georgia	Georgia	^(?!.*south).*georgia(?!.*US.*)	GE	GEO	268	268	73	35	Asia	Western Asia	WW	WA	WA	WWW	WWA	WWA	RoW	GEO	FSU	Russia region	REF												1992	1992		RoW							Georgia	612	ge	372
 Germany	Federal Republic of Germany	^(?!e|w)(fed)?.*germany(?!,? *e|,? *w)(,? *)(\bfed)?	DE	DEU	276	276	79	81	Europe	Western Europe	DE	DE	DE	DEU	DEU	DEU	DEU	DEU	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1973	1973		EU					G7	G20	Germany	5	de	260
 Ghana	Republic of Ghana	ghana|gold.?coast	GH	GHA	288	288	81	207	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	GHA	AFR	Western Africa	SSA												1957	1957		RoW							Ghana	241	gh	452
-Gibraltar	Gibraltar	gibraltar	GI	GIB	292	292	82		Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	GIB	WEU	Western Europe	EUR									EEA						RoW							Gibraltar		gi	
+Gibraltar	Gibraltar	gibraltar	GI	GIB	292	292	82		Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	GIB	WEU	Western Europe	EUR															RoW							Gibraltar		gi	
 Greece	Hellenic Republic	greece|hellenic|hellas	GR	GRC	300	300	84	82	Europe	Southern Europe	GR	GR	GR	GRC	GRC	GRC	GRC	GRC	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	2001	1945	1945		EU						G20	Greece	40	gr	350
 Greenland	Greenland	greenland	GL	GRL	304	304	85	349	America	Northern America	WW	WL	WL	WWW	WWL	WWL	RoW	GRL	WEU		NEU										Schengen					RoW							Other non-OECD Americas		gl	
 Grenada	Grenada	grenada	GD	GRD	308	308	86	112	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	GRD	LAC	Central America	LAM												1974	1974		RoW							Other non-OECD Americas	381	gd	55
 Guadeloupe	Guadeloupe	guadeloupe	GP	GLP	312	312	87		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	GLP	LAC	Central America	LAM															RoW							Other non-OECD Americas		gp	
 Guam	Guam	\bguam	GU	GUM	316	316	88	351	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW	GUM	NAM		OAS															RoW							Other non-OECD Asia		gu	
 Guatemala	Republic of Guatemala	guatemala	GT	GTM	320	320	89	128	America	Central America	WW	WL	WL	WWW	WWL	WWL	RoW	GTM	LAC	Central America	LAM												1945	1945		RoW							Guatemala	347	gt	90
-Guernsey	Guernsey	guernsey	GG	GGY	831	831			Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	GGY			EUR									EEA						RoW										
+Guernsey	Guernsey	guernsey	GG	GGY	831	831			Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	GGY			EUR															RoW										
 Guinea	Republic of Guinea	^(?!.*eq)(?!.*span)(?!.*bissau)(?!.*pap)(?!.*new)(?!p.*n.*).*guinea	GN	GIN	324	324	90	208	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	GIN	AFR	Western Africa	SSA												1958	1958		RoW							Other Africa	243	gn	438
 Guinea-Bissau	Republic of Guinea-Bissau	^(.*portu).*guinea|guinea.*bissau	GW	GNB	624	624	175	209	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	GNB	AFR	Western Africa	SSA												1974	1974		RoW							Other Africa	244	gw	404
 Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	91	113	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	GUY	LAC	Rest of South America	LAM												1966	1966		RoW							Guyana	446	gy	110
@@ -109,12 +109,12 @@ Indonesia	Republic of Indonesia	indonesia	ID	IDN	360	360	101	11	Asia	South-easte
 Iran	Islamic Republic of Iran	\biran|persia	IR	IRN	364	364	102	142	Asia	Southern Asia	WW	WM	WM	WWW	WWM	WWM	RoW	IRN	MEA	Middle East	MEA												1945	1945		RoW							Islamic Republic of Iran	540	ir	630
 Iraq	Republic of Iraq	\biraq|mesopotamia	IQ	IRQ	368	368	103	143	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	IRQ	MEA	Middle East	MEA												1945	1945		RoW							Iraq	543	iq	645
 Ireland	Ireland	^(?!.*north.*).*ireland	IE	IRL	372	372	104	84	Europe	Northern Europe	IE	IE	IE	IRL	IRL	IRL	IRL	IRL	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA		1999	1955	1955		EU						G20	Ireland	21	ie	205
-Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	264		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	IMN	WEU		EUR									EEA						RoW										
+Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	264		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	IMN	WEU		EUR															RoW										
 Israel	State of Israel	israel	IL	ISR	376	376	105	85	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	ISR	MEA	Middle East	MEA	2010											1949	1949		RoW							Israel	546	il	666
 Italy	Italian Republic	.*italy|.*italia.*	IT	ITA	380	380	106	86	Europe	Southern Europe	IT	IT	IT	ITA	ITA	ITA	ITA	ITA	WEU	Western Europe	EUR	1962	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU					G7	G20	Italy	6	it	325
 Jamaica	Jamaica	jamaica	JM	JAM	388	388	109	115	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	JAM	LAC	Central America	LAM												1962	1962		RoW							Jamaica	354	jm	51
 Japan	Japan	japan	JP	JPN	392	392	110	67	Asia	Eastern Asia	JP	JP	JP	JPN	JPN	JPN	JPN	JPN	PAO	Japan	JPN	1964											1956	1956		HI		APEC			G7	G20	Japan	701	jp	740
-Jersey	Jersey	^(?!.*new).*jersey	JE	JEY	832	832	283		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	JEY			EUR									EEA						RoW										
+Jersey	Jersey	^(?!.*new).*jersey	JE	JEY	832	832	283		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	JEY			EUR															RoW										
 Jordan	Hashemite Kingdom of Jordan	jordan	JO	JOR	400	400	112	144	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	JOR	MEA	Middle East	MEA												1955	1955		RoW							Jordan	549	jo	663
 Kazakhstan	Republic of Kazakhstan	kazak	KZ	KAZ	398	398	108	36	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	KAZ	FSU	Central Asia	REF												1992	1992		RoW				CIS			Kazakhstan	613	kz	705
 Kenya	Republic of Kenya	kenya|british.?east.?africa|east.?africa.?prot	KE	KEN	404	404	114	180	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	KEN	AFR	Eastern Africa	SSA												1963	1963		RoW							Kenya	248	ke	501
@@ -219,7 +219,7 @@ Sudan	Republic of the Sudan	^(?!.*\bs(?!u)).*sudan	SD	SDN	729	729		522	Africa	No
 Suriname	Republic of Suriname	surinam|dutch.?guiana	SR	SUR	740	740	207	118	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	SUR	LAC	Rest of South America	LAM												1975	1975		RoW							Suriname	457	sr	115
 Svalbard and Jan Mayen Islands	Svalbard and Jan Mayen Islands	^(?!norway).*svalbard	SJ	SJM	744	744	260		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	SJM			NEU															RoW										
 Sweden	Kingdom of Sweden	swedish|sweden(?!.*except)	SE	SWE	752	752	210	93	Europe	Northern Europe	SE	SE	SE	SWE	SWE	SWE	SWE	SWE	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen		1946	1946		EU						G20	Sweden	10	se	380
-Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	211	94	Europe	Western Europe	CH	CH	CH	CHE	CHE	CHE	RoW	CHE	WEU	Western Europe	NEU	1961								EEA	Schengen		2002	2002		HI							Switzerland	11	ch	225
+Switzerland	Swiss Confederation	switz|swiss	CH	CHE	756	756	211	94	Europe	Western Europe	CH	CH	CH	CHE	CHE	CHE	RoW	CHE	WEU	Western Europe	NEU	1961									Schengen		2002	2002		HI							Switzerland	11	ch	225
 Syria	Syrian Arab Republic	syria	SY	SYR	760	760	212	153	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	SYR	MEA	Middle East	MEA												1945	1945		RoW							Syrian Arab Republic	573	sy	652
 Taiwan	Republic of China	.*taiwan|.*taipei|.*formosa|^(?!.*\bdem)(?!.*\bpe)(?!.*\bdr)(^rep.*).*\bchina.*(?!.*\bdem.*)(?!\bpe.*)(?!.*\bdr.*).*|^ROC$|^taiwan r\.?o\.?c\.?$	TW	TWN	158		214	8	Asia	Eastern Asia	TW	TW	TW	TWN	TWN	TWN	TWN	TWN	PAS	China region	CHA															HI		APEC					Chinese Taipei	732	tw	713
 Tajikistan	Republic of Tajikistan	tajik	TJ	TJK	762	762	208	39	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	TJK	FSU	Central Asia	REF												1992	1992		RoW				CIS			Tajikistan	615	tj	702
@@ -239,7 +239,7 @@ Tuvalu	Tuvalu	tuvalu	TV	TUV	798	798	227	416	Oceania	Polynesia	WW	WA	WA	WWW	WWA	W
 Uganda	Republic of Uganda	uganda	UG	UGA	800	800	226	190	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	UGA	AFR	Eastern Africa	SSA												1962	1962		RoW							Other Africa	285	ug	500
 Ukraine	Ukraine	ukrain	UA	UKR	804	804	230	63	Europe	Eastern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	UKR	FSU	Ukraine region	REF												1945	1945		RoW							Ukraine	85	ua	369
 United Arab Emirates	United Arab Emirates	emirates|^u\.?a\.?e\.?$|united.?arab.?em	AE	ARE	784	784	225	156	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	ARE	MEA	Middle East	MEA												1971	1971		RoW							United Arab Emirates	576	ae	696
-United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|gb)	^GB$|^UK$	GBR	826	826	229	95	Europe	Northern Europe	GB	GB	GB	GBR	GBR	GBR	GBR	GBR	WEU	Western Europe	EUR	1961		EU28		EU27_2007	EU25	EU15	EU12	EEA			1945	1945		EU					G7	G20	United Kingdom	12	uk	200
+United Kingdom	United Kingdom of Great Britain and Northern Ireland	.*(united.?kingdom|britain|^u\.?k\.?$|gb)	^GB$|^UK$	GBR	826	826	229	95	Europe	Northern Europe	GB	GB	GB	GBR	GBR	GBR	GBR	GBR	WEU	Western Europe	EUR	1961		EU28		EU27_2007	EU25	EU15	EU12				1945	1945		EU					G7	G20	United Kingdom	12	uk	200
 United States	United States of America	^(?!.*islands).*united.?states|^u\.?s\.?a\.?$|^u\.?s\.?$	US	USA	840	840	231	102	America	Northern America	US	US	US	USA	USA	USA	USA	USA	NAM	USA	USA	1961											1945	1945		HI		APEC			G7	G20	United States	302	us	2
 United States Minor Outlying Islands	United States Minor Outlying Islands	minor.?outlying.?is	UM	UMI	581	581	232		Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW				OAS															RoW							Other non-OECD Asia			
 United States Virgin Islands	Virgin Islands of the United States	^(?=.*\bu\.?\s?s).*virgin|^(?=.*states).*virgin	VI	VIR	850	850	240	422	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	VIR	NAM	Central America	LAM															RoW							Other non-OECD Americas		vi	
