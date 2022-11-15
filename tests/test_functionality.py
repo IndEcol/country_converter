@@ -8,6 +8,7 @@ import sys
 import warnings
 from collections import OrderedDict
 
+import numpy as np
 import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal, assert_series_equal
@@ -673,6 +674,24 @@ def test_DAC_number_codes():
     assert 301 == cc.convert("CAN", to="DACcode")
     assert 347 == cc.convert("GTM", to="DACcode")
     assert 854 == cc.convert("VUT", to="DACcode")
+
+
+def test_ccTLD():
+    cc = coco.CountryConverter()
+    assert "am" == cc.convert("Armenia", to="ccTLD")
+    assert "er" == cc.convert("Eritrea", to="ccTLD")
+    assert (
+        cc.convert("Zambia", to="ccTLD").upper()
+        == cc.convert("Zambia", to="ISO2").upper()
+    )
+
+
+def test_GWcode():
+    cc = coco.CountryConverter()
+    assert 305 == cc.convert("AUT", to="GWcode")
+    assert 771 == cc.convert("BD", to="GWcode")
+    assert 694 == cc.convert("Qatar", to="GWcode")
+    assert np.isnan(cc.convert("United States Minor Outlying Islands", to="GWcode"))
 
 
 def test_pandas_convert():

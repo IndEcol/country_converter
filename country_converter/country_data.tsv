@@ -1,10 +1,10 @@
 name_short	name_official	regex	ISO2	ISO3	ISOnumeric	UNcode	FAOcode	GBDcode	continent	UNregion	EXIO1	EXIO2	EXIO3	EXIO1_3L	EXIO2_3L	EXIO3_3L	WIOD	Eora	MESSAGE	IMAGE	REMIND	OECD	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	EURO	UN	UNmember	obsolete	Cecilia2050	BRIC	APEC	BASIC	CIS	G7	G20	IEA	DACcode	ccTLD	GWcode
 Afghanistan	Islamic Republic of Afghanistan	afghan	AF	AFG	4	4	2	160	Asia	Southern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	AFG	SAS	Rest of South Asia	OAS												1946	1946		RoW							Other non-OECD Asia	625	af	700
-Aland Islands	Åland Islands	\b(a|å)land	AX	ALA	248	248	284		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	ALA			EUR															RoW										
+Aland Islands	Åland Islands	\b(a|å)land	AX	ALA	248	248	284		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	ALA			EUR															RoW									ax	
 Albania	Republic of Albania	albania	AL	ALB	8	8	3	43	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	ALB	EEU	Central Europe	NEU												1955	1955		RoW							Albania	71	al	339
 Algeria	People's Democratic Republic of Algeria	algeria	DZ	DZA	12	12	4	139	Africa	Northern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	DZA	MEA	Northern Africa	MEA												1962	1962		RoW							Algeria	130	dz	615
 American Samoa	American Samoa	^(?=.*americ).*samoa	AS	ASM	16	16	5	298	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	ASM	PAS	Oceania	OAS															RoW							Other non-OECD Asia	880	as	
-Andorra	Principality of Andorra	andorra	AD	AND	20	20	6	74	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	AND	WEU	Western Europe	NEU												1993	1993		RoW										232
+Andorra	Principality of Andorra	andorra	AD	AND	20	20	6	74	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	AND	WEU	Western Europe	NEU												1993	1993		RoW									ad	232
 Angola	Republic of Angola	angola	AO	AGO	24	24	7	168	Africa	Middle Africa	WW	WF	WF	WWW	WWF	WWF	RoW	AGO	AFR	Rest of Southern Africa	SSA												1976	1976		RoW							Angola	225	ao	540
 Anguilla	Anguilla	anguill?a	AI	AIA	660	660	258		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	AIA		Central America	LAM															RoW							Other non-OECD Americas		ai	
 Antarctica	Antarctica	antarctica	AQ	ATA	10	10	30		Antarctica	Antarctica	WW	WA	WA	WWW	WWA	WWA	RoW				LAM															RoW							Other non-OECD Asia		aq	
@@ -29,7 +29,7 @@ Bolivia	Plurinational State of Bolivia	bolivia	BO	BOL	68	68	19	121	America	South
 Bonaire, Saint Eustatius and Saba	Bonaire, Saint Eustatius and Saba	^(?=.*bonaire).*eustatius|^(?=.*carib).*netherlands|\bbes.?islands	BQ	BES	535	535	278		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW				LAM															RoW							Other non-OECD Americas		bq	
 Bosnia and Herzegovina	Bosnia and Herzegovina	herzegovina|bosnia	BA	BIH	70	70	80	44	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	BIH	EEU	Central Europe	NEU												1992	1992		RoW							Bosnia and Herzegovina	64	ba	346
 Botswana	Republic of Botswana	botswana|bechuana	BW	BWA	72	72	20	193	Africa	Southern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	BWA	AFR	Rest of Southern Africa	SSA												1966	1966		RoW							Botswana	227	bw	571
-Bouvet Island	Bouvet Island	bouvet	BV	BVT	74	74	31		Antarctica	South America	WW	WA	WA	WWW	WWA	WWA	RoW				LAM															RoW							Other non-OECD Asia		bv	
+Bouvet Island	Bouvet Island	bouvet	BV	BVT	74	74	31		Antarctica	South America	WW	WA	WA	WWW	WWA	WWA	RoW				LAM															RoW							Other non-OECD Asia			
 Brazil	Federative Republic of Brazil	brazil	BR	BRA	76	76	21	135	America	South America	BR	BR	BR	BRA	BRA	BRA	BRA	BRA	LAC	Brazil	LAM												1945	1945		BX	BRIC		BASIC			G20	Brazil	431	br	140
 British Antarctic Territories	British Antarctic Territories	br.*antarctic.?territ.*	B1	BA1					Antarctica		WW	WA	WA	WWW	WWA	WWA	RoW																		1979	RoW										
 British Indian Ocean Territory	British Indian Ocean Territory	br.*indian.?ocean	IO	IOT	86	86	24		Africa	Eastern Africa	WW	WA	WA	WWW	WWA	WWA	RoW		AFR		OAS															RoW							Other non-OECD Asia		io	
@@ -74,7 +74,7 @@ Eritrea	State of Eritrea	eritrea	ER	ERI	232	232	178	178	Africa	Eastern Africa	WW
 Estonia	Republic of Estonia	estonia	EE	EST	233	233	63	58	Europe	Northern Europe	EE	EE	EE	EST	EST	EST	EST	EST	EEU	Central Europe	EUR	2010	EU	EU28	EU27	EU27_2007	EU25			EEA	Schengen	2011	1991	1991		EU						G20	Estonia	82	ee	366
 Eswatini	Kingdom of Eswatini	swaziland|eswatini	SZ	SWZ	748	748	209	197	Africa	Southern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	SWZ	AFR	Rest of Southern Africa	SSA												1968	1968		RoW							Other Africa	280	sz	572
 Ethiopia	Federal Democratic Republic of Ethiopia	ethiopia|abyssinia	ET	ETH	231	231	238	179	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	ETH	AFR	Eastern Africa	SSA												1945	1945		RoW							Ethiopia	238	et	530
-Faeroe Islands	Faeroe Islands	faroe|faeroe	FO	FRO	234	234	64		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	FRO	WEU	Western Europe	EUR										Schengen					RoW										
+Faeroe Islands	Faeroe Islands	faroe|faeroe	FO	FRO	234	234	64		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	FRO	WEU	Western Europe	EUR										Schengen					RoW									fo	
 Falkland Islands	Falkland Islands (Malvinas)	falkland|malvinas	FK	FLK	238	238	65		America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	FLK		Rest of South America	LAM															RoW							Other non-OECD Americas		fk	
 Fiji	Republic of Fiji	fiji	FJ	FJI	242	242	66	22	Oceania	Melanesia	WW	WA	WA	WWW	WWA	WWA	RoW	FJI	PAS	Oceania	OAS												1970	1970		RoW							Other non-OECD Asia	832	fj	950
 Finland	Republic of Finland	finland	FI	FIN	246	246	67	79	Europe	Northern Europe	FI	FI	FI	FIN	FIN	FIN	FIN	FIN	WEU	Western Europe	EUR	1969	EU	EU28	EU27	EU27_2007	EU25	EU15		EEA	Schengen	1999	1955	1955		EU						G20	Finland	18	fi	375
@@ -94,7 +94,7 @@ Grenada	Grenada	grenada	GD	GRD	308	308	86	112	America	Caribbean	WW	WL	WL	WWW	WWL
 Guadeloupe	Guadeloupe	guadeloupe	GP	GLP	312	312	87		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	GLP	LAC	Central America	LAM															RoW							Other non-OECD Americas		gp	
 Guam	Guam	\bguam	GU	GUM	316	316	88	351	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW	GUM	NAM		OAS															RoW							Other non-OECD Asia		gu	
 Guatemala	Republic of Guatemala	guatemala	GT	GTM	320	320	89	128	America	Central America	WW	WL	WL	WWW	WWL	WWL	RoW	GTM	LAC	Central America	LAM												1945	1945		RoW							Guatemala	347	gt	90
-Guernsey	Guernsey	guernsey	GG	GGY	831	831			Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	GGY			EUR															RoW										
+Guernsey	Guernsey	guernsey	GG	GGY	831	831			Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	GGY			EUR															RoW									gg	
 Guinea	Republic of Guinea	^(?!.*eq)(?!.*span)(?!.*bissau)(?!.*pap)(?!.*new)(?!p.*n.*).*guinea	GN	GIN	324	324	90	208	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	GIN	AFR	Western Africa	SSA												1958	1958		RoW							Other Africa	243	gn	438
 Guinea-Bissau	Republic of Guinea-Bissau	^(.*portu).*guinea|guinea.*bissau	GW	GNB	624	624	175	209	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	GNB	AFR	Western Africa	SSA												1974	1974		RoW							Other Africa	244	gw	404
 Guyana	Co-operative Republic of Guyana	guyana|british.?guiana	GY	GUY	328	328	91	113	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	GUY	LAC	Rest of South America	LAM												1966	1966		RoW							Guyana	446	gy	110
@@ -109,12 +109,12 @@ Indonesia	Republic of Indonesia	indonesia	ID	IDN	360	360	101	11	Asia	South-easte
 Iran	Islamic Republic of Iran	\biran|persia	IR	IRN	364	364	102	142	Asia	Southern Asia	WW	WM	WM	WWW	WWM	WWM	RoW	IRN	MEA	Middle East	MEA												1945	1945		RoW							Islamic Republic of Iran	540	ir	630
 Iraq	Republic of Iraq	\biraq|mesopotamia	IQ	IRQ	368	368	103	143	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	IRQ	MEA	Middle East	MEA												1945	1945		RoW							Iraq	543	iq	645
 Ireland	Ireland	^(?!.*north.*).*ireland	IE	IRL	372	372	104	84	Europe	Northern Europe	IE	IE	IE	IRL	IRL	IRL	IRL	IRL	WEU	Western Europe	EUR	1961	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA		1999	1955	1955		EU						G20	Ireland	21	ie	205
-Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	264		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	IMN	WEU		EUR															RoW										
+Isle of Man	Isle of Man	^(?=.*isle).*\bman	IM	IMN	833	833	264		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	IMN	WEU		EUR															RoW									im	
 Israel	State of Israel	israel	IL	ISR	376	376	105	85	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	ISR	MEA	Middle East	MEA	2010											1949	1949		RoW							Israel	546	il	666
 Italy	Italian Republic	.*italy|.*italia.*	IT	ITA	380	380	106	86	Europe	Southern Europe	IT	IT	IT	ITA	ITA	ITA	ITA	ITA	WEU	Western Europe	EUR	1962	EU	EU28	EU27	EU27_2007	EU25	EU15	EU12	EEA	Schengen	1999	1955	1955		EU					G7	G20	Italy	6	it	325
 Jamaica	Jamaica	jamaica	JM	JAM	388	388	109	115	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	JAM	LAC	Central America	LAM												1962	1962		RoW							Jamaica	354	jm	51
 Japan	Japan	japan	JP	JPN	392	392	110	67	Asia	Eastern Asia	JP	JP	JP	JPN	JPN	JPN	JPN	JPN	PAO	Japan	JPN	1964											1956	1956		HI		APEC			G7	G20	Japan	701	jp	740
-Jersey	Jersey	^(?!.*new).*jersey	JE	JEY	832	832	283		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	JEY			EUR															RoW										
+Jersey	Jersey	^(?!.*new).*jersey	JE	JEY	832	832	283		Europe	Northern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	JEY			EUR															RoW									je	
 Jordan	Hashemite Kingdom of Jordan	jordan	JO	JOR	400	400	112	144	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	JOR	MEA	Middle East	MEA												1955	1955		RoW							Jordan	549	jo	663
 Kazakhstan	Republic of Kazakhstan	kazak	KZ	KAZ	398	398	108	36	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	KAZ	FSU	Central Asia	REF												1992	1992		RoW				CIS			Kazakhstan	613	kz	705
 Kenya	Republic of Kenya	kenya|british.?east.?africa|east.?africa.?prot	KE	KEN	404	404	114	180	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	KEN	AFR	Eastern Africa	SSA												1963	1963		RoW							Kenya	248	ke	501
@@ -147,7 +147,7 @@ Mayotte	Mayotte	mayotte	YT	MYT	175	175	270		Africa	Eastern Africa	WW	WF	WF	WWW	W
 Mexico	United Mexican States	^(?!.*new).*mexi(?!.*city)	MX	MEX	484	484	138	130	America	Central America	MX	MX	MX	MEX	MEX	MEX	MEX	MEX	LAC	Mexico	LAM	1994											1945	1945		BX		APEC				G20	Mexico	358	mx	70
 Micronesia, Fed. Sts.	Federated States of Micronesia	micronesia	FM	FSM	583	583	145	25	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW	FSM		Oceania	OAS												1991	1991		RoW							Other non-OECD Asia	860	fm	987
 Moldova	Republic of Moldova	moldov|b(a|e)ssarabia	MD	MDA	498	498	146	61	Europe	Eastern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	MDA	FSU	Ukraine region	REF												1992	1992		RoW				CIS			Republic of Moldova	93	md	359
-Monaco	Principality of Monaco	monaco	MC	MCO	492	492	140	367	Europe	Western Europe	WW	WE	WE	WWW	WWE	WWE	RoW	MCO	WEU	Western Europe	NEU												1993	1993		RoW										221
+Monaco	Principality of Monaco	monaco	MC	MCO	492	492	140	367	Europe	Western Europe	WW	WE	WE	WWW	WWE	WWE	RoW	MCO	WEU	Western Europe	NEU												1993	1993		RoW									mc	221
 Mongolia	Mongolia	mongolia	MN	MNG	496	496	141	38	Asia	Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	MNG	CPA	China region	OAS												1961	1961		RoW							Mongolia	753	mn	712
 Montenegro	Montenegro	^(?!.*serbia).*montenegro	ME	MNE	499	499	273	50	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	MNE		Central Europe	NEU												2006	2006		RoW							Montenegro	65	me	341
 Montserrat	Montserrat	montserrat	MS	MSR	500	500	142		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	MSR		Central America	LAM															RoW							Other non-OECD Americas	385	ms	
@@ -189,7 +189,7 @@ Russia	Russian Federation	\brussia	RU	RUS	643	643	185	62	Europe	Eastern Europe	R
 Rwanda	Republic of Rwanda	rwanda	RW	RWA	646	646	184	185	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	RWA	AFR	Eastern Africa	SSA												1962	1962		RoW							Other Africa	266	rw	517
 Saint-Martin	Saint-Martin (French part)	^(?!.*maarten)(?!.*saba)(?!.*dutch).*martin\b	MF	MAF	663	663	281		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	MAF			LAM															RoW							Other non-OECD Americas			
 Samoa	Independent State of Samoa	^(?!.*amer.*)samoa|(\bindep.*samoa)|^west.*samoa	WS	WSM	882	882	244	27	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	WSM	PAS	Oceania	OAS												1976	1976		RoW							Other non-OECD Asia		ws	990
-San Marino	Republic of San Marino	san.?marino	SM	SMR	674	674	192	396	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	SMR		Western Europe	NEU												1992	1992		RoW										331
+San Marino	Republic of San Marino	san.?marino	SM	SMR	674	674	192	396	Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	SMR		Western Europe	NEU												1992	1992		RoW									sm	331
 Sao Tome and Principe	Democratic Republic of São Tomé and Príncipe	tome|tomé	ST	STP	678	678	193	215	Africa	Middle Africa	WW	WF	WF	WWW	WWF	WWF	RoW	STP	AFR	Western Africa	SSA												1975	1975		RoW							Other Africa	268	st	403
 Saudi Arabia	Kingdom of Saudi Arabia	\bsa\w*.?arabia	SA	SAU	682	682	194	152	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	SAU	MEA	Middle East	MEA												1945	1945		RoW						G20	Saudi Arabia	566	sa	670
 Senegal	Republic of Senegal	senegal	SN	SEN	686	686	195	216	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	SEN	AFR	Western Africa	SSA												1960	1960		RoW							Senegal	269	sn	433
@@ -246,7 +246,7 @@ United States Virgin Islands	Virgin Islands of the United States	^(?=.*\bu\.?\s?
 Uruguay	Oriental Republic of Uruguay	uruguay	UY	URY	858	858	234	99	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	URY	LAC	Rest of South America	LAM												1945	1945		RoW							Uruguay		uy	165
 Uzbekistan	Republic of Uzbekistan	uzbek	UZ	UZB	860	860	235	41	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	UZB	FSU	Central Asia	REF												1992	1992		RoW				CIS			Uzbekistan	617	uz	704
 Vanuatu	Republic of Vanuatu	vanuatu|new.?hebrides	VU	VUT	548	548	155	30	Oceania	Melanesia	WW	WA	WA	WWW	WWA	WWA	RoW	VUT	PAS	Oceania	OAS												1981	1981		RoW							Other non-OECD Asia	854	vu	935
-Vatican	Vatican City State	holy.?see|vatican|papal.?st	VA	VAT	336	336	94		Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	VAT		Western Europe	NEU															RoW										
+Vatican	Vatican City State	holy.?see|vatican|papal.?st	VA	VAT	336	336	94		Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	VAT		Western Europe	NEU															RoW									va	
 Venezuela	Bolivarian Republic of Venezuela	venezuela	VE	VEN	862	862	236	133	America	South America	WW	WL	WL	WWW	WWL	WWL	RoW	VEN	LAC	Rest of South America	LAM												1945	1945		RoW							Bolivarian Republic of Venezuela	463	ve	101
 Vietnam	Socialist Republic of Vietnam	^((?!n|s|.*republic)|(?=.*socialist)).*viet.?nam(?! *,? *n| *,? *s)	VN	VNM	704	704	237	20	Asia	South-eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	VNM	CPA	Southeastern Asia	OAS												1977	1977		RoW		APEC					Viet Nam	769	vn	817
 Wallis and Futuna Islands	Wallis and Futuna Islands	futuna|wallis	WF	WLF	876	876	243		Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	WLF		Oceania	OAS															RoW							Other non-OECD Asia	876	wf	
