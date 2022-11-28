@@ -153,7 +153,7 @@ Montenegro	Montenegro	^(?!.*serbia).*montenegro	ME	MNE	499	499	273	50	Europe	Sou
 Montserrat	Montserrat	montserrat	MS	MSR	500	500	142		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	MSR		Central America	LAM															RoW							Other non-OECD Americas	385	ms	
 Morocco	Kingdom of Morocco	morocco|\bmaroc	MA	MAR	504	504	143	148	Africa	Northern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	MAR	MEA	Northern Africa	MEA												1956	1956		RoW							Morocco	136	ma	600
 Mozambique	Republic of Mozambique	mozambique	MZ	MOZ	508	508	144	184	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	MOZ	AFR	Rest of Southern Africa	SSA												1975	1975		RoW							Mozambique	259	mz	541
-Myanmar	Republic of the Union of Myanmar	myanmar|burma	MM	MMR	104	104	28	15	Asia	Eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	MMR	PAS	Southeastern Asia	OAS												1948	1948		RoW							Myanmar	635	mm	775
+Myanmar	Republic of the Union of Myanmar	myanmar|burma	MM	MMR	104	104	28	15	Asia	South-eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	MMR	PAS	Southeastern Asia	OAS												1948	1948		RoW							Myanmar	635	mm	775
 Namibia	Republic of Namibia	namibia	NA	NAM	516	516	147	195	Africa	Southern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	NAM	AFR	Rest of Southern Africa	SSA												1990	1990		RoW							Namibia	275	na	565
 Nauru	Republic of Nauru	nauru	NR	NRU	520	520	148	369	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	NRU		Oceania	OAS												1999	1999		RoW							Other non-OECD Asia	845	nr	971
 Nepal	Federal Democratic Republic of Nepal	nepal	NP	NPL	524	524	149	164	Asia	Southern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	NPL	SAS	Rest of South Asia	OAS												1955	1955		RoW							Nepal	660	np	790
