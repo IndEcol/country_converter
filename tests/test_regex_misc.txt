@@ -57,10 +57,12 @@ Laos	Lao People's Democratic Republic
 Laos	Lao PDR
 Laos	Lao People's Democratic Republic
 Libya	Libyan Arab Jamahiriya
-Macedonia	TFYR of Macedonia
-Macedonia	"Macedonia, the former yugoslav republic of"
-Macedonia	Former Yugoslav Republic of Macedonia
-Macedonia	The former Yugoslav Republic of Macedonia
+North Macedonia	TFYR of Macedonia
+North Macedonia	"Macedonia, the former yugoslav republic of"
+North Macedonia	Former Yugoslav Republic of Macedonia
+North Macedonia	The former Yugoslav Republic of Macedonia
+North Macedonia	Republic of North Macedonia
+North Macedonia	Macedonia
 Marshall Islands	Marshall Isds
 Martinique	martinique
 "Micronesia, Fed. Sts."	FS Micronesia
@@ -111,6 +113,9 @@ Tanzania	"Tanzania, united republic of"
 Tanzania	United Rep. of Tanzania
 Tanzania	United Republic of Tanzania
 Tanzania	Tanzania (United Republic of)
+Türkiye	Turkey
+Türkiye	Republic of Turkey
+Türkiye	Republic of Türkiye
 Timor-Leste	Democratic Republic of Timor-Leste
 Timor-Leste	East Timor
 Turks and Caicos Islands	Turks and caicos islands

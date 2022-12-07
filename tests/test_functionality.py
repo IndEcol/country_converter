@@ -8,9 +8,10 @@ import sys
 import warnings
 from collections import OrderedDict
 
+import numpy as np
 import pandas as pd
 import pytest
-from pandas.testing import assert_frame_equal
+from pandas.testing import assert_frame_equal, assert_series_equal
 
 import country_converter as coco  # noqa
 from country_converter.country_converter import _parse_arg  # noqa
@@ -128,6 +129,18 @@ def test_alternative_names(get_regex_test_data):
         )
 
 
+def test_toISO2_conversion():
+    converter = coco.CountryConverter()
+    assert "DE" == converter.convert("DEU", src="ISO3", to="ISO2")
+    assert "GB" == converter.convert("GBR", src="ISO3", to="ISO2")
+    assert "GB" == converter.convert("UK", src="ISO2", to="ISO2")
+    assert "GB" == converter.convert("UK", to="ISO2")
+    assert "GB" == converter.convert("GB", to="ISO2")
+    assert "GB" == converter.convert("GBR", to="ISO2")
+    assert "TR" == converter.convert("TR", src="ISO2", to="ISO2")
+    assert "TR" == converter.convert("TUR", src="ISO3", to="ISO2")
+
+
 def test_additional_country_file():
     converter_basic = coco.CountryConverter()
     converter_extended = coco.CountryConverter(additional_data=custom_data)
@@ -145,6 +158,7 @@ def test_additional_country_data():
             "name_official": ["longer xxx country name"],
             "regex": ["xxx country"],
             "ISO3": ["XXX"],
+            "ISO2": ["XX"],
         }
     )
     converter_extended = coco.CountryConverter(additional_data=add_data)
@@ -231,6 +245,7 @@ def test_get_correspondence_dict_numeric_replace():
     corr_str = cc.get_correspondence_dict(
         classA=classA, classB=classB, replace_numeric=True
     )
+
     assert type(corr_str) == dict
     assert len(corr_str) == 44
     assert corr_str["JP"] == ["OECD"]
@@ -242,13 +257,14 @@ def test_get_correspondence_dict_numeric_replace():
     corr_num = cc.get_correspondence_dict(
         classA=classA, classB=classB, replace_numeric=False
     )
+
     assert type(corr_num) == dict
     assert len(corr_num) == 44
     assert corr_num["JP"] == [1964]
     assert pd.isna(corr_num["ZA"])
     assert 2010 in corr_num["WW"]
     assert 1961 in corr_num["WW"]
-    assert len(corr_num["WW"]) == 5
+    assert len(corr_num["WW"]) == 6
 
 
 def test_build_agg_conc_custom():
@@ -495,7 +511,7 @@ def test_EU_output():
     EU27_2007 = cc.EU27_2007as("ISO2")
     assert len(EU27_2007 == 27)
     assert cc.convert("Croatia", to="ISO2") not in EU27_2007.ISO2.tolist()
-    assert cc.convert("UK", src="regex", to="ISO2") in EU27_2007.ISO2.tolist()
+    assert cc.convert("GB", src="regex", to="ISO2") in EU27_2007.ISO2.tolist()
 
 
 def test_EXIO_output():
@@ -650,6 +666,117 @@ def test_exio_three_letter():
         ) == converter.convert(
             rr[1].EXIO1, src="EXIO1", to="name_short"
         ), f"Mismatch in: {rr} "
+
+
+def test_DAC_number_codes():
+    cc = coco.CountryConverter()
+    assert 1 == cc.convert("AUT", to="DACcode")
+    assert 301 == cc.convert("CAN", to="DACcode")
+    assert 347 == cc.convert("GTM", to="DACcode")
+    assert 854 == cc.convert("VUT", to="DACcode")
+
+
+def test_ccTLD():
+    cc = coco.CountryConverter()
+    assert "am" == cc.convert("Armenia", to="ccTLD")
+    assert "er" == cc.convert("Eritrea", to="ccTLD")
+    assert (
+        cc.convert("Zambia", to="ccTLD").upper()
+        == cc.convert("Zambia", to="ISO2").upper()
+    )
+
+
+def test_GWcode():
+    cc = coco.CountryConverter()
+    assert 305 == cc.convert("AUT", to="GWcode")
+    assert 771 == cc.convert("BD", to="GWcode")
+    assert 694 == cc.convert("Qatar", to="GWcode")
+    assert np.isnan(cc.convert("United States Minor Outlying Islands", to="GWcode"))
+
+
+def test_pandas_convert():
+    """This will test that the behaviour of pandas_convert is equivalent
+    to convert for Pandas Series"""
+
+    # Load the series
+    test_series = pd.read_csv(f"{TESTPATH}/test_series_data.csv", header=0)
+
+    # Create cc object
+    cc = coco.CountryConverter()
+
+    # Check type validation by passing the DataFrame
+    with pytest.raises(TypeError):
+        cc.pandas_convert(test_series, to="ISO3")
+
+    # Convert version
+    convert = pd.Series(
+        cc.convert(test_series.data, to="ISO3"), index=test_series.index, name="data"
+    )
+
+    # pandas_convert version
+    pandas_convert = cc.pandas_convert(test_series.data, to="ISO3")
+
+    assert_series_equal(convert, pandas_convert)
+
+
+def test_pandas_convert_options():
+    """This will test that the behaviour of pandas_convert is equivalent
+    to convert for Pandas Series, using various options"""
+
+    # Load the series
+    test_series = pd.read_csv(f"{TESTPATH}/test_series_data.csv", header=0)
+
+    # Create cc object
+    cc = coco.CountryConverter()
+
+    # -- Test the not_found option --
+    # Convert version
+    convert_not_found = pd.Series(
+        cc.convert(test_series.data, to="ISO2", not_found="empty"),
+        index=test_series.index,
+        name="data",
+    )
+
+    # pandas_convert version
+    pandas_not_found = cc.pandas_convert(test_series.data, to="ISO2", not_found="empty")
+
+    # Check that the Series are equal
+    assert_series_equal(convert_not_found, pandas_not_found)
+
+    # -- Test the enforce_list option --
+    # Convert version
+    convert_enforce_list = pd.Series(
+        cc.convert(test_series.data, to="UNRegion", enforce_list=True),
+        index=test_series.index,
+        name="data",
+    )
+
+    # pandas_convert version
+    pandas_enforce_list = cc.pandas_convert(
+        test_series.data, to="UNRegion", enforce_list=True
+    )
+
+    # Check that the Series are equal
+    assert_series_equal(convert_enforce_list, pandas_enforce_list)
+
+    # -- Test the exclude_prefix option --
+
+    # Convert version
+    convert_exclude_prefix = pd.Series(
+        cc.convert(
+            test_series.data, to="name", exclude_prefix=["without", "excluding"]
+        ),
+        index=test_series.index,
+        name="data",
+    )
+
+    # pandas_convert version
+    pandas_exclude_prefix = cc.pandas_convert(
+        test_series.data, to="name", exclude_prefix=["without", "excluding"]
+    )
+
+    # Check that the Series are equal
+    assert_series_equal(convert_exclude_prefix, pandas_exclude_prefix)
 
 
 #### RUN PYTEST USING THE BELLOW CODE

@@ -5,7 +5,7 @@ channels:
     - conda-forge
 dependencies: 
     - python=3.9.7
-    - black=19.10b0
+    - black>=22.3.0
     - ipython
     - jupyterlab
     - isort

@@ -462,12 +462,22 @@ class CountryConverter:
 
         self.data.reset_index(drop=True, inplace=True)
         self.regexes = [re.compile(entry, re.IGNORECASE) for entry in self.data.regex]
+        self.iso2_regexes = [
+            re.compile(entry, re.IGNORECASE) for entry in self.data.ISO2
+        ]
 
         # the following section adds shortcuts to all classifications to the
         # class.
         def fun_provider(df, datacol):
             def fun_provided(to):
-                return df.loc[:, [to, datacol]].dropna()
+                ret = df.loc[:, [to, datacol]].dropna()
+                if to in ["ISO2", "ISO3"]:
+                    ret.loc[:, to] = (
+                        ret.loc[:, to]
+                        .str.split("|")
+                        .apply(lambda x: "".join((c for c in x[0] if c.isalnum())))
+                    )
+                return ret
 
             return fun_provided
 
@@ -561,9 +571,15 @@ class CountryConverter:
             else:
                 src_format = self._validate_input_para(src, self.data.columns.tolist())
 
-            if src_format.lower() == "regex":
+            # if src_format.lower() == "regex":
+            if src_format.lower() in ["regex", "iso2"]:
                 result_list = []
-                for ind_regex, ccregex in enumerate(self.regexes):
+                # for ind_regex, ccregex in enumerate(self.regexes):
+                if src_format.lower() == "iso2":
+                    regexes = self.iso2_regexes
+                elif src_format.lower() == "regex":
+                    regexes = self.regexes
+                for ind_regex, ccregex in enumerate(regexes):
                     if ccregex.search(spec_name):
                         result_list.append(self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:
@@ -597,6 +613,12 @@ class CountryConverter:
             else:
                 outlist[ind_names] = []
                 for etr in result_list:
+                    if to[0].lower() in ["iso2", "iso3"]:
+                        # remove regex characters from output
+                        etr = "".join(
+                            c for c in etr.split("|")[0] if c.isalnum()
+                        ).upper()
+
                     try:
                         conv_etr = int(etr)
                     except ValueError:
@@ -610,6 +632,87 @@ class CountryConverter:
             return outlist[0]
         else:
             return outlist
+
+    def pandas_convert(
+        self,
+        series: pd.Series,
+        src=None,
+        to="ISO3",
+        enforce_list=False,
+        not_found="not found",
+        exclude_prefix=None,
+    ):
+        """Convert names from a Pandas Series to another Pandas Series.
+
+        Using this method is faster than using the convert method when dealing with
+        long Pandas Series. Depending on the size of the series, the performance increase
+        can be very significant. The longer the series, the more significant the
+        improvement. Note that if the series contains mostly unique values, more
+        memory will be used, compared to the convert method.
+
+        Parameters
+        ----------
+        series : str or list like
+            Countries in 'src' classification to convert
+            to 'to' classification.
+
+        src : str, optional
+            Source classification. If None (default), each passed name is
+            checked if it is a number (assuming UNnumeric) or 2 (ISO2) or
+            3 (ISO3) characters long; for longer names 'regex' is assumed.
+
+        to : str, optional
+            Output classification (valid index of the country_data file),
+            default: ISO3
+
+        enforce_list : boolean, optional
+            If True, enforces the output to be list (if only one name was
+            passed) or to be a list of lists (if multiple names were passed).
+            If False (default), the output will be a string (if only one name
+            was passed) or a list of str and/or lists (str if a one to one
+            matching, list otherwise).
+
+        not_found : str, optional
+            Fill in value for none found entries. If None, keep the input value
+            (default: 'not found')
+
+        exclude_prefix : list of valid regex strings
+            List of indicators which negate the subsequent country/region.
+            These prefixes and everything following will not be converted.
+            E.g. 'Asia excluding China' becomes 'Asia' and
+            'China excluding Hong Kong' becomes 'China' prior to conversion
+            Default: ['excl\\w.*', 'without', 'w/o'])
+
+        Returns
+        -------
+        A Pandas Series containing list or str, depending on enforce_list
+
+        """
+
+        if not isinstance(series, pd.Series):
+            raise TypeError("Input must be a Pandas Series")
+
+        # if `src` and `to` are the same, return without changing anything.
+        if src == to:
+            return series
+
+        # Get the unique values for mapping.
+        s_unique = series.unique()
+
+        # Create a correspondence dictionary
+        mapping = pd.Series(
+            self.convert(
+                names=s_unique,
+                src=src,
+                to=to,
+                not_found=not_found,
+                enforce_list=enforce_list,
+                exclude_prefix=exclude_prefix,
+            ),
+            index=s_unique,
+        ).to_dict()
+
+        return series.map(mapping).fillna(series if not_found is None else not_found)
 
     @property
     def valid_class(self):
