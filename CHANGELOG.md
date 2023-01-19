@@ -2,10 +2,15 @@
 
 ## 0.8.1dev
 
+### Classifications
+
+fix Myanmar UN region (#125) [by Alan Orth]
+
 
 ### Development
 
 - droped 3.6 support, added tests for 3.10 
+- fixed github workflow
 
 
 
