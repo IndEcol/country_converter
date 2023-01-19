@@ -3,6 +3,12 @@
 ## 0.8.1dev
 
 
+### Development
+
+- droped 3.6 support, added tests for 3.10 
+
+
+
 ## 0.8.0
 
 
