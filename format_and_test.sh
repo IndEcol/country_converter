@@ -6,12 +6,12 @@
 #requires pytest, isort and black to be installed
 
 # format
-isort --project pymrio --profile black .
+isort .
 black .
 
 # test
 coverage erase
-isort --profile black --check-only .
+isort --check-only .
 coverage run -m pytest --black -vv .
 coverage report 
 
