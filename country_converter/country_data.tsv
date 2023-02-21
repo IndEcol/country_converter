@@ -56,7 +56,7 @@ Congo Republic	Republic of the Congo	^(?!.*\bdem)(?!.*\bdr)(?!.*kinshasa)(?!.*za
 Cook Islands	Cook Islands	\bcook	CK	COK	184	184	47	320	Oceania	Polynesia	WW	WA	WA	WWW	WWA	WWA	RoW	COK		Oceania	OAS															RoW							Other non-OECD Asia		ck	
 Costa Rica	Republic of Costa Rica	costa.?rica	CR	CRI	188	188	48	126	America	Central America	WW	WL	WL	WWW	WWL	WWL	RoW	CRI	LAC	Central America	LAM	2021											1945	1945		RoW							Costa Rica	336	cr	94
 Cote d'Ivoire	Republic of Côte d'Ivoire	.*(ivoire|ivory)	CI	CIV	384	384	107	205	Africa	Western Africa	WW	WF	WF	WWW	WWF	WWF	RoW	CIV	AFR	Western Africa	SSA												1960	1960		RoW							Côte d'Ivoire	247	ci	437
-Croatia	Republic of Croatia	croatia|hrvatska	HR	HRV	191	191	98	46	Europe	Southern Europe	WW	WE	HR	WWW	WWE	HRV	RoW	HRV	EEU	Central Europe	EUR		EU	EU28	EU27					EEA			1992	1992		RoW						G20	Croatia	62	hr	344
+Croatia	Republic of Croatia	croatia|hrvatska	HR	HRV	191	191	98	46	Europe	Southern Europe	WW	WE	HR	WWW	WWE	HRV	RoW	HRV	EEU	Central Europe	EUR		EU	EU28	EU27					EEA		2023	1992	1992		RoW						G20	Croatia	62	hr	344
 Cuba	Republic of Cuba	\bcuba	CU	CUB	192	192	49	109	America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW	CUB	LAC		LAM												1945	1945		RoW							Cuba	338	cu	40
 Curacao	Country of Curaçao	\bcura(c|ç)ao	CW	CUW	531	531	279		America	Caribbean	WW	WL	WL	WWW	WWL	WWL	RoW				LAM															RoW							Curaçao/Netherlands Antilles		cw	
 Cyprus	Republic of Cyprus	cyprus	CY	CYP	196	196	50	77	Asia	Western Asia	CY	CY	CY	CYP	CYP	CYP	CYP	CYP	WEU	Central Europe	EUR		EU	EU28	EU27	EU27_2007	EU25			EEA		2008	1960	1960		EU						G20	Cyprus	30	cy	352
