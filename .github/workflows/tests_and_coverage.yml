@@ -47,7 +47,7 @@ jobs:
 
     - name: Run tests
       run: |
-         isort --project country_converter --profile black --check-only .
+         isort --check-only .
          coverage run --source=country_converter -m pytest --black -vv
 
     - name: Coveralls analysis
@@ -81,7 +81,7 @@ jobs:
          run: |
             pip install . -U
             pip install pytest
-            python setup.py sdist
+            pip install -e .
             pytest -vv
 
 
