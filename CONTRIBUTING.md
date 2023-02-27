@@ -75,13 +75,13 @@ The following commands can be used to automatically apply the
 [isort](https://github.com/pycqa/isort/) formatting.
 
 ``` bash
-isort --project country_converter --profile black .
+isort .
 black .
 ```
 
 If you are using Conda you can build a development environment from
 environment.yml which includes all packages necessary for development
-and running. For virtual environments use the requirements.txt file. The
+and running. For virtual environments use `pip install -e .[dev]`. The
 file format_and_test.sh can be used in Linux environments to format the
 code according to the [black](https://github.com/psf/black/) /
 [isort](https://github.com/pycqa/isort/) format and run all tests.
