@@ -11,8 +11,8 @@ between different classification schemes.
 [![image](https://zenodo.org/badge/DOI/10.5281/zenodo.838035.svg)](https://doi.org/10.5281/zenodo.838035)
 [![image](http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113/status.svg)](http://joss.theoj.org/papers/af694f2e5994b8aacbad119c4005e113)
 
-[![image](https://github.com/konstantinstadler/country_converter/workflows/build/badge.svg)](https://github.com/konstantinstadler/country_converter/actions)
-[![image](https://coveralls.io/repos/github/konstantinstadler/country_converter/badge.svg?branch=master&service=github)](https://coveralls.io/github/konstantinstadler/country_converter?branch=master)
+[![image](https://github.com/IndEcol/country_converter/workflows/build/badge.svg)](https://github.com/IndEcol/country_converter/actions)
+[![image](https://coveralls.io/repos/github/IndEcol/country_converter/badge.svg?branch=master&service=github)](https://coveralls.io/github/IndEcol/country_converter?branch=master)
 [![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![image](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -50,7 +50,7 @@ here](https://github.com/conda-forge/country_converter-feedstock)):
     conda install country_converter
 
 Alternatively, the source code is available on
-[GitHub](https://github.com/konstantinstadler/country_converter).
+[GitHub](https://github.com/IndEcol/country_converter).
 
 The package depends on [Pandas](http://pandas.pydata.org/); for testing
 [pytest](http://pytest.org/) is required. For further information on
@@ -225,7 +225,7 @@ coco.convert("asdf")
 ```
 
 See the IPython Notebook
-([country_converter_examples.ipynb](http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_examples.ipynb))
+([country_converter_examples.ipynb](http://nbviewer.ipython.org/github/IndEcol/country_converter/blob/master/doc/country_converter_examples.ipynb))
 for more information.
 
 #### Command line usage
@@ -265,7 +265,7 @@ country matching
     coco Congo --additional_data path/to/datafile.csv
 
 See
-<https://github.com/konstantinstadler/country_converter/tree/master/tests/custom_data_example.txt>
+<https://github.com/IndEcol/country_converter/tree/master/tests/custom_data_example.txt>
 for an example of an additional datafile.
 
 The flags --UNmember_only (-u) and --include_obsolete (-i) restrict the
@@ -361,7 +361,7 @@ I leave it to professional Matlab users to figure out how to further
 process them.
 
 See also IPython Notebook
-([country_converter_examples.ipynb](http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_examples.ipynb))
+([country_converter_examples.ipynb](http://nbviewer.ipython.org/github/IndEcol/country_converter/blob/master/doc/country_converter_examples.ipynb))
 for more information - all functions available in Python (for example
 passing additional data files, specifying the output in case of missing
 data) work also in Matlab by passing arguments through the pyargs
@@ -372,7 +372,7 @@ function.
 Coco provides a function for building concordance vectors, matrices and
 dictionaries between different classifications. This can be used in
 python as well as in matlab. For further information see
-([country_converter_aggregation_helper.ipynb](http://nbviewer.ipython.org/github/konstantinstadler/country_converter/blob/master/doc/country_converter_aggregation_helper.ipynb))
+([country_converter_aggregation_helper.ipynb](http://nbviewer.ipython.org/github/IndEcol/country_converter/blob/master/doc/country_converter_aggregation_helper.ipynb))
 
 ## Classification schemes
 

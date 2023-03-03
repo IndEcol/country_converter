@@ -1,16 +1,21 @@
-# Change Log
+# Changelog
 
-## 0.8.1dev
+## 1.0.0dev
 
 ### Classifications
 
-fix Myanmar UN region (#125) [by Alan Orth]
+- fix Myanmar UN region (#125) [by Alan Orth]
+- add missing MESSAGE R11 regions [by Advait]
+- added Croatia to the Euro list [by PeterMaxwell]
 
 
 ### Development
 
-- droped 3.6 support, added tests for 3.10 
+- droped 3.6 support, added tests for 3.10 and 3.11
 - fixed github workflow
+- change repository from github.com/konstantinstadler to github.com/IndEcol
+- Add build-system requirements and isort configuration to pyproject.toml [by Mike Taves]
+
 
 
 

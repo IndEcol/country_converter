@@ -31,4 +31,4 @@ def test_version_consistency():
             raise ValueError("No version information found in the CHANGELOG file")
     assert (
         coco.__version__ == version_changelog
-    ), "Version module - CHANGELOG.rst do not match"
+    ), f"Version module({coco.__version__}) - CHANGELOG.rst do not match({version_changelog})"

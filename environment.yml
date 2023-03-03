@@ -14,4 +14,6 @@ dependencies:
     - pytest-cov
     - coveralls
     - pytest >= 5.4.3
+    - pytest-datadir
+    - pytest-mypy
 

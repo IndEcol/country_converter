@@ -54,7 +54,7 @@ test = [
 coco = "country_converter.country_converter:main"
 
 [project.urls]
-Repository = "https://github.com/konstantinstadler/country_converter"
+Repository = "https://github.com/IndEcol/country_converter"
 
 [tool.setuptools]
 packages = ["country_converter"]
