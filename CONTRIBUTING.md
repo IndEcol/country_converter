@@ -52,7 +52,7 @@ classifications must also be added to the README.rst at the section
 
 If you need to parse some data to extract the classification codes, see
 the example script for parsing the Global Burden of Diseases here:
-<https://gist.github.com/konstantinstadler/dc3583a4674a39def0d4611c095eb788>
+<https://gist.github.com/IndEcol/dc3583a4674a39def0d4611c095eb788>
 
 ## Changing the code base
 
