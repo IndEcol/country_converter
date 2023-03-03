@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0dev
+## 1.0.0
 
 ### Classifications
 
@@ -15,8 +15,6 @@
 - fixed github workflow
 - change repository from github.com/konstantinstadler to github.com/IndEcol
 - Add build-system requirements and isort configuration to pyproject.toml [by Mike Taves]
-
-
 
 
 ## 0.8.0
