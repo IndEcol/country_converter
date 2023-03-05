@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1dev
+
+### Development
+
+- removed htmlcov
+
+
 ## 1.0.0
 
 ### Classifications
