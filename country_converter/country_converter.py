@@ -584,7 +584,7 @@ class CountryConverter:
                         result_list.append(self.data.loc[ind_regex, to].values[0])
                     if len(result_list) > 1:
                         log.warning(
-                            "More then one regular expression "
+                            "More than one regular expression "
                             "match for {}".format(spec_name)
                         )
 
