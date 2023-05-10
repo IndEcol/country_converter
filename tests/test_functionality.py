@@ -779,6 +779,14 @@ def test_pandas_convert_options():
     assert_series_equal(convert_exclude_prefix, pandas_exclude_prefix)
 
 
+def test_CC41_output():
+    cc = coco.CountryConverter()
+    cs = cc.CC41.CC41.unique()
+    assert len(cs) == 41
+    assert "Rest of World" in cs
+    assert "Great Britain and N.I." in cs
+
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py

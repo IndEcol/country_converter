@@ -422,6 +422,7 @@ Data sources below for further information):
     (numeric - OECD Development Assistance Committee)
 33. [ccTLD](https://en.wikipedia.org/wiki/Country_code_top-level_domain) - country code top-level domains
 34. [GWcode](https://www.tandfonline.com/doi/abs/10.1080/03050629908434958) - Gledisch & Ward numerical codes as published in https://www.andybeger.com/states/articles/statelists.html
+35. CC41 - common classification for MRIOs (list of countries found in all public MRIOs)
 
 
 Coco contains official recognised codes as well as non-standard codes
