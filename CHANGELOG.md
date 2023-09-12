@@ -6,6 +6,10 @@
 
 - removed htmlcov
 
+### Classifications
+
+- Correct spelling "Faeroe Islands" to "Faroe Islands" #145 (by @jpatokal)
+
 
 ## 1.0.0
 
