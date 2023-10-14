@@ -4,7 +4,6 @@
 import argparse
 import logging
 import os
-import pprint
 import re
 import sys
 from collections import OrderedDict
@@ -18,6 +17,95 @@ COUNTRY_DATA_FILE = os.path.join(
 )
 
 log = logging.getLogger(__name__)
+
+
+def get_country_entry(
+    agg,
+    country,
+    merge_multiple_string,
+    log_merge_multiple_strings
+):
+    try:
+        entry = agg[country]
+    except KeyError:
+        entry = None
+
+    if type(entry) is list:
+        if 1 < len(entry):
+            if merge_multiple_string:
+                entry = merge_multiple_string.join([str(e) for e in entry])
+            else:
+                entry = None
+            if log_merge_multiple_strings:
+                log_merge_multiple_strings(country)
+        else:
+            entry = entry[0]
+            if pd.isna(entry):
+                entry = None
+    return country, entry
+
+
+def make_correspond(
+    original_countries,
+    aggregates,
+    original_countries_class,
+    merge_multiple_string,
+    log_merge_multiple_strings,
+    coco
+):
+    correspond = OrderedDict.fromkeys(original_countries)
+    for agg in aggregates:
+        if type(agg) is str:
+            agg = coco.get_correspondence_dict(original_countries_class, agg)
+        for country in original_countries:
+            # if country=='US':
+            # import ipdb; ipdb.set_trace()
+            if correspond.get(country) is None:
+                country, entry = get_country_entry(
+                    agg=agg,
+                    country=country,
+                    merge_multiple_string=merge_multiple_string,
+                    log_merge_multiple_strings=log_merge_multiple_strings
+                )
+
+                correspond[country] = entry
+    return correspond
+
+
+def fill_correspond_gaps(
+    correspond,
+    original_countries,
+    missing_countries,
+    log_missing_countries
+):
+    for country in original_countries:
+        if correspond.get(country) is None:
+            if missing_countries is True:
+                correspond[country] = country
+            elif missing_countries is False:
+                del correspond[country]
+            else:
+                correspond[country] = missing_countries
+            if log_missing_countries:
+                log_missing_countries(country)
+
+
+def convert_correspond_to_dataframe(
+    correspond,
+    as_dataframe
+):
+    correspond_df = pd.DataFrame.from_dict(correspond, orient="index").reset_index()
+    correspond_df.columns = ["original", "aggregated"]
+    if (type(as_dataframe) is str) and (as_dataframe[0].lower() == "f"):
+        _co_list = correspond_df.original
+        correspond_df["val"] = 1
+        correspond_df = (
+            correspond_df.set_index(["original", "aggregated"])
+            .unstack()
+            .fillna(0)["val"]
+        )
+        correspond_df = correspond_df.loc[_co_list]
+    return correspond_df
 
 
 def agg_conc(
@@ -108,59 +196,93 @@ def agg_conc(
     if type(aggregates) is not list:
         aggregates = [aggregates]
 
-    correspond = OrderedDict.fromkeys(original_countries)
-    for agg in aggregates:
-        if type(agg) is str:
-            agg = coco.get_correspondence_dict(original_countries_class, agg)
-        for country in original_countries:
-            # if country=='US':
-            # import ipdb; ipdb.set_trace()
-            if correspond.get(country) is None:
-                try:
-                    entry = agg[country]
-                except KeyError:
-                    entry = None
+    correspond = make_correspond(
+        original_countries=original_countries,
+        aggregates=aggregates,
+        original_countries_class=original_countries_class,
+        merge_multiple_string=merge_multiple_string,
+        log_merge_multiple_strings=log_merge_multiple_strings,
+        coco=coco
+    )
 
-                if type(entry) is list:
-                    if 1 < len(entry):
-                        if merge_multiple_string:
-                            entry = merge_multiple_string.join([str(e) for e in entry])
-                        else:
-                            entry = None
-                        if log_merge_multiple_strings:
-                            log_merge_multiple_strings(country)
-                    else:
-                        entry = entry[0]
-                        if pd.isna(entry):
-                            entry = None
-
-                correspond[country] = entry
-
-    for country in original_countries:
-        if correspond.get(country) is None:
-            if missing_countries is True:
-                correspond[country] = country
-            elif missing_countries is False:
-                del correspond[country]
-            else:
-                correspond[country] = missing_countries
-            if log_missing_countries:
-                log_missing_countries(country)
+    fill_correspond_gaps(
+        correspond=correspond,
+        original_countries=original_countries,
+        missing_countries=missing_countries,
+        log_missing_countries=log_missing_countries
+    )
 
     if as_dataframe:
-        correspond = pd.DataFrame.from_dict(correspond, orient="index").reset_index()
-        correspond.columns = ["original", "aggregated"]
-        if (type(as_dataframe) is str) and (as_dataframe[0].lower() == "f"):
-            _co_list = correspond.original
-            correspond["val"] = 1
-            correspond = (
-                correspond.set_index(["original", "aggregated"])
-                .unstack()
-                .fillna(0)["val"]
-            )
-            correspond = correspond.loc[_co_list]
+        correspond = convert_correspond_to_dataframe(
+            correspond=correspond,
+            as_dataframe=as_dataframe
+        )
 
     return correspond
+
+
+def find_list_match(
+    match_dict_a,
+    name_a,
+    list_b,
+    name_dict_a,
+    not_found
+):
+    for match_case in match_dict_a[name_a]:
+        b_matches = 0
+        for name_b in list_b:
+            if match_case.search(name_b):
+                b_matches += 1
+                name_dict_a[name_a].append(name_b)
+
+    if b_matches == 0:
+        log.warning(
+            "Could not find any " "correspondence for {} in list_b".format(name_a)
+        )
+        _not_found_entry = name_a if not not_found else not_found
+        name_dict_a[name_a].append(_not_found_entry)
+
+    if b_matches > 1:
+        log.warning("Multiple matches for " "name {} in list_b".format(name_a))
+
+
+def find_name_match(
+    name_dict_a,
+    match_dict_a,
+    name_a,
+    coco,
+    list_b,
+    not_found,
+    enforce_sublist
+):
+    name_dict_a[name_a] = []
+    match_dict_a[name_a] = []
+
+    for regex in coco.regexes:
+        if regex.search(name_a):
+            match_dict_a[name_a].append(regex)
+
+    if len(match_dict_a[name_a]) == 0:
+        log.warning("Could not identify {} in list_a".format(name_a))
+        _not_found_entry = name_a if not not_found else not_found
+        name_dict_a[name_a].append(_not_found_entry)
+        if not enforce_sublist:
+            name_dict_a[name_a] = name_dict_a[name_a][0]
+        return
+
+    if len(match_dict_a[name_a]) > 1:
+        log.warning("Multiple matches for name {} in list_a".format(name_a))
+
+    find_list_match(
+        match_dict_a=match_dict_a,
+        name_a=name_a,
+        list_b=list_b,
+        name_dict_a=name_dict_a,
+        not_found=not_found
+    )
+
+    if not enforce_sublist and (len(name_dict_a[name_a]) == 1):
+        name_dict_a[name_a] = name_dict_a[name_a][0]
 
 
 def match(
@@ -225,43 +347,15 @@ def match(
     match_dict_a = dict()
 
     for name_a in list_a:
-        name_dict_a[name_a] = []
-        match_dict_a[name_a] = []
-
-        for regex in coco.regexes:
-            if regex.search(name_a):
-                match_dict_a[name_a].append(regex)
-
-        if len(match_dict_a[name_a]) == 0:
-            log.warning("Could not identify {} in list_a".format(name_a))
-            _not_found_entry = name_a if not not_found else not_found
-            name_dict_a[name_a].append(_not_found_entry)
-            if not enforce_sublist:
-                name_dict_a[name_a] = name_dict_a[name_a][0]
-            continue
-
-        if len(match_dict_a[name_a]) > 1:
-            log.warning("Multiple matches for name {} in list_a".format(name_a))
-
-        for match_case in match_dict_a[name_a]:
-            b_matches = 0
-            for name_b in list_b:
-                if match_case.search(name_b):
-                    b_matches += 1
-                    name_dict_a[name_a].append(name_b)
-
-        if b_matches == 0:
-            log.warning(
-                "Could not find any " "correspondence for {} in list_b".format(name_a)
-            )
-            _not_found_entry = name_a if not not_found else not_found
-            name_dict_a[name_a].append(_not_found_entry)
-
-        if b_matches > 1:
-            log.warning("Multiple matches for " "name {} in list_b".format(name_a))
-
-        if not enforce_sublist and (len(name_dict_a[name_a]) == 1):
-            name_dict_a[name_a] = name_dict_a[name_a][0]
+        find_name_match(
+            name_dict_a=name_dict_a,
+            match_dict_a=match_dict_a,
+            name_a=name_a,
+            coco=coco,
+            list_b=list_b,
+            not_found=not_found,
+            enforce_sublist=enforce_sublist
+        )
 
     return name_dict_a
 
@@ -485,6 +579,116 @@ class CountryConverter:
             self.__setattr__(col, self.data.loc[:, ["name_short", col]].dropna())
             self.__setattr__(col + "as", fun_provider(self.data, col))
 
+    def _get_regex_result_list(
+        self,
+        src_format,
+        spec_name,
+        to
+    ):
+        result_list = []
+        # for ind_regex, ccregex in enumerate(self.regexes):
+        if src_format.lower() == "iso2":
+            regexes = self.iso2_regexes
+        elif src_format.lower() == "regex":
+            regexes = self.regexes
+        for ind_regex, ccregex in enumerate(regexes):
+            if ccregex.search(spec_name):
+                result_list.append(self.data.loc[ind_regex, to].values[0])
+            if len(result_list) > 1:
+                log.warning(
+                    "More than one regular expression "
+                    "match for {}".format(spec_name)
+                )
+        return result_list
+
+    def _get_nonregex_result_list(
+        self,
+        src_format,
+        spec_name,
+        to
+    ):
+        _match_col = (
+            self.data[src_format]
+            .astype(str)
+            .str.replace("\\..*", "", regex=True)
+        )
+
+        result_list = [
+            etr[0]
+            for etr in self.data[
+                _match_col.str.contains(
+                    "^" + re.escape(spec_name) + "$",
+                    flags=re.IGNORECASE,
+                    na=False,
+                )
+            ][to].values
+        ]
+
+        return result_list
+
+    def _get_conv_etr(
+        self,
+        to,
+        etr
+    ):
+        if to[0].lower() in ["iso2", "iso3"]:
+            # remove regex characters from output
+            etr = "".join(
+                c for c in etr.split("|")[0] if c.isalnum()
+            ).upper()
+
+        try:
+            conv_etr = int(etr)
+        except ValueError:
+            conv_etr = etr
+
+        return conv_etr
+
+    def _process_name_for_converting(
+        self,
+        ind_names,
+        spec_name,
+        src,
+        to,
+        outlist,
+        not_found,
+        enforce_list
+    ):
+        if src is None:
+            src_format = self._get_input_format_from_name(spec_name)
+        else:
+            src_format = self._validate_input_para(src, self.data.columns.tolist())
+
+        # if src_format.lower() == "regex":
+        if src_format.lower() in ["regex", "iso2"]:
+            result_list = self._get_regex_result_list(
+                src_format=src_format,
+                spec_name=spec_name,
+                to=to
+            )
+        else:
+            result_list = self._get_nonregex_result_list(
+                src_format=src_format,
+                spec_name=spec_name,
+                to=to
+            )
+
+        if len(result_list) == 0:
+            log.warning("{} not found in {}".format(spec_name, src_format))
+            _fillin = not_found or spec_name
+            outlist[ind_names] = [_fillin] if enforce_list else _fillin
+        else:
+            outlist[ind_names] = []
+            for etr in result_list:
+                conv_etr = self._get_conv_etr(
+                    to=to,
+                    etr=etr
+                )
+                outlist[ind_names].append(conv_etr)
+
+            if len(outlist[ind_names]) == 1 and enforce_list is False:
+                outlist[ind_names] = outlist[ind_names][0]
+
     def convert(
         self,
         names,
@@ -566,67 +770,15 @@ class CountryConverter:
         for ind_names, current_name in enumerate(names):
             spec_name = exclude_split[current_name]["clean_name"]
 
-            if src is None:
-                src_format = self._get_input_format_from_name(spec_name)
-            else:
-                src_format = self._validate_input_para(src, self.data.columns.tolist())
-
-            # if src_format.lower() == "regex":
-            if src_format.lower() in ["regex", "iso2"]:
-                result_list = []
-                # for ind_regex, ccregex in enumerate(self.regexes):
-                if src_format.lower() == "iso2":
-                    regexes = self.iso2_regexes
-                elif src_format.lower() == "regex":
-                    regexes = self.regexes
-                for ind_regex, ccregex in enumerate(regexes):
-                    if ccregex.search(spec_name):
-                        result_list.append(self.data.loc[ind_regex, to].values[0])
-                    if len(result_list) > 1:
-                        log.warning(
-                            "More than one regular expression "
-                            "match for {}".format(spec_name)
-                        )
-
-            else:
-                _match_col = (
-                    self.data[src_format]
-                    .astype(str)
-                    .str.replace("\\..*", "", regex=True)
-                )
-
-                result_list = [
-                    etr[0]
-                    for etr in self.data[
-                        _match_col.str.contains(
-                            "^" + re.escape(spec_name) + "$",
-                            flags=re.IGNORECASE,
-                            na=False,
-                        )
-                    ][to].values
-                ]
-
-            if len(result_list) == 0:
-                log.warning("{} not found in {}".format(spec_name, src_format))
-                _fillin = not_found or spec_name
-                outlist[ind_names] = [_fillin] if enforce_list else _fillin
-            else:
-                outlist[ind_names] = []
-                for etr in result_list:
-                    if to[0].lower() in ["iso2", "iso3"]:
-                        # remove regex characters from output
-                        etr = "".join(
-                            c for c in etr.split("|")[0] if c.isalnum()
-                        ).upper()
-
-                    try:
-                        conv_etr = int(etr)
-                    except ValueError:
-                        conv_etr = etr
-                    outlist[ind_names].append(conv_etr)
-
-                if len(outlist[ind_names]) == 1 and enforce_list is False:
-                    outlist[ind_names] = outlist[ind_names][0]
+            self._process_name_for_converting(
+                ind_names=ind_names,
+                spec_name=spec_name,
+                src=src,
+                to=to,
+                outlist=outlist,
+                not_found=not_found,
+                enforce_list=enforce_list
+            )
 
         if (len(outlist) == 1) and not enforce_list:
             return outlist[0]
