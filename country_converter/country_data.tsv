@@ -119,7 +119,7 @@ Jordan	Hashemite Kingdom of Jordan	jordan	JO	JOR	400	400	112	144	Asia	Western As
 Kazakhstan	Republic of Kazakhstan	kazak	KZ	KAZ	398	398	108	36	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	KAZ	FSU	Central Asia	REF												1992	1992		RoW				CIS			Kazakhstan	613	kz	705	Rest of World
 Kenya	Republic of Kenya	kenya|british.?east.?africa|east.?africa.?prot	KE	KEN	404	404	114	180	Africa	Eastern Africa	WW	WF	WF	WWW	WWF	WWF	RoW	KEN	AFR	Eastern Africa	SSA												1963	1963		RoW							Kenya	248	ke	501	Rest of World
 Kiribati	Republic of Kiribati	kiribati	KI	KIR	296	296	83	23	Oceania	Micronesia	WW	WA	WA	WWW	WWA	WWA	RoW	KIR	PAS	Oceania	OAS												1999	1999		RoW							Other non-OECD Asia	836	ki	970	Rest of World
-Kosovo	Republic of Kosovo	kosovo	XK	XKX					Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	KSV																		RoW							Kosovo	57		347	Rest of World
+Kosovo	Republic of Kosovo	kosovo	XK	XKX	412				Europe	Southern Europe	WW	WE	WE	WWW	WWE	WWE	RoW	KSV																		RoW							Kosovo	57		347	Rest of World
 Kuwait	State of Kuwait	kuwait	KW	KWT	414	414	118	145	Asia	Western Asia	WW	WM	WM	WWW	WWM	WWM	RoW	KWT	MEA	Middle East	MEA												1963	1963		RoW							Kuwait	552	kw	690	Rest of World
 Kyrgyz Republic	Kyrgyz Republic	kyrgyz|kirghiz	KG	KGZ	417	417	113	37	Asia	Central Asia	WW	WA	WA	WWW	WWA	WWA	RoW	KGZ	FSU	Central Asia	REF												1992	1992		RoW							Kyrgyzstan	614	kg	703	Rest of World
 Laos	Lao People's Democratic Republic	\blaos?\b	LA	LAO	418	418	120	12	Asia	South-eastern Asia	WW	WA	WA	WWW	WWA	WWA	RoW	LAO	CPA	Southeastern Asia	OAS												1955	1955		RoW							Lao People's Democratic Republic	745	la	812	Rest of World
