@@ -599,6 +599,16 @@ def test_full_cli(capsys):
     sys.argv = _sysargv
 
 
+def test_ISO_number_codes():
+    """ This is for ISO 3166 numeric """
+    cc = coco.CountryConverter()
+    assert 32 == cc.convert("Argentina", to="ISOnumeric")
+    assert 208 == cc.convert("Denmark", to="isocode")
+    # based on https://www.worlddata.info/countrycodes.php
+    # some claim it 383, but this is the telefone calling code
+    assert 412 == cc.convert("Kosovo", to="ISOnumeric") 
+
+
 def test_fao_number_codes():
     cc = coco.CountryConverter()
     assert 21 == cc.convert("BRA", to="FAOcode")
