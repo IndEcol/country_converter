@@ -24,7 +24,7 @@ jobs:
           python -m build
           twine check --strict dist/*
       - name: Upload
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__
           password: ${{ secrets.GENERIC_TEST_PYPI_UPLOAD }}

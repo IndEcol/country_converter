@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 - 20231110
+
+### Development
+
+- fix pypi uploader
+- fix version numbering
+
 ## 1.1 - 20231110
 
 ### Development
