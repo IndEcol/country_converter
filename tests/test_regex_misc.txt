@@ -85,6 +85,7 @@ Moldova	Rep. of Moldova
 Moldova	"Moldova, republic of"
 Moldova	Republic of Moldova
 Moldova	moldovia
+Macau	Macao
 Myanmar	Burma
 Netherlands Antilles	Neth. Antilles
 Netherlands Antilles	neth antil
