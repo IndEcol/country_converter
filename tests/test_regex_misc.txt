@@ -84,10 +84,12 @@ Mexico	Mexiko
 Moldova	Rep. of Moldova
 Moldova	"Moldova, republic of"
 Moldova	Republic of Moldova
+Moldova	moldovia
 Myanmar	Burma
 Netherlands Antilles	Neth. Antilles
 Netherlands Antilles	neth antil
 Netherlands Antilles	netherlands antilles
+Netherlands Antilles	Netherlands Antilles
 Netherlands	netherlands
 New Caledonia	New caledonia
 Norfolk Island	Norfolk island
