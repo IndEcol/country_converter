@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.1dev
+## 1.1 - 20231110
 
 ### Development
 
