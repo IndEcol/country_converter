@@ -26,7 +26,9 @@ Cote d'Ivoire	CÃÂ´te d'Ivoire
 Croatia	hrvatska
 Croatia	Croatia (local name: hrvatska)
 Curacao	Curacao
-Czech Republic	Czech Rep.
+Czechia	Czech Rep.
+Czechia	czechia
+Czechia	Bohemia
 Dominican Republic	Dominican Rep.
 Egypt	"Egypt, Arab Rep."
 Eswatini	Swaziland
