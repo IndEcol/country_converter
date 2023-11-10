@@ -379,7 +379,7 @@ python as well as in matlab. For further information see
 Currently the following classification schemes are available (see also
 Data sources below for further information):
 
-1.  ISO2 (ISO 3166-1 alpha-2)
+1.  ISO2 (ISO 3166-1 alpha-2) - including UK/EL for Britain/Greece (but always convert to GB/GR)
 2.  ISO3 (ISO 3166-1 alpha-3)
 3.  ISO - numeric (ISO 3166-1 numeric)
 4.  UN numeric code (M.49 - follows to a large extend ISO-numeric)
@@ -448,9 +448,12 @@ Note that the underlying dataframe is available at the attribute .data
 
 ## Data sources and further reading
 
-Most of the underlying data can be found in Wikipedia, the page
-describing [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) is a
-good starting point. UN regions/codes are given on the United Nation
+Most of the underlying data can be found in Wikipedia, the page describing [ISO
+3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) is a good starting point. The
+page on the [ISO2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+includes a section "Imperfect Implementations" explaining the GB/UK and EL/GR
+issue.
+UN regions/codes are given on the United Nation
 Statistical Division
 ([unstats](http://unstats.un.org/unsd/methods/m49/m49regin.htm))
 webpage. The differences between the ISO numeric and UN (M.49) codes are

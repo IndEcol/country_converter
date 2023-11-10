@@ -136,6 +136,9 @@ def test_toISO2_conversion():
     assert "GB" == converter.convert("UK", src="ISO2", to="ISO2")
     assert "GB" == converter.convert("UK", to="ISO2")
     assert "GB" == converter.convert("GB", to="ISO2")
+    assert "GR" == converter.convert("GR", to="ISO2")
+    assert "GR" == converter.convert("EL", src="ISO2", to="ISO2")
+    assert "GR" == converter.convert("EL", to="ISO2")
     assert "GB" == converter.convert("GBR", to="ISO2")
     assert "TR" == converter.convert("TR", src="ISO2", to="ISO2")
     assert "TR" == converter.convert("TUR", src="ISO3", to="ISO2")
@@ -597,6 +600,16 @@ def test_full_cli(capsys):
     assert "WW" in out
     assert e_sys.type == SystemExit
     sys.argv = _sysargv
+
+
+def test_ISO_number_codes():
+    """This is for ISO 3166 numeric"""
+    cc = coco.CountryConverter()
+    assert 32 == cc.convert("Argentina", to="ISOnumeric")
+    assert 208 == cc.convert("Denmark", to="isocode")
+    # based on https://www.worlddata.info/countrycodes.php
+    # some claim it 383, but this is the telefone calling code
+    assert 412 == cc.convert("Kosovo", to="ISOnumeric")
 
 
 def test_fao_number_codes():

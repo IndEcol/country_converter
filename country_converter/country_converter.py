@@ -966,7 +966,7 @@ def cli_output(conv_names, sep):
             conv_names = conv_names.iloc[:, 0].tolist()
         elif len(conv_names.columns) == 2:
             for row in conv_names.iterrows():
-                print(str(row[1][0]) + sep + str(row[1][1]))
+                print(str(row[1].iloc[0]) + sep + str(row[1].iloc[1]))
             return
     print(
         sep.join(

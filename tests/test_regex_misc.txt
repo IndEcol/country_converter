@@ -4,6 +4,7 @@ Aland Islands	Åland Is.
 Aland Islands	Aland islands
 American Samoa	American Samoa (US)
 Antigua and Barbuda	Antigua & Barbuda
+Aruba	aruba
 Bahamas	"Bahamas, The"
 Bolivia	Bolivia (Plurinational State of)
 Bosnia and Herzegovina	Bosnia Herzegovina
@@ -12,6 +13,11 @@ Bouvet Island	Bouvet Island (NO)
 Bouvet Island	Bouvet island
 British Indian Ocean Territory	Br. Indian Ocean Terr.
 British Indian Ocean Territory	British indian ocean territory
+Bonaire, Saint Eustatius and Saba	bonaire, saint eustatius and saba
+Bonaire, Saint Eustatius and Saba	bonaire
+Bonaire, Saint Eustatius and Saba	Bonaire and Saint Eustatius
+Bonaire, Saint Eustatius and Saba	Caribian Netherlands
+Botswana	Botsuana
 Cabo Verde	Cape Verde
 Cayman Islands	Cayman Isds
 Central African Republic	Central African Rep.
@@ -26,7 +32,9 @@ Cote d'Ivoire	CÃÂ´te d'Ivoire
 Croatia	hrvatska
 Croatia	Croatia (local name: hrvatska)
 Curacao	Curacao
-Czech Republic	Czech Rep.
+Czechia	Czech Rep.
+Czechia	czechia
+Czechia	Bohemia
 Dominican Republic	Dominican Rep.
 Egypt	"Egypt, Arab Rep."
 Eswatini	Swaziland
@@ -39,10 +47,16 @@ Falkland Islands	Falkland islands (malvinas)
 Falkland Islands	Falkland Isds (Malvinas)
 Fiji	Fiji Islands
 France	France(+DOM TOM)
+French Guiana	Guiana
 French Guiana	French Guiana
+French Guiana	French Guyana
 French Polynesia	French polynesia
 Gambia	"Gambia, The"
+Gabon	Gabun
+Gabon	Gabon
 Guam	Guam (US)
+Guyana	British Guyana
+Guyana	British Guiana
 Heard and McDonald Islands	Heard and McDonald Islands (AU)
 Iran	Islamic Republic of Iran
 Iran	Iran (Islamic Republic of)
@@ -71,10 +85,13 @@ Mexico	Mexiko
 Moldova	Rep. of Moldova
 Moldova	"Moldova, republic of"
 Moldova	Republic of Moldova
+Moldova	moldovia
+Macau	Macao
 Myanmar	Burma
 Netherlands Antilles	Neth. Antilles
 Netherlands Antilles	neth antil
 Netherlands Antilles	netherlands antilles
+Netherlands Antilles	Netherlands Antilles
 Netherlands	netherlands
 New Caledonia	New caledonia
 Norfolk Island	Norfolk island
@@ -108,6 +125,8 @@ St. Vincent and the Grenadines	Saint Vincent/Grenadines
 St. Vincent and the Grenadines	Saint vincent and the grenadines
 Sudan	Sudan (up to 2011)
 Sudan	Sudan (Former)
+Suriname	Dutch Guiana
+Suriname	Dutch Guyana
 Svalbard and Jan Mayen Islands	"Svalbard, Jan Mayen Islands"
 Tanzania	"Tanzania, united republic of"
 Tanzania	United Rep. of Tanzania
@@ -121,6 +140,9 @@ Timor-Leste	East Timor
 Turks and Caicos Islands	Turks and caicos islands
 Turks and Caicos Islands	Turks and Caicos islands
 Turks and Caicos Islands	Turks and Caicos Isds
+United Kingdom	UK
+United Kingdom	england
+United Kingdom	England
 United States	USA
 United States	United States of America
 Vatican	Holy See (Vatican City State)
