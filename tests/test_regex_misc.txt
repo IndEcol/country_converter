@@ -51,6 +51,8 @@ French Guiana	French Guiana
 French Guiana	French Guyana
 French Polynesia	French polynesia
 Gambia	"Gambia, The"
+Gabon	Gabun
+Gabon	Gabon
 Guam	Guam (US)
 Guyana	British Guyana
 Guyana	British Guiana
