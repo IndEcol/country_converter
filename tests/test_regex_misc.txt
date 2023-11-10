@@ -136,6 +136,9 @@ Timor-Leste	East Timor
 Turks and Caicos Islands	Turks and caicos islands
 Turks and Caicos Islands	Turks and Caicos islands
 Turks and Caicos Islands	Turks and Caicos Isds
+United Kingdom	UK
+United Kingdom	england
+United Kingdom	England
 United States	USA
 United States	United States of America
 Vatican	Holy See (Vatican City State)
