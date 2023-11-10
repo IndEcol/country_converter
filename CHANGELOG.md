@@ -5,15 +5,20 @@
 ### Development
 
 - removed htmlcov
+- fixed numerical position warning
 
 ### Classifications
 
+- Added CC41 common classification (by @hazimhussein) 
 - Correct spelling "Faeroe Islands" to "Faroe Islands" #145 (by @jpatokal)
 - Added country code for Kosovo (by @jimmy927)
 - Added Carribian Netherlands/Bonaire (by @jimmy927)
 - Switched short name of Czech Republic to Czechia
 - Added EL to the ISO2 codes for Greece 
 - Allow Guiana/Guiyana in most cases when given British/Dutch/French prefix
+- Allow Gabun/Gabon
+- Allow Botsuana/Botswana
+- Allow England for UK
 
 
 ## 1.0.0
