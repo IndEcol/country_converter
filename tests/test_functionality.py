@@ -699,6 +699,13 @@ def test_ccTLD():
     )
 
 
+def test_IOC():
+    cc = coco.CountryConverter()
+    assert "GER" == cc.convert("Germany", to="IOC")
+    assert "GAM" == cc.convert("Gambia", to="IOC")
+    assert cc.convert("Yemen", to="IOC") == cc.convert("Yemen", to="ISO3")
+
+
 def test_GWcode():
     cc = coco.CountryConverter()
     assert 305 == cc.convert("AUT", to="GWcode")
