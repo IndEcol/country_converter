@@ -699,6 +699,15 @@ def test_ccTLD():
     )
 
 
+def test_continents():
+    cc = coco.CountryConverter()
+    assert "Europe" == cc.convert("Austria", to="continent")
+    assert "Europe" == cc.convert("Austria", to="continent_7")
+    assert "America" == cc.convert("Canada", to="continent")
+    assert "North America" == cc.convert("Canada", to="continent_7")
+    assert "South America" == cc.convert("Brazil", to="continent_7")
+
+
 def test_IOC():
     cc = coco.CountryConverter()
     assert "GER" == cc.convert("Germany", to="IOC")
