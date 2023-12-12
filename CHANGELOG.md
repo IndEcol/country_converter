@@ -6,6 +6,7 @@
 
 - added IOC classification (by @Azrael3000)
 - added 7 continents classification (by @marthhoi)
+- assigned Heard Island and McDonald Islands to Antarctica 
 
 ## 1.1.1 - 20231110
 
