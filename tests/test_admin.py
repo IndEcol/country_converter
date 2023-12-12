@@ -20,7 +20,8 @@ def test_version_consistency():
     """Test CHANGELOG.md latest version consistency with module version"""
     # Assumption: version info is in a header line (starting with #)
     # We capture the version info in the second group
-    version_match = re.compile(r"(#*.*)(\d+\.\d+\.\d+[a-zA-Z0-9_.]*)")
+    version_match = re.compile(r"(#*\s+)(\d+(\.\d+)*([a-zA-Z]+\d*)?)")
+
     with open(CHANGELOG_FILE, "r") as cf:
         for line in cf:
             pot_match = re.match(version_match, line)
@@ -31,4 +32,4 @@ def test_version_consistency():
             raise ValueError("No version information found in the CHANGELOG file")
     assert (
         coco.__version__ == version_changelog
-    ), f"Version module({coco.__version__}) - CHANGELOG.rst do not match({version_changelog})"
+    ), f"Version module({coco.__version__}) - do not match CHANGELOG version ({version_changelog})"
