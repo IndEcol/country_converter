@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2 - 20231212
+
+### Classifications
+
+- added IOC classification (by @Azrael3000)
+- added 7 continents classification (by @marthhoi)
+
 ## 1.1.1 - 20231110
 
 ### Development

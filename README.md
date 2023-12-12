@@ -385,12 +385,12 @@ Data sources below for further information):
 4.  UN numeric code (M.49 - follows to a large extend ISO-numeric)
 5.  A standard or short name
 6.  The "official" name
-7.  Continent
-8.  7-Continent classification according to https://ourworldindata.org/world-region-map-definitions
+7.  Continent: 6 continent classification with Africa, Antarctica, Asia, Europe, America, Oceania
+8.  [Continent_7 classification](https://ourworldindata.org/world-region-map-definitions) - 7 continent classification spliting North/South America
 9.  UN region
-10.  [EXIOBASE](http://exiobase.eu/) 1 classification
-11. [EXIOBASE](http://exiobase.eu/) 2 classification
-12. [EXIOBASE](http://exiobase.eu/) 3 classification
+10. [EXIOBASE 1](http://exiobase.eu/) classification (2 and 3 letters)
+11. [EXIOBASE 2](http://exiobase.eu/) classification (2 and 3 letters)
+12. [EXIOBASE 3](https://zenodo.org/doi/10.5281/zenodo.3583070) classification (2 and 3 letters)
 13. [WIOD](http://www.wiod.org/home) classification
 14. [Eora](http://www.worldmrio.com/)
 15. [OECD](http://www.oecd.org/about/membersandpartners/list-oecd-member-countries.htm)
