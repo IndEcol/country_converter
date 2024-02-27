@@ -171,7 +171,7 @@ and the classification schemes available:
 cc.valid_class
 ```
 
-There is also a methdod for only getting country classifications (thus
+There is also a method for only getting country classifications (thus
 omitting any grouping of countries):
 
 ``` python
