@@ -808,7 +808,7 @@ class CountryConverter:
             "name_short": ["short", "short_name", "name", "names"],
             "name_official": ["official", "long_name", "long"],
             "UNcode": ["un", "unnumeric", "M49"],
-            "ISOnumeric": ["isocode"],
+            "ISOnumeric": ["isocode", "baci", "unido"],
             "FAOcode": ["fao", "faonumeric"],
         }
 

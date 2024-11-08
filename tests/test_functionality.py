@@ -816,6 +816,42 @@ def test_CC41_output():
     assert "Great Britain and N.I." in cs
 
 
+def test_BACI():
+    cc = coco.CountryConverter()
+
+    some_names = [
+        "United Rep. of Tanzania",
+        "Cape Verde",
+        "Burma",
+        "Iran (Islamic Republic of)",
+        "Korea, Republic of",
+        "Dem. People's Rep. of Korea",
+        "Armenia",
+    ]
+
+    baci_codes = cc.convert(names=some_names, to="baci")
+    isonumeric_codes = cc.convert(names=some_names, to="ISOnumeric")
+    assert baci_codes == isonumeric_codes
+
+
+def test_UNIDO():
+    cc = coco.CountryConverter()
+
+    some_names = [
+        "United Rep. of Tanzania",
+        "Cape Verde",
+        "Burma",
+        "Iran (Islamic Republic of)",
+        "Korea, Republic of",
+        "Dem. People's Rep. of Korea",
+        "Armenia",
+    ]
+
+    unido_codes = cc.convert(names=some_names, to="unido")
+    isonumeric_codes = cc.convert(names=some_names, to="ISOnumeric")
+    assert unido_codes == isonumeric_codes
+
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
