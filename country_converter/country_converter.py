@@ -10,6 +10,7 @@ import sys
 from collections import OrderedDict
 
 import pandas as pd
+import numpy as np
 
 from country_converter.version import __version__
 
@@ -409,7 +410,17 @@ class CountryConverter:
 
         must_be_unique = ["name_short", "name_official", "regex"]
         must_be_string = must_be_unique + (
-            ["ISO2", "ISO3", "continent", "UNregion", "EXIO1", "EXIO2", "EXIO3", "WIOD"]
+            [
+                "ISO2",
+                "ISO3",
+                "continent",
+                "UNregion",
+                "EXIO1",
+                "EXIO2",
+                "EXIO3",
+                "WIOD",
+                "GEOnumeric",
+            ]
         )
 
         def test_for_unique_names(
@@ -438,6 +449,8 @@ class CountryConverter:
             return ret
 
         basic_df = data_loader(country_data)
+        basic_df["GEOnumeric"] = basic_df["GEOnumeric"].replace("", np.nan)
+
         if only_UNmember:
             basic_df.dropna(subset=["UNmember"], inplace=True)
 
