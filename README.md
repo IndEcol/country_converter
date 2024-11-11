@@ -427,6 +427,9 @@ Data sources below for further information):
 36. [IOC](https://en.wikipedia.org/wiki/List_of_IOC_country_codes) - International Olympic Committee (IOC) country codes
 37. [BACI](https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37) - BACI: International Trade Database at the Product-Level
 38. [UNIDO](https://stat.unido.org/portal/dataset/getDataset/COUNTRY_PROFILE) - UNIDO INDSTAT database
+39. [EXIOBASE hybrid 3](https://zenodo.org/records/10148587) classification
+40. [EXIOBASE hybrid 3 consequential](https://zenodo.org/records/13926939) classification
+41. [GEOnumeric](https://ec.europa.eu/eurostat/comext/newxtweb/openNom.do) GEO numerical codes (also used in Prodcom)
 
 Coco contains official recognised codes as well as non-standard codes
 for disputed or dissolved countries. To restrict the set to only the

@@ -852,6 +852,35 @@ def test_UNIDO():
     assert unido_codes == isonumeric_codes
 
 
+def test_EXIOBASE_hybrid_3():
+    cc = coco.CountryConverter()
+
+    some_names = [
+        "United Rep. of Tanzania",
+        "Cape Verde",
+        "Burma",
+        "Iran (Islamic Republic of)",
+        "Korea, Republic of",
+        "Dem. People's Rep. of Korea",
+        "Armenia",
+    ]
+
+    exio3_codes = cc.convert(names=some_names, to="EXIO3")
+    exio3_hybrid_codes = cc.convert(names=some_names, to="exio_hybrid_3")
+    exio3_hybrid_consequential_codes = cc.convert(
+        names=some_names, to="exio_hybrid_3_cons"
+    )
+    assert exio3_codes == exio3_hybrid_codes
+    assert exio3_codes == exio3_hybrid_consequential_codes
+
+
+def test_GEOnumeric():
+    cc = coco.CountryConverter()
+    geo_numeric = cc.GEOnumeric.GEOnumeric
+    iso2 = cc.convert(names=geo_numeric, to="ISO2")
+    assert len(geo_numeric.to_list()) == len(iso2)
+
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py

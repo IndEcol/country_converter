@@ -810,6 +810,7 @@ class CountryConverter:
             "UNcode": ["un", "unnumeric", "M49"],
             "ISOnumeric": ["isocode", "baci", "unido"],
             "FAOcode": ["fao", "faonumeric"],
+            "EXIO3": ["exio_hybrid_3", "exio_hybrid_3_cons"],
         }
 
         for item in alt_valid_names.items():
