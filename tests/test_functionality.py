@@ -877,8 +877,8 @@ def test_EXIOBASE_hybrid_3():
 def test_GEOnumeric():
     cc = coco.CountryConverter()
     geo_numeric = cc.GEOnumeric.GEOnumeric
-    iso2 = cc.convert(names=geo_numeric, to="ISO2")
-    assert len(geo_numeric.to_list()) == len(iso2)
+    iso2 = cc.convert(names=geo_numeric, src="GEOnumeric", to="ISO2")
+    assert ("not found" in (iso2)) == False
 
 
 #### RUN PYTEST USING THE BELLOW CODE
