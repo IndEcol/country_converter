@@ -9,8 +9,8 @@ import re
 import sys
 from collections import OrderedDict
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 from country_converter.version import __version__
 
