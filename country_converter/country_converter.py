@@ -11,6 +11,7 @@ from collections import OrderedDict, defaultdict
 
 import numpy as np
 import pandas as pd
+from pandas._libs.parsers import STR_NA_VALUES
 
 from country_converter.version import __version__
 
@@ -419,9 +420,20 @@ class CountryConverter:
                 "EXIO2",
                 "EXIO3",
                 "WIOD",
-                #"GEOnumeric",
             ]
         )
+        must_be_int = [
+            "ISOnumeric",
+            "UNcode",
+            "FAOcode",
+            "GBDcode",
+            "EURO",
+            "UN",
+            "UNmember",
+            "obsolete",
+            "GEOnumeric",
+        ]
+        accepted_na_values = STR_NA_VALUES - {"NA"}
 
         def test_for_unique_names(
             df, data_name="passed dataframe", report_fun=log.error
@@ -431,7 +443,8 @@ class CountryConverter:
                     report_fun(
                         "Duplicated values in column {} of {}".format(
                             name_entry, data_name
-                    ))
+                        )
+                    )
 
         def data_loader(data):
             if isinstance(data, pd.DataFrame):
@@ -443,14 +456,15 @@ class CountryConverter:
                     sep="\t",
                     encoding="utf-8",
                     converters={str_col: str for str_col in must_be_string},
-                    dtype=defaultdict(lambda: 'string'),
+                    na_values=accepted_na_values,
+                )
+                ret = ret.astype(
+                    {col: "Int64" for col in ret.columns if col in must_be_int}
                 )
                 test_for_unique_names(ret, data)
             return ret
-        
 
         basic_df = data_loader(country_data)
-       # basic_df["GEOnumeric"] = basic_df["GEOnumeric"].replace("", np.nan)
 
         if only_UNmember:
             basic_df.dropna(subset=["UNmember"], inplace=True)
