@@ -7,7 +7,7 @@ import os
 import pprint
 import re
 import sys
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 
 import numpy as np
 import pandas as pd
@@ -419,7 +419,7 @@ class CountryConverter:
                 "EXIO2",
                 "EXIO3",
                 "WIOD",
-                "GEOnumeric",
+                #"GEOnumeric",
             ]
         )
 
@@ -431,8 +431,7 @@ class CountryConverter:
                     report_fun(
                         "Duplicated values in column {} of {}".format(
                             name_entry, data_name
-                        )
-                    )
+                    ))
 
         def data_loader(data):
             if isinstance(data, pd.DataFrame):
@@ -444,12 +443,14 @@ class CountryConverter:
                     sep="\t",
                     encoding="utf-8",
                     converters={str_col: str for str_col in must_be_string},
+                    dtype=defaultdict(lambda: 'string'),
                 )
                 test_for_unique_names(ret, data)
             return ret
+        
 
         basic_df = data_loader(country_data)
-        basic_df["GEOnumeric"] = basic_df["GEOnumeric"].replace("", np.nan)
+       # basic_df["GEOnumeric"] = basic_df["GEOnumeric"].replace("", np.nan)
 
         if only_UNmember:
             basic_df.dropna(subset=["UNmember"], inplace=True)
