@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.3 - 20241115
+
+### Classifications
+
+- added BACI - BACI: International Trade Database at the Product-Level (by @mabudz)
+- added UNIDO - UNIDO INDSTAT database (by @mabudz)
+- added EXIOBASE hybrid 3 classification (by @mabudz)
+- added EXIOBASE hybrid 3 consequential classification (by @mabudz)
+- added GEOnumeric GEO numerical codes (also used in Prodcom) (by @mabudz)
+- fixed some spellings
+
+### Development
+
+- set minimum python version to 3.9
+- added CI tests for up to 3.13
+
 ## 1.2 - 20231212
 
 ### Classifications
