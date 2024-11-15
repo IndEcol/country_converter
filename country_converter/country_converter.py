@@ -7,9 +7,11 @@ import os
 import pprint
 import re
 import sys
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 
+import numpy as np
 import pandas as pd
+from pandas._libs.parsers import STR_NA_VALUES
 
 from country_converter.version import __version__
 
@@ -409,8 +411,29 @@ class CountryConverter:
 
         must_be_unique = ["name_short", "name_official", "regex"]
         must_be_string = must_be_unique + (
-            ["ISO2", "ISO3", "continent", "UNregion", "EXIO1", "EXIO2", "EXIO3", "WIOD"]
+            [
+                "ISO2",
+                "ISO3",
+                "continent",
+                "UNregion",
+                "EXIO1",
+                "EXIO2",
+                "EXIO3",
+                "WIOD",
+            ]
         )
+        must_be_int = [
+            "ISOnumeric",
+            "UNcode",
+            "FAOcode",
+            "GBDcode",
+            "EURO",
+            "UN",
+            "UNmember",
+            "obsolete",
+            "GEOnumeric",
+        ]
+        accepted_na_values = STR_NA_VALUES - {"NA"}
 
         def test_for_unique_names(
             df, data_name="passed dataframe", report_fun=log.error
@@ -433,11 +456,16 @@ class CountryConverter:
                     sep="\t",
                     encoding="utf-8",
                     converters={str_col: str for str_col in must_be_string},
+                    na_values=accepted_na_values,
+                )
+                ret = ret.astype(
+                    {col: "Int64" for col in ret.columns if col in must_be_int}
                 )
                 test_for_unique_names(ret, data)
             return ret
 
         basic_df = data_loader(country_data)
+
         if only_UNmember:
             basic_df.dropna(subset=["UNmember"], inplace=True)
 
@@ -808,8 +836,9 @@ class CountryConverter:
             "name_short": ["short", "short_name", "name", "names"],
             "name_official": ["official", "long_name", "long"],
             "UNcode": ["un", "unnumeric", "M49"],
-            "ISOnumeric": ["isocode"],
+            "ISOnumeric": ["isocode", "baci", "unido"],
             "FAOcode": ["fao", "faonumeric"],
+            "EXIO3": ["exio_hybrid_3", "exio_hybrid_3_cons"],
         }
 
         for item in alt_valid_names.items():

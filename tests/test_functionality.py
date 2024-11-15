@@ -816,6 +816,71 @@ def test_CC41_output():
     assert "Great Britain and N.I." in cs
 
 
+def test_BACI():
+    cc = coco.CountryConverter()
+
+    some_names = [
+        "United Rep. of Tanzania",
+        "Cape Verde",
+        "Burma",
+        "Iran (Islamic Republic of)",
+        "Korea, Republic of",
+        "Dem. People's Rep. of Korea",
+        "Armenia",
+    ]
+
+    baci_codes = cc.convert(names=some_names, to="baci")
+    isonumeric_codes = cc.convert(names=some_names, to="ISOnumeric")
+    assert baci_codes == isonumeric_codes
+
+
+def test_UNIDO():
+    cc = coco.CountryConverter()
+
+    some_names = [
+        "United Rep. of Tanzania",
+        "Cape Verde",
+        "Burma",
+        "Iran (Islamic Republic of)",
+        "Korea, Republic of",
+        "Dem. People's Rep. of Korea",
+        "Armenia",
+    ]
+
+    unido_codes = cc.convert(names=some_names, to="unido")
+    isonumeric_codes = cc.convert(names=some_names, to="ISOnumeric")
+    assert unido_codes == isonumeric_codes
+
+
+def test_EXIOBASE_hybrid_3():
+    cc = coco.CountryConverter()
+
+    some_names = [
+        "United Rep. of Tanzania",
+        "Cape Verde",
+        "Burma",
+        "Iran (Islamic Republic of)",
+        "Korea, Republic of",
+        "Dem. People's Rep. of Korea",
+        "Armenia",
+    ]
+
+    exio3_codes = cc.convert(names=some_names, to="EXIO3")
+    exio3_hybrid_codes = cc.convert(names=some_names, to="exio_hybrid_3")
+    exio3_hybrid_consequential_codes = cc.convert(
+        names=some_names, to="exio_hybrid_3_cons"
+    )
+    assert exio3_codes == exio3_hybrid_codes
+    assert exio3_codes == exio3_hybrid_consequential_codes
+
+
+def test_GEOnumeric():
+    cc = coco.CountryConverter()
+    geo_numeric = cc.GEOnumeric.GEOnumeric
+    iso2 = cc.convert(names=geo_numeric, src="GEOnumeric", to="ISO2")
+    assert ("not found" in (iso2)) == False
+
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
