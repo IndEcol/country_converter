@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" country_converter - Classification converter for countries"""
+"""country_converter - Classification converter for countries"""
 
 import argparse
 import logging
@@ -719,10 +719,6 @@ class CountryConverter:
 
         if not isinstance(series, pd.Series):
             raise TypeError("Input must be a Pandas Series")
-
-        # if `src` and `to` are the same, return without changing anything.
-        if src == to:
-            return series
 
         # Get the unique values for mapping.
         s_unique = series.unique()
