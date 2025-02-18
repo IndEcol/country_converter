@@ -807,6 +807,45 @@ def test_pandas_convert_options():
     # Check that the Series are equal
     assert_series_equal(convert_exclude_prefix, pandas_exclude_prefix)
 
+def test_pandas_convert_alignment_with_convert():
+    """Test that the pandas_convert method is aligned with the convert method"""
+
+    mixed_type_series = pd.Series(
+        ["Germany", "DE", "United States", "NGA", "invalid"])
+
+    cc = coco.CountryConverter()
+
+    # convert using pandas convert
+    pandas_convert = cc.pandas_convert(mixed_type_series, to="ISO3")
+
+    # convert using convert, the make it into a series
+    convert = cc.convert(mixed_type_series, to="ISO3")
+    convert_series = pd.Series(convert, index=mixed_type_series.index)
+
+    # Check that the Series are equal
+    assert_series_equal(pandas_convert, convert_series)
+
+
+    # check alignment when setting non default options
+    pandas_convert = cc.pandas_convert(mixed_type_series, to="ISO3", not_found="empty")
+    convert = cc.convert(mixed_type_series, to="ISO3", not_found="empty")
+    convert_series = pd.Series(convert, index=mixed_type_series.index)
+
+    # Check that the Series are equal
+    assert_series_equal(pandas_convert, convert_series)
+
+
+    #check alignment on edge case when scr and to are the same
+    pandas_convert = cc.pandas_convert(mixed_type_series, to="name", src="name")
+    convert = cc.convert(mixed_type_series, to="name", src="name")
+    convert_series = pd.Series(convert, index=mixed_type_series.index)
+
+    # Check that the Series are equal
+    assert_series_equal(pandas_convert, convert_series)
+
+
+
+
 
 def test_CC41_output():
     cc = coco.CountryConverter()
