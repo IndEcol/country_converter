@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" country_converter - Classification converter for countries"""
+"""country_converter - Classification converter for countries"""
 
 import argparse
 import logging
