@@ -1,89 +1,56 @@
-name: build
+name: CI build
 
-on: ["push", "pull_request"]
+on: [push, pull_request]
 
-jobs: 
-
- test_development:
-  # Testing in development environment: functionality and code-format
+jobs:
+  test_development:
+    name: Development test
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
-
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v3
-
-    - name: Cache conda
-      uses: actions/cache@v2
-      env:
-        # Increase this value to reset cache if etc/example-environment.yml has not changed
-        CACHE_NUMBER: 0
-      with:
-        path: ~/conda_pkgs_dir
-        key:
-          ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-          hashFiles('environment.yml') }}
-
-    - name: Setup conda and environment
-      uses: conda-incubator/setup-miniconda@v2
-      with:
-          auto-update-conda: true
-          miniforge-variant: Mambaforge
-          miniforge-version: latest
-          use-mamba: true
-          channels: conda-forge,defaults
-          mamba-version: "*"
-          channel-priority: true
-          activate-environment: coco-dev
-          environment-file: environment.yml
-          use-only-tar-bz2: true   # required for caching
-
-    - name: List environment
-      run: |
-        mamba info
-        mamba list
-
-    - name: Run tests
-      run: |
-         isort --check-only .
-         coverage run --source=country_converter -m pytest --black -vv
-
-    - name: Coveralls analysis
-      run: COVERALLS_REPO_TOKEN=S31b5QjHBJmjGAj5b0IHTdyaHxRkNfO5E coveralls
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Install dependencies
+        run: uv sync --all-extras
+      - name: Run full test suite
+        run: uv run poe fulltest
+      - name: Upload coverage to Coveralls
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optionally, if you get 422, try setting:
+          # COVERALLS_SERVICE_NAME: github-actions
+        run: |
+          uv run coveralls
 
 
- test_production:
-   # Testing if the package runs on different systems/python versions
+
+  test_production:
+  # Testing if the package runs on different systems/python versions
+    name: Production test
     needs: test_development
-    runs-on: ${{ matrix.os }}
-    defaults:
-      run:
-        # removed -l as this breaks in mac-os
-        shell: bash {0}
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
-        python-version: [3.9, "3.10", "3.11", "3.12", "3.13"]
-
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    runs-on: ${{ matrix.os }}
     steps:
-       - name: Check out repository code
-         uses: actions/checkout@v3
-
-       - name: Setup Python
-         uses: actions/setup-python@v4
-         with:
-            python-version: ${{matrix.python-version}}
-            cache: 'pip'
-            cache-dependency-path: pyproject.toml
-
-       - name: Install and run tests
-         run: |
-            python -m pip install --upgrade pip
-            pip install -e .[dev]
-            pytest -vv
-
-
-
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Install dependencies
+        run: uv sync --all-extras
+      - name: Run fast tests
+        run: uv run poe test
