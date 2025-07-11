@@ -13,7 +13,7 @@ authors = [
 description = "The country converter (coco) - a Python package for converting country names between different classifications schemes"
 readme = "README.md"
 keywords = ["country", "ISO 3166"]
-dynamic = ["version"]
+version = "1.3.1.dev0"
 license = {text = "GNU General Public License v3 (GPLv3)"}
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -69,9 +69,6 @@ packages = ["country_converter"]
 
 [tool.setuptools.package-data]
 country_converter = ["country_data.tsv"]
-
-[tool.setuptools.dynamic]
-version = {attr = "country_converter.version.__version__"}
 
 
 [tool.coverage.run]

@@ -11,8 +11,7 @@ from country_converter.country_converter import (
     main,
     match,
 )
-
-from .version import __version__
+from country_converter.version import __version__
 
 __author__ = "Konstantin Stadler"
 __all__ = ["CountryConverter", "__version__", "agg_conc", "cli_output", "convert", "main", "match"]
