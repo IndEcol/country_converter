@@ -57,47 +57,42 @@ the example script for parsing the Global Burden of Diseases here:
 ## Changing the code base
 
 If you plan any changes to the source code of this repo, please first
-discuss the change you wish to make via a filing an issue (labelled
-Enhancement or Bug) before making a change. All code contribution must
+discuss the change you wish to make by filing an issue (labelled
+Enhancement or Bug) before making a change. All code contributions must
 be provided as pull requests connected to a filed issue. Use numpy style
 [docstrings](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt)
-and lint using [black](https://github.com/psf/black/) and
-[isort](https://github.com/pycqa/isort/), and follow the
-[pep8](https://www.python.org/dev/peps/pep-0008/) style guide. Passing
-the [black](https://github.com/psf/black/) and
-[isort](https://github.com/pycqa/isort/) liter is a requirement to pass
-the tests before merging a pull request. Since coco is already used in
-research projects, please aim for keeping compatibility with previous
-versions.
+and follow the [pep8](https://www.python.org/dev/peps/pep-0008/) style guide.
+Passing the linter and test suite is required before merging a pull request.
+Since coco is already used in research projects, please aim to keep compatibility
+with previous versions.
 
-The following commands can be used to automatically apply the
-[black](https://github.com/psf/black/) and
-[isort](https://github.com/pycqa/isort/) formatting.
+All formatting, linting, and testing is managed via [poethepoet](https://github.com/nat-n/poethepoet)
+tasks defined in `pyproject.toml`. The following commands can be used:
 
-``` bash
-isort .
-black .
+```bash
+poe format      # Format all files
+poe check       # Lint the codebase
+poe test        # Run fast tests
+poe fulltest    # Run the full test suite with coverage
 ```
 
-If you are using Conda you can build a development environment from
-environment.yml which includes all packages necessary for development
-and running. For virtual environments use `pip install -e .[dev]`. The
-file format_and_test.sh can be used in Linux environments to format the
-code according to the [black](https://github.com/psf/black/) /
-[isort](https://github.com/pycqa/isort/) format and run all tests.
+If you are using [uv](https://github.com/astral-sh/uv) for environment management, you can set up your development environment with:
+
+```bash
+uv sync --all-extras
+uv pip install -e . 
+```
+The `--all-extras` switch ensures that all optional dependencies listed in `pyproject.toml` are installed, including those needed for development and testing.
 
 ## Running and extending the tests
 
 Before filing a pull request, make sure your changes pass all tests.
-Coco uses the [pytest](http://pytest.org/) package with the
-[pytest-black](https://pypi.org/project/pytest-black/) extension and
-[isort](https://github.com/pycqa/isort/) for testing. To run the tests
-install these two packages (and the [Pandas](https://pandas.pydata.org/)
-dependency) and run
+Coco uses the [pytest](http://pytest.org/) package with several plugins
+(see `pyproject.toml`). After installing the development dependencies run
 
-    pytest -vv --black
-
-in the root of your local copy of coco.
+```bash
+poe test        
+```
 
 The included tests verify the regular expressions against names commonly
 found in various databases.
