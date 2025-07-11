@@ -41,26 +41,21 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pdbpp",
-  "country_converter >= 0.8.0",
   "ipython",
   "jupyterlab == 3.*",
   "jupytext",
   "pynvim",
-  "sphinx >= 1.6.4",
-  "sphinx_rtd_theme >= 0.2.4",
   "ipykernel",
-  "nbsphinx",
-  "more-itertools",
   "poethepoet",
 ]
 test = [
   "coveralls",
   "pytest >=5.4.0",
-  "pytest-black",
   "pytest-cov >=2.7.0",
   "pytest-datadir",
   "pytest-mypy",
   "pytest-ruff>=0.5",
+  "pytest-xdist[psutil]",
 ]
 
 [project.scripts]
@@ -104,16 +99,16 @@ extend-exclude = ["*.ipynb", "doc/source/**/*.py"]
 extend-select = [
     "B",   # flake8-bugbear: Finds potential bugs and design problems.
     "C",   # flake8-comprehensions: Promotes pythonic list/set/dict comprehensions.
-    # "W",   # PyCodeStyle warnings
-    # "E",   # PyCodeStyle errors
-    # "D",   # pydocstyle: Enforces docstring conventions.
-    # "F",   # Pyflakes rules
-    # "I",   # isort: Sorts and organizes imports automatically.
-    # "UP",  # pyupgrade: Helps upgrade syntax to newer Python versions.
-    # "PD",  # pandas-vet: Checks for common mistakes in pandas usage.
-    # "C4",  # Catch incorrect use of comprehensions, dict, list, etc
-    # "ISC", # String concatenation
-    # "RUF",    # Ruff lint
+    "W",   # PyCodeStyle warnings
+    "E",   # PyCodeStyle errors
+    "D",   # pydocstyle: Enforces docstring conventions.
+    "F",   # Pyflakes rules
+    "I",   # isort: Sorts and organizes imports automatically.
+    "UP",  # pyupgrade: Helps upgrade syntax to newer Python versions.
+    "PD",  # pandas-vet: Checks for common mistakes in pandas usage.
+    "C4",  # Catch incorrect use of comprehensions, dict, list, etc
+    "ISC", # String concatenation
+    "RUF",    # Ruff lint
     # "RET", # Good return practices #TODO
     # "SIM", # Common simplification rules #TODO
     # "PTH",      # Use pathlib instead of os.path
@@ -144,7 +139,6 @@ quote-style = "double"
 help = "Sync all dependencies"
 cmd = "uv sync --all-extras"
 
-
 [tool.poe.tasks.format]
 help = "Format all files"
 cmd = "ruff format"
@@ -167,4 +161,4 @@ cmd  = "pytest -n auto"
 
 [tool.poe.tasks.build]
 help = "Format, test with coverage and build docs"
-sequence = ["format", "fulltest", "doc"]
+sequence = ["format", "fulltest"]
