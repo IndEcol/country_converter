@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.3.1.dev0
+## 1.3.1
+
+### Classifications
+
+- added FIFA country codes
 
 ### Development
 

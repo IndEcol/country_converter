@@ -863,6 +863,75 @@ def test_GEOnumeric():
     assert ("not found" in (iso2)) is False
 
 
+def test_fifa_ioc_mapping():
+    """Test that FIFA codes match IOC codes except for known differences."""
+    cc = coco.CountryConverter()
+
+    # Known differences between IOC and FIFA codes
+    ioc_to_fifa_differences = {
+        "ANT": "ATG",  # Antigua and Barbuda
+        "BRN": "BHR",  # Bahrain
+        "BIZ": "BLZ",  # Belize
+        "BUR": "BFA",  # Burkina Faso
+        "IVB": "VGB",  # British Virgin Islands
+        "CAF": "CTA",  # Central African Republic
+        "ESA": "SLV",  # El Salvador
+        "GEQ": "EDQ",  # Equatorial Guinea
+        "GBS": "GNB",  # Guinea-Bissau
+        "INA": "IDN",  # Indonesia
+        "IRI": "IRN",  # Iran
+        "LAT": "LVA",  # Latvia
+        "LBA": "LBY",  # Libya
+        "MAW": "MWI",  # Malawi
+        "MGL": "MNG",  # Mongolia
+        "NGR": "NGA",  # Nigeria
+        "SLO": "SVN",  # Slovenia
+        "TTO": "TRI",  # Trinidad and Tobago
+        "GBR": "ENG",  # UK uses England code in FIFA
+        "ISV": "VIR",  # US Virgin Islands
+    }
+
+    # Additional FIFA entities without IOC codes
+    fifa_only_codes = {"AIA", "CUW", "FRO", "GIB", "GUM", "MAC", "MSR", "NCL", "TCA"}
+
+    # Get IOC and FIFA data using column accessors
+    ioc_data = cc.IOC.set_index("name_short")["IOC"]
+    fifa_data = cc.FIFA.set_index("name_short")["FIFA"]
+
+    mismatches = []
+
+    # Check countries that exist in both IOC and FIFA
+    common_countries = ioc_data.index.intersection(fifa_data.index)
+
+    for country in common_countries:
+        ioc_code = ioc_data[country]
+        fifa_code = fifa_data[country]
+
+        # Check if this is a known difference
+        if ioc_code in ioc_to_fifa_differences:
+            expected_fifa = ioc_to_fifa_differences[ioc_code]
+            if fifa_code != expected_fifa:
+                mismatches.append(f"{country}: IOC={ioc_code}, FIFA={fifa_code}, expected FIFA={expected_fifa}")
+        else:
+            # Should match exactly
+            if ioc_code != fifa_code:
+                mismatches.append(f"{country}: IOC={ioc_code}, FIFA={fifa_code} (should match)")
+
+    # Check FIFA-only codes exist in data
+    fifa_codes_set = set(fifa_data.values)
+    for fifa_only in fifa_only_codes:
+        if fifa_only not in fifa_codes_set:
+            mismatches.append(f"Missing FIFA-only code: {fifa_only}")
+
+    # Report any mismatches
+    if mismatches:
+        error_msg = "FIFA-IOC mapping mismatches found:\n" + "\n".join(mismatches)
+        pytest.fail(error_msg)
+
+    # check Switzerland
+    assert cc.convert("Switzerland", to="IOC") == "SUI", "Switzerland IOC code should be SUI"
+
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
