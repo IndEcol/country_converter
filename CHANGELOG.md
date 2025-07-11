@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.1.dev0
+
+### Development
+
+- switch to uv based development environment
+- switch to ruff for linting
+- update pyproject.toml with new dependencies
+
+
 ## 1.3 - 20241115
 
 ### Classifications

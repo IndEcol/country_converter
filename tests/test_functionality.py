@@ -1,5 +1,4 @@
-""" Testing the country_converter functionality
-"""
+"""Testing the country_converter functionality."""
 
 import collections
 import logging
@@ -13,8 +12,8 @@ import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal, assert_series_equal
 
-import country_converter as coco  # noqa
-from country_converter.country_converter import _parse_arg  # noqa
+import country_converter as coco
+from country_converter.country_converter import _parse_arg
 
 TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, ".."))
@@ -22,9 +21,7 @@ sys.path.append(os.path.join(TESTPATH, ".."))
 
 # Additional test data
 regex_test_files = [
-    nn
-    for nn in os.listdir(TESTPATH)
-    if (nn[:10] == "test_regex") and (os.path.splitext(nn)[1] == ".txt")
+    nn for nn in os.listdir(TESTPATH) if (nn[:10] == "test_regex") and (os.path.splitext(nn)[1] == ".txt")
 ]
 non_matching_data = os.path.join(TESTPATH, "should_not_match.txt")
 custom_data = os.path.join(TESTPATH, "custom_data_example.txt")
@@ -32,6 +29,7 @@ custom_data = os.path.join(TESTPATH, "custom_data_example.txt")
 
 @pytest.fixture(scope="module", params=regex_test_files)
 def get_regex_test_data(request):
+    """Return regex based test data."""
     retval = collections.namedtuple("regex_test_data", ["data_name", "data"])
     return retval(
         request.param,
@@ -40,7 +38,7 @@ def get_regex_test_data(request):
 
 
 def test_name_short():
-    """Tests if there is a unique matching of name_short to regular expressions"""
+    """Test if there is a unique matching of name_short to regular expressions."""
     converter = coco.CountryConverter()
     not_found_id = "XXX"
     for row in converter.data.iterrows():
@@ -52,23 +50,15 @@ def test_name_short():
             not_found=not_found_id,
             enforce_list=False,
         )
-        assert (
-            len(name_result) > 2
-        ), "Name {} matched several regular expressions: {}".format(
+        assert len(name_result) > 2, "Name {} matched several regular expressions: {}".format(
             name_test, " ,".join(name_result)
         )
-        assert (
-            name_result != not_found_id
-        ), "Name {} did not match any regular expression".format(name_test)
-        assert (
-            name_result == name_test
-        ), "Name {} did match the wrong regular expression: {}".format(
-            name_test, name_result
-        )
+        assert name_result != not_found_id, f"Name {name_test} did not match any regular expression"
+        assert name_result == name_test, f"Name {name_test} did match the wrong regular expression: {name_result}"
 
 
 def test_name_official():
-    """Tests if there is a unique matching of name_official to regular expressions"""
+    """Test if there is a unique matching of name_official to regular expressions."""
     converter = coco.CountryConverter()
     not_found_id = "XXX"
     for row in converter.data.iterrows():
@@ -80,22 +70,15 @@ def test_name_official():
             not_found=not_found_id,
             enforce_list=False,
         )
-        assert (
-            len(name_result) > 2
-        ), "Name {} matched several regular expressions: {}".format(
+        assert len(name_result) > 2, "Name {} matched several regular expressions: {}".format(
             name_test, " ,".join(name_result)
         )
-        assert (
-            name_result != not_found_id
-        ), "Name {} did not match any regular expression".format(name_test)
-        assert (
-            name_result == name_test
-        ), "Name {} did match the wrong regular expression: {}".format(
-            name_test, name_result
-        )
+        assert name_result != not_found_id, f"Name {name_test} did not match any regular expression"
+        assert name_result == name_test, f"Name {name_test} did match the wrong regular expression: {name_result}"
 
 
 def test_alternative_names(get_regex_test_data):
+    """Test alternative country names match correctly to their regular expressions."""
     converter = coco.CountryConverter(include_obsolete=True)
     not_found_id = "XXX"
     for row in get_regex_test_data.data.iterrows():
@@ -109,27 +92,24 @@ def test_alternative_names(get_regex_test_data):
             enforce_list=False,
         )
         assert len(name_result) > 2, (
-            "File {0} - row {1}: Name {2} matched several "
-            "regular expressions: {3}".format(
-                get_regex_test_data.data_name, row[0], name_test, " ,".join(name_result)
-            )
+            f"File {get_regex_test_data.data_name} - row {row[0]}: Name {name_test}",
+            f"matched several regular expressions: {', '.join(name_result)}",
         )
+
         if name_short != not_found_id:
             assert name_result != not_found_id, (
-                "File {0} - row {1}: Name {2} did not match any "
-                "regular expression".format(
-                    get_regex_test_data.data_name, row[0], name_test
-                )
+                f"File {get_regex_test_data.data_name} - row {row[0]}: "
+                f"Name {name_test} did not match any regular expression"
             )
+
         assert name_result == name_short, (
-            "File {0} - row {1}: Name {2} did match the "
-            "wrong regular expression: {3}".format(
-                get_regex_test_data.data_name, row[0], name_test, name_result
-            )
+            f"File {get_regex_test_data.data_name} - row {row[0]}: "
+            f"Name {name_test} did match the wrong regular expression: {name_result}"
         )
 
 
 def test_toISO2_conversion():
+    """Test conversion to ISO2 country codes."""
     converter = coco.CountryConverter()
     assert "DE" == converter.convert("DEU", src="ISO3", to="ISO2")
     assert "GB" == converter.convert("GBR", src="ISO3", to="ISO2")
@@ -145,6 +125,7 @@ def test_toISO2_conversion():
 
 
 def test_additional_country_file():
+    """Test loading additional country data from file."""
     converter_basic = coco.CountryConverter()
     converter_extended = coco.CountryConverter(additional_data=custom_data)
 
@@ -155,6 +136,7 @@ def test_additional_country_file():
 
 
 def test_additional_country_data():
+    """Test loading additional country data from DataFrame."""
     add_data = pd.DataFrame.from_dict(
         {
             "name_short": ["xxx country"],
@@ -165,18 +147,18 @@ def test_additional_country_data():
         }
     )
     converter_extended = coco.CountryConverter(additional_data=add_data)
-    assert "xxx country" == converter_extended.convert(
-        "XXX", src="ISO3", to="name_short"
-    )
+    assert "xxx country" == converter_extended.convert("XXX", src="ISO3", to="name_short")
     assert pd.isna(converter_extended.convert("XXX", src="ISO3", to="continent"))
 
 
 def test_UNmember():
+    """Test filtering to UN member countries only."""
     cc = coco.CountryConverter(only_UNmember=True)
     assert len(cc.data) == 193
 
 
 def test_obsolete():
+    """Test inclusion of obsolete countries."""
     cc = coco.CountryConverter()
     assert len(cc.data) == 250
     cc = coco.CountryConverter(include_obsolete=False)
@@ -198,35 +180,38 @@ def test_special_cases():
 
 
 def test_iterable_inputs():
-    """Test the different possibilites to input lists
+    """Test the different possibilites to input lists.
 
     This guards agains issue #54
     """
     _inp_list = ["AT", "BE", "DE", "GB", "TW"]
 
-    inputs = dict(
-        type_list=list(_inp_list),
-        type_tuple=tuple(_inp_list),
-        type_set=set(_inp_list),
-        type_series=pd.Series(_inp_list),
-        type_df_index=pd.Index(_inp_list),
-    )
+    inputs = {
+        "type_list": list(_inp_list),
+        "type_tuple": tuple(_inp_list),
+        "type_set": set(_inp_list),
+        "type_series": pd.Series(_inp_list),
+        "type_df_index": pd.Index(_inp_list),
+    }
 
-    outputs = {tt: sorted(coco.convert(val)) for tt, val in inputs.items()}
+    _outputs = {tt: sorted(coco.convert(val)) for tt, val in inputs.items()}
 
     input_error = 23.8
 
-    with pytest.raises(TypeError) as e_sys:
+    with pytest.raises(TypeError) as _e_sys:
         coco.convert(input_error)
 
 
 def test_get_correspondance_dict_standard():
-    """Standard test case for get_correspondence_dict method"""
+    """Test standard correspondence dictionary generation.
+
+    Standard test case for get_correspondence_dict method
+    """
     classA = "EXIO1"
     classB = "continent"
     cc = coco.CountryConverter()
     corr = cc.get_correspondence_dict(classA=classA, classB=classB)
-    assert type(corr) == dict
+    assert type(corr) is dict
     assert len(corr) == 44
     assert corr["DE"] == ["Europe"]
     assert corr["ZA"] == ["Africa"]
@@ -241,15 +226,16 @@ def test_get_correspondance_dict_standard():
 
 
 def test_get_correspondence_dict_numeric_replace():
-    """Numeric replacement test of get_correspondence_dict method"""
+    """Test correspondence dictionary with numeric value replacement.
+
+    Numeric replacement test of get_correspondence_dict method
+    """
     classA = "EXIO1"
     classB = "OECD"
     cc = coco.CountryConverter()
-    corr_str = cc.get_correspondence_dict(
-        classA=classA, classB=classB, replace_numeric=True
-    )
+    corr_str = cc.get_correspondence_dict(classA=classA, classB=classB, replace_numeric=True)
 
-    assert type(corr_str) == dict
+    assert type(corr_str) is dict
     assert len(corr_str) == 44
     assert corr_str["JP"] == ["OECD"]
     assert corr_str["ZA"] == [None]
@@ -257,11 +243,9 @@ def test_get_correspondence_dict_numeric_replace():
     assert "OECD" in corr_str["WW"]
     assert len(corr_str["WW"]) == 2
 
-    corr_num = cc.get_correspondence_dict(
-        classA=classA, classB=classB, replace_numeric=False
-    )
+    corr_num = cc.get_correspondence_dict(classA=classA, classB=classB, replace_numeric=False)
 
-    assert type(corr_num) == dict
+    assert type(corr_num) is dict
     assert len(corr_num) == 44
     assert corr_num["JP"] == [1964]
     assert pd.isna(corr_num["ZA"])
@@ -271,8 +255,10 @@ def test_get_correspondence_dict_numeric_replace():
 
 
 def test_build_agg_conc_custom():
-    """Minimal test of the aggregation concordance building functionality"""
+    """Test building aggregation concordance with custom data.
 
+    Minimal test of the aggregation concordance building functionality
+    """
     original_countries = ["c1", "c2", "c3", "c4"]
     aggregates = [{"c1": "r1", "c2": "r1", "c3": "r2"}]
 
@@ -281,14 +267,12 @@ def test_build_agg_conc_custom():
         aggregates,
         merge_multiple_string=None,
         missing_countries=True,
-        log_missing_countries=(lambda x: logging.error("Country {} missing".format(x))),
+        log_missing_countries=(lambda x: logging.error(f"Country {x} missing")),
         log_merge_multiple_strings=None,
         as_dataframe=False,
     )
 
-    assert agg_dict_wmiss == OrderedDict(
-        [("c1", "r1"), ("c2", "r1"), ("c3", "r2"), ("c4", "c4")]
-    )
+    assert agg_dict_wmiss == OrderedDict([("c1", "r1"), ("c2", "r1"), ("c3", "r2"), ("c4", "c4")])
 
     agg_dict_replace = coco.agg_conc(
         original_countries,
@@ -300,9 +284,7 @@ def test_build_agg_conc_custom():
         as_dataframe=False,
     )
 
-    assert agg_dict_replace == OrderedDict(
-        [("c1", "r1"), ("c2", "r1"), ("c3", "r2"), ("c4", "RoW")]
-    )
+    assert agg_dict_replace == OrderedDict([("c1", "r1"), ("c2", "r1"), ("c3", "r2"), ("c4", "RoW")])
 
     agg_vec_womiss = coco.agg_conc(
         original_countries,
@@ -349,11 +331,7 @@ def test_build_agg_conc_custom():
         merge_multiple_string="_&_",
         missing_countries=False,
         log_missing_countries=None,
-        log_merge_multiple_strings=(
-            lambda x: logging.warning(
-                "Country {} belongs to " "multiple " "regions".format(x)
-            )
-        ),
+        log_merge_multiple_strings=(lambda x: logging.warning(f"Country {x} belongs to multiple regions")),
         as_dataframe="full",
     )
     expected_matrix = pd.DataFrame(
@@ -368,8 +346,10 @@ def test_build_agg_conc_custom():
 
 
 def test_build_agg_conc_exio():
-    """Some agg_conc test with a subset of exio countries"""
+    """Test building aggregation concordance with EXIO countries.
 
+    Some agg_conc test with a subset of exio countries
+    """
     original_countries = ["TW", "XX", "AT", "US", "WA"]
     aggregates = ["EU", "OECD", "continent"]
 
@@ -383,9 +363,7 @@ def test_build_agg_conc_exio():
         as_dataframe=False,
     )
 
-    assert agg_dict_replace == OrderedDict(
-        [("TW", "Asia"), ("XX", "RoW"), ("AT", "EU"), ("US", "OECD"), ("WA", "RoW")]
-    )
+    assert agg_dict_replace == OrderedDict([("TW", "Asia"), ("XX", "RoW"), ("AT", "EU"), ("US", "OECD"), ("WA", "RoW")])
 
     agg_dict_skip = coco.agg_conc(
         original_countries,
@@ -423,9 +401,7 @@ def test_build_agg_conc_exio():
         as_dataframe=False,
     )
 
-    assert agg_dict_oecd_eu == OrderedDict(
-        [("TW", "TW"), ("XX", "XX"), ("AT", "OECD"), ("US", "OECD"), ("WA", "RoW")]
-    )
+    assert agg_dict_oecd_eu == OrderedDict([("TW", "TW"), ("XX", "XX"), ("AT", "OECD"), ("US", "OECD"), ("WA", "RoW")])
 
     aggregates = "EU"
     agg_dict_full_exio = coco.agg_conc(
@@ -444,6 +420,7 @@ def test_build_agg_conc_exio():
 
 
 def test_match():
+    """Test country name matching functionality."""
     match_these = ["norway", "united_states", "china", "taiwan"]
     master_list = [
         "USA",
@@ -469,12 +446,14 @@ def test_match():
 
 
 def test_regex_warnings(caplog):
+    """Test regex pattern warnings are logged correctly."""
     # for rec in caplog.records:
     coco.convert("abc", src="regex")
     assert "not found in regex" in caplog.text
 
 
 def test_cli_output(capsys):
+    """Test command line interface output formatting."""
     inp_list = ["a", "b"]
     exp_string = "a-b"
     inp_df1col = pd.DataFrame(data=inp_list, columns=["names"], index=["co1", "co2"])
@@ -493,16 +472,19 @@ def test_cli_output(capsys):
 
 
 def test_wrapper_convert():
+    """Test wrapper convert function."""
     assert "US" == coco.convert("usa", src="regex", to="ISO2")
     assert "AT" == coco.convert("40", to="ISO2")
 
 
 def test_convert_wrong_classification():
+    """Test error handling for invalid classification."""
     with pytest.raises(KeyError) as _:
         coco.convert("usa", src="abc")
 
 
 def test_EU_output():
+    """Test EU country group outputs."""
     cc = coco.CountryConverter()
     EU28 = cc.EU28as("ISO2")
     assert len(EU28 == 28)
@@ -518,6 +500,7 @@ def test_EU_output():
 
 
 def test_EXIO_output():
+    """Test EXIO classification outputs."""
     cc = coco.CountryConverter()
     exio1 = cc.EXIO1.EXIO1.unique()
     exio2 = cc.EXIO2.EXIO2.unique()
@@ -531,6 +514,7 @@ def test_EXIO_output():
 
 
 def test_WIOD_output():
+    """Test WIOD classification outputs."""
     cc = coco.CountryConverter()
     ws = cc.WIOD.WIOD.unique()
     assert len(ws) == 41
@@ -539,6 +523,7 @@ def test_WIOD_output():
 
 
 def test_Eora_output():
+    """Test Eora classification outputs."""
     cc = coco.CountryConverter()
     es = cc.Eora.Eora.unique()
     assert "AUT" in es
@@ -546,6 +531,7 @@ def test_Eora_output():
 
 
 def test_MESSAGE_output():
+    """Test MESSAGE classification outputs."""
     cc = coco.CountryConverter()
     ms = cc.MESSAGE.MESSAGE.unique()
     assert len(ms) == 11
@@ -554,6 +540,7 @@ def test_MESSAGE_output():
 
 
 def test_properties():
+    """Test country group properties."""
     cc = coco.CountryConverter()
     assert all(cc.EU28 == cc.EU28as(to="name_short"))
     assert all(cc.EU27 == cc.EU27as(to="name_short"))
@@ -562,6 +549,7 @@ def test_properties():
 
 
 def test_parser():
+    """Test command line argument parser."""
     sys.argv = ["AT", "US"]
     args = _parse_arg(coco.CountryConverter().valid_class)
     assert args.src == None  # noqa
@@ -574,13 +562,14 @@ def test_parser():
 
 
 def test_full_cli(capsys):
+    """Test complete command line interface functionality."""
     # help
     with pytest.raises(SystemExit) as e_sys:
         coco.main()
     out, err = capsys.readouterr()
     assert "usage" in out
     assert "names" in out
-    assert e_sys.type == SystemExit
+    assert e_sys.type is SystemExit
 
     # country conversion
     _sysargv = sys.argv.copy()
@@ -589,7 +578,7 @@ def test_full_cli(capsys):
         coco.main()
     out, err = capsys.readouterr()
     assert "Austria" in out
-    assert e_sys.type == SystemExit
+    assert e_sys.type is SystemExit
 
     # classification
     sys.argv = ["coco", "EXIO1"]
@@ -598,12 +587,12 @@ def test_full_cli(capsys):
     out, err = capsys.readouterr()
     assert "AT" in out
     assert "WW" in out
-    assert e_sys.type == SystemExit
+    assert e_sys.type is SystemExit
     sys.argv = _sysargv
 
 
 def test_ISO_number_codes():
-    """This is for ISO 3166 numeric"""
+    """Test ISO 3166 numeric."""
     cc = coco.CountryConverter()
     assert 32 == cc.convert("Argentina", to="ISOnumeric")
     assert 208 == cc.convert("Denmark", to="isocode")
@@ -613,6 +602,7 @@ def test_ISO_number_codes():
 
 
 def test_fao_number_codes():
+    """Test FAO numeric country codes."""
     cc = coco.CountryConverter()
     assert 21 == cc.convert("BRA", to="FAOcode")
     assert 223 == cc.convert("TUR", to="FAOcode")
@@ -621,6 +611,7 @@ def test_fao_number_codes():
 
 
 def test_GBD_codes():
+    """Test GBD numeric country codes."""
     cc = coco.CountryConverter()
     assert 35 == cc.convert("Georgia", to="GBDcode")
     assert 6 == cc.convert("China", to="GBDcode")
@@ -628,7 +619,8 @@ def test_GBD_codes():
 
 
 def test_non_matching():
-    with open(non_matching_data, "r") as nmd:
+    """Test that non-country names don't match."""
+    with open(non_matching_data) as nmd:
         content = [line.strip() for line in nmd.readlines()]
     non_countries = [nc for nc in content if not nc.startswith("#") and nc != ""]
 
@@ -636,12 +628,11 @@ def test_non_matching():
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", message="not found")
         for reg_name in non_countries:
-            assert not_found_indicator == coco.convert(
-                reg_name, src="regex", to="ISO3", not_found=not_found_indicator
-            )
+            assert not_found_indicator == coco.convert(reg_name, src="regex", to="ISO3", not_found=not_found_indicator)
 
 
 def test_exio_three_letter():
+    """Test EXIO three-letter country codes."""
     converter = coco.CountryConverter()
     assert "HRV" == converter.convert("Croatia", to="exio3_3l")
     assert "WWE" == converter.convert("Croatia", to="exio2_3l")
@@ -650,12 +641,8 @@ def test_exio_three_letter():
     assert "WWM" == converter.convert("Egypt", to="exio2_3l")
     assert "WWW" == converter.convert("Egypt", to="exio1_3l")
 
-    assert len(converter.data.EXIO1_3L.squeeze().unique()) == len(
-        converter.data.EXIO1.squeeze().unique()
-    )
-    assert len(converter.data.EXIO2_3L.squeeze().unique()) == len(
-        converter.data.EXIO2.squeeze().unique()
-    )
+    assert len(converter.data.EXIO1_3L.squeeze().unique()) == len(converter.data.EXIO1.squeeze().unique())
+    assert len(converter.data.EXIO2_3L.squeeze().unique()) == len(converter.data.EXIO2.squeeze().unique())
 
     for rr in converter.data.iterrows():
         if rr[1].EXIO3[0] == "W":
@@ -664,24 +651,19 @@ def test_exio_three_letter():
             assert rr[1].EXIO1_3L == "W" + rr[1].EXIO1, f"Mismatch: {rr}"
 
     for rr in converter.data.iterrows():
-        assert converter.convert(
-            rr[1].EXIO3_3L, src="EXIO3_3L", to="name_short"
-        ) == converter.convert(
+        assert converter.convert(rr[1].EXIO3_3L, src="EXIO3_3L", to="name_short") == converter.convert(
             rr[1].EXIO3, src="EXIO3", to="name_short"
         ), f"Mismatch in: {rr} "
-        assert converter.convert(
-            rr[1].EXIO2_3L, src="EXIO2_3L", to="name_short"
-        ) == converter.convert(
+        assert converter.convert(rr[1].EXIO2_3L, src="EXIO2_3L", to="name_short") == converter.convert(
             rr[1].EXIO2, src="EXIO2", to="name_short"
         ), f"Mismatch in: {rr} "
-        assert converter.convert(
-            rr[1].EXIO1_3L, src="EXIO1_3L", to="name_short"
-        ) == converter.convert(
+        assert converter.convert(rr[1].EXIO1_3L, src="EXIO1_3L", to="name_short") == converter.convert(
             rr[1].EXIO1, src="EXIO1", to="name_short"
         ), f"Mismatch in: {rr} "
 
 
 def test_DAC_number_codes():
+    """Test DAC numeric country codes."""
     cc = coco.CountryConverter()
     assert 1 == cc.convert("AUT", to="DACcode")
     assert 301 == cc.convert("CAN", to="DACcode")
@@ -690,16 +672,15 @@ def test_DAC_number_codes():
 
 
 def test_ccTLD():
+    """Test country code top-level domains."""
     cc = coco.CountryConverter()
     assert "am" == cc.convert("Armenia", to="ccTLD")
     assert "er" == cc.convert("Eritrea", to="ccTLD")
-    assert (
-        cc.convert("Zambia", to="ccTLD").upper()
-        == cc.convert("Zambia", to="ISO2").upper()
-    )
+    assert cc.convert("Zambia", to="ccTLD").upper() == cc.convert("Zambia", to="ISO2").upper()
 
 
 def test_continents():
+    """Test continent classification."""
     cc = coco.CountryConverter()
     assert "Europe" == cc.convert("Austria", to="continent")
     assert "Europe" == cc.convert("Austria", to="continent_7")
@@ -709,6 +690,7 @@ def test_continents():
 
 
 def test_IOC():
+    """Test International Olympic Committee country codes."""
     cc = coco.CountryConverter()
     assert "GER" == cc.convert("Germany", to="IOC")
     assert "GAM" == cc.convert("Gambia", to="IOC")
@@ -716,6 +698,7 @@ def test_IOC():
 
 
 def test_GWcode():
+    """Test Gleditsch and Ward country codes."""
     cc = coco.CountryConverter()
     assert 305 == cc.convert("AUT", to="GWcode")
     assert 771 == cc.convert("BD", to="GWcode")
@@ -724,9 +707,11 @@ def test_GWcode():
 
 
 def test_pandas_convert():
-    """This will test that the behaviour of pandas_convert is equivalent
-    to convert for Pandas Series"""
+    """Test pandas-optimized convert function equivalence.
 
+    This will test that the behaviour of pandas_convert is equivalent
+    to convert for Pandas Series
+    """
     # Load the series
     test_series = pd.read_csv(f"{TESTPATH}/test_series_data.csv", header=0)
 
@@ -738,9 +723,7 @@ def test_pandas_convert():
         cc.pandas_convert(test_series, to="ISO3")
 
     # Convert version
-    convert = pd.Series(
-        cc.convert(test_series.data, to="ISO3"), index=test_series.index, name="data"
-    )
+    convert = pd.Series(cc.convert(test_series.data, to="ISO3"), index=test_series.index, name="data")
 
     # pandas_convert version
     pandas_convert = cc.pandas_convert(test_series.data, to="ISO3")
@@ -749,9 +732,11 @@ def test_pandas_convert():
 
 
 def test_pandas_convert_options():
-    """This will test that the behaviour of pandas_convert is equivalent
-    to convert for Pandas Series, using various options"""
+    """Test pandas convert function with various options.
 
+    This will test that the behaviour of pandas_convert is equivalent
+    to convert for Pandas Series, using various options
+    """
     # Load the series
     test_series = pd.read_csv(f"{TESTPATH}/test_series_data.csv", header=0)
 
@@ -781,9 +766,7 @@ def test_pandas_convert_options():
     )
 
     # pandas_convert version
-    pandas_enforce_list = cc.pandas_convert(
-        test_series.data, to="UNRegion", enforce_list=True
-    )
+    pandas_enforce_list = cc.pandas_convert(test_series.data, to="UNRegion", enforce_list=True)
 
     # Check that the Series are equal
     assert_series_equal(convert_enforce_list, pandas_enforce_list)
@@ -792,23 +775,20 @@ def test_pandas_convert_options():
 
     # Convert version
     convert_exclude_prefix = pd.Series(
-        cc.convert(
-            test_series.data, to="name", exclude_prefix=["without", "excluding"]
-        ),
+        cc.convert(test_series.data, to="name", exclude_prefix=["without", "excluding"]),
         index=test_series.index,
         name="data",
     )
 
     # pandas_convert version
-    pandas_exclude_prefix = cc.pandas_convert(
-        test_series.data, to="name", exclude_prefix=["without", "excluding"]
-    )
+    pandas_exclude_prefix = cc.pandas_convert(test_series.data, to="name", exclude_prefix=["without", "excluding"])
 
     # Check that the Series are equal
     assert_series_equal(convert_exclude_prefix, pandas_exclude_prefix)
 
 
 def test_CC41_output():
+    """Test CC41 classification outputs."""
     cc = coco.CountryConverter()
     cs = cc.CC41.CC41.unique()
     assert len(cs) == 41
@@ -817,6 +797,7 @@ def test_CC41_output():
 
 
 def test_BACI():
+    """Test BACI country codes."""
     cc = coco.CountryConverter()
 
     some_names = [
@@ -835,6 +816,7 @@ def test_BACI():
 
 
 def test_UNIDO():
+    """Test UNIDO country codes."""
     cc = coco.CountryConverter()
 
     some_names = [
@@ -853,6 +835,7 @@ def test_UNIDO():
 
 
 def test_EXIOBASE_hybrid_3():
+    """Test EXIOBASE hybrid version 3 codes."""
     cc = coco.CountryConverter()
 
     some_names = [
@@ -867,18 +850,17 @@ def test_EXIOBASE_hybrid_3():
 
     exio3_codes = cc.convert(names=some_names, to="EXIO3")
     exio3_hybrid_codes = cc.convert(names=some_names, to="exio_hybrid_3")
-    exio3_hybrid_consequential_codes = cc.convert(
-        names=some_names, to="exio_hybrid_3_cons"
-    )
+    exio3_hybrid_consequential_codes = cc.convert(names=some_names, to="exio_hybrid_3_cons")
     assert exio3_codes == exio3_hybrid_codes
     assert exio3_codes == exio3_hybrid_consequential_codes
 
 
 def test_GEOnumeric():
+    """Test GEO numeric country codes."""
     cc = coco.CountryConverter()
     geo_numeric = cc.GEOnumeric.GEOnumeric
     iso2 = cc.convert(names=geo_numeric, src="GEOnumeric", to="ISO2")
-    assert ("not found" in (iso2)) == False
+    assert ("not found" in (iso2)) is False
 
 
 #### RUN PYTEST USING THE BELLOW CODE

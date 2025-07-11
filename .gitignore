@@ -15,3 +15,5 @@ tags
 .coverage
 /.vscode
 MANIFEST
+uv.lock
+/.venv/
