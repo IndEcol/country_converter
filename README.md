@@ -13,7 +13,6 @@ between different classification schemes.
 
 [![image](https://github.com/IndEcol/country_converter/workflows/build/badge.svg)](https://github.com/IndEcol/country_converter/actions)
 [![image](https://coveralls.io/repos/github/IndEcol/country_converter/badge.svg?branch=master&service=github)](https://coveralls.io/github/IndEcol/country_converter?branch=master)
-[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![image](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
