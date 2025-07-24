@@ -1,7 +1,7 @@
 name_short	name_test
 Afghanistan	afghanistan
-Aland Islands	Åland Is.
-Aland Islands	Aland islands
+Åland Islands	Åland Is.
+Åland Islands	Aland islands
 American Samoa	American Samoa (US)
 Antigua and Barbuda	Antigua & Barbuda
 Aruba	aruba
@@ -26,12 +26,12 @@ Christmas Island	Christmas island
 Cocos (Keeling) Islands	Cocos (keeling) islands
 Cook Islands	Cook islands
 Cook Islands	Cook Isds
-Cote d'Ivoire	CÃ´te d Ivoire
-Cote d'Ivoire	CÃ´te d'Ivoire
-Cote d'Ivoire	CÃÂ´te d'Ivoire
+Côte d'Ivoire	CÃ´te d Ivoire
+Côte d'Ivoire	CÃ´te d'Ivoire
+Côte d'Ivoire	CÃÂ´te d'Ivoire
 Croatia	hrvatska
 Croatia	Croatia (local name: hrvatska)
-Curacao	Curacao
+Curaçao	Curacao
 Czechia	Czech Rep.
 Czechia	czechia
 Czechia	Bohemia
@@ -64,7 +64,7 @@ Iran	"Iran, Islamic Republic of"
 Ireland	"Republic of Ireland"
 Ireland	"Rep. of Ireland"
 Ireland	"Rep. Ireland"
-Kyrgyz Republic	Kyrgyzstan
+Kyrgyzstan	Kyrgyzstan
 Laos	Lao People s Democratic Republic
 Laos	Lao People's Dem. Rep.
 Laos	Lao People's Democratic Republic
@@ -104,7 +104,7 @@ Palestine	Occupied Palestinian Territory
 Palestine	"Palestinian territory, occupied"
 Pitcairn	Pitcairn Islands
 Papua New Guinea	P. N. Guinea
-Reunion	Réunion
+Réunion	Réunion
 Russia	Russian Federation
 Slovakia	Slovakia (slovak republic)
 Solomon Islands	Solomon Isds
