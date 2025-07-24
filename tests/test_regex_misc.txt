@@ -64,7 +64,7 @@ Iran	"Iran, Islamic Republic of"
 Ireland	"Republic of Ireland"
 Ireland	"Rep. of Ireland"
 Ireland	"Rep. Ireland"
-Kyrgyz Republic	Kyrgyzstan
+Kyrgyzstan	Kyrgyzstan
 Laos	Lao People s Democratic Republic
 Laos	Lao People's Dem. Rep.
 Laos	Lao People's Democratic Republic
