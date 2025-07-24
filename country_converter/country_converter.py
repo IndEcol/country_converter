@@ -731,7 +731,7 @@ class CountryConverter:
 
         replace_numeric: boolean, optional
             If True (default) replace numeric values with the column header.
-            This can be used if get a correspondence to, for example, 'OECD'
+            This can be used to get a correspondence to, for example, 'OECD'
             instead of to the OECD membership years. Set to False if the actual
             numbers are required (as for UNcode).
 
@@ -757,6 +757,7 @@ class CountryConverter:
 
         if replace_numeric:
             if df_corr[classB].dtype.kind in "bifc":
+                df_corr = df_corr.astype("object")
                 df_corr.loc[~df_corr[classB].isna(), classB] = classB
                 df_corr.loc[df_corr[classB].isna(), classB] = None
             if df_corr[classA].dtype.kind in "bifc":
