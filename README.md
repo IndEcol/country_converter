@@ -1,12 +1,8 @@
 # country converter
 
-![Country Converter logo](https://raw.githubusercontent.com/IndEcol/country_converter/master/doc/assets/coco_logo.png)
+<img src="https://raw.githubusercontent.com/IndEcol/country_converter/master/doc/assets/coco_logo.png" alt="Country Converter logo" width="180">
 
-The country converter (coco) is a Python package to convert and match
-country names between different classifications and between different
-naming versions. Internally it uses regular expressions to match country
-names. Coco can also be used to build aggregation concordance matrices
-between different classification schemes.
+The country converter (coco) is a Python package to convert and match country names between different classifications and between different naming versions. Internally it uses regular expressions to match country names. Coco can also be used to build aggregation concordance matrices between different classification schemes.
 
 [![image](https://img.shields.io/pypi/v/country-converter.svg)](https://pypi.python.org/pypi/country_converter/)
 [![image](https://anaconda.org/conda-forge/country_converter/badges/version.svg)](https://anaconda.org/conda-forge/country_converter)
