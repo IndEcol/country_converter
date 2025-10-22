@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.2d
+
+### Classifications
+
+- added diacritics in naming (by Janosch Peters)
+
 ## 1.3.1
 
 ### Classifications
