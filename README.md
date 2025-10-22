@@ -397,35 +397,37 @@ Data sources below for further information):
 19. [UN](http://www.un.org/en/members/) membership (per year)
 20. [EU](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements)
     membership (including EU12, EU15, EU25, EU27, EU27_2007, EU28)
-21. [EEA](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:European_Economic_Area_(EEA))
+21. [CoE (Council of Europe)](https://www.coe.int/en/web/portal/members-states)
     membership
-22. [Schengen](https://en.wikipedia.org/wiki/Schengen_Area) region
-23. [Cecilia](https://cecilia2050.eu/system/files/De%20Koning%20et%20al.%20%282014%29_Scenarios%20for%202050_0.pdf)
+22. [EEA](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:European_Economic_Area_(EEA))
+    membership
+23. [Schengen](https://en.wikipedia.org/wiki/Schengen_Area) region
+24. [Cecilia](https://cecilia2050.eu/system/files/De%20Koning%20et%20al.%20%282014%29_Scenarios%20for%202050_0.pdf)
     2050 classification
-24. [APEC](https://en.wikipedia.org/wiki/Asia-Pacific_Economic_Cooperation)
-25. [BRIC](https://en.wikipedia.org/wiki/BRIC)
-26. [BASIC](https://en.wikipedia.org/wiki/BASIC_countries)
-27. [CIS](https://en.wikipedia.org/wiki/Commonwealth_of_Independent_States)
+25. [APEC](https://en.wikipedia.org/wiki/Asia-Pacific_Economic_Cooperation)
+26. [BRIC](https://en.wikipedia.org/wiki/BRIC)
+27. [BASIC](https://en.wikipedia.org/wiki/BASIC_countries)
+28. [CIS](https://en.wikipedia.org/wiki/Commonwealth_of_Independent_States)
     (as by 2019, excl. Turkmenistan)
-28. [G7](https://en.wikipedia.org/wiki/Group_of_Seven)
-29. [G20](https://en.wikipedia.org/wiki/G20) (listing all EU member
+29. [G7](https://en.wikipedia.org/wiki/Group_of_Seven)
+30. [G20](https://en.wikipedia.org/wiki/G20) (listing all EU member
     states as individual members)
-30. [FAOcode](http://www.fao.org/faostat/en/#definitions) (numeric)
-31. [GBDcode](http://ghdx.healthdata.org/) (numeric - Global Burden of
+31. [FAOcode](http://www.fao.org/faostat/en/#definitions) (numeric)
+32. [GBDcode](http://ghdx.healthdata.org/) (numeric - Global Burden of
     Disease country codes)
-32. [IEA](https://www.iea.org/countries) (World Energy Balances 2021)
-33. [DACcode](https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm)
+33. [IEA](https://www.iea.org/countries) (World Energy Balances 2021)
+34. [DACcode](https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/dacandcrscodelists.htm)
     (numeric - OECD Development Assistance Committee)
-33. [ccTLD](https://en.wikipedia.org/wiki/Country_code_top-level_domain) - country code top-level domains
-34. [GWcode](https://www.tandfonline.com/doi/abs/10.1080/03050629908434958) - Gledisch & Ward numerical codes as published in https://www.andybeger.com/states/articles/statelists.html
-35. CC41 - common classification for MRIOs (list of countries found in all public MRIOs)
-36. [IOC](https://en.wikipedia.org/wiki/List_of_IOC_country_codes) - International Olympic Committee (IOC) country codes
-37. [BACI](https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37) - BACI: International Trade Database at the Product-Level
-38. [UNIDO](https://stat.unido.org/portal/dataset/getDataset/COUNTRY_PROFILE) - UNIDO INDSTAT database
-39. [EXIOBASE hybrid 3](https://zenodo.org/records/10148587) classification
-40. [EXIOBASE hybrid 3 consequential](https://zenodo.org/records/13926939) classification
-41. [GEOnumeric](https://ec.europa.eu/eurostat/comext/newxtweb/openNom.do) GEO numerical codes (also used in Prodcom)
-42. [FIFA](https://en.wikipedia.org/wiki/List_of_FIFA_country_codes) List of FIFA country codes 
+35. [ccTLD](https://en.wikipedia.org/wiki/Country_code_top-level_domain) - country code top-level domains
+36. [GWcode](https://www.tandfonline.com/doi/abs/10.1080/03050629908434958) - Gledisch & Ward numerical codes as published in https://www.andybeger.com/states/articles/statelists.html
+37. CC41 - common classification for MRIOs (list of countries found in all public MRIOs)
+38. [IOC](https://en.wikipedia.org/wiki/List_of_IOC_country_codes) - International Olympic Committee (IOC) country codes
+39. [BACI](https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37) - BACI: International Trade Database at the Product-Level
+40. [UNIDO](https://stat.unido.org/portal/dataset/getDataset/COUNTRY_PROFILE) - UNIDO INDSTAT database
+41. [EXIOBASE hybrid 3](https://zenodo.org/records/10148587) classification
+42. [EXIOBASE hybrid 3 consequential](https://zenodo.org/records/13926939) classification
+43. [GEOnumeric](https://ec.europa.eu/eurostat/comext/newxtweb/openNom.do) GEO numerical codes (also used in Prodcom)
+44. [FIFA](https://en.wikipedia.org/wiki/List_of_FIFA_country_codes) List of FIFA country codes 
 
 Coco contains official recognised codes as well as non-standard codes
 for disputed or dissolved countries. To restrict the set to only the
@@ -480,6 +482,7 @@ The membership of
 and [UN](http://www.un.org/en/members/) can be found at the membership
 organisations' webpages, information about obsolete country codes on the
 [Statoids](http://www.statoids.com/w3166his.html) webpage.
+[Council of Europe](https://www.coe.int/en/web/portal/members-states) membership information
 
 The situation for the
 [EU](https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:EU_enlargements)

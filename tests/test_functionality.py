@@ -499,6 +499,13 @@ def test_EU_output():
     assert cc.convert("GB", src="regex", to="ISO2") in EU27_2007.ISO2.tolist()
 
 
+def test_coe_conversion():
+    """Test Council of Europe membership conversion for non-EU members."""
+    cc = coco.CountryConverter()
+    coe_members = ["United Kingdom", "Norway", "Georgia", "Armenia"]
+    assert cc.convert(coe_members, to="CoE") == ["CoE"] * len(coe_members)
+
+
 def test_EXIO_output():
     """Test EXIO classification outputs."""
     cc = coco.CountryConverter()
