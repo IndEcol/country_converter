@@ -8,7 +8,7 @@
 
 ### Documentation
 
-- we have a logo now
+- we have a logo
 
 ## 1.3.1
 
