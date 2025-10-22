@@ -6,6 +6,10 @@
 
 - added diacritics in naming (by Janosch Peters)
 
+### Documentation
+
+- we finally have a logo
+
 ## 1.3.1
 
 ### Classifications
