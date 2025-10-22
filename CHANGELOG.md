@@ -1,9 +1,10 @@
 # Changelog
 
-## 1.3.2.dev0
+## 1.3.2 - 20251022
 
 ### Classifications
 
+- added Council of Europe classification
 - added diacritics in naming (by Janosch Peters)
 
 ### Documentation
