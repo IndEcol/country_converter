@@ -704,6 +704,16 @@ def test_IOC():
     assert cc.convert("Yemen", to="IOC") == cc.convert("Yemen", to="ISO3")
 
 
+def test_Factiva():
+    """Test Factiva location classification codes."""
+    cc = coco.CountryConverter()
+    assert "GFR" == cc.convert("Germany", to="Factiva")
+    assert "BRAZ" == cc.convert("Brazil", to="Factiva")
+    assert "JAP" == cc.convert("Japan", to="Factiva")
+    assert "USA" == cc.convert("United States", to="Factiva")
+    assert "FIN" == cc.convert("Åland Islands", to="Factiva")
+
+
 def test_GWcode():
     """Test Gleditsch and Ward country codes."""
     cc = coco.CountryConverter()
