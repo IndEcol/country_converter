@@ -427,7 +427,8 @@ Data sources below for further information):
 41. [EXIOBASE hybrid 3](https://zenodo.org/records/10148587) classification
 42. [EXIOBASE hybrid 3 consequential](https://zenodo.org/records/13926939) classification
 43. [GEOnumeric](https://ec.europa.eu/eurostat/comext/newxtweb/openNom.do) GEO numerical codes (also used in Prodcom)
-44. [FIFA](https://en.wikipedia.org/wiki/List_of_FIFA_country_codes) List of FIFA country codes 
+44. [FIFA](https://en.wikipedia.org/wiki/List_of_FIFA_country_codes) List of FIFA country codes
+45. [Factiva](https://developer.dowjones.com/documents/site-docs-factiva_feeds-workflows-factiva_taxonomy_feed) Dow Jones Factiva location classification
 
 Coco contains official recognised codes as well as non-standard codes
 for disputed or dissolved countries. To restrict the set to only the
