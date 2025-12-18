@@ -428,6 +428,7 @@ Data sources below for further information):
 42. [EXIOBASE hybrid 3 consequential](https://zenodo.org/records/13926939) classification
 43. [GEOnumeric](https://ec.europa.eu/eurostat/comext/newxtweb/openNom.do) GEO numerical codes (also used in Prodcom)
 44. [FIFA](https://en.wikipedia.org/wiki/List_of_FIFA_country_codes) List of FIFA country codes 
+45. [IEA v2025](https://www.iea.org/data-and-statistics/data-product/world-energy-balances#documentation) Country classification used in IEA World Extended Energy Balances for v2025 of the dataset.
 
 Coco contains official recognised codes as well as non-standard codes
 for disputed or dissolved countries. To restrict the set to only the
