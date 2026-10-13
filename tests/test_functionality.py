@@ -179,6 +179,17 @@ def test_special_cases():
     assert converter("NAM", to="ISO2") == "NA"
 
 
+def test_code_lookup_case_insensitive():
+    """Code lookups ignore case, including letters that re reads as ASCII."""
+    cc = coco.CountryConverter()
+    assert cc.convert(["deu", "DEU", "Deu"], src="ISO3", to="ISO2") == ["DE", "DE", "DE"]
+    assert cc.convert("40", src="UNcode", to="ISO3") == "AUT"
+    assert cc.convert("côte d'ivoire", src="name_short") == "CIV"
+    # re matches these to ASCII letters, str.lower() doesn't
+    assert cc.convert("ſwitzerland", src="name_short") == "CHE"
+    assert cc.convert("Türkİye", src="name_short") == "TUR"
+
+
 def test_iterable_inputs():
     """Test the different possibilites to input lists.
 

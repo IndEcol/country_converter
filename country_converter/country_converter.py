@@ -556,13 +556,19 @@ class CountryConverter:
 
         exclude_split = {name: self._separate_exclude_cases(name, exclude_prefix) for name in names}
 
+        # Look up the target column once. Indexing the DataFrame for every name took
+        # most of the run time.
+        to_values = self.data[to].to_numpy()
+        match_cols = {}
+
+        # Only check src when there are names, so an empty list still returns [].
+        if src is not None and names:
+            src = self._validate_input_para(src, self.data.columns.tolist())
+
         for ind_names, current_name in enumerate(names):
             spec_name = exclude_split[current_name]["clean_name"]
 
-            if src is None:
-                src_format = self._get_input_format_from_name(spec_name)
-            else:
-                src_format = self._validate_input_para(src, self.data.columns.tolist())
+            src_format = self._get_input_format_from_name(spec_name) if src is None else src
 
             # if src_format.lower() == "regex":
             if src_format.lower() in ["regex", "iso2"]:
@@ -574,23 +580,26 @@ class CountryConverter:
                     regexes = self.regexes
                 for ind_regex, ccregex in enumerate(regexes):
                     if ccregex.search(spec_name):
-                        result_list.append(self.data.loc[ind_regex, to].to_numpy()[0])
+                        result_list.append(to_values[ind_regex][0])
                     if len(result_list) > 1:
                         log.warning(f"More than one regular expression match for {spec_name}")
 
             else:
-                _match_col = self.data[src_format].astype(str).str.replace("\\..*", "", regex=True)
-
-                result_list = [
-                    etr[0]
-                    for etr in self.data[
-                        _match_col.str.contains(
-                            "^" + re.escape(spec_name) + "$",
-                            flags=re.IGNORECASE,
-                            na=False,
-                        )
-                    ][to].to_numpy()
-                ]
+                if src_format not in match_cols:
+                    cleaned = self.data[src_format].astype(str).str.replace("\\..*", "", regex=True)
+                    # Comparing lower-cased strings matches the old regex only for plain
+                    # ASCII without newlines. With IGNORECASE, re also reads "ſ" as "s"
+                    # and "İ" as "i", and str.lower() doesn't, so other text keeps the regex.
+                    plain = cleaned.map(lambda v: not isinstance(v, str) or (v.isascii() and "\n" not in v)).all()
+                    match_cols[src_format] = (cleaned, cleaned.str.lower().to_numpy(), plain)
+                cleaned, lowered, plain = match_cols[src_format]
+                if plain and spec_name.isascii():
+                    mask = lowered == spec_name.lower()
+                else:
+                    mask = cleaned.str.contains(
+                        "^" + re.escape(spec_name) + "$", flags=re.IGNORECASE, na=False
+                    ).to_numpy()
+                result_list = [etr[0] for etr in to_values[mask]]
 
             if len(result_list) == 0:
                 log.warning(f"{spec_name} not found in {src_format}")
