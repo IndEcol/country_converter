@@ -42,7 +42,7 @@ dependencies = [
 dev = [
   "pdbpp",
   "ipython",
-  "jupyterlab == 3.*",
+  "jupyterlab >= 4",
   "jupytext",
   "pynvim",
   "ipykernel",
