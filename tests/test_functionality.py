@@ -939,6 +939,26 @@ def test_fifa_ioc_mapping():
     assert cc.convert("Switzerland", to="IOC") == "SUI", "Switzerland IOC code should be SUI"
 
 
+def test_logging_accessibility():
+    """Test that the logging module is accessible as documented."""
+    # Test that logging module is accessible
+    assert hasattr(coco, 'logging'), "coco.logging should be accessible"
+
+    # Test that we can get the logger as documented in README
+    coco_logger = coco.logging.getLogger()
+    assert coco_logger is not None, "coco.logging.getLogger() should return a logger"
+
+    # Test that it's the standard logging module
+    assert coco.logging is logging, "coco.logging should be the standard logging module"
+
+    # Test that we can configure logging level as documented
+    original_level = coco_logger.level
+    coco_logger.setLevel(logging.CRITICAL)
+    assert coco_logger.level == logging.CRITICAL, "Should be able to set logger level"
+    # Restore original level
+    coco_logger.setLevel(original_level)
+
+
 #### RUN PYTEST USING THE BELLOW CODE
 # python -m pytest tests\test_functionality.py
 # run the PYTEST BLACK test: python -m pytest -vv --black tests\test_functionality.py
