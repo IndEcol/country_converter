@@ -431,8 +431,10 @@ class CountryConverter:
                     sep="\t",
                     encoding="utf-8",
                     converters=dict.fromkeys(must_be_string, str),
+                    keep_default_na=False,
                     na_values=accepted_na_values,
                 )
+                ret = ret.fillna({col: "" for col in ret.columns if col in must_be_string})
                 ret = ret.astype({col: "Int64" for col in ret.columns if col in must_be_int})
                 test_for_unique_names(ret, data)
             return ret
