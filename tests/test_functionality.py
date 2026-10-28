@@ -17,6 +17,7 @@ from country_converter.country_converter import _parse_arg
 
 TESTPATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(TESTPATH, ".."))
+logger = logging.getLogger(__name__)
 
 
 # Additional test data
@@ -267,7 +268,7 @@ def test_build_agg_conc_custom():
         aggregates,
         merge_multiple_string=None,
         missing_countries=True,
-        log_missing_countries=(lambda x: logging.error(f"Country {x} missing")),
+        log_missing_countries=(lambda x: logger.error(f"Country {x} missing")),
         log_merge_multiple_strings=None,
         as_dataframe=False,
     )
@@ -331,7 +332,7 @@ def test_build_agg_conc_custom():
         merge_multiple_string="_&_",
         missing_countries=False,
         log_missing_countries=None,
-        log_merge_multiple_strings=(lambda x: logging.warning(f"Country {x} belongs to multiple regions")),
+        log_merge_multiple_strings=(lambda x: logger.warning(f"Country {x} belongs to multiple regions")),
         as_dataframe="full",
     )
     expected_matrix = pd.DataFrame(
@@ -459,15 +460,15 @@ def test_cli_output(capsys):
     inp_df1col = pd.DataFrame(data=inp_list, columns=["names"], index=["co1", "co2"])
     inp_df2col = inp_df1col.T
     coco.cli_output(inp_list, sep="-")
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert exp_string in out
 
     coco.cli_output(inp_df1col, sep="-")
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert exp_string in out
 
     coco.cli_output(inp_df2col, sep="-")
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert exp_string in out
 
 
@@ -573,7 +574,7 @@ def test_full_cli(capsys):
     # help
     with pytest.raises(SystemExit) as e_sys:
         coco.main()
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert "usage" in out
     assert "names" in out
     assert e_sys.type is SystemExit
@@ -583,7 +584,7 @@ def test_full_cli(capsys):
     sys.argv = ["coco", "AT"]
     with pytest.raises(SystemExit) as e_sys:
         coco.main()
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert "Austria" in out
     assert e_sys.type is SystemExit
 
@@ -591,7 +592,7 @@ def test_full_cli(capsys):
     sys.argv = ["coco", "EXIO1"]
     with pytest.raises(SystemExit) as e_sys:
         coco.main()
-    out, err = capsys.readouterr()
+    out, _ = capsys.readouterr()
     assert "AT" in out
     assert "WW" in out
     assert e_sys.type is SystemExit
@@ -628,7 +629,7 @@ def test_GBD_codes():
 def test_non_matching():
     """Test that non-country names don't match."""
     with open(non_matching_data) as nmd:
-        content = [line.strip() for line in nmd.readlines()]
+        content = [line.strip() for line in nmd]
     non_countries = [nc for nc in content if not nc.startswith("#") and nc != ""]
 
     not_found_indicator = "nope"
@@ -942,7 +943,7 @@ def test_fifa_ioc_mapping():
 def test_logging_accessibility():
     """Test that the logging module is accessible as documented."""
     # Test that logging module is accessible
-    assert hasattr(coco, 'logging'), "coco.logging should be accessible"
+    assert hasattr(coco, "logging"), "coco.logging should be accessible"
 
     # Test that we can get the logger as documented in README
     coco_logger = coco.logging.getLogger()

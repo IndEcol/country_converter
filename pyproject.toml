@@ -30,19 +30,20 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering",
     "Topic :: Utilities",
 ]
 requires-python = ">=3.9,<4.0"
 dependencies = [
-  "pandas >=1.0",
+  "pandas>=1.0",
 ]
 
 [project.optional-dependencies]
 dev = [
   "pdbpp",
   "ipython",
-  "jupyterlab == 3.*",
+  "jupyterlab==3.*",
   "jupytext",
   "pynvim",
   "ipykernel",
@@ -50,8 +51,8 @@ dev = [
 ]
 test = [
   "coveralls",
-  "pytest >=5.4.0",
-  "pytest-cov >=2.7.0",
+  "pytest>=5.4.0",
+  "pytest-cov>=2.7.0",
   "pytest-datadir",
   "pytest-mypy",
   "pytest-ruff>=0.5",

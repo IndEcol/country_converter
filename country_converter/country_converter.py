@@ -312,9 +312,9 @@ def convert(*args, **kargs):
         "only_UNmember": False,
         "include_obsolete": False,
     }
-    init.update({kk: kargs.get(kk) for kk in init.keys() if kk in kargs})
+    init.update({kk: kargs.get(kk) for kk in init if kk in kargs})
     coco = CountryConverter(**init)
-    kargs = {kk: ii for kk, ii in kargs.items() if kk not in init.keys()}
+    kargs = {kk: ii for kk, ii in kargs.items() if kk not in init}
     return coco.convert(*args, **kargs)
 
 
@@ -432,7 +432,9 @@ class CountryConverter:
                     encoding="utf-8",
                     converters=dict.fromkeys(must_be_string, str),
                     na_values=accepted_na_values,
+                    keep_default_na=False,
                 )
+                ret = ret.fillna({col: "" for col in ret.columns if col in must_be_string})
                 ret = ret.astype({col: "Int64" for col in ret.columns if col in must_be_int})
                 test_for_unique_names(ret, data)
             return ret
@@ -564,14 +566,14 @@ class CountryConverter:
             else:
                 src_format = self._validate_input_para(src, self.data.columns.tolist())
 
-            # if src_format.lower() == "regex":
             if src_format.lower() in ["regex", "iso2"]:
-                result_list = []
-                # for ind_regex, ccregex in enumerate(self.regexes):
+                regexes = self.regexes
+
                 if src_format.lower() == "iso2":
                     regexes = self.iso2_regexes
-                elif src_format.lower() == "regex":
-                    regexes = self.regexes
+
+                result_list = []
+
                 for ind_regex, ccregex in enumerate(regexes):
                     if ccregex.search(spec_name):
                         result_list.append(self.data.loc[ind_regex, to].to_numpy()[0])
@@ -607,6 +609,7 @@ class CountryConverter:
                         conv_etr = int(etr)
                     except ValueError:
                         conv_etr = etr
+
                     outlist[ind_names].append(conv_etr)
 
                 if len(outlist[ind_names]) == 1 and enforce_list is False:
